@@ -6,47 +6,50 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class WorldRenderer {
-	static final float FRUSTUM_WIDTH = 10;
-	static final float FRUSTUM_HEIGHT = 15;
-	World world;
+	static final float FRUSTUM_WIDTH = 16;
+	static final float FRUSTUM_HEIGHT = 9;
+	greenfoot.World world;
 	OrthographicCamera cam;
-	SpriteBatch batch; 
+	SpriteBatch batch;
 
-	public WorldRenderer (SpriteBatch batch, World world) {
+	public WorldRenderer(SpriteBatch batch, greenfoot.World world) {
 		this.world = world;
 		this.cam = new OrthographicCamera(FRUSTUM_WIDTH, FRUSTUM_HEIGHT);
 		this.cam.position.set(FRUSTUM_WIDTH / 2, FRUSTUM_HEIGHT / 2, 0);
 		this.batch = batch;
 	}
 
-	public void render () {
-		if (world.bob.position.y > cam.position.y) cam.position.y = world.bob.position.y;
+	public void render() {
+		//if (world.bob.position.y > cam.position.y) {
+		//cam.position.y = world.bob.position.y;
+			//cam.position.x=world.bob.position.x;
+		//}
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		renderBackground();
 		renderObjects();
 	}
 
-	public void renderBackground () {
+	public void renderBackground() {
 		batch.disableBlending();
 		batch.begin();
-		batch.draw(Assets.backgroundRegion, cam.position.x - FRUSTUM_WIDTH / 2, cam.position.y - FRUSTUM_HEIGHT / 2, FRUSTUM_WIDTH,
-			FRUSTUM_HEIGHT);
+		batch.draw(Assets.backgroundRegion, cam.position.x - FRUSTUM_WIDTH / 2, cam.position.y - FRUSTUM_HEIGHT / 2,
+				FRUSTUM_WIDTH, FRUSTUM_HEIGHT);
 		batch.end();
 	}
 
-	public void renderObjects () {
+	public void renderObjects() {
 		batch.enableBlending();
 		batch.begin();
-		renderBob();
-		renderPlatforms();
-		renderItems();
-		renderSquirrels();
-		renderCastle();
+		//renderBob();
+		//renderPlatforms();
+		//renderItems();
+		//renderSquirrels();
+		//renderCastle();
 		batch.end();
 	}
 
-	private void renderBob () {
+	/*private void renderBob() {
 		TextureRegion keyFrame;
 		switch (world.bob.state) {
 		case Bob.BOB_STATE_FALL:
@@ -65,9 +68,9 @@ public class WorldRenderer {
 			batch.draw(keyFrame, world.bob.position.x + 0.5f, world.bob.position.y - 0.5f, side * 1, 1);
 		else
 			batch.draw(keyFrame, world.bob.position.x - 0.5f, world.bob.position.y - 0.5f, side * 1, 1);
-	}
+	}*/
 
-	private void renderPlatforms () {
+/*	private void renderPlatforms() {
 		int len = world.platforms.size();
 		for (int i = 0; i < len; i++) {
 			Platform platform = world.platforms.get(i);
@@ -78,9 +81,9 @@ public class WorldRenderer {
 
 			batch.draw(keyFrame, platform.position.x - 1, platform.position.y - 0.25f, 2, 0.5f);
 		}
-	}
+	}*/
 
-	private void renderItems () {
+	/*private void renderItems() {
 		int len = world.springs.size();
 		for (int i = 0; i < len; i++) {
 			Spring spring = world.springs.get(i);
@@ -93,9 +96,9 @@ public class WorldRenderer {
 			TextureRegion keyFrame = Assets.coinAnim.getKeyFrame(coin.stateTime, Animation.ANIMATION_LOOPING);
 			batch.draw(keyFrame, coin.position.x - 0.5f, coin.position.y - 0.5f, 1, 1);
 		}
-	}
+	}*/
 
-	private void renderSquirrels () {
+	/*private void renderSquirrels() {
 		int len = world.squirrels.size();
 		for (int i = 0; i < len; i++) {
 			Squirrel squirrel = world.squirrels.get(i);
@@ -106,10 +109,10 @@ public class WorldRenderer {
 			else
 				batch.draw(keyFrame, squirrel.position.x - 0.5f, squirrel.position.y - 0.5f, side * 1, 1);
 		}
-	}
+	}*/
 
-	private void renderCastle () {
+	/*private void renderCastle() {
 		Castle castle = world.castle;
 		batch.draw(Assets.castle, castle.position.x - 1, castle.position.y - 1, 2, 2);
-	}
+	}*/
 }
