@@ -29,7 +29,9 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.game.straferliberator.World.WorldListener;
 
+import greenfoot.Actor;
 import greenfoot.GreenfootImage;
+import greenfoot.TestActor;
 
 public class GameScreen extends ScreenAdapter {
 
@@ -49,7 +51,10 @@ public class GameScreen extends ScreenAdapter {
 		//world = new com.port.PlayWorld();
 		 world = new greenfoot.TestWorld();
 		 world.setBackground(new GreenfootImage("Capture.png"));
+
+		 world.addObject(new TestActor(), 100, 200);
 		 //
+		Gdx.input.setInputProcessor(world);
 		camera = new OrthographicCamera(1024, 576);
 		touchPoint = new Vector3();
 
@@ -61,12 +66,14 @@ public class GameScreen extends ScreenAdapter {
 
 	public void update(float deltaTime) {
 	
-		// world.act();
+		world.act();
 		//toate obiectele act
-
 		if(Gdx.input.isKeyPressed(Keys.ANY_KEY)) {
+			
 			world.setBackground(new GreenfootImage("C.jpg"));
+			System.out.println(world.nrActori());
 		}
+		 
 		
 	}
 
@@ -74,14 +81,15 @@ public class GameScreen extends ScreenAdapter {
 		GL20 gl = Gdx.gl;
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		worldRederer.render();
+	
 
 		camera.update();
 		StraferLiberator.batcher.setProjectionMatrix(camera.combined);
 		StraferLiberator.batcher.enableBlending();
-		StraferLiberator.batcher.begin();
 		
-		StraferLiberator.batcher.end();
+
+			worldRederer.render();
+		
 	}
 
 

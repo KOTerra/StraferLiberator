@@ -1,25 +1,28 @@
 
 package com.game.straferliberator;
 
+import java.util.Iterator;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.Array;
 
 import greenfoot.Actor;
 
-public class WorldRenderer {
-	static final float FRUSTUM_WIDTH = 16;
-	static final float FRUSTUM_HEIGHT = 9;
+public class WorldRenderer<A> {
+	static final float WIDTH = 1024;
+	static final float HEIGHT = 576;
 	greenfoot.World world;
 	OrthographicCamera cam;
 	SpriteBatch batch;
 
 	public WorldRenderer(SpriteBatch batch, greenfoot.World world) {
 		this.world = world;
-		this.cam = new OrthographicCamera(FRUSTUM_WIDTH, FRUSTUM_HEIGHT);
-		this.cam.position.set(FRUSTUM_WIDTH / 2, FRUSTUM_HEIGHT / 2, 0);
+		this.cam = new OrthographicCamera(WIDTH, HEIGHT);
+		this.cam.position.set(WIDTH / 2, HEIGHT / 2, 0);
 		this.batch = batch;
 	}
 
@@ -37,8 +40,9 @@ public class WorldRenderer {
 	public void renderBackground() {
 		batch.disableBlending();
 		batch.begin();
-		batch.draw(world.getBackground(), cam.position.x - FRUSTUM_WIDTH / 2, cam.position.y - FRUSTUM_HEIGHT / 2,
-				FRUSTUM_WIDTH, FRUSTUM_HEIGHT);
+		batch.draw(world.getBackground(), cam.position.x - WIDTH / 2, cam.position.y - HEIGHT / 2,
+				WIDTH, HEIGHT);
+		
 		batch.end();
 	}
 
@@ -46,15 +50,21 @@ public class WorldRenderer {
 		batch.enableBlending();
 		batch.begin();
 		
-		//List<Actor> l=world.getObjects(Actor.class);     //asta face nullpointer
-		//for(Actor a:l) {
-		//	a.draw();
-		//}
+		Array<com.badlogic.gdx.scenes.scene2d.Actor> l=world.getActors();
+		for(com.badlogic.gdx.scenes.scene2d.Actor a:l) {
+			
+			((greenfoot.Actor) a).draw();
+										
+			
+		}
 		
 		//aici veneau totate fct comentate de render
 		batch.end();
 	}
 
+		
+		
+		
 	/*private void renderBob() {
 		TextureRegion keyFrame;
 		switch (world.bob.state) {

@@ -1,10 +1,14 @@
 package greenfoot;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.game.straferliberator.StraferLiberator;
@@ -26,7 +30,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	public void act() {
 		super.act(0);
 	}
-
+	
 	public float getX() {
 		return super.getX(Align.center);
 	}
@@ -84,6 +88,64 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		this.world = world;
 	}
 
+	protected boolean intersects(Actor other) {
+		if(other.hit(this.x, this.y, false) != null) {
+			return true;
+		}
+		return false;
+	}
+	
+	protected boolean isTouching(java.lang.Class<?> cls) {
+		java.util.List<?> l = getWorld().getObjects(cls);
+		for (Iterator<?> iter = l.iterator(); iter.hasNext();) {
+			Actor actor = (Actor) iter.next();
+			if (actor.hit(this.x, this.y, false) != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void	removeTouching(java.lang.Class<?> cls) {
+		java.util.List<?> l = (List<?>) getWorld().getObjects(cls);
+		for (Iterator<?> iter = l.iterator(); iter.hasNext();) {
+			Actor actor = (Actor) iter.next();
+			if (actor.hit(this.x, this.y, false) == null) {
+				actor.remove();
+			}
+		}
+	}
+
+	protected <A> java.util.List<A> getIntersectingObjects(java.lang.Class<A> cls) {
+		java.util.List<A> l = getWorld().getObjects(cls);
+		for (Iterator<A> iter = l.iterator(); iter.hasNext();) {
+			Actor actor = (Actor) iter.next();
+			if (actor.hit(this.x, this.y, false) == null) {
+				l.remove(actor);
+			}
+		}
+		return l;
+	}
+
+	@SuppressWarnings("rawtypes")
+	protected greenfoot.Actor getOneIntersectingObject(java.lang.Class<?> cls) {
+		return (greenfoot.Actor) getIntersectingObjects(cls).get(0);
+	}
+	
+	protected Actor	getOneObjectAtOffset(int dx, int dy, java.lang.Class<?> cls) {
+		java.util.List<?> l = (List<?>) getWorld().getObjects(cls);
+		for (Iterator<?> iter = l.iterator(); iter.hasNext();) {
+			Actor actor = (Actor) iter.next();
+			if (actor.hit(this.x+dx, this.y+dy, false) != null) {
+				return actor;
+			}
+		}
+		return null;
+		
+	}
+	
+
 	public SpriteBatch getBatch() {
 		return batch;
 	}
@@ -98,25 +160,25 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	public void setImage(greenfoot.GreenfootImage gi) {
 		image = gi;
-		setDrawable(new TextureRegionDrawable(gi));
-		makeBoundsRect();
+		//setDrawable((Drawable) ((Texture) image));
+		this.setBounds(0, 0, image.getWidth(), image.getHeight());
+		// makeBoundsRect();
 		draw(batch, 1);
 	}
 
 	public void setImage(String s) {
 		greenfoot.GreenfootImage gi = new GreenfootImage(s);
 		image = gi;
-		setDrawable(new TextureRegionDrawable(gi));
-		makeBoundsRect();
+		setDrawable((Drawable) ((Texture) image));
+		this.setBounds(0, 0, image.getWidth(), image.getHeight());
+		// makeBoundsRect();
 		draw(batch, 1);
 	}
 
 	public void draw() {
-		greenfoot.GreenfootImage gi = image;
-		setDrawable(new TextureRegionDrawable(gi));
-		batch.draw((Texture) this.getDrawable(),getX(Align.center),getY(Align.center));
-		makeBoundsRect();
-		
+		batch.draw(this.getImage(),
+				getX(Align.topLeft), 
+				getY()-this.getImage().getHeight()/2);										
 	}
 
 	public void makeBoundsRect() {
@@ -131,10 +193,5 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		return rect;
 	}
 
-	/*
-	 * protected <T extends Actor> Actor getOneIntersectingObject(Class<T> cls){
-	 * return getCollision(this,cls); } public <T extends Actor> Actor
-	 * getCollision(Actor object, Class<T> cls) { T r = null; if(
-	 * this.getRect().overlaps(((Actor)T).getRect())) { return r; } return null; }
-	 */
+
 }
