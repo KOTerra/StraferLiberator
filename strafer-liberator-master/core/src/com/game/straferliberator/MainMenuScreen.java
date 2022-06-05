@@ -42,6 +42,7 @@ public class MainMenuScreen extends ScreenAdapter {
 		highscoresBounds = new Rectangle(160 - 150, 200 - 18, 300, 36);
 		helpBounds = new Rectangle(160 - 150, 200 - 18 - 36, 300, 36);
 		touchPoint = new Vector3();
+		
 	}
 
 	public void update () {

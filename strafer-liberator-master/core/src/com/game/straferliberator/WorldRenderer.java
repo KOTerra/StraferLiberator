@@ -1,9 +1,13 @@
 
 package com.game.straferliberator;
 
+import java.util.List;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import greenfoot.Actor;
 
 public class WorldRenderer {
 	static final float FRUSTUM_WIDTH = 16;
@@ -33,7 +37,7 @@ public class WorldRenderer {
 	public void renderBackground() {
 		batch.disableBlending();
 		batch.begin();
-		batch.draw(Assets.backgroundRegion, cam.position.x - FRUSTUM_WIDTH / 2, cam.position.y - FRUSTUM_HEIGHT / 2,
+		batch.draw(world.getBackground(), cam.position.x - FRUSTUM_WIDTH / 2, cam.position.y - FRUSTUM_HEIGHT / 2,
 				FRUSTUM_WIDTH, FRUSTUM_HEIGHT);
 		batch.end();
 	}
@@ -41,11 +45,13 @@ public class WorldRenderer {
 	public void renderObjects() {
 		batch.enableBlending();
 		batch.begin();
-		//renderBob();
-		//renderPlatforms();
-		//renderItems();
-		//renderSquirrels();
-		//renderCastle();
+		
+		//List<Actor> l=world.getObjects(Actor.class);     //asta face nullpointer
+		//for(Actor a:l) {
+		//	a.draw();
+		//}
+		
+		//aici veneau totate fct comentate de render
 		batch.end();
 	}
 

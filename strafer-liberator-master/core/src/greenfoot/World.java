@@ -15,7 +15,9 @@ import com.port.WorldData;
 public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	SpriteBatch batch = StraferLiberator.batcher;
-
+	GreenfootImage background;
+	
+	
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
 
 	}
@@ -56,16 +58,13 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		return (List<A>) Arrays.asList(super.getActors());
 	}
 	
-	 final public void setBackground(GreenfootImage image) {
-		 
+	  public void setBackground(GreenfootImage image) {
+		 this.background=image;
 	 }
+	  public GreenfootImage getBackground() {
+		  return this.background;
+	  }
 
-	public SpriteBatch getBatch() {
-		return batch;
-	}
-
-	public void setBatch(SpriteBatch batch) {
-		this.batch = batch;
-	}
+	
 
 }

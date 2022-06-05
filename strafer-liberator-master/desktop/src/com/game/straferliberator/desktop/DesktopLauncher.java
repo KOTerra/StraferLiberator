@@ -13,6 +13,8 @@ public class DesktopLauncher {
 		//config.fullscreen=true;
 		config.pauseWhenMinimized=true;
 		config.resizable=false;
+		config.vSyncEnabled=true;
+		
 		new LwjglApplication(new StraferLiberator(), config);
 	}
 }

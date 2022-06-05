@@ -22,14 +22,14 @@ public class PlayWorld extends World {
     public HealthBarPlayer healthBar;
     private boolean addedHealthBar = false;
 
-    public GreenfootSound musicIdle = new GreenfootSound("sounds/music/Default.mp3");
-    public GreenfootSound musicCombat = new GreenfootSound("sounds/music/Combat.mp3");
+   // public GreenfootSound musicIdle = new GreenfootSound("sounds/music/Default.mp3");
+ //   public GreenfootSound musicCombat = new GreenfootSound("sounds/music/Combat.mp3");
 
     public PlayWorld() {
         super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); //width, height, cellsize, daca sunt actorii restricted la lume
 
         setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class, Picture.class, MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class, Effect.class,
-                Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class, Npc.class);
+        				Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class, Npc.class);
 
         WIDE = WorldData.WIDTH;
         HIGH = WorldData.HEIGHT;
@@ -40,8 +40,8 @@ public class PlayWorld extends World {
         WorldData.addedDialogs = false;
         addedHealthBar = false;
 
-        musicCombat.setVolume(45);
-        musicIdle.setVolume(45);
+    //    musicCombat.setVolume(45);
+   //     musicIdle.setVolume(45);
 
         addMainMenu();
 
@@ -49,6 +49,7 @@ public class PlayWorld extends World {
 
     private void addMainMenu() {
         addObject(new MainMenu(), WorldData.menuX, WorldData.menuY);
+        System.out.println("PORRRRRRRRRT");
     }
 
     public void addPlayer() {
@@ -112,8 +113,8 @@ public class PlayWorld extends World {
     ///scrolleaza lumea
     public void scroll() {
         if (player != null) {
-            int dsX = player.getX() - WIDE / 2;
-            int dsY = player.getY() - HIGH / 2;
+            int dsX = (int) (player.getX() - WIDE / 2);
+            int dsY = (int) (player.getY() - HIGH / 2);
             scroller.scroll(dsX, dsY);
 
         }
@@ -127,11 +128,11 @@ public class PlayWorld extends World {
 
         scroll();
         if (!addedHealthBar) {
-            addHealthBar();
+           // addHealthBar();
             addedHealthBar = true;
         }
         relocBar();
-        updateMusic();
+       // updateMusic();
 
     }
 
@@ -151,7 +152,7 @@ public class PlayWorld extends World {
         return healthBar;
     }
 
-    public GreenfootSound getMusicIdle() {
+   /* public GreenfootSound getMusicIdle() {
         return musicIdle;
     }
 
@@ -187,5 +188,5 @@ public class PlayWorld extends World {
             }
         }
     }
-
+*/
 }

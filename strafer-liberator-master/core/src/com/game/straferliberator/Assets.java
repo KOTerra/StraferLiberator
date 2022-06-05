@@ -46,10 +46,10 @@ public class Assets {
 	}
 
 	public static void load () {
-		background = loadTexture("data/background.png");
+		background = loadTexture("assets/data/background.png");
 		backgroundRegion = new TextureRegion(background, 0, 0, 1024, 576);
 
-		items = loadTexture("data/items.png");
+		items = loadTexture("assets/data/items.png");
 		mainMenu = new TextureRegion(items, 0, 224, 300, 110);
 		pauseMenu = new TextureRegion(items, 224, 128, 192, 96);
 		ready = new TextureRegion(items, 320, 224, 192, 32);
@@ -73,17 +73,17 @@ public class Assets {
 		brakingPlatform = new Animation(0.2f, new TextureRegion(items, 64, 160, 64, 16), new TextureRegion(items, 64, 176, 64, 16),
 			new TextureRegion(items, 64, 192, 64, 16), new TextureRegion(items, 64, 208, 64, 16));
 
-		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
+		font = new BitmapFont(Gdx.files.internal("assets/data/font.fnt"), Gdx.files.internal("assets/data/font.png"), false);
 
-		music = Gdx.audio.newMusic(Gdx.files.internal("data/music.mp3"));
+		music = Gdx.audio.newMusic(Gdx.files.internal("assets/data/music.mp3"));
 		music.setLooping(true);
 		music.setVolume(0.5f);
 		if (Settings.soundEnabled) music.play();
-		jumpSound = Gdx.audio.newSound(Gdx.files.internal("data/jump.wav"));
-		highJumpSound = Gdx.audio.newSound(Gdx.files.internal("data/highjump.wav"));
-		hitSound = Gdx.audio.newSound(Gdx.files.internal("data/hit.wav"));
-		coinSound = Gdx.audio.newSound(Gdx.files.internal("data/coin.wav"));
-		clickSound = Gdx.audio.newSound(Gdx.files.internal("data/click.wav"));
+		jumpSound = Gdx.audio.newSound(Gdx.files.internal("assets/data/jump.wav"));
+		highJumpSound = Gdx.audio.newSound(Gdx.files.internal("assets/data/highjump.wav"));
+		hitSound = Gdx.audio.newSound(Gdx.files.internal("assets/data/hit.wav"));
+		coinSound = Gdx.audio.newSound(Gdx.files.internal("assets/data/coin.wav"));
+		clickSound = Gdx.audio.newSound(Gdx.files.internal("assets/data/click.wav"));
 	}
 
 	public static void playSound (Sound sound) {
