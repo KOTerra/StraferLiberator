@@ -169,7 +169,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	public void setImage(String s) {
 		greenfoot.GreenfootImage gi = new GreenfootImage(s);
 		image = gi;
-		setDrawable((Drawable) ((Texture) image));
+		setDrawable((Drawable) (image));
 		this.setBounds(0, 0, image.getWidth(), image.getHeight());
 		// makeBoundsRect();
 		draw(batch, 1);
