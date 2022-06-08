@@ -62,8 +62,8 @@ public class Scroller {
         // adjust scroll amounts and scroll background image
         if (limited) {
             // calculate limits of scrolling
-            int maxX = scrollMaxWide - world.getWidth();
-            int maxY = scrollMaxHigh - world.getHeight();
+            int maxX = (int) (scrollMaxWide - world.getWidth());
+            int maxY = (int) (scrollMaxHigh - world.getHeight());
             // apply limits to distances to scroll
             if (scrolledX + dsx < 0) {
                 dsx = -scrolledX;

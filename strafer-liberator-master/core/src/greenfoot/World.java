@@ -18,12 +18,16 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	SpriteBatch batch = StraferLiberator.batcher;
 	GreenfootImage background;
+	int cellSize;
+	private float wwidth, wheight;
 	
 	
-	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
 
+	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
+		this.cellSize=cellSize;
 	}
 
+//
 	public void act() {
 		super.act();// apeleaza act pt fiecare actor
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> l=getActors();
@@ -33,8 +37,9 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 											
 		}
 	}
-
-	public void addObject(greenfoot.Actor object, float f, float g) {
+//
+	
+	public void addObject(greenfoot.Actor object, float initx, float inity) {
 
 		if (object.world != null) {
 			if (object.world == this) {
@@ -42,50 +47,64 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 			}
 			object.world.removeObject(object);
 		}
-		super.addActor(object);
-		object.setWorld(this);
-		object.setLocation(f, g);
-
+			object.setWorld(this);
+			super.addActor(object);
+	
+		object.setLocation(initx,inity);
 	}
 
 	
 	
-	public void removeObject(greenfoot.Actor object) {
-		if (object == null) {
+	public void removeObject(greenfoot.Actor actor) {					//si asta merge
+		if (actor == null) {
 			return;
 		}
-		//object.clear();
-		object.remove();
-		//object.setWorld(null);
-		//object.addAction(Actions.removeActor());
+		actor.remove();
+		Array<com.badlogic.gdx.scenes.scene2d.Actor> a=super.getActors();
+		actor.setWorld(null);
+		a.removeValue(actor,false);
 	}
 
-	public void removeObjects(Collection<? extends Actor> objects) {
-		for(com.badlogic.gdx.scenes.scene2d.Actor a:objects) {
+	public void removeObjects(Collection<? > objects) {						//si asta merge
+		for(Object a:objects) {
 			removeObject((Actor) a);
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	public <A> List<A> getObjects(Class<A> cls) {
-		return (List<A>) Arrays.asList(super.getActors());
-		
-	}
-	
-	<A> java.util.List<A> getObjectsAt(int x, int y, java.lang.Class<A> cls){
-		java.util.List<A> l = (List<A>) getObjects(cls);
-		for (Iterator<A> iter = l.iterator(); iter.hasNext();) {
-			Actor actor = (Actor) iter.next();
-			if(!(actor.getX()==x&&actor.getY()==y)) {
-				l.remove(actor);
+
+	@SuppressWarnings("unchecked")											////asta merge 
+	public List<?> getObjects(java.lang.Class<?> cls) {
+		List<greenfoot.Actor> l=new ArrayList<>();;
+		Array<com.badlogic.gdx.scenes.scene2d.Actor> a=super.getActors();
+		for(com.badlogic.gdx.scenes.scene2d.Actor actor:a) {
+			if (cls == null || cls.isInstance(actor)) {
+				l.add((greenfoot.Actor)actor);
 			}
 		}
 		return l;
-	
+		
 	}
 	
-	public int nrActori() {
-		return Arrays.asList(super.getActors()).size();
+	
+	public List<?> getObjectsAt(float x, float y, java.lang.Class<?> cls){		//nu testai
+		List<?> l=getObjects(cls);
+		for(Object a:l) {
+			if(a instanceof Actor) {
+				Actor actor=(Actor)a;
+				if(actor.getX()==x&&actor.getY()==y) {
+					
+				}
+				else {
+					l.remove(actor);
+				}
+			}
+		}
+		return l;
+	}
+	
+	
+	public int numberOfActors() {
+		return getObjects(Actor.class).size();
 	}
 	
 	  public void setBackground(GreenfootImage image) {
@@ -94,6 +113,17 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	  public GreenfootImage getBackground() {
 		  return this.background;
 	  }
+
+	public int getCellSize() {
+		return cellSize;
+	}
+	public	int getWidth() {
+		return (int) wwidth;
+	}
+
+	public int getHeight() {
+		return (int) wheight;
+	}
 
 	
 

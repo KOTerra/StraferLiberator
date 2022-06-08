@@ -10,8 +10,6 @@ public class StraferLiberator extends Game {
 	
 	public void create () {
 		batcher = new SpriteBatch();
-		Settings.load();
-		Assets.load();
 		setScreen(new GameScreen(this));
 	}
 	

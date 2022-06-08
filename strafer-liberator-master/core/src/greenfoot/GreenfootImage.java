@@ -5,26 +5,26 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion{
+public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion {
 
-	public GreenfootImage(FileHandle file) {super(new Texture(file));}
-	
+	public GreenfootImage(FileHandle file) {
+		super(new Texture(file));
+	}
+
 	public GreenfootImage(String f) {
-		super(new Texture(new FileHandle("assets/images/"+f)));
-		//super(new FileHandle(f));
-		
+		super(new Texture(new FileHandle("assets/images/" + f)));
+		// super(new FileHandle(f));
+
 	}
 
 	public GreenfootImage(int width, int height) {
-		super(new Texture(width, height,Pixmap.Format.RGB888));
+		super(new Texture(width, height, Pixmap.Format.RGB888));
 	}
-	
+
 	public GreenfootImage(Texture t) {
 		super(t);
-		
+
 	}
-
-
 
 	public GreenfootImage(TextureRegion region) {
 		super(region);
@@ -32,12 +32,12 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion{
 
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public void drawImage(GreenfootImage lastImage, int i, int j) {
+	public void drawImage(GreenfootImage rightImg, float f, float g) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public float getWidth() {

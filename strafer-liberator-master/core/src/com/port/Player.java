@@ -112,7 +112,7 @@ public class Player extends Jucator {
         }
         else{speed=7;}
 
-        if (Greenfoot.isKeyDown("w")) {
+        if (Greenfoot.isKeyDown("W")) {
             //merge in nord 
             apas = true;
             gif = "W";
@@ -121,7 +121,7 @@ public class Player extends Jucator {
 
         }
 
-        if (Greenfoot.isKeyDown("s")) {
+        if (Greenfoot.isKeyDown("S")) {
             //merge in sud   
             apas = true;
             gif = "S";
@@ -129,7 +129,7 @@ public class Player extends Jucator {
             setLocation(getX(), getY() + speed);
 
         }
-        if (Greenfoot.isKeyDown("d")) {
+        if (Greenfoot.isKeyDown("D")) {
             //merg in est
             apas = true;
             gif = "D";
@@ -138,7 +138,7 @@ public class Player extends Jucator {
 
         }
 
-        if (Greenfoot.isKeyDown("a")) {
+        if (Greenfoot.isKeyDown("A")) {
             //merg in vest
             apas = true;
             gif = "A";
@@ -211,8 +211,8 @@ public class Player extends Jucator {
             super.atingeNpc();
         }
         checkMove();
-        worldX = getX() + Scroller.scrolledX;
-        worldY = getY() + Scroller.scrolledY;
+        worldX = (int) (getX() + Scroller.scrolledX);
+        worldY = (int) (getY() + Scroller.scrolledY);
 
         playerImg = directie.get(this.gif);
     }
@@ -414,7 +414,7 @@ public class Player extends Jucator {
 
         if (!toggledPause && !WorldData.PAUZA) {
 
-            if (Greenfoot.isKeyDown("escape")) {
+            if (Greenfoot.isKeyDown("Escape")) {
                 toggledPause = !toggledPause;
                 WorldData.PAUZA = true;
 
@@ -447,7 +447,9 @@ public class Player extends Jucator {
         }
     }
 
-    protected void takeDamage(int dmg) {// cand e atact pierde viata
+ 
+
+	protected void takeDamage(int dmg) {// cand e atact pierde viata
         hp -= dmg;
         getHealthBar().subtract(dmg);
     }
@@ -480,7 +482,7 @@ public class Player extends Jucator {
         checkPauza();
 
         if (!WorldData.PAUZA) {
-            load();
+            //load();
         }
 
         if (inViata) {

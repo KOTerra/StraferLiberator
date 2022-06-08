@@ -1,5 +1,8 @@
 package com.port;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,7 +17,7 @@ import greenfoot.GreenfootImage;
 public class GifImage {
 	
 	Animation<TextureRegion> animation;
-	TextureRegion[] keyFrames;
+	
 	float frameDuration;
 	float elapsed;
 	GreenfootImage greenfootImage;
@@ -22,7 +25,7 @@ public class GifImage {
 	
 	public GifImage(String file){
 		 animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("assets/images/"+file).read());
-		 //keyFrames=animation.getKeyFrames();
+
 		 frameDuration=animation.getFrameDuration();
 	}
 	public GreenfootImage getCurrentImage(){
@@ -33,5 +36,14 @@ public class GifImage {
         TextureRegion region=(animation.getKeyFrame(elapsed, true));
        
         return new GreenfootImage(region);
+	}
+	public List<GreenfootImage> getImages() {	 
+		List<GreenfootImage> l =new ArrayList<GreenfootImage>();
+		
+		for(Object t:animation.getKeyFrames()) {
+			TextureRegion a=(TextureRegion)t;
+			l.add(new GreenfootImage(a));
+		}
+		return l;
 	}
 }

@@ -39,8 +39,8 @@ public class Jucator extends Movers {
             Movers mb = (Movers) b;
             if (!mb.isKnockbacked()) {
 
-                int npcX = (b.getX() - getX());//8/100
-                int npcY = (b.getY() - getY());//7/100
+                int npcX = (int) (b.getX() - getX());//8/100
+                int npcY = (int) (b.getY() - getY());//7/100
 
                 setLocation(getX() - npcX, getY() - npcY);
             }
