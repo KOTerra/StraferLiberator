@@ -14,7 +14,7 @@ public class TestWorld extends World {
 	public TestWorld() {
 		super(1024, 576, 1, false);
 		this.addObject(ta, 300, 100);
-		this.addObject(ta2, 370, 100);  
+		this.addObject(ta2, 330, 100);  
 		// this.addObject(new com.port.Player(), 0, 0);
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
@@ -29,7 +29,7 @@ public class TestWorld extends World {
 		if(Gdx.input.isKeyJustPressed(Keys.Q)) {
 			System.out.println(this.numberOfActors());
 		}
-		if(ta.intersects(ta2)) {
+		if(ta.isTouching(Actor.class)) {
 			System.out.println("atins");
 		}
 		

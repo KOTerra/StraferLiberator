@@ -117,11 +117,11 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	public int getCellSize() {
 		return cellSize;
 	}
-	public	int getWidth() {
+	public	float getWidth() {
 		return (int) wwidth;
 	}
 
-	public int getHeight() {
+	public float getHeight() {
 		return (int) wheight;
 	}
 
