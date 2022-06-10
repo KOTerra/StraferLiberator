@@ -14,8 +14,7 @@ public class TestWorld extends World {
 	public TestWorld() {
 		super(1024, 576, 1, false);
 		this.addObject(ta, 300, 100);
-		this.addObject(ta2, 330, 100);  
-		// this.addObject(new com.port.Player(), 0, 0);
+		this.addObject(ta2, 500, 100);  
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
 
@@ -24,14 +23,16 @@ public class TestWorld extends World {
 		if (Gdx.input.isKeyJustPressed(Keys.T)) { /// T de la test te ai prins
 			//((TestActor) (this.getObjects(TestActor.class).get(0))).assertion();
 			
-			this.removeObjects(this.getObjects(TestActor.class));
+			//this.removeObjects(this.getObjects(TestActor.class));
+			this.removeObject((Actor) getObjectsAt(500, 100,TestActor.class).get(0));
 		}
 		if(Gdx.input.isKeyJustPressed(Keys.Q)) {
 			System.out.println(this.numberOfActors());
 		}
-		if(ta.isTouching(Actor.class)) {
-			System.out.println("atins");
+		if(ta.isTouching(TestActor.class)) {
+			//System.out.println("atins");
 		}
+		
 		
 	}
 

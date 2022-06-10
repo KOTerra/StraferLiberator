@@ -81,6 +81,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 				l.add((greenfoot.Actor)actor);
 			}
 		}
+
 		return l;
 		
 	}
@@ -88,18 +89,18 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	
 	public List<?> getObjectsAt(float x, float y, java.lang.Class<?> cls){		//nu testai
 		List<?> l=getObjects(cls);
+		List<greenfoot.Actor> res=new ArrayList<>();
 		for(Object a:l) {
 			if(a instanceof Actor) {
 				Actor actor=(Actor)a;
 				if(actor.getX()==x&&actor.getY()==y) {
-					
+					res.add(actor);
 				}
-				else {
-					l.remove(actor);
-				}
+				
 			}
 		}
-		return l;
+
+		return res;
 	}
 	
 	

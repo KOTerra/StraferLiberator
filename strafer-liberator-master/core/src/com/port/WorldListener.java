@@ -18,7 +18,7 @@ public class WorldListener extends WorldSection {
         this.world = world;
 
         scroller = world.getScroller();
-        player = world.getObjects(Player.class).get(0);
+        player = (Player) world.getObjects(Player.class).get(0);
         loadImages();
 
     }
@@ -65,7 +65,7 @@ public class WorldListener extends WorldSection {
      * This method deletes all objects in the world
      */
     void clearWorldObjects() {
-        List<Actor> list = world.getObjects(Actor.class);
+        List<Actor> list = (List<Actor>) world.getObjects(Actor.class);
 
         for (Actor actor : list) {
             if (actor instanceof Player || actor instanceof WorldListener ||actor instanceof EventSystem|| actor instanceof HealthBarPlayer || actor instanceof Picture || actor instanceof Buton) {

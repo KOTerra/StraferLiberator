@@ -146,7 +146,7 @@ abstract class SaveSystem {
 
                 } else if (tip.equalsIgnoreCase("WorldSection:")) {
                     int ws = Integer.parseInt(getContentString(str));
-                    WorldListener worldListener = player.getWorld().getObjects(WorldListener.class).get(0);
+                    WorldListener worldListener = (WorldListener) player.getWorld().getObjects(WorldListener.class).get(0);
                     worldListener.setWorldSection(ws);
                     WorldData.worldSection = ws;
 

@@ -9,7 +9,8 @@ public class HealthBarImg extends HealthBar
     GreenfootImage img;
     String imageName;
     boolean moveable;
-    int x,y;
+    float x;
+	float y;
     boolean added=false;
     public HealthBarImg() {
         super("","",1,1);

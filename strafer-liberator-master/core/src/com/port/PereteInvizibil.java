@@ -1,311 +1,310 @@
 package com.port;
 
-
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.lang.Math;
 
 public class PereteInvizibil extends Perete {
 
-    private String marime;
-    private String pozitie;
-    HashMap<String, GreenfootImage> directie = new HashMap<String, GreenfootImage>();
-    GreenfootImage pereteImg;
-    
-    int floor;
-    
-    public PereteInvizibil(String pozitie, int floor, String marime) {
+	private String marime;
+	private String pozitie;
+	HashMap<String, GreenfootImage> directie = new HashMap<String, GreenfootImage>();
+	GreenfootImage pereteImg;
 
-        directie.put("mic90", new GreenfootImage("perete/pereteInviz_mic90.png"));
-        directie.put("mic", new GreenfootImage("perete/pereteInviz_mic.png"));
-        directie.put("mare90", new GreenfootImage("perete/pereteInviz_mare90.png"));
-        directie.put("mare", new GreenfootImage("perete/pereteInviz_mare.png"));
-        
-        this.floor=floor;
-        this.marime = marime;
-        pereteImg = directie.get(marime);
-        setImage(pereteImg);
-        this.pozitie = pozitie;
+	int floor;
 
-    }
+	public PereteInvizibil(String pozitie, int floor, String marime) {
 
-    private void chestie() {
-        int procentX = 80;
-        int procentY = 85;
-        switch (pozitie) {
-            case ("W"): {
-                if (marime.equals("mic90") || marime.equals("mare90")) {
-                    int a = getImage().getWidth() / 2;
+		directie.put("mic90", new GreenfootImage("perete/pereteInviz_mic90.png"));
+		directie.put("mic", new GreenfootImage("perete/pereteInviz_mic.png"));
+		directie.put("mare90", new GreenfootImage("perete/pereteInviz_mare90.png"));
+		directie.put("mare", new GreenfootImage("perete/pereteInviz_mare.png"));
 
-                    for (int i = 0; i <= a; i += 10) {
+		this.floor = floor;
+		this.marime = marime;
+		pereteImg = directie.get(marime);
+		setImage(pereteImg);
+		this.pozitie = pozitie;
 
-                        Actor b = getOneObjectAtOffset(i, 0, Movers.class);
-                        if (b != null) {
-                            int dif = b.getY() - getY();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() + k);
-                        }
-                    }
+	}
 
-                    for (int j = 10; j <= a; j += 10) {
-                        Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
-                        if (b != null) {
-                            int dif = b.getY() - getY();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() + k);
-                        }
+	private void chestie() {
+		int procentX = 80;
+		int procentY = 85;
+		switch (pozitie) {
+		case ("W"): {
+			if (marime.equals("mic90") || marime.equals("mare90")) {
+				float a = getImage().getWidth() / 2;
 
-                    }
-                } else {
-                    int a = getImage().getWidth() / 2;
+				for (int i = 0; i <= a; i += 10) {
 
-                    for (int i = 0; i <= a; i += 20) {
+					Actor b = getOneObjectAtOffset(i, 0, Movers.class);
+					if (b != null) {
+						float dif = b.getY() - getY();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() + k);
+					}
+				}
 
-                        Actor b = getOneObjectAtOffset(i, 0, Movers.class);
+				for (int j = 10; j <= a; j += 10) {
+					Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
+					if (b != null) {
+						float dif = b.getY() - getY();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() + k);
+					}
 
-                        if (b != null) {
-                            int dif = b.getY() - getY();
+				}
+			} else {
+				float a = getImage().getWidth() / 2;
 
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() + k);
-                        }
-                    }
+				for (int i = 0; i <= a; i += 20) {
 
-                    for (int j = 0; j <= a; j += 20) {
-                        Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
+					Actor b = getOneObjectAtOffset(i, 0, Movers.class);
 
-                        if (b != null) {
-                            int dif = b.getY() - getY();
+					if (b != null) {
+						float dif = b.getY() - getY();
 
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() + k);
-                        }
-                    }
-                }
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() + k);
+					}
+				}
 
-                break;
-            }
+				for (int j = 0; j <= a; j += 20) {
+					Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
 
-            case ("S"): {
-                //dif=b.getY()-getY()-i
-                if (marime.equals("mic90") || marime.equals("mare90")) {
-                    int a = getImage().getWidth() / 2;
+					if (b != null) {
+						float dif = b.getY() - getY();
 
-                    for (int i = 0; i <= a; i += 10) {
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() + k);
+					}
+				}
+			}
 
-                        Actor b = getOneObjectAtOffset(i, 0, Movers.class);
-                        if (b != null) {
-                            int dif = getY() - b.getY();
+			break;
+		}
 
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() - k);
-                        }
-                    }
+		case ("S"): {
+			// dif=b.getY()-getY()-i
+			if (marime.equals("mic90") || marime.equals("mare90")) {
+				float a = getImage().getWidth() / 2;
 
-                    for (int j = 10; j <= a; j += 10) {
-                        Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
-                        if (b != null) {
-                            int dif = getY() - b.getY();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() - k);
-                        }
+				for (int i = 0; i <= a; i += 10) {
 
-                    }
-                } else {
-                    int a = getImage().getWidth() / 2;
-                    for (int i = 0; i <= a; i += 20) {
+					Actor b = getOneObjectAtOffset(i, 0, Movers.class);
+					if (b != null) {
+						float dif = getY() - b.getY();
 
-                        Actor b = getOneObjectAtOffset(i, 0, Movers.class);
-                        if (b != null) {
-                            int dif = getY() - b.getY();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() - k);
-                        }
-                    }
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() - k);
+					}
+				}
 
-                    for (int j = 0; j <= a; j += 20) {
-                        Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
-                        if (b != null) {
-                            int dif = getY() - b.getY();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getHeight() / 2;
-                            }
-                            k -= k * procentY / 100;
-                            b.setLocation(b.getX(), b.getY() - k);
-                        }
+				for (int j = 10; j <= a; j += 10) {
+					Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
+					if (b != null) {
+						float dif = getY() - b.getY();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() - k);
+					}
 
-                    }
-                }
-                break;
-            }
+				}
+			} else {
+				float a = getImage().getWidth() / 2;
+				for (int i = 0; i <= a; i += 20) {
 
-            case ("D"): {
-                if (marime.equals("mic90") || marime.equals("mare90")) {
-                    int a = getImage().getHeight() / 2;
+					Actor b = getOneObjectAtOffset(i, 0, Movers.class);
+					if (b != null) {
+						float dif = getY() - b.getY();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() - k);
+					}
+				}
 
-                    for (int i = 0; i <= a; i += 10) {
+				for (int j = 0; j <= a; j += 20) {
+					Actor b = getOneObjectAtOffset(-j, 0, Movers.class);
+					if (b != null) {
+						float dif = getY() - b.getY();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getHeight() / 2;
+						}
+						k -= k * procentY / 100;
+						b.setLocation(b.getX(), b.getY() - k);
+					}
 
-                        Actor b = getOneObjectAtOffset(0, i, Movers.class);
-                        if (b != null) {
-                            int dif = getX() - b.getX();
+				}
+			}
+			break;
+		}
 
-                            int k = getImage().getWidth() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() - k, b.getY());
-                        }
-                    }
+		case ("D"): {
+			if (marime.equals("mic90") || marime.equals("mare90")) {
+				float a = getImage().getHeight() / 2;
 
-                    for (int j = 0; j <= a; j += 10) {
-                        Actor b = getOneObjectAtOffset(0, -j, Movers.class);
-                        if (b != null) {
-                            int dif = getX() - b.getX();
-                            int k = getImage().getWidth() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() - k, b.getY());
-                        }
+				for (int i = 0; i <= a; i += 10) {
 
-                    }
-                } else {
-                    int a = getImage().getHeight() / 2;
-                    for (int i = 0; i <= a; i += 20) {
+					Actor b = getOneObjectAtOffset(0, i, Movers.class);
+					if (b != null) {
+						float dif = getX() - b.getX();
 
-                        Actor b = getOneObjectAtOffset(0, i, Movers.class);
-                        if (b != null) {
-                            int dif = getX() - b.getX();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() - k, b.getY());
-                        }
-                    }
+						float k = getImage().getWidth() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() - k, b.getY());
+					}
+				}
 
-                    for (int j = 0; j <= a; j += 20) {
-                        Actor b = getOneObjectAtOffset(0, -j, Movers.class);
-                        if (b != null) {
-                            int dif = getX() - b.getX();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() - k, b.getY());
-                        }
+				for (int j = 0; j <= a; j += 10) {
+					Actor b = getOneObjectAtOffset(0, -j, Movers.class);
+					if (b != null) {
+						float dif = getX() - b.getX();
+						float k = getImage().getWidth() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() - k, b.getY());
+					}
 
-                    }
-                }
-                break;
-            }
+				}
+			} else {
+				float a = getImage().getHeight() / 2;
+				for (int i = 0; i <= a; i += 20) {
 
-            case ("A"): {
-                if (marime.equals("mic90") || marime.equals("mare90")) {
-                    int a = getImage().getHeight() / 2;
+					Actor b = getOneObjectAtOffset(0, i, Movers.class);
+					if (b != null) {
+						float dif = getX() - b.getX();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() - k, b.getY());
+					}
+				}
 
-                    for (int i = 0; i <= a; i += 10) {
+				for (int j = 0; j <= a; j += 20) {
+					Actor b = getOneObjectAtOffset(0, -j, Movers.class);
+					if (b != null) {
+						float dif = getX() - b.getX();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() - k, b.getY());
+					}
 
-                        Actor b = getOneObjectAtOffset(0, i, Movers.class);
-                        if (b != null) {
-                            int dif = b.getX() - getX();
+				}
+			}
+			break;
+		}
 
-                            int k = getImage().getWidth() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() + k, b.getY());
-                        }
-                    }
+		case ("A"): {
+			if (marime.equals("mic90") || marime.equals("mare90")) {
+				float a = getImage().getHeight() / 2;
 
-                    for (int j = 0; j <= a; j += 10) {
-                        Actor b = getOneObjectAtOffset(0, -j, Movers.class);
-                        if (b != null) {
-                            int dif = b.getX() - getX();
-                            int k = getImage().getWidth() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() + k, b.getY());
-                        }
+				for (int i = 0; i <= a; i += 10) {
 
-                    }
-                } else {
-                    int a = getImage().getHeight() / 2;
-                    for (int i = 0; i <= a; i += 20) {
+					Actor b = getOneObjectAtOffset(0, i, Movers.class);
+					if (b != null) {
+						float dif = b.getX() - getX();
 
-                        Actor b = getOneObjectAtOffset(0, i, Movers.class);
-                        if (b != null) {
-                            int dif = b.getX() - getX();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() + k, b.getY());
-                        }
-                    }
+						float k = getImage().getWidth() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() + k, b.getY());
+					}
+				}
 
-                    for (int j = 0; j <= a; j += 20) {
-                        Actor b = getOneObjectAtOffset(0, -j, Movers.class);
-                        if (b != null) {
-                            int dif = b.getX() - getX();
-                            int k = getImage().getHeight() / 2 - dif;
-                            if (k <= 0) {
-                                k = k * (-1) + getImage().getWidth() / 2;
-                            }
-                            k -= k * procentX / 100;
-                            b.setLocation(b.getX() + k, b.getY());
-                        }
-                    }
-                }
-                break;
-            }
-        }
-    }
+				for (int j = 0; j <= a; j += 10) {
+					Actor b = getOneObjectAtOffset(0, -j, Movers.class);
+					if (b != null) {
+						float dif = b.getX() - getX();
+						float k = getImage().getWidth() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() + k, b.getY());
+					}
 
-    public void act() {
-        
-        if (Player.floorLevel==this.floor && super.isInScreen()==true) {
-            chestie();
-        }
+				}
+			} else {
+				float a = getImage().getHeight() / 2;
+				for (int i = 0; i <= a; i += 20) {
 
-    }
+					Actor b = getOneObjectAtOffset(0, i, Movers.class);
+					if (b != null) {
+						float dif = b.getX() - getX();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() + k, b.getY());
+					}
+				}
+
+				for (int j = 0; j <= a; j += 20) {
+					Actor b = getOneObjectAtOffset(0, -j, Movers.class);
+					if (b != null) {
+						float dif = b.getX() - getX();
+						float k = getImage().getHeight() / 2 - dif;
+						if (k <= 0) {
+							k = k * (-1) + getImage().getWidth() / 2;
+						}
+						k -= k * procentX / 100;
+						b.setLocation(b.getX() + k, b.getY());
+					}
+				}
+			}
+			break;
+		}
+		}
+	}
+
+	public void act() {
+
+		if (Player.floorLevel == this.floor && super.isInScreen() == true) {
+			chestie();
+		}
+
+	}
 
 }

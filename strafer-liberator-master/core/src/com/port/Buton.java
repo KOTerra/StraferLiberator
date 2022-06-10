@@ -191,7 +191,7 @@ public class Buton extends UI {
                     case "Main Menu": {
                         getWorld().addObject(new MainMenu(), WorldData.menuX, WorldData.menuY);
 
-                        getWorld().getObjects(Player.class).get(0).setLoaded(false);
+                        ((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
                         Player.toggledPause = false;
 
                         if (obj instanceof Menu) {
@@ -221,7 +221,7 @@ public class Buton extends UI {
                         if (obj instanceof MainMenu) {
                             MainMenu mm = (MainMenu) obj;
                             mm.getMusic().stop();
-                            Player player = getWorld().getObjects(Player.class).get(0);
+                            Player player = (Player) getWorld().getObjects(Player.class).get(0);
                             WorldData.reset();
                             WorldData.saveFileNumber++;
                             player.setLocation(PlayWorld.originalX - Scroller.scrolledX, PlayWorld.originalY - Scroller.scrolledY);
@@ -246,7 +246,7 @@ public class Buton extends UI {
                         if (obj instanceof MainMenu) {
                             MainMenu mm = (MainMenu) obj;
                             mm.getMusic().stop();
-                            Player player = getWorld().getObjects(Player.class).get(0);
+                            Player player = (Player) getWorld().getObjects(Player.class).get(0);
                             player.load();
 
                             if (!player.isInViata()) {
@@ -256,9 +256,9 @@ public class Buton extends UI {
                         if (obj instanceof GameOver) {
                             GameOver go = (GameOver) obj;
                             go.getMusic().stop();
-                            getWorld().getObjects(Player.class).get(0).setLoaded(false);
-                            getWorld().getObjects(Player.class).get(0).load();
-                            getWorld().getObjects(Player.class).get(0).revive();
+                            ((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
+                            ((Player) getWorld().getObjects(Player.class).get(0)).load();
+                            ((Player) getWorld().getObjects(Player.class).get(0)).revive();
                         }
 
                         getWorld().removeObjects(getWorld().getObjects(Buton.class));

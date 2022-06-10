@@ -14,21 +14,12 @@ public class TestActor extends Actor {
 		this.setImage(gif.getCurrentImage());
 	}
 
-	public void assertion() {
-		World world=super.getWorld();
-		TestActor tsa=((TestActor)(world.getObjects(TestActor.class).get(0)));
-		if(tsa==this) {
-			this.setLocation(800,400);
-		}
-		
-	}
+
 	
 	public void act() {
 
 		miscaTest();
-		if (Greenfoot.mouseClicked(this)) {
-			System.out.println("click maica");
-		}
+	
 
 	}
 

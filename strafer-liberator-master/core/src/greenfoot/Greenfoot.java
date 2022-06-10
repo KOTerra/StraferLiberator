@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Greenfoot extends com.badlogic.gdx.Gdx {
@@ -23,19 +24,35 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 		return false;
 	}
 
+	public static boolean mouseMoved(Object object) {
+		Actor actor = (Actor) object;
+
+		float iw = actor.getImage().getWidth();
+		float ih = actor.getImage().getHeight();
+
+		Rectangle r = new Rectangle(actor.getX() - iw / 2, actor.getY() - ih / 2, iw, ih);
+
+		float mousex = Gdx.input.getX();
+		float mousey = Gdx.input.getY();
+
+		if (r.contains(mousex, mousey)) {
+			return true;
+		}
+
+		return false;
+	}
+
 	public static boolean mouseClicked(Object object) {
-		if (object instanceof greenfoot.Actor) {
-			Actor actor = (Actor) object;
 
-			Vector2 mouseScreenPosition = new Vector2(Gdx.input.getX(), Gdx.input.getY());
-			Vector2 mouseLocalPosition = actor.screenToLocalCoordinates(mouseScreenPosition);
+		Actor actor = (Actor) object;
 
-			if (actor.hit(mouseLocalPosition.x, mouseLocalPosition.y, false) != null) {
-				if (Gdx.input.justTouched()) {
-					return true;
-				}
+		if (mouseMoved(object)) {
+			if (Gdx.input.justTouched()) {
+
+				return true;
 			}
 		}
+
 		if (Gdx.input.justTouched()) {
 			if (object == null) {
 				return false;

@@ -92,7 +92,7 @@ public class EventSystem extends Actor {
                         keanu = new Keanu(playWorld, scroller, "Keanu", WorldData.dialogIndex);
                         playWorld.initUniqueObject(keanu, 1, 1);
                     } else {
-                        keanu = playWorld.getObjects(Keanu.class).get(0);
+                        keanu = (Keanu) playWorld.getObjects(Keanu.class).get(0);
                     }
                     keanu.setNrDialog(WorldData.dialogIndex);
                     keanu.setLocation(45 * 64 - Scroller.scrolledX, 8 * 64 - Scroller.scrolledY);
@@ -124,7 +124,7 @@ public class EventSystem extends Actor {
                         keanu = new Keanu(playWorld, scroller, "Keanu", WorldData.dialogIndex);
                         playWorld.initUniqueObject(keanu, 1, 1);
                     } else {
-                        keanu = playWorld.getObjects(Keanu.class).get(0);
+                        keanu = (Keanu) playWorld.getObjects(Keanu.class).get(0);
                     }
                     keanu.setNrDialog(WorldData.dialogIndex);
                     keanu.setLocation(72 * 64 - Scroller.scrolledX, 17 * 64 - Scroller.scrolledY);
@@ -193,7 +193,7 @@ public class EventSystem extends Actor {
                         stonks = new Stonks(playWorld, scroller, "Stonks", WorldData.dialogIndex);
                         playWorld.initUniqueObject(stonks, 1, 1);
                     } else {
-                        stonks = playWorld.getObjects(Stonks.class).get(0);
+                        stonks = (Stonks) playWorld.getObjects(Stonks.class).get(0);
                     }
                     stonks.setNrDialog(WorldData.dialogIndex);
                     stonks.setLocation(64 * 64 - Scroller.scrolledX, 113 * 64 - Scroller.scrolledY);
@@ -259,7 +259,7 @@ public class EventSystem extends Actor {
                         keanu = new Keanu(playWorld, scroller, "Keanu", WorldData.dialogIndex);
                         playWorld.initUniqueObject(keanu, 1, 1);
                     } else {
-                        keanu = playWorld.getObjects(Keanu.class).get(0);
+                        keanu = (Keanu) playWorld.getObjects(Keanu.class).get(0);
                     }
                     keanu.setNrDialog(WorldData.dialogIndex);
                     keanu.setLocation(20 * 64 - Scroller.scrolledX, 11 * 64 - Scroller.scrolledY);
@@ -285,7 +285,7 @@ public class EventSystem extends Actor {
                         stonks = new Stonks(playWorld, scroller, "Stonks", WorldData.dialogIndex);
                         playWorld.initUniqueObject(stonks, 1, 1);
                     } else {
-                        stonks = playWorld.getObjects(Stonks.class).get(0);
+                        stonks = (Stonks) playWorld.getObjects(Stonks.class).get(0);
                     }
                     stonks.setNrDialog(WorldData.dialogIndex);
                     stonks.setLocation(20 * 64 - Scroller.scrolledX, 125 * 64 - Scroller.scrolledY);
