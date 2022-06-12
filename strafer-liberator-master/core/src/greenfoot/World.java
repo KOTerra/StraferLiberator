@@ -81,9 +81,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 				l.add((greenfoot.Actor)actor);
 			}
 		}
-
 		return l;
-		
 	}
 	
 	
@@ -96,10 +94,8 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 				if(actor.getX()==x&&actor.getY()==y) {
 					res.add(actor);
 				}
-				
 			}
 		}
-
 		return res;
 	}
 	

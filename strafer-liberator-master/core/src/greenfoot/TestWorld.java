@@ -14,7 +14,10 @@ public class TestWorld extends World {
 	public TestWorld() {
 		super(1024, 576, 1, false);
 		this.addObject(ta, 300, 100);
-		this.addObject(ta2, 500, 100);  
+		this.addObject(ta2, 500, 200);  
+		ta.setRotation(90);
+		ta.turnTowards(ta2.getX(),ta2.getY());
+		System.out.println(ta.getRotation());
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
 
@@ -24,7 +27,7 @@ public class TestWorld extends World {
 			//((TestActor) (this.getObjects(TestActor.class).get(0))).assertion();
 			
 			//this.removeObjects(this.getObjects(TestActor.class));
-			this.removeObject((Actor) getObjectsAt(500, 100,TestActor.class).get(0));
+			//this.removeObject((Actor) getObjectsAt(500, 100,TestActor.class).get(0));
 		}
 		if(Gdx.input.isKeyJustPressed(Keys.Q)) {
 			System.out.println(this.numberOfActors());

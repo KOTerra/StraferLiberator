@@ -72,17 +72,18 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public float getRotation() {
-		return super.getRotation();
+		return -super.getRotation();
 	}
 
 	public void setRotation(float r) {
-		super.setRotation(r);
+		
+		super.setRotation(-r);
 
 	}
 
 	public void turnTowards(float f, float g) {
 		double a = Math.atan2(g - this.y, f - this.x);
-		setRotation((int) Math.toDegrees(a));
+		setRotation(-(int) Math.toDegrees(a));
 	}
 
 	public boolean isAtEdge() {
@@ -98,7 +99,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public void turn(int amount) {
-		setRotation(super.getRotation() + amount);
+		setRotation(super.getRotation() - amount);
 	}
 
 	public greenfoot.World getWorld() {
@@ -209,22 +210,30 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		this.setBounds(1, 1, image.getWidth(), image.getHeight());
 		x = prevx;
 		y = prevy;
+
 		setPosition(x, y);
+
 	}
 
 	public void setImage(String s) {
 		greenfoot.GreenfootImage gi = new GreenfootImage(s);
 		image = gi;
 		float prevx = x, prevy = y;
+
 		this.setBounds(1, 1, image.getWidth(), image.getHeight());
 		x = prevx;
 		y = prevy;
 		setPosition(x, y);
+	
 	}
 
 	public void draw() {
-		batch.draw(this.getImage(), getX() - this.getImage().getWidth() / 2,
-				getStageY() - this.getImage().getHeight() / 2);
+		batch.draw(this.getImage(),
+					getX() - this.iw() / 2, getStageY() - this.ih() / 2,	  //coordonatele
+					this.iw()/2 ,			this.ih()/2,					 //pct in care e rotit
+					this.iw(),				this.ih(),						//width/height
+					1,						1,							   //scale
+				  super.getRotation());										  //rotation
 	}
 
 	public float iw() {
