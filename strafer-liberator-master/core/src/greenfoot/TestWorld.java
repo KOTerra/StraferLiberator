@@ -2,6 +2,8 @@ package greenfoot;
 
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
@@ -20,11 +22,18 @@ public class TestWorld extends World {
 	public TestWorld() {
 
 		super(1024, 576, 1, false);
-		this.setBackground(new GreenfootImage("UI/loading.png"));
+
 		this.addObject(ta, 300, 100);
 		taa2();
 		poza();
-		sound();
+		new Thread(new Runnable() {
+			   @Override
+			   public void run() {
+			      sound();
+			   }
+			}).start();
+		
+		//sound();
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
 
