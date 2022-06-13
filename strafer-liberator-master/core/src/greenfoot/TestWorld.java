@@ -7,7 +7,6 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.game.straferliberator.StraferLiberator;
-
 public class TestWorld extends World {
 
 	BitmapFont font = new BitmapFont(new FileHandle("assets/fonts/consolas.fnt"));
@@ -16,13 +15,16 @@ public class TestWorld extends World {
 	TestActor ta = new TestActor();
 	Actor ta2 = new Actor();
 	Actor ta3 = new Actor();
+	GreenfootSound sound;
 	
 	public TestWorld() {
 
 		super(1024, 576, 1, false);
+		this.setBackground(new GreenfootImage("UI/loading.png"));
 		this.addObject(ta, 300, 100);
 		taa2();
 		poza();
+		sound();
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
 
@@ -60,18 +62,24 @@ public class TestWorld extends World {
 		this.addObject(b,500,200);
 	}
 
+	void sound() {
+		sound=new GreenfootSound("music/Default.mp3");
+		sound.setLooping();
+		sound.playLoop();
+	}
+	
 	public void act() {
 		super.act();
-
+		System.out.println(Gdx.graphics.getFramesPerSecond());
 		if (Gdx.input.isKeyJustPressed(Keys.T)) { /// T de la test te ai prins
 			// ((TestActor) (this.getObjects(TestActor.class).get(0))).assertion();
-
-			 this.removeObject(ta2);
+			
+			 //this.removeObject(ta2);
 			// this.removeObject((Actor) getObjectsAt(500, 100,TestActor.class).get(0));
-
+			//sound.pause();
 		}
 		if (Gdx.input.isKeyJustPressed(Keys.Q)) {
-			ta2.getImage().scale(200, 100);
+			//sound.resume();
 		}
 		if (ta.isTouching(TestActor.class)) {
 			// System.out.println("atins");
