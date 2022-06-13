@@ -19,7 +19,9 @@ public class TestActor extends Actor {
 	public void act() {
 
 		miscaTest();
-	
+		if(Greenfoot.mouseClicked(this)) {
+			System.out.println("click");
+		}
 
 	}
 

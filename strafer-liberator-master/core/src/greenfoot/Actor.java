@@ -229,11 +229,11 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	public void draw() {
 		batch.draw(this.getImage(),
-					getX() - this.iw() / 2, getStageY() - this.ih() / 2,	  //coordonatele
-					this.iw()/2 ,			this.ih()/2,					 //pct in care e rotit
-					this.iw(),				this.ih(),						//width/height
-					1,						1,							   //scale
-				  super.getRotation());										  //rotation
+					getX() - this.iw() / 2, 		getStageY() - this.ih() / 2,	  //coordonatele
+					this.iw()/2 ,					this.ih()/2,					 //pct in care e rotit
+					this.getImage().getScaleX(),	this.getImage().getScaleY(),    //width/height
+					1,								1,							   //scale
+				  super.getRotation());									  		  //rotation
 	}
 
 	public float iw() {

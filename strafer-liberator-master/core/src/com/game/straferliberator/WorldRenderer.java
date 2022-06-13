@@ -2,7 +2,9 @@ package com.game.straferliberator;
 import java.util.Iterator;
 import java.util.List;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Align;
@@ -50,6 +52,8 @@ public class WorldRenderer<A> {
 			((greenfoot.Actor) a).draw();
 		
 		}
+		
+		
 	
 		batch.end();
 	}

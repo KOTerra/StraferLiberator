@@ -160,8 +160,8 @@ public class HealthBar extends UI {
 
     public void act() {
         if (!moved) {
-            x = getX();
-            y = getY();
+            x = (int) getX();
+            y = (int) getY();
             moved = true;
         }
         if (!WorldData.PAUZA) {
