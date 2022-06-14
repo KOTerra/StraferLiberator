@@ -23,7 +23,6 @@ public class Text extends Menu {
 		textImage.drawString(txt, 512 - textWidth / 2, 576 / 2);
 
 		setImage(textImage);
-
 	}
 
 	public void act() {

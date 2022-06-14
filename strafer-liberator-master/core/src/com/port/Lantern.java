@@ -38,7 +38,7 @@ public class Lantern extends Item {
                         getWorld().addObject(new Light(this), this.getX(), this.getY());
                         isLight = true;
                     } else {
-                        getWorld().removeObject(getWorld().getObjects(Light.class).get(0));
+                        getWorld().removeObject((Actor) getWorld().getObjects(Light.class).get(0));
                         isLight = false;
                     }
 

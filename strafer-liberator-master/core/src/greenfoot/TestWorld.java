@@ -27,13 +27,12 @@ public class TestWorld extends World {
 		taa2();
 		poza();
 		new Thread(new Runnable() {
-			   @Override
+			  
 			   public void run() {
 			      sound();
 			   }
 			}).start();
 		
-		//sound();
 		this.setBackground(new GreenfootImage("Capture.png"));
 	}
 

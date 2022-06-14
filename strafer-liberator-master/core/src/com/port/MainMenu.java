@@ -10,7 +10,7 @@ public class MainMenu extends Menu {
     
     boolean butoanead = false;
 
-    public GreenfootSound music = new GreenfootSound("sounds/music/Rename.mp3");
+    public GreenfootSound music = new GreenfootSound("music/Rename.mp3");
 
     public MainMenu() {
 
@@ -23,12 +23,12 @@ public class MainMenu extends Menu {
     private void addButoane() {
         getWorld().addObject(new Buton("Continue", this), 805, 225);
         getWorld().addObject(new Buton("New Game", this), 805, 380);
-
+       
     }
 
     public void act() {
         setImage(background.getCurrentImage());
-
+    
         if (!butoanead) {
             addButoane();
             butoanead = true;

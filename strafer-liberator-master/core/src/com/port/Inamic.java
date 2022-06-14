@@ -397,7 +397,7 @@ public class Inamic extends Npc {
         int chance = Greenfoot.getRandomNumber(6);
         if (chance == 0) {
             //add the healthBoost
-            int currentHp = getWorld().getObjects(Player.class).get(0).getHp();
+            int currentHp = ((Player) getWorld().getObjects(Player.class).get(0)).getHp();
             int possibleHealth = Player.hpMax - currentHp;
             int alwaysAdd = possibleHealth * 40 / 100;
             chance = Greenfoot.getRandomNumber(10);

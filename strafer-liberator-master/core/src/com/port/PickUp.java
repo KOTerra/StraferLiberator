@@ -71,7 +71,10 @@ public class PickUp extends Item {
     }
 
     public boolean remove() {
-        switch (name) {
+    	if(name==null) {
+    		return false;
+    	}
+    	switch(name) {
             case "sword": {
                 if (WorldData.hasSword) {
                     getWorld().removeObject(this);
@@ -113,6 +116,9 @@ public class PickUp extends Item {
                 }
                 break;
             }
+ 
+            	
+            
         }
 		return picked;
     }

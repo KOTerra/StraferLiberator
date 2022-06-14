@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.BitmapFontData;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
@@ -20,8 +21,11 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	FrameBuffer frameBuffer;
 
 	private int transparency = 255;
-	Color color = new Color(0, 0, 0);
-	private Font font;
+	Color backgroundColor = new Color(0, 0, 0,0f);
+	Color textColor= new Color(0,0,0);
+
+
+	private Font font=new Font("consolas",24);
 
 	float scaleX;
 	float scaleY;
@@ -66,6 +70,19 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		scaleY=gfi.getHeight();
 	}
 
+	public GreenfootImage(String string, int i, Color textColor, Color backgroundColor) {
+		int textWidth  = (int) new GlyphLayout(font, string).width;
+		int textHeight = (int) new GlyphLayout(font, string).height;
+		setRegion(new Texture(new Pixmap(textWidth, textHeight,Pixmap.Format.RGBA8888)));
+		pixmap = new Pixmap(textWidth, textHeight, Pixmap.Format.RGBA8888);
+		
+		this.textColor=textColor;
+		this.backgroundColor=backgroundColor;
+		scaleX = textWidth;
+		scaleY = textHeight;
+		
+	}
+
 	public void clear() {
 		pixmap.setBlending(Pixmap.Blending.SourceOver);
 		setColor(new Color(0,0,0,0f));
@@ -73,8 +90,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		makeDraw();
 	}
 
-	public void drawImage(GreenfootImage img2, int f, int g) { // imagine pasta imagine
-		pixmap.drawPixmap(img2.getPixmap(), f, g);
+	public void drawImage(GreenfootImage img2, float f, float g) { // imagine pasta imagine
+		pixmap.drawPixmap(img2.getPixmap(), (int)f,(int) g);
 		makeDraw();
 	}
 
@@ -83,7 +100,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	public void drawString(java.lang.String string, int x, int y) { // text pasta imagine
 		Pixmap pxmp=new Pixmap((int)scaleX,(int)scaleY,Pixmap.Format.RGBA8888);
 		pxmp.setBlending(Pixmap.Blending.SourceOver);
-		pxmp.setColor(new Color(0,0,0,0f));
+		pxmp.setColor(backgroundColor);
 		pxmp.fill();
 		Texture texture = new Texture(pxmp);
 		
@@ -99,8 +116,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 			
 			spriteBatch.draw(textureRegion,0,0);
 		
-			color.a=1;
-			font.setColor(color);
+			textColor.a=1;
+			font.setColor(textColor);
 			fdata.setScale(2*WorldData.WIDTH/scaleX, 2*WorldData.HEIGHT/scaleY);
 			font.draw(spriteBatch, string, x, y);
 
@@ -117,7 +134,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		super.setRegion(new Texture(pixmap));
 	}
 	
-	void drawLine(int x1, int y1, int x2, int y2) {
+	public void drawLine(int x1, int y1, int x2, int y2) {
 		pixmap.drawLine(x1, y1, x2, y2);
 		makeDraw();
 	}
@@ -131,12 +148,12 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 
 	}
 
-	void drawRect(int x, int y, int width, int height) {
-		pixmap.drawRectangle(x, y, width, height);
+	public void drawRect(int x, int y, float f, float g) {
+		pixmap.drawRectangle(x, y, (int)f, (int)g);
 		makeDraw();
 	}
 
-	void fill() {
+	public void fill() {
 		pixmap.fill();
 		makeDraw();
 	}
@@ -149,18 +166,18 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 
 	}
 
-	void fillRect(int x, int y, int width, int height) {
+	public void fillRect(int x, int y, int width, int height) {
 		pixmap.fillRectangle(x, y, width, height);
 		makeDraw();
 	}
 
 	Color getColor() {
-		return color;
+		return backgroundColor;
 	}
 
 	public void setColor(Color color) {
 		pixmap.setColor(color);
-		this.color = color;
+		this.backgroundColor = color;
 	}
 
 	public void setFont(Font font) {
@@ -196,5 +213,26 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 
 	public Pixmap getPixmap() {
 		return pixmap;
+	}
+	
+	public Color getBackgroundColor() {
+		return backgroundColor;
+	}
+
+	public void setBackgroundColor(Color backgroundColor) {
+		this.backgroundColor = backgroundColor;
+	}
+
+	public Color getTextColor() {
+		return textColor;
+	}
+
+	public void setTextColor(Color textColor) {
+		this.textColor = textColor;
+	}
+
+	public void setTransparency(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 }

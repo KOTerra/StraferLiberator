@@ -47,7 +47,7 @@ public class TaserDolpatian extends NpcItem{
     protected void atac() {
         itemImg = directie.get(((Inamic)dolpatian).getGifItem());
         if(isTouching(Player.class)){
-           Player player= getWorld().getObjects(Player.class).get(0);
+           Player player= (Player) getWorld().getObjects(Player.class).get(0);
            if(player!=null){
                player.knockbacked=true;
                    player.knockback(0.1, dolpatian, this.mass, 80);

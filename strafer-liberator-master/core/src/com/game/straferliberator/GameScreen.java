@@ -11,10 +11,12 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.game.straferliberator.World.WorldListener;
+import com.port.PlayWorld;
 
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
 import greenfoot.TestActor;
+import greenfoot.TestWorld;
 
 public class GameScreen extends ScreenAdapter {
 
@@ -22,7 +24,9 @@ public class GameScreen extends ScreenAdapter {
 
 	OrthographicCamera camera;
 	Vector3 touchPoint;
-	greenfoot.TestWorld world;
+	greenfoot.World world;
+
+
 	WorldRenderer worldRederer;
 
 
@@ -31,19 +35,21 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator game) {
 		this.game = game;
 
-		//world = new com.port.PlayWorld();
-		 world = new greenfoot.TestWorld();
+		 //world = new TestWorld();
 		//
+		world=new PlayWorld();
+
 		Gdx.input.setInputProcessor(world);
+		
 		camera = new OrthographicCamera(1024, 576);
 		touchPoint = new Vector3();
 
 		
-		worldRederer = new WorldRenderer(StraferLiberator.batcher, world);
+		worldRederer = new WorldRenderer<Object>(StraferLiberator.batcher, world);
 	}
 
 	public void update(float deltaTime) {
-		
+	
 		world.act();
 	}
 
@@ -65,5 +71,6 @@ public class GameScreen extends ScreenAdapter {
 	public void render(float delta) {
 		update(delta);
 		draw();
+		
 	}
 }

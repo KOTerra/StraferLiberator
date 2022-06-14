@@ -9,7 +9,7 @@ public class GameOver extends Menu{
 
     boolean butoanead = false;
 
-   // public GreenfootSound music = new GreenfootSound("sounds/music/Rename.mp3");
+    public GreenfootSound music = new GreenfootSound("sounds/music/Rename.mp3");
 
     public GameOver(PlayWorld playWorldref) {
 
@@ -35,11 +35,13 @@ public class GameOver extends Menu{
         }
     }
 
-   // public GreenfootSound getMusic() {
-      //  return music;
-    //}
+	
 
-    //public void setMusic(GreenfootSound music) {
-       // this.music = music;
-    //}
+    public GreenfootSound getMusic() {
+        return music;
+    }
+
+    public void setMusic(GreenfootSound music) {
+        this.music = music;
+    }
 }

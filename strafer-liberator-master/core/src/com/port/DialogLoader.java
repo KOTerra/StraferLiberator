@@ -10,7 +10,7 @@ abstract class DialogLoader extends Loader{
     /*
      * The name of the directory where all dialogs are saved
      */
-    private static String directoryName = "dialogs";
+    private static String directoryName = "assets/dialogs";
 
     /*
      * This method processes the string and returns it's content

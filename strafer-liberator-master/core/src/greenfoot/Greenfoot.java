@@ -26,7 +26,9 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 
 	public static boolean mouseMoved(Object object) {
 		Actor actor = (Actor) object;
-
+		if(actor==null) {
+			return false;
+		}
 		float iw = actor.getImage().getWidth();
 		float ih = actor.getImage().getHeight();
 
@@ -63,6 +65,12 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 
 	public static MouseInfo getMouseInfo() {
 		return mouseInfo;
+	}
+
+	public static void playSound(String string) {
+		GreenfootSound sound=new GreenfootSound(string);
+		sound.play();
+		
 	}
 
 }

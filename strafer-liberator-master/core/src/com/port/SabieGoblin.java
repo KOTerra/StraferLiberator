@@ -45,7 +45,7 @@ public class SabieGoblin extends NpcItem{
     protected void atac() {
         sabieImg = directie.get(((Inamic)goblin).getGifItem());
         if(isTouching(Player.class)){
-           Player player= getWorld().getObjects(Player.class).get(0);
+           Player player= (Player) getWorld().getObjects(Player.class).get(0);
            if(player!=null){
                player.knockbacked=true;
                    player.knockback(0.1, goblin, this.mass, 80);

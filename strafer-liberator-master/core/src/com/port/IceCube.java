@@ -15,8 +15,8 @@ public class IceCube extends IceLock{
         this.iceLock=icelock;
         iceLock.setSent(false);
         
-        int width=actor.getImage().getWidth();
-        int height=actor.getImage().getHeight();
+        int width=(int) actor.getImage().getWidth();
+        int height=(int) actor.getImage().getHeight();
         img.scale(width, height);
         setImage(img);
         

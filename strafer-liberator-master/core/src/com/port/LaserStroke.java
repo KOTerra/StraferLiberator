@@ -36,8 +36,8 @@ public class LaserStroke extends NpcItem {
         y2 = Greenfoot.getRandomNumber(75) + y1;
 
         Player player = stroke.getPlayer();
-        int xFin = (player.getX() - dist / 2) / 2;
-        int yFin = (player.getY()) / 2;
+        int xFin = (int) ((player.getX() - dist / 2) / 2);
+        int yFin = (int) ((player.getY()) / 2);
 
         art.drawLine(xStart / 2, yStart / 2, x1, y1);
         art.drawLine(xStart / 2 + dist / 2, yStart / 2, x1 + dist / 2, y1);

@@ -45,8 +45,8 @@ public class Stroke extends Inamic {
     LaserStroke laserStroke;
 
     protected void addLasers() {
-        ochix = getX() - 50;
-        ochiy = getY() - 35;
+        ochix = (int) (getX() - 50);
+        ochiy = (int) (getY() - 35);
         laserStroke = new LaserStroke(this, 100);
         getWorld().addObject(laserStroke, WorldData.menuX, WorldData.menuY);
 

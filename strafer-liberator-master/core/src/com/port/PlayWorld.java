@@ -22,14 +22,14 @@ public class PlayWorld extends World {
     public HealthBarPlayer healthBar;
     private boolean addedHealthBar = false;
 
-   // public GreenfootSound musicIdle = new GreenfootSound("sounds/music/Default.mp3");
- //   public GreenfootSound musicCombat = new GreenfootSound("sounds/music/Combat.mp3");
+    public GreenfootSound musicIdle = new GreenfootSound("music/Default.mp3");
+    public GreenfootSound musicCombat = new GreenfootSound("music/Combat.mp3");
 
     public PlayWorld() {
         super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); //width, height, cellsize, daca sunt actorii restricted la lume
 
-        setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class, Picture.class, MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class, Effect.class,
-        				Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class, Npc.class);
+     //   setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class, Picture.class, MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class, Effect.class,
+       // 				Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class, Npc.class);
 
         WIDE = WorldData.WIDTH;
         HIGH = WorldData.HEIGHT;
@@ -40,20 +40,23 @@ public class PlayWorld extends World {
         WorldData.addedDialogs = false;
         addedHealthBar = false;
 
-    //    musicCombat.setVolume(45);
-   //     musicIdle.setVolume(45);
+       musicCombat.setVolume(45);
+       musicIdle.setVolume(45);
 
         addMainMenu();
 
     }
 
-    private void addMainMenu() {
+ 
+
+	private void addMainMenu() {
         addObject(new MainMenu(), WorldData.menuX, WorldData.menuY);
-        System.out.println("PORRRRRRRRRT");
+        
     }
 
     public void addPlayer() {
         GreenfootImage background = new GreenfootImage("map/worldSection/worldSection11.png");//imi pun fundalul
+        setBackground(background);
         scroller = new Scroller(this, background, 8192, 8192);
 
         player = new Player();
@@ -127,13 +130,13 @@ public class PlayWorld extends World {
     public void act() {
 
         scroll();
-        if (!addedHealthBar) {
-           // addHealthBar();
+        if (!addedHealthBar) { 
+           addHealthBar();
             addedHealthBar = true;
         }
         relocBar();
-       // updateMusic();
-
+       updateMusic();
+       super.act();
     }
 
     public WorldListener getWorldListener() {
@@ -152,7 +155,7 @@ public class PlayWorld extends World {
         return healthBar;
     }
 
-   /* public GreenfootSound getMusicIdle() {
+    public GreenfootSound getMusicIdle() {
         return musicIdle;
     }
 
@@ -188,5 +191,5 @@ public class PlayWorld extends World {
             }
         }
     }
-*/
+
 }

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
+import com.port.PlayWorld;
 
 import greenfoot.Actor;
 
@@ -20,7 +21,7 @@ public class WorldRenderer<A> {
 	SpriteBatch batch;
 
 	public WorldRenderer(SpriteBatch batch, greenfoot.World world) {
-		this.world = world;
+		this.world =  world;
 		this.cam = new OrthographicCamera(WIDTH, HEIGHT);
 		this.cam.position.set(WIDTH / 2, HEIGHT / 2, 0);
 		this.batch = batch;
@@ -50,7 +51,7 @@ public class WorldRenderer<A> {
 		for(com.badlogic.gdx.scenes.scene2d.Actor a:l) {
 			
 			((greenfoot.Actor) a).draw();
-		
+			
 		}
 		
 		

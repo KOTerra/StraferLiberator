@@ -17,8 +17,8 @@ public class IceLock extends Item {
     private void addIceCube() {
         if (Greenfoot.mouseClicked(null)) {
             if (Greenfoot.getMouseInfo().getButton() == 1) {  //right 3 left 1
-                int x = Greenfoot.getMouseInfo().getX();
-                int y = Greenfoot.getMouseInfo().getY();
+                int x = (int) Greenfoot.getMouseInfo().getX();
+                int y = (int) Greenfoot.getMouseInfo().getY();
                 if (getWorld().getObjects(IceCube.class).isEmpty()) {
                     sent = true;
                     this.setLocation(x, y);

@@ -20,16 +20,16 @@ public class GreenfootSound  {
 		return (int)volume;
 	}
 
-	boolean isPlaying() {
+	public boolean isPlaying() {
 		return playing;
 	}
 
-	void pause() {
+	public void pause() {
 		sound.pause();
 		playing=false;
 	}
 
-	void play() {
+	 public void play() {
 		playing=true;
 		id=sound.play();	
 	}
@@ -37,17 +37,17 @@ public class GreenfootSound  {
 		sound.setLooping(id, isPlaying());
 	}
 
-	void playLoop() {					
+	public void playLoop() {					
 		
 		sound.loop(volume/100f);
 	}
 
-	void setVolume(int volume) {
+	public void setVolume(int volume) {
 		sound.setVolume(id, volume/100f);
 		this.volume=volume;
 	}
 
-	void stop() {
+	public void stop() {
 		sound.stop();
 		playing=false;
 	}
