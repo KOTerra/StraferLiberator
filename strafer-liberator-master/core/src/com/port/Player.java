@@ -479,6 +479,9 @@ public class Player extends Jucator {
 
     public void act() {
 
+    	if(Greenfoot.isKeyDown("K")) {
+    		takeDamage(2);
+    	}
         checkPauza();
 
         if (!WorldData.PAUZA) {

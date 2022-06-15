@@ -27,12 +27,14 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 //
 	public void act() {
-		// super.act();// apeleaza act pt fiecare actor
+		// super.act(1f);// apeleaza act pt fiecare actor
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> l = getActors();
 
 		for (int i = 0; i < l.size; i++) {
-
-			((greenfoot.Actor) l.items[i]).act();
+			Actor a=(greenfoot.Actor) l.items[i];
+			//if(a.isInScreenRange()) {
+				a.act();
+			//}
 
 		}
 	}
@@ -52,7 +54,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		object.setLocation(initx, inity);
 	}
 
-	public void removeObject(greenfoot.Actor actor) { // si asta merge
+	public void removeObject(greenfoot.Actor actor) { // si asta mergess
 		if (actor == null) {
 			return;
 		}

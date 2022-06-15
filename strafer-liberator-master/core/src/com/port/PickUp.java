@@ -70,59 +70,6 @@ public class PickUp extends Item {
 
     }
 
-    public boolean remove() {
-    	if(name==null) {
-    		return false;
-    	}
-    	switch(name) {
-            case "sword": {
-                if (WorldData.hasSword) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
-            case "laser": {
-
-                if (WorldData.hasLaser) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
-            case "blackhole": {
-
-                if (WorldData.hasBlackHole) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
-            case "icelock": {
-
-                if (WorldData.hasIceLock) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
-            case "lantern": {
-
-                if (WorldData.hasLantern) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
-            case "portalgun": {
-
-                if (WorldData.hasPortalGun) {
-                    getWorld().removeObject(this);
-                }
-                break;
-            }
- 
-            	
-            
-        }
-		return picked;
-    }
-
     protected Player getPlayer() {
         return (Player) (getWorld().getObjects(Player.class).get(0));
     }

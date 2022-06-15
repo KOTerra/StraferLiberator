@@ -86,7 +86,7 @@ public class Buton extends UI {
             setImage(img1);
 
         }
-        if (Greenfoot.mouseMoved(null) && !Greenfoot.mouseMoved(this)) {
+        if ( !Greenfoot.mouseMoved(this)) {
             setImage(img0);
         }
 

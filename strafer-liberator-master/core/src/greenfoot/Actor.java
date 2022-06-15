@@ -25,7 +25,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	private float x = 0, y = 0;
 	greenfoot.World world;
-	greenfoot.GreenfootImage image=new GreenfootImage(1,1);
+	greenfoot.GreenfootImage image = new GreenfootImage(1, 1);
 	SpriteBatch batch;
 	Rectangle rect;
 
@@ -67,7 +67,6 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		x = f;
 		y = toScreenY(g);
 		setPosition(x, y);
-		// System.out.println(y+" "+getY()+" "+getStageY());
 
 	}
 
@@ -76,7 +75,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public void setRotation(float r) {
-		
+
 		super.setRotation(-r);
 
 	}
@@ -95,7 +94,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 		int dx = (int) Math.round(Math.cos(radians) * distance);
 		int dy = (int) Math.round(Math.sin(radians) * distance);
-		super.setPosition(x + dx, y + dy, Align.center);
+		setLocation(x + dx, getY() + dy);
 	}
 
 	public void turn(int amount) {
@@ -112,24 +111,22 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	protected boolean intersects(Actor other) { /// merge, le facem asa toate
-		if(other==this) {
-			return false;
-		}
+
 		Rectangle r = new Rectangle(x - iw() / 2, y - ih() / 2, iw(), ih());
 		Rectangle r2 = new Rectangle(other.getX() - other.iw() / 2, other.getStageY() - other.ih() / 2, other.iw(),
 				other.ih());
-
 		if (r.overlaps(r2)) {
 			return true;
-
 		}
+
 		return false;
+
 	}
 
 	protected boolean isTouching(java.lang.Class<?> cls) {
 		java.util.List<?> l = getWorld().getObjects(cls);
 		for (Object actor : l) {
-			if (actor instanceof greenfoot.Actor &&actor!=this) {
+			if (actor instanceof greenfoot.Actor && actor != this) {
 				if (((greenfoot.Actor) actor).intersects(this)) {
 					return true;
 				}
@@ -150,26 +147,26 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	protected List<?> getIntersectingObjects(java.lang.Class<?> cls) {
 		List<?> l = getWorld().getObjects(cls);
-		ArrayList<greenfoot.Actor> res=new ArrayList<>();
+		ArrayList<greenfoot.Actor> res = new ArrayList<>();
 		for (Object actor : l) {
 			if (((greenfoot.Actor) actor).intersects(this)) {
 				res.add((Actor) actor);
 			}
 		}
-		
+
 		return res;
 	}
 
 	@SuppressWarnings("rawtypes")
 	protected greenfoot.Actor getOneIntersectingObject(java.lang.Class<?> cls) {
-		if(getIntersectingObjects(cls).isEmpty()) {
+		if (getIntersectingObjects(cls).isEmpty()) {
 			return null;
 		}
 		return (greenfoot.Actor) getIntersectingObjects(cls).get(0);
 	}
 
 	protected greenfoot.Actor getOneObjectAtOffset(int dx, int dy, java.lang.Class<?> cls) {
-		if(getWorld().getObjectsAt(this.getX() + dx, this.getY() + dy, cls).isEmpty()) {
+		if (getWorld().getObjectsAt(this.getX() + dx, this.getY() + dy, cls).isEmpty()) {
 			return null;
 		}
 		return (greenfoot.Actor) (getWorld().getObjectsAt(this.getX() + dx, this.getY() + dy, cls).get(0));
@@ -177,12 +174,13 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	protected java.util.List<?> getObjectsInRange(int radius, java.lang.Class<?> cls) {
 		List<?> l = getWorld().getObjects(cls);
-		ArrayList<greenfoot.Actor> res=new ArrayList<>();
+		ArrayList<greenfoot.Actor> res = new ArrayList<>();
 		Circle c = new Circle(getX(), getStageY(), radius);
 		for (Object obj : l) {
 			greenfoot.Actor actor = (greenfoot.Actor) obj;
-			
-			Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getStageY() - actor.ih() / 2, actor.iw(),actor.ih());
+
+			Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getStageY() - actor.ih() / 2, actor.iw(),
+					actor.ih());
 			if (Intersector.overlaps(c, r)) {
 				if (actor != this) {
 					res.add(actor);
@@ -224,16 +222,25 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		x = prevx;
 		y = prevy;
 		setPosition(x, y);
-	
+
 	}
 
 	public void draw() {
-		batch.draw(this.getImage(),
-					getX() - this.iw() / 2, 		getStageY() - this.ih() / 2,	  //coordonatele
-					this.iw()/2 ,					this.ih()/2,					 //pct in care e rotit
-					this.getImage().getScaleX(),	this.getImage().getScaleY(),    //width/height
-					1,								1,							   //scale
-				  super.getRotation());									  		  //rotation
+		if (isInScreenRange()) {
+			batch.draw(this.getImage(), getX() - this.iw() / 2, getStageY() - this.ih() / 2, // coordonatele
+					this.iw() / 2, this.ih() / 2, // pct in care e rotit
+					this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
+					1, 1, // scale
+					super.getRotation()); // rotation
+		}
+	}
+
+	public boolean isInScreenRange() {
+		if (getX() < -WorldData.WIDTH || getX() > WorldData.WIDTH * 1.5f || getY() < -WorldData.HEIGHT
+				|| getY() > WorldData.HEIGHT * 1.5f) {
+			return false;
+		}
+		return true;
 	}
 
 	public float iw() {

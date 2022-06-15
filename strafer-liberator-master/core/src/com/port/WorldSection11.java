@@ -16,10 +16,11 @@ public class WorldSection11 extends WorldSection{
     }
     
     public void init(){
-        initNpc();
-        init1();
-        init2();
-        init3();
+    	//world.initObject(new Droid(scroller, 3072, 576, "ox",600),3072, 576);
+      // initNpc();
+      //  init1();
+        //init2();
+      // init3();
     }
 public void initNpc(){
 //npc

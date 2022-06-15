@@ -31,7 +31,10 @@ public class Color extends com.badlogic.gdx.graphics.Color {
 	public final static Color CYAN = new Color(0, 255, 255);
 
 	public final static Color BLUE = new Color(0, 0, 255);
-
+	
+	
+	public final static Color colorSafeHealth = new Color(95, 205, 228);
+	public final static Color colorDangerHealth = new Color(222, 93, 18,1);
 	
 	
 	

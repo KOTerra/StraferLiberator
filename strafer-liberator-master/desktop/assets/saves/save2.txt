@@ -1,5 +1,5 @@
-PlayerX:752.0
-PlayerY:486.99945
+PlayerX:150.0
+PlayerY:200.0
 Health:400
 WorldSection:11
 WS11:true
@@ -8,5 +8,5 @@ WS13:false
 WS21:false
 WS22:false
 WS23:false
-DialogIndex:1
-NrEvent:5
+DialogIndex:0
+NrEvent:3

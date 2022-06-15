@@ -45,8 +45,11 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 	}
 
 	public static boolean mouseClicked(Object object) {
-
-		Actor actor = (Actor) object;
+		if (Gdx.input.justTouched()) {
+			if (object == null) {
+				return true;
+			}
+		}
 
 		if (mouseMoved(object)) {
 			if (Gdx.input.justTouched()) {
@@ -55,11 +58,7 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 			}
 		}
 
-		if (Gdx.input.justTouched()) {
-			if (object == null) {
-				return false;
-			}
-		}
+		
 		return false;
 	}
 

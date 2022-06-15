@@ -16,11 +16,11 @@ public class WorldSection21 extends WorldSection{
     }
     
      public void init(){
-       initNpc();
-       init1();
-       init2();
-       init3();
-       init4();
+      // initNpc();
+      // init1();
+      // init2();
+      // init3();
+      // init4();
      
        
    }

@@ -17,7 +17,7 @@ public class HealthBar extends UI {
 	private int barHeight = 10; // the height of the color portion of the bar
 	private int breakPercent = 20; // the percentage amount that changes the color of the bar
 	private int breakValue = 20; // in tandem with breakPercent
-	private boolean usingBreakValue = false;
+	private boolean usingBreakValue = true;
 	private boolean breakLow = true; // when true, with low-percent values bar is dangerColor, else safeColor;
 										// reversed when false
 
@@ -85,6 +85,7 @@ public class HealthBar extends UI {
 			if (breakLow) {
 				if (value > (usingBreakValue ? breakValue
 						: (int) (breakPercent * (maximumValue - minimumValue) / 100 + minimumValue))) {
+					
 					barImg.setColor(safeColor);
 				} else {
 					barImg.setColor(dangerColor);
@@ -121,20 +122,20 @@ public class HealthBar extends UI {
 		}
 
 		// pixelare text
-		leftImg.scale(leftImg.getWidth() / 4, leftImg.getHeight() / 4);
-		GreenfootImage leftImgPixelated = leftImg;
-		leftImg = leftImgPixelated;
-		leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() * 2);
+		//leftImg.scale(leftImg.getWidth() / 4, leftImg.getHeight() / 4);
+		//GreenfootImage leftImgPixelated = leftImg;
+		//leftImg = leftImgPixelated;
+		//leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() * 2);
 		// pixelare text
 
 		GreenfootImage image = new GreenfootImage(sumX, maxY);
 		image.setColor(backgroundColor);
 		image.fill();
 
-		image.drawImage(leftImg, maxX + 2 - leftImg.getWidth(), (image.getHeight() - leftImg.getHeight()) / 2);
+		//image.drawImage(leftImg, maxX + 2 - leftImg.getWidth(), (image.getHeight() - leftImg.getHeight()) / 2);
 
 		image.drawImage(barImg, maxX, (image.getHeight() - barImg.getHeight()) / 2);
-		image.drawImage(rightImg, maxX + barImg.getWidth(), (image.getHeight() - rightImg.getHeight()) / 2);
+	//	image.drawImage(rightImg, maxX + barImg.getWidth(), (image.getHeight() - rightImg.getHeight()) / 2);
 		setImage(image);
 	}
 

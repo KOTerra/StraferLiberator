@@ -9,7 +9,7 @@ public class GameOver extends Menu{
 
     boolean butoanead = false;
 
-    public GreenfootSound music = new GreenfootSound("sounds/music/Rename.mp3");
+    public GreenfootSound music = new GreenfootSound("music/Rename.mp3");
 
     public GameOver(PlayWorld playWorldref) {
 

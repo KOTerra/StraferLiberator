@@ -35,7 +35,7 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator game) {
 		this.game = game;
 
-		 //world = new TestWorld();
+		// world = new TestWorld();
 		//
 		world=new PlayWorld();
 
@@ -51,6 +51,8 @@ public class GameScreen extends ScreenAdapter {
 	public void update(float deltaTime) {
 	
 		world.act();
+
+		System.out.println(Gdx.graphics.getFramesPerSecond());
 	}
 
 	public void draw() {
