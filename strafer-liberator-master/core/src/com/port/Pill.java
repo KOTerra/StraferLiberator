@@ -11,6 +11,7 @@ public class Pill extends PickUp{
     private final long constantEraseTime = 400;int time=0;
     public Pill(int hpToAdd){
         this.hpToAdd = hpToAdd;
+        setImage(gif.getCurrentImage());
     }
     
     protected void pick(){

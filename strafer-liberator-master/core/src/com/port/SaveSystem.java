@@ -154,11 +154,11 @@ abstract class SaveSystem {
                     worldListener.load();
 
                 } else if (tip.equalsIgnoreCase("PlayerX:")) {
-                    player.setWorldX(Integer.parseInt(getContentString(str)));
+                    player.setWorldX((int) Float.parseFloat(getContentString(str)));
                     player.setLocation(player.getWorldX() - Scroller.scrolledX, player.getWorldY() - Scroller.scrolledY);
 
                 } else if (tip.equalsIgnoreCase("PlayerY:")) {
-                    player.setWorldY(Integer.parseInt(getContentString(str)));
+                    player.setWorldY((int) Float.parseFloat(getContentString(str)));
                     player.setLocation(player.getWorldX() - Scroller.scrolledX, player.getWorldY() - Scroller.scrolledY);
 
                 } else if (tip.equalsIgnoreCase("Health:")) {
@@ -209,7 +209,7 @@ abstract class SaveSystem {
 
             fin.close();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e+"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
     }
 
@@ -240,9 +240,9 @@ abstract class SaveSystem {
             fout.println("PlayerX:" + new Integer(juc.getWorldX()).toString());
     
              */
-            fout.println("PlayerX:" + (player.getX() + Scroller.scrolledX));
-            fout.println("PlayerY:" + (player.getY() + Scroller.scrolledY));
-            fout.println("Health:" + (player.getHp()));
+            fout.println("PlayerX:" + ((int)player.getX() + Scroller.scrolledX));
+            fout.println("PlayerY:" + ((int)player.getY() + Scroller.scrolledY));
+            fout.println("Health:" + ((int)player.getHp()));
 
             fout.println("WorldSection:" + WorldData.worldSection);
             fout.println("WS11:" + WorldData.visitedWorldSections[1][1]);

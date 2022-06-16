@@ -16,6 +16,7 @@ public class Keanu extends Friendly
         playWorld=pw;
         this.nrDialog=nrDialog;
         dialogFile=dialogFileref;
+        setImage(img.getCurrentImage());
         
     }
     
