@@ -1,78 +1,76 @@
 package com.port;
 
-import greenfoot.*;  
+import greenfoot.*;
 import java.util.HashMap;
 
-public class SabieGoblin extends NpcItem{
-       public static final int damage = 5;
-    public static final int mass = 2;
+public class SabieGoblin extends NpcItem {
+	public static final int damage = 5;
+	public static final int mass = 2;
 
-   
-    HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
-    GifImage sabieImg = directie.get(Item.itemGif);
- 
-    
-    private long time = 0;
+	HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
+	GifImage sabieImg = directie.get(Item.itemGif);
 
-    Actor goblin;
+	private long time = 0;
 
-    private final long constantEraseTime = 25;
-    boolean gaveDamage=false;
+	Actor goblin;
 
-    public SabieGoblin(Goblin goblin) {
-        this.goblin=goblin;
-        directie.put("D", new GifImage("npc/inamic/goblin/sabie_goblin_D.gif"));
-        directie.put("W", new GifImage("npc/inamic/goblin/sabie_goblin_W.gif"));
-        directie.put("A", new GifImage("npc/inamic/goblin/sabie_goblin_A.gif"));
-        directie.put("S", new GifImage("npc/inamic/goblin/sabie_goblin_S.gif"));
+	private final long constantEraseTime = 25;
+	boolean gaveDamage = false;
 
-        sabieImg = directie.get("D");
-         setImage(sabieImg.getCurrentImage());
-        this.time = 0;
+	public SabieGoblin(Goblin goblin) {
+		this.goblin = goblin;
+		directie.put("D", new GifImage("npc/inamic/goblin/sabie_goblin_D.gif"));
+		directie.put("W", new GifImage("npc/inamic/goblin/sabie_goblin_W.gif"));
+		directie.put("A", new GifImage("npc/inamic/goblin/sabie_goblin_A.gif"));
+		directie.put("S", new GifImage("npc/inamic/goblin/sabie_goblin_S.gif"));
 
-    }
+		sabieImg = directie.get("D");
+		setImage(sabieImg.getCurrentImage());
+		this.time = 0;
 
-    public Actor getGoblin() {
-        return this.goblin;
-    }
+	}
 
-    protected void move() {
-        super.move(this);
+	public Actor getGoblin() {
+		return this.goblin;
+	}
 
-        sabieImg = directie.get(((Inamic)goblin).getGifItem());
-    }
+	protected void move() {
+		super.move(this);
 
-    protected void atac() {
-        sabieImg = directie.get(((Inamic)goblin).getGifItem());
-        if(isTouching(Player.class)){
-           Player player= (Player) getWorld().getObjects(Player.class).get(0);
-           if(player!=null){
-               player.knockbacked=true;
-                   player.knockback(0.1, goblin, this.mass, 80);
-               if(!gaveDamage){
-                   player.takeDamage(this.damage);
-                   gaveDamage=true;
-               }
-            }
-        }
-    }
+		sabieImg = directie.get(((Inamic) goblin).getGifItem());
+	}
 
-    public void act() {
+	protected void atac() {
+		sabieImg = directie.get(((Inamic) goblin).getGifItem());
+		if (isTouching(Player.class)) {
+			Player player = (Player) getWorld().getObjects(Player.class).get(0);
+			if (player != null) {
+				player.knockbacked = true;
+				player.knockback(0.1, goblin, this.mass, 80);
+				if (!gaveDamage) {
+					player.takeDamage(this.damage);
+					gaveDamage = true;
+				}
+			}
+		}
+	}
 
-        if (!WorldData.PAUZA) {
-            atac();
-            move();
-            setImage(sabieImg.getCurrentImage());
-            time++;
-            if (time > constantEraseTime) {
-                ((Inamic)goblin).setUsedItem(false);
-                getWorld().removeObject(this);
-                
-            }
-            
-           
-            
-        }
-        
-    }
+	public void act() {
+
+		if (!WorldData.PAUZA) {
+			atac();
+			move();
+			if (sabieImg != null) {
+				setImage(sabieImg.getCurrentImage());
+			}
+			time++;
+			if (time > constantEraseTime) {
+				((Inamic) goblin).setUsedItem(false);
+				getWorld().removeObject(this);
+
+			}
+
+		}
+
+	}
 }

@@ -78,7 +78,11 @@ public class Inamic extends Npc {
             }
 
             if (player.getHp() >= 0 && playerX < 128 && playerY < 128) {
-                super.Lee(gY, gX, playerY, playerX);
+                try {
+					super.Lee(gY, gX, playerY, playerX);
+				} catch (Exception e) {
+					
+				}
             }
         }
 
