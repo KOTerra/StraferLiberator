@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,8 +22,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	FrameBuffer frameBuffer;
 
 	private int transparency = 255;
-	Color backgroundColor = new Color(0, 0, 0, 0f);
-	Color textColor = new Color(0, 0, 0);
+	com.badlogic.gdx.graphics.Color backgroundColor = new Color(0, 0, 0, 0f);
+	com.badlogic.gdx.graphics.Color textColor = new Color(0, 0, 0,1);
 
 	private Font font = new Font("consolas", 24);
 
@@ -178,8 +179,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 
-	public void setColor(Color color) {
-		this.backgroundColor = color;
+	public void setColor(com.badlogic.gdx.graphics.Color safeColor) {
+		this.backgroundColor = safeColor;
 		pixmap.setColor(backgroundColor);
 	}
 
@@ -218,12 +219,12 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		return pixmap;
 	}
 
-	public Color getColor() {
+	public com.badlogic.gdx.graphics.Color getColor() {
 		return backgroundColor;
 	}
 
 
-	public Color getTextColor() {
+	public com.badlogic.gdx.graphics.Color getTextColor() {
 		return textColor;
 	}
 

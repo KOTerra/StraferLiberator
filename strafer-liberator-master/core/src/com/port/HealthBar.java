@@ -1,5 +1,7 @@
 package com.port;
 
+import com.badlogic.gdx.graphics.Color;
+
 // AUTHOR: danpost
 // Version: 2
 // Last modified: February, 8, 2012
@@ -17,14 +19,14 @@ public class HealthBar extends UI {
 	private int barHeight = 10; // the height of the color portion of the bar
 	private int breakPercent = 20; // the percentage amount that changes the color of the bar
 	private int breakValue = 20; // in tandem with breakPercent
-	private boolean usingBreakValue = true;
+	private boolean usingBreakValue = false;
 	private boolean breakLow = true; // when true, with low-percent values bar is dangerColor, else safeColor;
 										// reversed when false
 
 	private Color backgroundColor = new Color(0, 0, 0, 0); // the background color of the entire object
 	private Color textColor = Color.BLACK; // the color of all text and the frame of the bar itself
-	private Color safeColor = Color.GREEN; // the color of the bar while in the safe range
-	private Color dangerColor = Color.RED; // the color of the bar while in the danger range
+	private com.badlogic.gdx.graphics.Color safeColor = Color.GREEN; // the color of the bar while in the safe range
+	private com.badlogic.gdx.graphics.Color dangerColor = Color.RED; // the color of the bar while in the danger range
 //  The color of the bar AT the breakpoint will be the average color between the safe color and the danger color
 
 	private float fontSize = 18.0f; // the size of the text
@@ -33,7 +35,7 @@ public class HealthBar extends UI {
 	private int minimumValue = 0; // the minimum value of the bar
 	private String referenceText = ""; // the title string (who or what the meter/bar is for)
 	private String unitOfMeasure = ""; // the unit of measure of the bar (any quantitative standard of measurement)
-	private boolean showTextualUnits = true; // determines whether or not the textual quantity of the bar is to show
+	private boolean showTextualUnits = false; // determines whether or not the textual quantity of the bar is to show
 
 	int x, y;
 	boolean moved = false;
@@ -98,13 +100,7 @@ public class HealthBar extends UI {
 					barImg.setColor(dangerColor);
 				}
 			}
-			if (value == (usingBreakValue ? breakValue
-					: (int) (breakPercent * (maximumValue - minimumValue) / 100 + minimumValue))) {
-				int r = (int) ((safeColor.getRed() + dangerColor.getRed()) / 2);
-				int g = (int) ((safeColor.getGreen() + dangerColor.getGreen()) / 2);
-				int b = (int) ((safeColor.getBlue() + dangerColor.getBlue()) / 2);
-				barImg.setColor(new Color(r, g, b));
-			}
+			
 			barImg.fillRect(2, 2, barValue, barHeight);
 		}
 
@@ -287,7 +283,7 @@ public class HealthBar extends UI {
 	 * @return: the current color of the color portion of the bar used for 'safe'
 	 *          values
 	 */
-	public Color getSafeColor() {
+	public com.badlogic.gdx.graphics.Color getSafeColor() {
 		return safeColor;
 	}
 
@@ -298,7 +294,7 @@ public class HealthBar extends UI {
 	 * @return: the current color of the color portion of the bar used for 'danger'
 	 *          values
 	 */
-	public Color getDangerColor() {
+	public com.badlogic.gdx.graphics.Color getDangerColor() {
 		return dangerColor;
 	}
 
@@ -472,8 +468,8 @@ public class HealthBar extends UI {
 	 *
 	 * @param 'color': the new color for safe values in the color portion of the bar
 	 */
-	public void setSafeColor(Color color) {
-		safeColor = color;
+	public void setSafeColor(com.badlogic.gdx.graphics.Color teal) {
+		safeColor = teal;
 		newImage();
 	}
 
@@ -484,7 +480,7 @@ public class HealthBar extends UI {
 	 * @param 'color': the new color for danger values in the color portion of the
 	 *                 bar
 	 */
-	public void setDangerColor(Color color) {
+	public void setDangerColor(com.badlogic.gdx.graphics.Color color) {
 		dangerColor = color;
 		newImage();
 	}

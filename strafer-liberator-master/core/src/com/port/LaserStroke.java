@@ -1,6 +1,8 @@
 package com.port;
 
 
+import com.badlogic.gdx.graphics.Color;
+
 import greenfoot.*;
 
 public class LaserStroke extends NpcItem {
@@ -17,7 +19,7 @@ public class LaserStroke extends NpcItem {
         this.yStart = stroke.getOchiy();
         this.dist = dist;
 
-        Color color = new Color(255, 11, 11);
+        Color color = Color.RED.lerp(Color.GOLDENROD, 0.15f);
         art.setColor(color);
 
         prepareLasers();

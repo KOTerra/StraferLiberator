@@ -4,6 +4,8 @@ package com.port;
 import greenfoot.*;
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Color;
+
 public class Stroke extends Inamic {
 
     Player player;
@@ -16,7 +18,7 @@ public class Stroke extends Inamic {
 
     public HealthBar healthBar;
     HealthBarImg healthBarImg=new HealthBarImg();
-    private Color cSQ = new Color(41, 77, 66);
+    private Color cSQ = Color.FOREST;
     private boolean addedHealthBar = false;
 
     private long timpLaser = 0;
@@ -252,10 +254,10 @@ boolean enter=false;
         addedHealthBar = false;
         healthBar = new HealthBar("", "", this.hpMax, this.hpMax);
         healthBar.setSafeColor(cSQ);
-        healthBar.setDangerColor(new Color(41, 77, 66));
+        healthBar.setDangerColor(Color.NAVY.lerp(Color.GOLD, 0.6f));
         healthBar.setBarWidth(567);
         healthBar.setBarHeight(8);
-        healthBar.setTextColor(new Color(155, 173, 183));
+        healthBar.setTextColor(Color.LIGHT_GRAY.lerp(Color.SKY, 0.3f));
        
         
     }

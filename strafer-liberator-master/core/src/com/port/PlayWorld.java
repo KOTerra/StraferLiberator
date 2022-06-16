@@ -1,5 +1,7 @@
 package com.port;
 
+import com.badlogic.gdx.graphics.Color;
+
 import greenfoot.*;
 
 //lumea in care are loc toata simularea
@@ -88,9 +90,8 @@ public class PlayWorld extends World {
 
 		healthBar = new HealthBarPlayer("", "", player.getHp(), player.getHpMax());
 
-		Color colorSafeHealth = new Color(95, 205, 228,1), colorDangerHealth = new Color(225, 95, 20,1);
-		healthBar.setSafeColor(colorSafeHealth);
-		healthBar.setDangerColor(colorDangerHealth);
+		healthBar.setSafeColor(Color.TEAL.lerp(Color.SKY, 0.7f));
+		healthBar.setDangerColor(Color.ORANGE);
 		healthBar.setBarWidth(181);
 		healthBar.setBarHeight(14);
 		healthBar.setReferenceText("");

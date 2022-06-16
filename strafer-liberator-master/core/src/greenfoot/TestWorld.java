@@ -7,6 +7,7 @@ import javax.naming.spi.DirStateFactory.Result;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.game.straferliberator.StraferLiberator;
 
@@ -51,9 +52,9 @@ public class TestWorld extends World {
 
 	void poza() {
 		GreenfootImage p = new GreenfootImage(300, 100);
-		p.setColor(new Color(0, 125, 120));
+		p.setColor(new Color(0, 125, 120,1));
 		p.drawRect(0, 0, 100, 37);
-		p.setColor(new Color(125, 0, 120));
+		p.setColor(new Color(125, 0, 120,1));
 		p.fillRect(3, 2, 72, 33);
 		p.drawImage(new GreenfootImage("cioata.png"), 0, 0);
 
