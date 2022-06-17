@@ -1,6 +1,6 @@
 package com.port;
 
-import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.lang.Math;
@@ -9,21 +9,27 @@ public class PereteInvizibil extends Perete {
 
 	private String marime;
 	private String pozitie;
-	HashMap<String, GreenfootImage> directie = new HashMap<String, GreenfootImage>();
-	GreenfootImage pereteImg;
+	GreenfootImage pereteImg=super.micImg;
 
 	int floor;
 
 	public PereteInvizibil(String pozitie, int floor, String marime) {
 
-		directie.put("mic90", new GreenfootImage("perete/pereteInviz_mic90.png"));
-		directie.put("mic", new GreenfootImage("perete/pereteInviz_mic.png"));
-		directie.put("mare90", new GreenfootImage("perete/pereteInviz_mare90.png"));
-		directie.put("mare", new GreenfootImage("perete/pereteInviz_mare.png"));
-
+	
 		this.floor = floor;
 		this.marime = marime;
-		pereteImg = directie.get(marime);
+	
+		switch (marime) {
+		case "mic90": {
+			pereteImg = super.mic90Img;
+			break;
+		}
+		case "mic":{
+			pereteImg = super.micImg;
+			break;
+		}
+		}
+		
 		setImage(pereteImg);
 		this.pozitie = pozitie;
 
@@ -34,7 +40,7 @@ public class PereteInvizibil extends Perete {
 		int procentY = 85;
 		switch (pozitie) {
 		case ("W"): {
-			if (marime.equals("mic90") || marime.equals("mare90")) {
+			if (marime.equals("mic90") ) {
 				float a = getImage().getWidth() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -104,7 +110,7 @@ public class PereteInvizibil extends Perete {
 
 		case ("S"): {
 			// dif=b.getY()-getY()-i
-			if (marime.equals("mic90") || marime.equals("mare90")) {
+			if (marime.equals("mic90") ) {
 				float a = getImage().getWidth() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -169,7 +175,7 @@ public class PereteInvizibil extends Perete {
 		}
 
 		case ("D"): {
-			if (marime.equals("mic90") || marime.equals("mare90")) {
+			if (marime.equals("mic90") ) {
 				float a = getImage().getHeight() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -234,7 +240,7 @@ public class PereteInvizibil extends Perete {
 		}
 
 		case ("A"): {
-			if (marime.equals("mic90") || marime.equals("mare90")) {
+			if (marime.equals("mic90")) {
 				float a = getImage().getHeight() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -301,7 +307,7 @@ public class PereteInvizibil extends Perete {
 
 	public void act() {
 
-		if (Player.floorLevel == this.floor && super.isInScreen() == true) {
+		if (isInScreenRange()&&!WorldData.PAUZA) {
 			chestie();
 		}
 

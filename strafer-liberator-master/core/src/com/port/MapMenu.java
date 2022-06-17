@@ -4,6 +4,8 @@ package com.port;
 import greenfoot.*;
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+
 public class MapMenu extends Pause {
 
     GreenfootImage img = new GreenfootImage("UI/mapMenu/mapMenu.png");
@@ -44,7 +46,7 @@ public class MapMenu extends Pause {
     private void addText() {
 
         objectiveText = new Text("\n"+WorldData.objective, 30);
-        playWorld.addObject(objectiveText,1024,270);
+        playWorld.addObject(objectiveText,810,130);
         thingsToClear.add(objectiveText);
 
     }

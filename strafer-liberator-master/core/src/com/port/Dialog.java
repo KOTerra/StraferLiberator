@@ -41,7 +41,7 @@ public class Dialog extends Menu {
 
     public void displayText(String txt) {
         if (!addedText) {
-            getWorld().addObject(new Text(txt, 24), 522, 500);
+            getWorld().addObject(new Text(txt, 24), 280, 340);
             addedText = true;
         }
     }

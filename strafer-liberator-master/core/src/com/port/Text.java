@@ -19,8 +19,8 @@ public class Text extends Menu {
 
 		GreenfootImage textImage = new GreenfootImage(1024, 576);
 		textImage.setFont(new Font("consolas", size));
-		int textWidth = (int) new GlyphLayout(textImage.getFont(), txtref).width;
-		textImage.drawString(txt, 512 - textWidth / 2, 576 / 2);
+		//int textWidth = (int) new GlyphLayout(textImage.getFont(), txtref).width;
+		textImage.drawString(txt, 512 , 576 / 2);//- textWidth / 2, 576 / 2);
 
 		setImage(textImage);
 	}

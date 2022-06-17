@@ -233,7 +233,7 @@ abstract class SaveSystem {
                 file.createNewFile();
             }
 
-            PrintStream fout = new PrintStream(new FileOutputStream(file, true), true, Charset.forName("UTF-8"));
+            PrintStream fout = new PrintStream(new FileOutputStream(file, true), true);
             fout.flush();
 
             /*

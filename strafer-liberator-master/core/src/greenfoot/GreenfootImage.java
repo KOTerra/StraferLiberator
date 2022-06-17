@@ -25,7 +25,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	com.badlogic.gdx.graphics.Color backgroundColor = new Color(0, 0, 0, 0f);
 	com.badlogic.gdx.graphics.Color textColor = new Color(0, 0, 0,1);
 
-	private Font font ;
+	public static Font font = new Font("consolas", 24); ;
 
 	float scaleX;
 	float scaleY;
@@ -44,8 +44,6 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public GreenfootImage(int width, int height) {
-		// super(new Texture(new
-		// FileHandle("assets/images/blank.png")),0,0,width,height);
 		super(new Texture(new Pixmap(width, height, Pixmap.Format.RGBA8888)));
 		pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
 
@@ -75,7 +73,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public GreenfootImage(String string, int i, Color textColor, Color backgroundColor) {
-		font = new Font("consolas", 24);
+		
 		int textWidth = (int) new GlyphLayout(font, string).width;
 		int textHeight = (int) new GlyphLayout(font, string).height;
 		setRegion(new Texture(new Pixmap(textWidth, textHeight, Pixmap.Format.RGBA8888)));
@@ -106,7 +104,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public void drawString(java.lang.String string, int x, int y) { // text pasta imagine
-		font = new Font("consolas", 24);
+		
 		Pixmap pxmp = new Pixmap((int) scaleX, (int) scaleY, Pixmap.Format.RGBA8888);
 		pxmp.setBlending(Pixmap.Blending.SourceOver);
 		pxmp.setColor(backgroundColor);

@@ -12,7 +12,7 @@ public class LaserDroid extends NpcItem {
     boolean turned = false;
     Player player;
 
-    GifImage laserImg = new GifImage("npc/inamic/droid/laserDroid.gif");
+    public static GifImage laserImg = new GifImage("npc/inamic/droid/laserDroid.gif");
 
     public LaserDroid() {
         //  GreenfootSound sunet=new GreenfootSound("shootshoot.mp3");

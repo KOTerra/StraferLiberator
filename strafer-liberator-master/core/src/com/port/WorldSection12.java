@@ -18,15 +18,15 @@ public class WorldSection12 extends WorldSection{
     
     
    public void init(){
-     //  initNpc();
-       ///init1();
-       //init2();
-      // init3();
-     //  init4();
-     //  init5();
-     //  init6();
-     //  init7();
-     //  init8();
+       initNpc();
+       init1();
+       init2();
+       init3();
+       init4();
+       init5();
+       init6();
+       init7();
+       init8();
        
    }
    

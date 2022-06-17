@@ -23,7 +23,7 @@ abstract class DialogLoader extends Loader{
         List<String> rez = new ArrayList<>();
         String[] rep = str.split("#");
         for (String s : rep) {
-            if(!s.isEmpty() && !s.isBlank())
+            if(!s.isEmpty() )
             {
                 rez.add(s);
             }
