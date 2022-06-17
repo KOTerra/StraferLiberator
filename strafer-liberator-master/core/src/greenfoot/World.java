@@ -23,6 +23,8 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
 		this.cellSize = cellSize;
+		wwidth=worldWidth;
+		wheight=worldHeight;
 	}
 
 //

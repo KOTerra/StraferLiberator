@@ -480,7 +480,8 @@ public class Player extends Jucator {
     public void act() {
 
     	if(Greenfoot.isKeyDown("K")) {
-    		takeDamage(2);
+    		//System.out.println("            "+getX()+"    "+getY());
+    		System.out.println(Scroller.scrolledX);
     	}
         checkPauza();
 

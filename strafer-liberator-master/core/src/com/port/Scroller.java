@@ -12,6 +12,7 @@ public class Scroller {
 	private boolean limited; // flag to indicate whether scrolling is limited or not
 	public static int scrolledX, scrolledY; // current scrolled distances
 	private int scrollMaxWide, scrollMaxHigh; // if limited, dimensions of scrolling area else of image to wrap
+	int scrollDirection = 0;
 
 	/**
 	 * This constructor is for a limited scrolling world; If 'image' is smaller than
@@ -84,42 +85,38 @@ public class Scroller {
 			scrolledY += dsy;
 			// scroll background image
 			if (scrollImage != null) {
-				/*
-				 * world.getBackground().drawImage( scrollImage, -scrolledX, -scrolledY );
-				 */
-				if(canScrollFurther()) {
-					world.setBackground(new GreenfootImage(new TextureRegion(scrollImage.getTexture(), scrolledX, scrolledY,
-																				WorldData.WIDTH, WorldData.HEIGHT)));
-				}
+				
+					world.setBackground(new GreenfootImage(new TextureRegion(scrollImage.getTexture(), scrolledX,
+							scrolledY, WorldData.WIDTH, WorldData.HEIGHT)));
+			
 			}
 		}
 
 		// adjust position of all actors (that can move with 'setLocation')
-		if (canScrollFurther()) {
-			for (Object obj : world.getObjects(null)) {
-				Actor actor = (Actor) obj;
-				if(!canScrollFurther()) {
-					if(!(actor instanceof Player)) {
-						actor.setLocation(actor.getX() - dsx, actor.getY() - dsy);
-					}
-				}
-				
-				else {
-					actor.setLocation(actor.getX() - dsx, actor.getY() - dsy);
-				}
-			}
+
+		for (Object obj : world.getObjects(null)) {
+			Actor actor = (Actor) obj;
+			actor.setLocation(actor.getX() - dsx, actor.getY() - dsy);
+		
 		}
+
 	}
 
 	public boolean canScrollFurther() {
-		int limitx = scrollMaxWide -WorldData.WIDTH;
-		int limity = scrollMaxHigh -WorldData.HEIGHT;
-		if (scrolledX >= limitx) {
+
+		int limitx = scrollMaxWide - WorldData.WIDTH;
+		int limity = scrollMaxHigh - WorldData.HEIGHT;
+		if (scrolledX >= limitx && scrolledY >= limity) {
+			scrollDirection = 3;
+			return false;
+		} else if (scrolledY >= limity) {
+			scrollDirection = 2;
+			return false;
+		} else if (scrolledX >= limitx) {
+			scrollDirection = 1;
 			return false;
 		}
-		if (scrolledY >= limity) {
-			return false;
-		}
+		scrollDirection = 0;
 		return true;
 	}
 
