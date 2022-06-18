@@ -107,16 +107,8 @@ public class Player extends Jucator {
 
     protected void checkMove() { //verifica tastele pentru mers
         apas = false;
-        if(WorldData.worldSection==12&& WorldData.nrEvent>=24){
-            speed=10;
-        }
-        else{speed=7;}
-        if (Greenfoot.isKeyDown("L-Shift")) {
-        	speed=14;
-        }
-        else {
-        	speed=7;
-        }
+
+      
         if (Greenfoot.isKeyDown("W")) {
             //merge in nord 
             apas = true;
@@ -215,13 +207,23 @@ public class Player extends Jucator {
         if (gif != "idle") {
             super.atingeNpc();
         }
+        sprint();
         checkMove();
         worldX = (int) (getX() + Scroller.scrolledX);
         worldY = (int) (getY() + Scroller.scrolledY);
 
         playerImg = directie.get(this.gif);
     }
-
+    
+    private void sprint() {
+    	  if (Greenfoot.isKeyDown("L-Shift")) {
+          	speed=14;
+          }
+          else {
+          	speed=7;
+          }
+    }
+    
     protected void vedere() {
         playerImg = directie.get(this.gif);
     }

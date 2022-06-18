@@ -12,6 +12,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/miche/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.11.0/ffe1206d1004cd9e40027e28964be0fea0399af7/gdx-1.11.0.jar"/>
+	<classpathentry kind="lib" path="D:/Games/CV9 projekt red/StraferLib/strafer-liberator-master/core/lib/gdx-1.11.0.jar"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
