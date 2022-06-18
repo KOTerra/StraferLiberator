@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
@@ -91,7 +93,11 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		for (Object a : l) {
 			if (a instanceof Actor) {
 				Actor actor = (Actor) a;
-				if (actor.getX() == x && actor.getY() == y) {
+				
+				Rectangle r=new Rectangle(actor.getX()-actor.iw()/2,actor.getY()-actor.ih()/2,actor.iw(),actor.ih());
+						
+				
+				if (r.contains(new Vector2(x,y))) {
 					res.add(actor);
 				}
 			}

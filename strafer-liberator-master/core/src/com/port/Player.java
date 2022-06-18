@@ -483,6 +483,7 @@ public class Player extends Jucator {
     		//System.out.println("            "+getX()+"    "+getY());
     		System.out.println(Scroller.scrolledX);
     	}
+    	
         checkPauza();
 
         if (!WorldData.PAUZA) {

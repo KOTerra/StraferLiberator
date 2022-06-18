@@ -13,7 +13,7 @@ public class DesktopLauncher {
 		config.height = com.port.WorldData.HEIGHT;
 		
 		config.pauseWhenMinimized = true;
-		config.resizable = true;
+		config.resizable = false;
 		config.vSyncEnabled = true;
 //config.fullscreen=true;
 		new LwjglApplication(new StraferLiberator(), config);

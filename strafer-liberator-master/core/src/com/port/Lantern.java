@@ -19,16 +19,16 @@ public class Lantern extends Item {
     
     public void checkMove() {
         timer++;
-        if (Greenfoot.isKeyDown("right")) {
+        if (Greenfoot.isKeyDown("Right")) {
             setLocation(getX() + speed, getY());
         }
-        if (Greenfoot.isKeyDown("left")) {
+        if (Greenfoot.isKeyDown("Left")) {
             setLocation(getX() - speed, getY());
         }
-        if (Greenfoot.isKeyDown("up")) {
+        if (Greenfoot.isKeyDown("Up")) {
             setLocation(getX(), getY() - speed);
         }
-        if (Greenfoot.isKeyDown("down")) {
+        if (Greenfoot.isKeyDown("Down")) {
             setLocation(getX(), getY() + speed);
         }
         if (timer >= 20) {

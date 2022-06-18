@@ -14,8 +14,8 @@ public class Portal extends PortalGun {
     private long time = 0;
     public Portal() {
 
-        directie.put("A", new GifImage("images/item/portalA.gif"));
-        directie.put("D", new GifImage("images/item/portalD.gif"));
+        directie.put("A", new GifImage("item/portalA.gif"));
+        directie.put("D", new GifImage("item/portalD.gif"));
 
         if (Greenfoot.getRandomNumber(12) % 2 == 0) {
             portalImg = directie.get("D");

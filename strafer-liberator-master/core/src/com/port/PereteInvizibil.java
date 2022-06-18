@@ -9,38 +9,38 @@ public class PereteInvizibil extends Perete {
 
 	private String marime;
 	private String pozitie;
-	GreenfootImage pereteImg=super.micImg;
+
+	GreenfootImage pereteImg = super.micImg;
 
 	int floor;
 
 	public PereteInvizibil(String pozitie, int floor, String marime) {
 
-	
 		this.floor = floor;
 		this.marime = marime;
-	
+
 		switch (marime) {
 		case "mic90": {
 			pereteImg = super.mic90Img;
 			break;
 		}
-		case "mic":{
+		case "mic": {
 			pereteImg = super.micImg;
 			break;
 		}
 		}
-		
+
 		setImage(pereteImg);
 		this.pozitie = pozitie;
 
 	}
 
 	private void chestie() {
-		int procentX = 80;
-		int procentY = 85;
+		float procentX = 100;
+		float procentY = 95f;
 		switch (pozitie) {
 		case ("W"): {
-			if (marime.equals("mic90") ) {
+			if (marime.equals("mic90")) {
 				float a = getImage().getWidth() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -110,7 +110,7 @@ public class PereteInvizibil extends Perete {
 
 		case ("S"): {
 			// dif=b.getY()-getY()-i
-			if (marime.equals("mic90") ) {
+			if (marime.equals("mic90")) {
 				float a = getImage().getWidth() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -175,7 +175,7 @@ public class PereteInvizibil extends Perete {
 		}
 
 		case ("D"): {
-			if (marime.equals("mic90") ) {
+			if (marime.equals("mic90")) {
 				float a = getImage().getHeight() / 2;
 
 				for (int i = 0; i <= a; i += 10) {
@@ -305,12 +305,44 @@ public class PereteInvizibil extends Perete {
 		}
 	}
 
+	void chestie2() {
+		Player player = (Player) (((PlayWorld) getWorld()).getPlayer());
+		if (intersects(player)) {
+			if (player != null) {
+				switch (pozitie) {
+				case "W": {
+					player.setLocation(player.getX(), player.getY() + player.getSpeed());
+					break;
+				}
+				case "A": {
+					player.setLocation(player.getX() + player.getSpeed(), player.getY());
+					break;
+				}
+				case "S": {
+					player.setLocation(player.getX(), player.getY() - player.getSpeed());
+					break;
+				}
+				case "D": {
+					player.setLocation(player.getX() - player.getSpeed(), player.getY());
+					break;
+				}
+
+				}
+			}
+		}
+	}
+
 	public void act() {
 
-		if (isInScreenRange()&&!WorldData.PAUZA) {
-			chestie();
+		if (isInScreenRange() && !WorldData.PAUZA) {
+			// chestie();
+			chestie2();
 		}
 
+	}
+
+	public String getPozitie() {
+		return pozitie;
 	}
 
 }

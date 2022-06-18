@@ -15,10 +15,10 @@ public class PortalGun extends Item {
 
     public PortalGun() {
 
-        directie.put("D", new GifImage("images/item/portalGunD.gif"));
-        directie.put("W", new GifImage("images/item/portalGunW.gif"));
-        directie.put("A", new GifImage("images/item/portalGunA.gif"));
-        directie.put("S", new GifImage("images/item/portalGunS.gif"));
+        directie.put("D", new GifImage("item/portalGunD.gif"));
+        directie.put("W", new GifImage("item/portalGunW.gif"));
+        directie.put("A", new GifImage("item/portalGunA.gif"));
+        directie.put("S", new GifImage("item/portalGunS.gif"));
 
         portalGunImg = directie.get("D");
         this.time = 0;
