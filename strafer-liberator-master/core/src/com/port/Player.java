@@ -111,7 +111,12 @@ public class Player extends Jucator {
             speed=10;
         }
         else{speed=7;}
-
+        if (Greenfoot.isKeyDown("L-Shift")) {
+        	speed=14;
+        }
+        else {
+        	speed=7;
+        }
         if (Greenfoot.isKeyDown("W")) {
             //merge in nord 
             apas = true;
@@ -227,9 +232,9 @@ public class Player extends Jucator {
 
             if (Greenfoot.isKeyDown("E")) {
                 toggledInventory = !toggledInventory;
-                getWorld().addObject(new Inventory(this), 875, 430);
+                getWorld().addObject(new Inventory(this), WorldData.WIDTH-150, WorldData.HEIGHT-150);
 
-                getWorld().addObject(new ItemSelect(this), 875, 430);
+                getWorld().addObject(new ItemSelect(this), WorldData.WIDTH-150, WorldData.HEIGHT-150);
             }
 
         }
@@ -434,7 +439,7 @@ public class Player extends Jucator {
     long cntF = 0;
 
     public void lookForEnemies() {
-        if (!getObjectsInRange(1200, Inamic.class).isEmpty()) {
+        if (!getObjectsInRange(WorldData.WIDTH+200, Inamic.class).isEmpty()) {
             WorldData.isFighting = true;
         } else {
             if (WorldData.isFighting) {
@@ -479,15 +484,10 @@ public class Player extends Jucator {
 
     public void act() {
 
-    	if(Greenfoot.isKeyDown("K")) {
-    		//System.out.println("            "+getX()+"    "+getY());
-    		System.out.println(Scroller.scrolledX);
-    	}
-    	
         checkPauza();
 
         if (!WorldData.PAUZA) {
-            //load();
+            load();
         }
 
         if (inViata) {
@@ -525,13 +525,13 @@ public class Player extends Jucator {
 
     public int getExitDirection() {  //directia pe care iese din worldSection
 
-        if (getX() >= 1020) {
+        if (getX() >= WorldData.WIDTH-5) {
             direction = 3;
         }
         if (getX() <= 5) {
             direction = 1;
         }
-        if (getY() >= 570) {
+        if (getY() >= WorldData.HEIGHT-5) {
             direction = 2;
         }
         if (getY() <= 5) {

@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.game.straferliberator.World.WorldListener;
 import com.port.PlayWorld;
+import com.port.WorldData;
 
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
@@ -41,7 +41,7 @@ public class GameScreen extends ScreenAdapter {
 
 		Gdx.input.setInputProcessor(world);
 		
-		camera = new OrthographicCamera(1024, 576);
+		camera = new OrthographicCamera(WorldData.WIDTH, WorldData.HEIGHT);
 		touchPoint = new Vector3();
 
 		
