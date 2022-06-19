@@ -32,7 +32,7 @@ public class Portal extends PortalGun {
 
         if (!players.isEmpty()) {
             Player player = (Player) players.get(0);
-            if (Greenfoot.isKeyDown("t")) {
+            if (Greenfoot.isKeyDown("T")) {
 
                 getWorld().addObject(new Effect("kingcrimson", 62, 1), 0, 0);
                 

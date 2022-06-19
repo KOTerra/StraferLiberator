@@ -1,11 +1,11 @@
-PlayerX:4204
-PlayerY:1493
-Health:-26
-WorldSection:22
+PlayerX:2961
+PlayerY:1337
+Health:400
+WorldSection:12
 WS11:true
 WS12:true
 WS13:true
-WS21:false
+WS21:true
 WS22:true
 WS23:true
 Item:laser
@@ -13,5 +13,6 @@ Item:sword
 Item:lantern
 Item:blackhole
 Item:portalgun
-DialogIndex:9
-NrEvent:23
+Item:icelock
+DialogIndex:11
+NrEvent:41
