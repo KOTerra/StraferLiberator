@@ -10,29 +10,24 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.game.straferliberator.StraferLiberator;
-import com.port.HealthBarPlayer;
-import com.port.Picture;
 
 public class TestWorld extends World {
 
 	BitmapFont font = new BitmapFont(new FileHandle("assets/fonts/consolas.fnt"));
 
 	MouseInfo mi = new MouseInfo();
-	com.port.Player player = new com.port.Player();
+	TestActor ta = new TestActor();
 	Actor ta2 = new Actor();
 	Actor ta3 = new Actor();
 	GreenfootSound sound;
-	public HealthBarPlayer healthBar;
-	private boolean addedHealthBar = false;
-
 
 	public TestWorld() {
 
 		super(1024, 576, 1, false);
 
-		
+		this.addObject(ta, 300, 100);
 		taa2();
-		//poza();
+		poza();
 		new Thread(new Runnable() {
 
 			public void run() {
@@ -55,22 +50,26 @@ public class TestWorld extends World {
 		this.addObject(new com.port.Text("asta e gen \n alt text", 24), 512, 576 / 2);
 	}
 
-	private void addHealthBar() {
+	void poza() {
+		GreenfootImage p = new GreenfootImage(300, 100);
+		p.setColor(new Color(0, 125, 120,1));
+		p.drawRect(0, 0, 100, 37);
+		p.setColor(new Color(125, 0, 120,1));
+		p.fillRect(3, 2, 72, 33);
+		p.drawImage(new GreenfootImage("cioata.png"), 0, 0);
 
-		healthBar = new HealthBarPlayer("",  player.getHp(), player.getHpMax());
+		GreenfootImage pt = new GreenfootImage(300, 300);
+		pt.setColor(Color.WHITE);
+		pt.setFont(new Font("edo", 24));
+		pt.drawString("aici e text ba", 100, 100);
 
-		healthBar.setSafeColor(Color.TEAL.lerp(Color.SKY, 0.7f));
-		healthBar.setDangerColor(Color.ORANGE);
-		healthBar.setBarWidth(181);
-		healthBar.setBarHeight(14);
-		healthBar.setReferenceText("");
-		healthBar.setTextColor(new Color(4, 69, 85, 214));
-		Picture barBack = new Picture("UI/hud/healthBar.png");
-		addObject(barBack, 148, 40);
-		addObject(healthBar, 172, 32);
-		this.addObject(player, 300, 100);
+		Actor a = new Actor();
+		Actor b = new Actor();
+		a.setImage(p);
+		b.setImage(pt);
+		this.addObject(a, 500, 200);
+		this.addObject(b, 500, 200);
 	}
-
 
 
 	void sound() {
@@ -81,10 +80,6 @@ public class TestWorld extends World {
 
 	public void act() {
 		super.act();
-		if(!addedHealthBar) {
-			addHealthBar();
-			addedHealthBar=true;
-		}
 		System.out.println(Gdx.graphics.getFramesPerSecond());
 		if (Gdx.input.isKeyJustPressed(Keys.T)) { /// T de la test te ai prins
 			// ((TestActor) (this.getObjects(TestActor.class).get(0))).assertion();
@@ -96,7 +91,7 @@ public class TestWorld extends World {
 		if (Gdx.input.isKeyJustPressed(Keys.Q)) {
 			// sound.resume();
 		}
-		if (player.isTouching(TestActor.class)) {
+		if (ta.isTouching(TestActor.class)) {
 			// System.out.println("atins");
 		}
 		
