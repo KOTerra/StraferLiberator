@@ -30,11 +30,11 @@ public class MainStoryline extends Storyline{
     public MainStoryline() {
         try (Stream<Path> walk = Files.walk(Paths.get("quests/mainQuest"))) {
             // We want to find only regular files
-            List<String> result = walk.filter(Files::isRegularFile).map(x -> x.toString()).collect(Collectors.toList());
+            List<Object> result = walk.filter(Files::isRegularFile).map(x -> x.toString()).collect(Collectors.toList());
 
-            for (String string : result) {
+            for (Object string : result) {
                 Quest toAdd = new Quest();
-                toAdd.load(new File(string));
+                toAdd.load(new File((String) string));
                 //System.out.println(toAdd.questName);
                 questQueue.add(toAdd);
             }

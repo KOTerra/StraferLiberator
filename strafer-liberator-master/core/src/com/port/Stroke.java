@@ -50,7 +50,7 @@ public class Stroke extends Inamic {
         ochix = (int) (getX() - 50);
         ochiy = (int) (getY() - 35);
         laserStroke = new LaserStroke(this, 100);
-        getWorld().addObject(laserStroke, WorldData.menuX, WorldData.menuY);
+        getWorld().addObject(laserStroke, WorldData.menuX-250, WorldData.menuY+100);
 
         super.atac();
     }
@@ -180,10 +180,10 @@ boolean enter=false;
                             
                             atac();//cauta playerul
                             if (!addedHealthBar) {
+                                getWorld().addObject(healthBarImg, WorldData.menuX, 540);
                                 getWorld().addObject(healthBar, WorldData.menuX + 40, 544);
                                 healthBar.setValue(this.hp); 
                                
-                                getWorld().addObject(healthBarImg, WorldData.menuX, 540);
                                 
                                 addedHealthBar = true;
                             }

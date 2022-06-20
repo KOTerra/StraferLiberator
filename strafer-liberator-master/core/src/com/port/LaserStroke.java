@@ -19,7 +19,7 @@ public class LaserStroke extends NpcItem {
         this.yStart = stroke.getOchiy();
         this.dist = dist;
 
-        Color color = Color.RED.lerp(Color.GOLDENROD, 0.15f);
+        Color color = Color.RED;
         art.setColor(color);
 
         prepareLasers();

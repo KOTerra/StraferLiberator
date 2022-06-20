@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Strafer Liberator-desktop</name>
-	<comment>Project Super Jumper-desktop created by Buildship.</comment>
+	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -29,7 +29,7 @@
 	</linkedResources>
 	<filteredResources>
 		<filter>
-			<id>1648112816100</id>
+			<id>1</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

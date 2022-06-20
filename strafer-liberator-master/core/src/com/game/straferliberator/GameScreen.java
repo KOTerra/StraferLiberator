@@ -35,7 +35,7 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator game) {
 		this.game = game;
 
-		// world = new TestWorld();
+		//world = new TestWorld();
 		//
 		world=new PlayWorld();
 
