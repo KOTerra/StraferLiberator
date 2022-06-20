@@ -88,7 +88,7 @@ public class PlayWorld extends World {
 
 	private void addHealthBar() {
 
-		healthBar = new HealthBarPlayer("", "", player.getHp(), player.getHpMax());
+		healthBar = new HealthBarPlayer("", player.getHp(), player.getHpMax());
 
 		healthBar.setSafeColor(Color.TEAL.lerp(Color.SKY, 0.7f));
 		healthBar.setDangerColor(Color.ORANGE);

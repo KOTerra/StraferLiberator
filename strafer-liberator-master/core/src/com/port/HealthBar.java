@@ -29,6 +29,7 @@ public class HealthBar extends UI {
 	private com.badlogic.gdx.graphics.Color dangerColor = Color.RED; // the color of the bar while in the danger range
 //  The color of the bar AT the breakpoint will be the average color between the safe color and the danger color
 
+	private Text text;
 	private float fontSize = 18.0f; // the size of the text
 	private int value = 0; // the current value of the bar
 	private int maximumValue = 0; // the maximum value of the bar
@@ -54,11 +55,15 @@ public class HealthBar extends UI {
 	 * @param 'initValue': the value the bar should be initially set to
 	 * @param 'maxValue':  the highest value the bar is allowed to hold
 	 */
-	public HealthBar(String refText, String unitType, int initValue, int maxValue) {
+	public HealthBar(String refText, int initValue, int maxValue) {
 		moved = false;
 		referenceText = refText;
-		unitOfMeasure = unitType;
+		text=new Text(refText,24);
+		text.setFont("edo");
+		text.setText(String.valueOf(value));
+		text.setLocation(this.getX()-70,this.getY());
 		maximumValue = maxValue;
+		
 		add(initValue);
 	}
 
@@ -123,7 +128,7 @@ public class HealthBar extends UI {
 		//leftImg = leftImgPixelated;
 		//leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() * 2);
 		// pixelare text
-
+		text.setText(String.valueOf(value));
 		GreenfootImage image = new GreenfootImage(sumX, maxY);
 		image.setColor(backgroundColor);
 		image.fill();

@@ -13,7 +13,7 @@ public class HealthBarImg extends HealthBar
 	float y;
     boolean added=false;
     public HealthBarImg() {
-        super("","",1,1);
+        super("",1,1);
         added=false;
         
         img = new GreenfootImage("npc/inamic/stroke/healthBar.png");

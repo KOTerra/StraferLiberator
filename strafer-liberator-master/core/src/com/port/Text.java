@@ -8,8 +8,7 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 public class Text extends Menu {
 
-	Font fontu = new Font("edo", true, false, 10);
-
+	GreenfootImage textImage;
 	String txt;
 	int size;
 
@@ -17,7 +16,7 @@ public class Text extends Menu {
 		txt = txtref;
 		size = sizeref;
 
-		GreenfootImage textImage = new GreenfootImage(1024, 576);
+		textImage = new GreenfootImage(1024, 576);
 		textImage.setFont(new Font("consolas", size));
 		//int textWidth = (int) new GlyphLayout(textImage.getFont(), txtref).width;
 		textImage.drawString(txt, 512 , 576 / 2);//- textWidth / 2, 576 / 2);
@@ -28,4 +27,15 @@ public class Text extends Menu {
 	public void act() {
 		// Add your action code here.
 	}
+	public void setFont(String s) {
+		textImage.setFont(new Font(s,24));
+		textImage.drawString(txt, 512, 576/2);
+		setImage(textImage);
+	}
+	public void setText(String s) {
+		txt=s;
+		textImage.drawString(txt, 512, 576/2);
+		setImage(textImage);
+	}
+	
 }
