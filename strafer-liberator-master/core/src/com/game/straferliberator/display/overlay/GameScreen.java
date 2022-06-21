@@ -1,0 +1,70 @@
+package com.game.straferliberator.display.overlay;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.math.Vector3;
+import com.game.straferliberator.display.StraferLiberator;
+import com.game.straferliberator.render.WorldRenderer;
+import com.port.world.PlayWorld;
+import com.port.world.WorldData;
+
+public class GameScreen extends ScreenAdapter {
+
+	StraferLiberator game;
+
+	OrthographicCamera camera;
+	Vector3 touchPoint;
+	greenfoot.world.World world;
+
+
+	WorldRenderer<Object> worldRederer;
+
+
+	GlyphLayout glyphLayout = new GlyphLayout();
+
+	public GameScreen(StraferLiberator straferLiberator) {
+		this.game = straferLiberator;
+
+		//world = new TestWorld();
+		//
+		world=new PlayWorld();
+
+		Gdx.input.setInputProcessor(world);
+		
+		camera = new OrthographicCamera(WorldData.WIDTH, WorldData.HEIGHT);
+		touchPoint = new Vector3();
+
+		
+		worldRederer = new WorldRenderer<Object>(StraferLiberator.batcher, world);
+	}
+
+	public void update(float deltaTime) {
+	
+		world.act();
+
+		System.out.println(Gdx.graphics.getFramesPerSecond());
+	}
+
+	public void draw() {
+		GL20 gl = Gdx.gl;
+		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		camera.update();
+		StraferLiberator.batcher.setProjectionMatrix(camera.combined);
+		StraferLiberator.batcher.enableBlending();
+		
+
+		worldRederer.render();
+		
+	}
+
+
+	@Override
+	public void render(float delta) {
+		update(delta);
+		draw();
+		
+	}
+}

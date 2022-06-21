@@ -5,15 +5,15 @@ import org.lwjgl.opengl.Display;
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.game.straferliberator.StraferLiberator;
+import com.game.straferliberator.display.StraferLiberator;
 
 public class DesktopLauncher {
 	public static LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 	public static void main(String[] arg) {
 		
 		config.title = "Strafer Liberator";
-		config.width = com.port.WorldData.WIDTH;
-		config.height = com.port.WorldData.HEIGHT;
+		config.width = com.port.world.WorldData.WIDTH;
+		config.height = com.port.world.WorldData.HEIGHT;
 		
 		config.pauseWhenMinimized = true;
 		config.resizable = false;

@@ -5,7 +5,10 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
+
+import greenfoot.actor.Actor;
+import greenfoot.audio.GreenfootSound;
+import greenfoot.info.MouseInfo;
 
 public class Greenfoot extends com.badlogic.gdx.Gdx {
 
