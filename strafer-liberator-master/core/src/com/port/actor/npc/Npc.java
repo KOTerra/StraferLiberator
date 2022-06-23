@@ -98,6 +98,7 @@ public class Npc extends Movers {
         }
         // if ( x < 128 && y < 128) {
         if (WorldData.worldSectionMatrix[WorldData.getWorldSectionShort(sectiune)][x][y] == -1) {
+
             gasit = false;
             return;
         //}

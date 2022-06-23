@@ -57,7 +57,7 @@ public class PlayWorld extends World {
 		WorldData.addedDialogs = false;
 		addedHealthBar = false;
 
-		/*new Thread(new Runnable() {
+		new Thread(new Runnable() {
 
 			public void run() {
 				musicIdle = new GreenfootSound("music/Default.mp3");
@@ -66,8 +66,7 @@ public class PlayWorld extends World {
 				musicIdle.setVolume(45);
 				musicLoaded = true;
 			}
-		}).start();*/
-
+		}).start();
 		addMainMenu();
 
 	}

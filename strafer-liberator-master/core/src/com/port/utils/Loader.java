@@ -9,7 +9,7 @@ import com.port.world.WorldData;
 
 import java.util.InputMismatchException;
 
-abstract class Loader {
+public abstract class Loader {
 
     public static int[][] loadMatrix(File fin) {
         int[][] mat = new int[WorldData.maxLengthWorld][WorldData.maxWidthWorld];

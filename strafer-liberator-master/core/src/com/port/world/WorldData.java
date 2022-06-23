@@ -79,10 +79,10 @@ public class WorldData {
     //incarca matricele de pathfind pt fiecare mapa 
     public static void loadWorldMatrices() {
 
-        String director = new String("maps/");
+        String director = new String("assets/maps/");
         for (int i = 1; i <= 1; i++) {
 
-            //worldSectionMatrix[i] = Loader.loadMatrix(new File(director + i + ".txt"));
+            worldSectionMatrix[i] = com.port.utils.Loader.loadMatrix(new File(director + i + ".txt"));
         }
     }
 
