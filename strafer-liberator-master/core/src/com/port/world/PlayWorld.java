@@ -1,13 +1,27 @@
 package com.port.world;
 
 import com.badlogic.gdx.graphics.Color;
+import com.port.actor.Item;
+import com.port.actor.npc.Npc;
+import com.port.actor.npc.hostile.Droid;
+import com.port.actor.npc.items.NpcItem;
 import com.port.actor.player.Player;
+import com.port.actor.player.items.Lantern;
+import com.port.actor.player.items.Light;
 import com.port.actor.utils.Inventory;
+import com.port.display.Effect;
 import com.port.display.HealthBar;
+import com.port.display.HealthBarImg;
 import com.port.display.HealthBarPlayer;
 import com.port.display.MainMenu;
+import com.port.display.MapMenu;
+import com.port.display.Menu;
 import com.port.display.Picture;
+import com.port.display.Text;
+import com.port.display.Tutorial;
 import com.port.events.EventSystem;
+import com.port.utils.Buton;
+import com.port.utils.Dialog;
 import com.port.utils.Scroller;
 
 import greenfoot.*;
@@ -42,11 +56,11 @@ public class PlayWorld extends World {
 		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); // width, height, cellsize, daca sunt actorii restricted la
 															// lume
 
-		// setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class,
-		// Picture.class, MapMenu.class, Tutorial.class, Dialog.class,
-		// HealthBarImg.class, Effect.class,
-		// Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class,
-		// Player.class, Npc.class);
+		setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class, Picture.class, //
+				MapMenu.class, Tutorial.class, Dialog.class, //
+				HealthBarImg.class, Effect.class, //
+				Item.class, NpcItem.class, Lantern.class, Light.class, //
+				Droid.class, Player.class, Npc.class);//
 
 		WIDE = WorldData.WIDTH;
 		HIGH = WorldData.HEIGHT;
@@ -56,7 +70,7 @@ public class PlayWorld extends World {
 		addPlayer();
 		WorldData.addedDialogs = false;
 		addedHealthBar = false;
-
+		addMainMenu();
 		new Thread(new Runnable() {
 
 			public void run() {
@@ -67,7 +81,7 @@ public class PlayWorld extends World {
 				musicLoaded = true;
 			}
 		}).start();
-		addMainMenu();
+		
 
 	}
 
@@ -157,7 +171,7 @@ public class PlayWorld extends World {
 		}
 		relocBar();
 		if (musicLoaded) {
-			//updateMusic();
+			updateMusic();
 		}
 		super.act();
 	}
@@ -187,40 +201,35 @@ public class PlayWorld extends World {
 	}
 
 	public void updateMusic() {
-		new Thread(new Runnable() {
 
-			public void run() {
-				if (!WorldData.PAUZA) {
+		if (!WorldData.PAUZA) {
 
-					if (!musicIdle.isPlaying()) {
-						if (WorldData.isWalking && !WorldData.isFighting) {
-							musicIdle.play();
-						}
-					}
-					if (!musicCombat.isPlaying()) {
-						if (WorldData.isFighting) {
-							musicCombat.play();
-							musicIdle.pause();
-						}
-					}
-
-					if (musicCombat.isPlaying()) {
-						if (!WorldData.isFighting) {
-							musicCombat.pause();
-						}
-					}
-				} else {
-					if (musicIdle.isPlaying()) {
-						musicIdle.pause();
-					}
-					if (musicCombat.isPlaying()) {
-						musicCombat.pause();
-					}
-
+			if (!musicIdle.isPlaying()) {
+				if (WorldData.isWalking && !WorldData.isFighting) {
+					musicIdle.play();
 				}
 			}
-		}).start();
+			if (!musicCombat.isPlaying()) {
+				if (WorldData.isFighting) {
+					musicCombat.play();
+					musicIdle.pause();
+				}
+			}
 
+			if (musicCombat.isPlaying()) {
+				if (!WorldData.isFighting) {
+					musicCombat.pause();
+				}
+			}
+		} else {
+			if (musicIdle.isPlaying()) {
+				musicIdle.pause();
+			}
+			if (musicCombat.isPlaying()) {
+				musicCombat.pause();
+			}
+
+		}
 	}
 
 }

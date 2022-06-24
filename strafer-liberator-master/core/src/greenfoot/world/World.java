@@ -2,6 +2,7 @@ package greenfoot.world;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,9 +18,15 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	SpriteBatch batch = StraferLiberator.batcher;
 	GreenfootImage background;
-	int cellSize;
+	int cellSize; // unitatea de masura pixel^2
 	private float wwidth, wheight;
 
+	HashMap<Integer, List<greenfoot.actor.Actor>> objectsInPaintOrder = new HashMap<Integer, List<greenfoot.actor.Actor>>();// nivelul si listele efective trimise la worldRenderer
+	HashMap<Class<?>, Integer> classPaintIndex = new HashMap<Class<?>, Integer>(); // nivelul la care fiecare clasa e desenata sub sau peste celalalte
+	public int paintDepth; // nr de clase in paint order
+
+	
+//
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
 		this.cellSize = cellSize;
 		wwidth = worldWidth;
@@ -33,16 +40,14 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 		for (int i = 0; i < l.size; i++) {
 			Actor a = (greenfoot.actor.Actor) l.items[i];
-			// if(a.isInScreenRange()) {
+
 			a.act();
-			// }
 
 		}
 	}
 //
 
 	public void addObject(greenfoot.actor.Actor object, float initx, float inity) {
-
 		if (object.world != null) {
 			if (object.world == this) {
 				return; // Actor is already in the world
@@ -51,7 +56,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		}
 		object.setWorld(this);
 		super.addActor(object);
-
+		//addObjectToPaintOrder(object);
 		object.setLocation(initx, inity);
 	}
 
@@ -63,6 +68,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();
 		actor.setWorld(null);
 		a.removeValue(actor, false);
+		removeObjectFromPaintOrder(actor);
 	}
 
 	public void removeObjects(Collection<?> objects) { // si asta merge
@@ -102,6 +108,29 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		return res;
 	}
 
+	public void setPaintOrder(Class<?>... classes) {
+		int length = classes.length;
+		this.paintDepth = length;
+		for (Class<?> c : classes) {
+			classPaintIndex.put(c, new Integer(length));
+			length--;
+		}
+	}
+	public void addObjectToPaintOrder(greenfoot.actor.Actor obj) {
+		objectsInPaintOrder.get(classPaintIndex.get(obj.getClass())).add(obj);
+	}
+	public void removeObjectFromPaintOrder(greenfoot.actor.Actor obj) {
+		objectsInPaintOrder.get(classPaintIndex.get(obj.getClass())).remove(obj);
+	}
+	
+	public HashMap<Class<?>, Integer> getClassPaintIndex() {
+		return classPaintIndex;
+	}
+	public HashMap<Integer, List<greenfoot.actor.Actor>> getObjectsInPaintOrder() {
+		return objectsInPaintOrder;
+	}
+
+
 	public int numberOfActors() {
 		return getObjects(Actor.class).size();
 	}
@@ -126,4 +155,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		return (int) wheight;
 	}
 
+	public int getPaintDepth() {
+		return this.paintDepth;
+	}
 }
