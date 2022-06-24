@@ -7,7 +7,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.game.straferliberator.display.Animation;
+import com.game.straferliberator.render.Animation;
 import com.game.straferliberator.settings.Settings;
 
 public class Assets {

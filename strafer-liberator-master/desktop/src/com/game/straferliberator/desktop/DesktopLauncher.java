@@ -5,7 +5,7 @@ import org.lwjgl.opengl.Display;
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.game.straferliberator.display.StraferLiberator;
+import com.game.straferliberator.StraferLiberator;
 
 public class DesktopLauncher {
 	public static LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();

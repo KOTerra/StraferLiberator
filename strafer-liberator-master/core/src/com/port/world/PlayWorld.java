@@ -2,34 +2,29 @@ package com.port.world;
 
 import com.badlogic.gdx.graphics.Color;
 import com.game.straferliberator.render.PaintUtilities;
-import com.port.actor.Item;
-import com.port.actor.npc.Npc;
-import com.port.actor.npc.hostile.Droid;
-import com.port.actor.npc.items.NpcItem;
-import com.port.actor.player.Player;
-import com.port.actor.player.items.Lantern;
-import com.port.actor.player.items.Light;
-import com.port.actor.utils.Inventory;
-import com.port.display.Effect;
-import com.port.display.HealthBar;
-import com.port.display.HealthBarImg;
-import com.port.display.HealthBarPlayer;
-import com.port.display.MainMenu;
-import com.port.display.MapMenu;
-import com.port.display.Menu;
-import com.port.display.Picture;
-import com.port.display.Text;
-import com.port.display.Tutorial;
-import com.port.events.EventSystem;
-import com.port.utils.Buton;
-import com.port.utils.Dialog;
-import com.port.utils.Scroller;
+import com.port.UI.Buton;
+import com.port.UI.hud.HealthBar;
+import com.port.UI.hud.HealthBarImg;
+import com.port.UI.hud.HealthBarPlayer;
+import com.port.UI.hud.Inventory;
+import com.port.UI.menu.Dialog;
+import com.port.UI.menu.MainMenu;
+import com.port.UI.menu.MapMenu;
+import com.port.UI.menu.Menu;
+import com.port.UI.menu.Tutorial;
+import com.port.entity.item.Item;
+import com.port.entity.item.npc.NpcItem;
+import com.port.entity.item.player.Lantern;
+import com.port.entity.item.player.Light;
+import com.port.entity.mover.npc.Npc;
+import com.port.entity.mover.npc.hostile.Droid;
+import com.port.entity.mover.player.Player;
+import com.port.system.event.EventSystem;
+import com.port.utils.graphics.Effect;
+import com.port.utils.graphics.Picture;
+import com.port.utils.graphics.Text;
 
 import greenfoot.*;
-import greenfoot.actor.Actor;
-import greenfoot.audio.GreenfootSound;
-import greenfoot.display.GreenfootImage;
-import greenfoot.world.World;
 
 //lumea in care are loc toata simularea
 

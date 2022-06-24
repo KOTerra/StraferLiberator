@@ -82,7 +82,7 @@ public class WorldData {
         String director = new String("assets/maps/");
         for (int i = 1; i <= 1; i++) {
 
-            worldSectionMatrix[i] = com.port.utils.Loader.loadMatrix(new File(director + i + ".txt"));
+            worldSectionMatrix[i] = com.port.utils.loader.Loader.loadMatrix(new File(director + i + ".txt"));
         }
     }
 

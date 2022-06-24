@@ -7,23 +7,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.port.actor.Item;
-import com.port.actor.npc.Npc;
-import com.port.actor.npc.hostile.Droid;
-import com.port.actor.npc.items.NpcItem;
-import com.port.actor.player.Player;
-import com.port.actor.player.items.Lantern;
-import com.port.actor.player.items.Light;
-import com.port.display.Effect;
-import com.port.display.HealthBar;
-import com.port.display.HealthBarImg;
-import com.port.display.MapMenu;
-import com.port.display.Menu;
-import com.port.display.Picture;
-import com.port.display.Text;
-import com.port.display.Tutorial;
-import com.port.utils.Buton;
-import com.port.utils.Dialog;
+import com.port.UI.Buton;
+import com.port.UI.hud.HealthBar;
+import com.port.UI.hud.HealthBarImg;
+import com.port.UI.menu.Dialog;
+import com.port.UI.menu.MapMenu;
+import com.port.UI.menu.Menu;
+import com.port.UI.menu.Tutorial;
+import com.port.entity.item.Item;
+import com.port.entity.item.npc.NpcItem;
+import com.port.entity.item.player.Lantern;
+import com.port.entity.item.player.Light;
+import com.port.entity.mover.npc.Npc;
+import com.port.entity.mover.npc.hostile.Droid;
+import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.Effect;
+import com.port.utils.graphics.Picture;
+import com.port.utils.graphics.Text;
 
 /**
  * This class contains all the utilities used for rendering a scene
@@ -45,7 +45,7 @@ public abstract class PaintUtilities {
 	/**
 	 * Nivelul si listele efective trimise la worldRenderer
 	 */
-	static public HashMap<Integer, List<greenfoot.actor.Actor>> objectsInPaintOrder = new HashMap<Integer, List<greenfoot.actor.Actor>>();
+	static public HashMap<Integer, List<greenfoot.Actor>> objectsInPaintOrder = new HashMap<Integer, List<greenfoot.Actor>>();
 	
 	/**
 	 * Nivelul la care fiecare clasa e desenata sub sau peste celalalte
@@ -61,7 +61,7 @@ public abstract class PaintUtilities {
 	/**
 	 * The list of all the actors in the order of rendering
 	 */
-	public static ArrayList<greenfoot.actor.Actor> actorsToRenderInOrder=new ArrayList<>();
+	public static ArrayList<greenfoot.Actor> actorsToRenderInOrder=new ArrayList<>();
 	
 	/**
 	 * A boolean which asks wheather or not the actor order was modified
@@ -90,22 +90,22 @@ public abstract class PaintUtilities {
 	}
 	
 	
-	public static void addObjectToPaintOrder(greenfoot.actor.Actor obj) {
+	public static void addObjectToPaintOrder(greenfoot.Actor obj) {
 		objectsInPaintOrder.get(classPaintIndex.get(obj.getClass())).add(obj);
 	}
-	public static void removeObjectFromPaintOrder(greenfoot.actor.Actor obj) {
+	public static void removeObjectFromPaintOrder(greenfoot.Actor obj) {
 		objectsInPaintOrder.get(classPaintIndex.get(obj.getClass())).remove(obj);
 	}
 	
 	public HashMap<Class<?>, Integer> getClassPaintIndex() {
 		return classPaintIndex;
 	}
-	public HashMap<Integer, List<greenfoot.actor.Actor>> getObjectsInPaintOrder() {
+	public HashMap<Integer, List<greenfoot.Actor>> getObjectsInPaintOrder() {
 		return objectsInPaintOrder;
 	}
 	
 	
-	public List<greenfoot.actor.Actor> getActorsToRenderInOrder()
+	public List<greenfoot.Actor> getActorsToRenderInOrder()
 	{
 		if(!isActorRenderOrderModified) {
 			return actorsToRenderInOrder;
@@ -114,7 +114,7 @@ public abstract class PaintUtilities {
 		actorsToRenderInOrder = new ArrayList<>();
 		for(int i=0; i<paintOrderStandard.length; i++)
 		{
-			List<greenfoot.actor.Actor> foundList=objectsInPaintOrder.get(i);
+			List<greenfoot.Actor> foundList=objectsInPaintOrder.get(i);
 			if(foundList.size()!= 0)
 			{
 				actorsToRenderInOrder.addAll(foundList);

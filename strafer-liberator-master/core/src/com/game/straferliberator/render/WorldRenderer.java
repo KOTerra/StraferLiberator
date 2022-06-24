@@ -6,11 +6,11 @@ import com.badlogic.gdx.utils.Array;
 public class WorldRenderer<A> {
 	static final float WIDTH = com.port.world.WorldData.WIDTH;
 	static final float HEIGHT =com.port.world.WorldData.HEIGHT;
-	greenfoot.world.World world;
+	greenfoot.World world;
 	OrthographicCamera cam;
 	SpriteBatch batch;
 
-	public WorldRenderer(SpriteBatch batch, greenfoot.world.World world) {
+	public WorldRenderer(SpriteBatch batch, greenfoot.World world) {
 		this.world =  world;
 		this.cam = new OrthographicCamera(WIDTH, HEIGHT);
 		this.cam.position.set(WIDTH / 2, HEIGHT / 2, 0);
@@ -40,7 +40,7 @@ public class WorldRenderer<A> {
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> l=world.getActors();
 		for(com.badlogic.gdx.scenes.scene2d.Actor a:l) {
 			
-			((greenfoot.actor.Actor) a).draw();
+			((greenfoot.Actor) a).draw();
 			
 		}
 		
