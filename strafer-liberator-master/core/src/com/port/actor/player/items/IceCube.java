@@ -30,7 +30,7 @@ public class IceCube extends IceLock{
     
     public void act() {
           if (!WorldData.PAUZA) {
-            setLocation(this.actor.getX(),this.actor.getY());
+            setLocation(this.actor.getX()+175,this.actor.getY()-120);
             time++;
             if (time > constantEraseTime) {
                 ((Inamic)actor).setFreeze(false);
