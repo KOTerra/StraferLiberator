@@ -55,7 +55,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		}
 		object.setWorld(this);
 		super.addActor(object);
-		addObjectToPaintOrder(object);
+		//addObjectToPaintOrder(object);
 		object.setLocation(initx, inity);
 	}
 
@@ -67,11 +67,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();
 		actor.setWorld(null);
 		a.removeValue(actor, false);
-<<<<<<< Updated upstream
 		PaintUtilities.removeObjectFromPaintOrder(actor);
-=======
-		//removeObjectFromPaintOrder(actor);
->>>>>>> Stashed changes
 	}
 
 	public void removeObjects(Collection<?> objects) { // si asta merge
