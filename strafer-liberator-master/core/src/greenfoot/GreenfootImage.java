@@ -21,7 +21,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	com.badlogic.gdx.graphics.Color backgroundColor = new Color(0, 0, 0, 0f);
 	com.badlogic.gdx.graphics.Color textColor = new Color(0, 0, 0, 1);
 
-	public static Font font = new Font("consolas", 24);;
+	public static Font font= new Font("consolas", 24);;
 
 	float scaleX;
 	float scaleY;
