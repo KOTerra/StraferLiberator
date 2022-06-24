@@ -1,11 +1,10 @@
-package com.badlogicgames.superjumper.android;
+package com.game.straferliberator.android;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.badlogicgames.superjumper.SuperJumper;
-
+import com.game.straferliberator.StraferLiberator;
 public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
@@ -13,6 +12,6 @@ public class AndroidLauncher extends AndroidApplication {
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
 		config.useImmersiveMode = true;
         config.useWakelock = true;
-		initialize(new SuperJumper(), config);
+		initialize(new StraferLiberator(), config);
 	}
 }

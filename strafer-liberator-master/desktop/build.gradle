@@ -53,3 +53,8 @@ task afterEclipseImport(description: "Post processing after project generation",
     printer.print(classpath)
   }
 }
+
+dependencies {
+    implementation project(path: ':core')
+    implementation project(path: ':core')
+}
