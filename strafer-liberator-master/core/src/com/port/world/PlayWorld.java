@@ -1,6 +1,7 @@
 package com.port.world;
 
 import com.badlogic.gdx.graphics.Color;
+import com.game.straferliberator.render.PaintUtilities;
 import com.port.actor.Item;
 import com.port.actor.npc.Npc;
 import com.port.actor.npc.hostile.Droid;
@@ -56,11 +57,7 @@ public class PlayWorld extends World {
 		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); // width, height, cellsize, daca sunt actorii restricted la
 															// lume
 
-		setPaintOrder(Buton.class, Menu.class, HealthBar.class, Text.class, Picture.class, //
-				MapMenu.class, Tutorial.class, Dialog.class, //
-				HealthBarImg.class, Effect.class, //
-				Item.class, NpcItem.class, Lantern.class, Light.class, //
-				Droid.class, Player.class, Npc.class);//
+		PaintUtilities.setPaintOrder(PaintUtilities.paintOrderStandard);//sets the paint order to the standard one
 
 		WIDE = WorldData.WIDTH;
 		HIGH = WorldData.HEIGHT;
@@ -71,6 +68,8 @@ public class PlayWorld extends World {
 		WorldData.addedDialogs = false;
 		addedHealthBar = false;
 		addMainMenu();
+		
+		//puts the music on a new Thread 
 		new Thread(new Runnable() {
 
 			public void run() {
