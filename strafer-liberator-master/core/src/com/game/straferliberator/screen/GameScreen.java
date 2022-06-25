@@ -10,6 +10,8 @@ import com.game.straferliberator.render.WorldRenderer;
 import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
+import greenfoot.test.TestWorld;
+
 public class GameScreen extends ScreenAdapter {
 
 	StraferLiberator game;
