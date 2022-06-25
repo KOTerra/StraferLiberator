@@ -15,21 +15,21 @@ import greenfoot.World;
 
 public class TestWorld extends World {
 
-	BitmapFont font = new BitmapFont(new FileHandle("assets/fonts/consolas.fnt"));
+	//BitmapFont font = new BitmapFont(new FileHandle("assets/fonts/consolas.fnt"));
 
-	MouseInfo mi = new MouseInfo();
-	TestActor ta = new TestActor();
-	Actor ta2 = new Actor();
-	Actor ta3 = new Actor();
+	//MouseInfo mi = new MouseInfo();
+	//TestActor ta = new TestActor();
+	//Actor ta2 = new Actor();
+	//Actor ta3 = new Actor();
 	GreenfootSound sound;
 
 	public TestWorld() {
 
 		super(1024, 576, 1, false);
 
-		this.addObject(ta, 300, 100);
-		taa2();
-		poza();
+		//this.addObject(ta, 300, 100);
+		//taa2();
+		//poza();
 		new Thread(new Runnable() {
 
 			public void run() {
@@ -37,7 +37,7 @@ public class TestWorld extends World {
 			}
 		}).start();
 
-		this.setBackground(new GreenfootImage("Capture.png"));
+		this.setBackground(new GreenfootImage("C.jpg"));
 	}
 
 	void taa2() {
@@ -47,8 +47,8 @@ public class TestWorld extends World {
 
 		timg.drawString("da", 0, 0);
 
-		ta2.setImage(timg);
-		this.addObject(ta2, 512, 245);
+		//ta2.setImage(timg);
+		//this.addObject(ta2, 512, 245);
 		this.addObject(new com.port.utils.graphics.Text("asta e gen \n alt text", 24), 512, 576 / 2);
 	}
 
@@ -92,9 +92,9 @@ public class TestWorld extends World {
 		if (Gdx.input.isKeyJustPressed(Keys.Q)) {
 			// sound.resume();
 		}
-		if (ta.isTouching(TestActor.class)) {
+		//if (ta.isTouching(TestActor.class)) {
 			// System.out.println("atins");
-		}
+		//}
 
 	}
 

@@ -1,5 +1,7 @@
 package greenfoot;
 
+import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 
@@ -21,13 +23,15 @@ public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 
 	public Font(java.lang.String name, int size) {
 
-		super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
+		//super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
+		super(Gdx.files.internal("assets/fonts/" + name + ".fnt"), true);
 		data = getData();
 		data.setScale(size / 10);
 	}
 
 	public Font(java.lang.String name, boolean bold, boolean italic, int size) {
-		super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
+		//super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
+		super(Gdx.files.internal("assets/fonts/" + name + ".fnt"), true);
 		data = getData();
 		data.setScale(size);
 	}
