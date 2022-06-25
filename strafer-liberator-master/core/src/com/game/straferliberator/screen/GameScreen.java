@@ -1,4 +1,5 @@
 package com.game.straferliberator.screen;
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
@@ -29,9 +30,16 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator straferLiberator) {
 		this.game = straferLiberator;
 
-		world = new TestWorld();
+		
 		//
-		//world=new PlayWorld();
+		//
+		if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
+			world = new TestWorld();
+		}
+		else {
+			world=new PlayWorld();
+		}
+	
 
 		Gdx.input.setInputProcessor(world);
 		
