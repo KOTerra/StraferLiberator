@@ -35,6 +35,7 @@ public class GameScreen extends ScreenAdapter {
 		//
 		if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
 			world = new TestWorld();
+			//world=new PlayWorld();
 		}
 		else {
 			world=new PlayWorld();
@@ -54,7 +55,7 @@ public class GameScreen extends ScreenAdapter {
 	
 		world.act();
 
-		System.out.println(Gdx.graphics.getFramesPerSecond());
+		//System.out.println(Gdx.graphics.getFramesPerSecond());
 	}
 
 	public void draw() {

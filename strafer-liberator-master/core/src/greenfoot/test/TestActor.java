@@ -12,12 +12,12 @@ public class TestActor extends Actor {
 	int speed = 5;
 
 	public TestActor() {
-		this.setImage(gif.getCurrentImage());
+		this.setImage("R.png");
 	}
 
 	public void act() {
 
-		miscaTest();
+		//miscaTest();
 		if (Greenfoot.mouseClicked(this)) {
 			System.out.println("click");
 		}

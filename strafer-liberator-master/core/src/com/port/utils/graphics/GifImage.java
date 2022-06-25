@@ -3,6 +3,7 @@ package com.port.utils.graphics;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -37,12 +38,21 @@ public class GifImage {
        
         return new GreenfootImage(region);
 	}
-	public List<GreenfootImage> getImages() {	 
-		List<GreenfootImage> l =new ArrayList<GreenfootImage>();
+	public List<GreenfootImage> getImages() {
+		List<GreenfootImage> l = new ArrayList<GreenfootImage>();
+		if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
+			Object[] frames= animation.getKeyFrames();
+			int s=animation.getKeyFrames().length;
+			for(int i=0;i<s;i++){
+				l.add(new GreenfootImage((TextureRegion)frames[i]));
+			}
+		}
+		else {
 
-		for(Object t:animation.getKeyFrames()) {
-			TextureRegion a=(TextureRegion)t;
-			l.add(new GreenfootImage(a));
+			for (Object t : animation.getKeyFrames()) {
+				TextureRegion a = (TextureRegion) t;
+				l.add(new GreenfootImage(a));
+			}
 		}
 		return l;
 	}
