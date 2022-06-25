@@ -29,9 +29,9 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator straferLiberator) {
 		this.game = straferLiberator;
 
-		//world = new TestWorld();
+		world = new TestWorld();
 		//
-		world=new PlayWorld();
+		//world=new PlayWorld();
 
 		Gdx.input.setInputProcessor(world);
 		

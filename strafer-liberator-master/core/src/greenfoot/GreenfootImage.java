@@ -33,7 +33,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public GreenfootImage(String f) {
-		super(new Texture(new FileHandle("assets/images/" + f)));
+		//super(new Texture(new FileHandle("assets/images/" + f)));
+		super(new Texture(Gdx.files.internal("assets/images/" + f)));
 		scaleX = getWidth();
 		scaleY = getHeight();
 
