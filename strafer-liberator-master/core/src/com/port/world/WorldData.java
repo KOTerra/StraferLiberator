@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+
 public class WorldData {
 
     public static boolean PAUZA;
@@ -82,7 +84,7 @@ public class WorldData {
         String director = new String("assets/maps/");
         for (int i = 1; i <= 1; i++) {
 
-            worldSectionMatrix[i] = com.port.utils.loader.Loader.loadMatrix(new File(director + i + ".txt"));
+            worldSectionMatrix[i] = com.port.utils.loader.Loader.loadMatrix(Gdx.files.internal(director + i + ".txt"));
         }
     }
 

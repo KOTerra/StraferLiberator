@@ -1,20 +1,19 @@
 package com.port.utils.loader;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import com.badlogic.gdx.files.FileHandle;
 import com.port.world.WorldData;
-
-import java.util.InputMismatchException;
 
 public abstract class Loader {
 
-    public static int[][] loadMatrix(File fin) {
+    public static int[][] loadMatrix(FileHandle fileHandle) {
+    	
         int[][] mat = new int[WorldData.maxLengthWorld][WorldData.maxWidthWorld];
         try {
-            Scanner scan = new Scanner(fin);
+            Scanner scan = new Scanner(fileHandle.path());
 
             for (int i = 0; i < WorldData.maxLengthWorld; i++) {
 

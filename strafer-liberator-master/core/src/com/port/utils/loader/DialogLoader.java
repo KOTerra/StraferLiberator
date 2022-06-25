@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+
 public abstract class DialogLoader extends Loader{
 
     /*
@@ -39,14 +42,14 @@ public abstract class DialogLoader extends Loader{
      * @return a list of strings with all the phrases spoken by this character
      */
     public static List<String> loadPhrases(String NPCName, int dialogNumber) {
-        File director = new File(DialogLoader.directoryName, NPCName);
-        File file = new File(director.getAbsoluteFile(), NPCName + dialogNumber + ".txt");
+    	FileHandle director = Gdx.files.internal(DialogLoader.directoryName+ NPCName);
+    	FileHandle file = Gdx.files.internal(director.path()+ NPCName + dialogNumber + ".txt");
 
         List<String> phrases = new ArrayList<>();
 
         try {
-            file.createNewFile();
-            Scanner fin = new Scanner(file, "UTF-8");
+        	
+            Scanner fin = new Scanner(file.path());
             StringBuilder strB = new StringBuilder();
             while (fin.hasNext()) {
                 String str = fin.nextLine();
