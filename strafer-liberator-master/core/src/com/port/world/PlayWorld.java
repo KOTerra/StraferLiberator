@@ -111,13 +111,13 @@ public class PlayWorld extends World {
 
 		healthBar.setSafeColor(Color.TEAL.lerp(Color.SKY, 0.7f));
 		healthBar.setDangerColor(Color.ORANGE);
-		healthBar.setBarWidth(181);
-		healthBar.setBarHeight(14);
+		healthBar.setBarWidth(179);
+		healthBar.setBarHeight(12);
 		healthBar.setReferenceText("");
 		healthBar.setTextColor(new Color(4, 69, 85, 214));
 
 		addObject(barBack, 148, 40);
-		addObject(healthBar, 172, 32);
+		addObject(healthBar, 172, 33);
 	}
 
 	void relocBar() {
