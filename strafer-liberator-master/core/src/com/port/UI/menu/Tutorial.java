@@ -22,12 +22,14 @@ public class Tutorial extends Menu {
     private String img;
     private String tip;
     private Picture picture = new Picture("UI/tutorial/tutorial.png");
-
+    private Buton buton=new Buton("Next", this);
+    
     private boolean addedButon = false;
     private boolean addedButonBack = false;
     private boolean inPause;
     private boolean addedPicture = false;
-
+    
+    
     public Tutorial(String tipref, String imgref, int slideref, boolean inPauseref) {
         WorldData.PAUZA = true;
         nrSlideMax = slideref;
@@ -50,13 +52,19 @@ public class Tutorial extends Menu {
 
             addedPicture = true;
         }
+        if(addedPicture) {
+        	picture.setLocation(WorldData.menuX, WorldData.menuY);
+        }
 
     }
 
     public void addButon() {
         if (!addedButon) {
-            getWorld().addObject(new Buton("Next", this), 945, 485);
+            getWorld().addObject(buton, 945, 485);
             addedButon = true;
+        }
+        if(addedButon) {
+        	buton.setLocation(945, 485);
         }
     }
 

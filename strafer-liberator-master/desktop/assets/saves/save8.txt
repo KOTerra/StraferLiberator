@@ -1,7 +1,7 @@
-PlayerX:6745
-PlayerY:8132
-Health:240
-WorldSection:12
+PlayerX:6752
+PlayerY:325
+Health:320
+WorldSection:22
 WS11:true
 WS12:true
 WS13:false
@@ -11,5 +11,5 @@ WS23:false
 Item:laser
 Item:sword
 Item:lantern
-DialogIndex:6
-NrEvent:17
+DialogIndex:5
+NrEvent:18

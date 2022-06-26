@@ -8,7 +8,7 @@ import greenfoot.Greenfoot;
 
 public class TestActor extends Actor {
 
-	GifImage gif = new GifImage("player/player_m_D.gif");
+	//GifImage gif = new GifImage("player/player_m_D.gif");
 	int speed = 5;
 
 	public TestActor() {
@@ -25,7 +25,7 @@ public class TestActor extends Actor {
 	}
 
 	private void miscaTest() {
-		this.setImage(gif.getCurrentImage());
+	//	this.setImage(gif.getCurrentImage());
 		moveTest();
 		// this.setLocation(100,100);
 	}
