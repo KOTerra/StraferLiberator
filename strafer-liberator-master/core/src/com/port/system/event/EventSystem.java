@@ -248,9 +248,20 @@ public class EventSystem extends Actor {
                     break;
                 }
                 //ws23
-                //D:Tsoukalos7
+                //L:beach
                 //
                 case 19: {
+                    makeObjective("Get to the Beach", 38 * 64,98 * 64, 23);
+                    if (worldListener.getWorldSection() == 23&& player.getWorldX() >= 38 * 64 && player.getWorldY() >= 98 * 64) {
+                        WorldData.nrEvent++;
+
+                    }
+                    break;
+                }
+                //ws23
+                //D:Tsoukalos7
+                //
+                case 20: {
                     makeObjective("Talk to Mr.T", 45 * 64, 101 * 64, 23);
                     if (worldListener.getWorldSection() == 23) {
                         WorldData.dialogIndex = 7;
@@ -263,7 +274,7 @@ public class EventSystem extends Actor {
                 //
                 //i:blackhole
                 //
-                case 20: {
+                case 21: {
                     makeObjective("Get Black Hole", 60 * 64, 45 * 64, 23);
                     if (worldListener.getWorldSection() == 23) {
                         playWorld.initUniqueObject(new PickUp("blackhole"), 60 * 64, 45 * 64);
@@ -273,7 +284,7 @@ public class EventSystem extends Actor {
                 //
                 //D:Keanu8
                 //
-                case 21: {
+                case 22: {
                     makeObjective("Talk to Mr.K", 20 * 64, 11 * 64, 23);
 
                     WorldData.dialogIndex = 8;
@@ -291,7 +302,7 @@ public class EventSystem extends Actor {
                 //ws13
                 //i:portalgun
                 //
-                case 22: {
+                case 23: {
                     makeObjective("Get Portal Gun", 80 * 64, 10 * 64, 13);
                     if (worldListener.getWorldSection() == 13) {
                         playWorld.initUniqueObject(new PickUp("portalgun"), 80 * 64, 10 * 64);
@@ -301,7 +312,7 @@ public class EventSystem extends Actor {
                 //
                 //D:Stonks9
                 //
-                case 23: {
+                case 24: {
                     WorldData.dialogIndex = 9;
                     if (playWorld.getObjects(Keanu.class).isEmpty()) {
                         stonks = new Stonks(playWorld, scroller, "Stonks", WorldData.dialogIndex);
@@ -317,7 +328,7 @@ public class EventSystem extends Actor {
                 //ws21
                 //D:Tsoukalos10
                 //
-                case 24: {
+                case 25: {
                     makeObjective("Talk to Mr.T", 125 * 64, 85 * 64, 21);
                     if (worldListener.getWorldSection() == 21) {
                         WorldData.dialogIndex = 10;
@@ -331,7 +342,7 @@ public class EventSystem extends Actor {
                 //
                 //i:icelock
                 //
-                case 25: {
+                case 26: {
                     makeObjective("Get Ice Lock", 63 * 64, 67 * 64, 21);
                     if (worldListener.getWorldSection() == 21) {
                         playWorld.initUniqueObject(new PickUp("icelock"), 63 * 64, 67 * 64);
@@ -341,7 +352,7 @@ public class EventSystem extends Actor {
                 //ws22
                 //D:Keanu11
                 //
-                case 26: {
+                case 27: {
                     makeObjective("Talk to Mr.K", 100 * 64, 5 * 64, 22);
                     if (worldListener.getWorldSection() == 22) {
                         WorldData.dialogIndex = 11;
@@ -353,7 +364,7 @@ public class EventSystem extends Actor {
                 //ws12
                 //C:bossfight
                 //
-                case 27: {
+                case 28: {
                     makeObjective("Defeat Stroke", 55 * 64, 15 * 64, 12);
                     WorldData.metStroke = false;
                     WorldData.nrEvent++;

@@ -94,7 +94,7 @@ public class WorldData {
     public static List<String> tutorials = new ArrayList<String>();
     
     public static int dialogIndex=0;
-    public static int[] dialogSuccesion =new int[]{0,3,6,9,12,15,17,18,20,22,23,25} ;//index e nr dialog care e in numele txt-ului cu dialogul
+    public static int[] dialogSuccesion =new int[]{0,3,6,9,12,15,18,20,22,24,25,27} ;//index e nr dialog care e in numele txt-ului cu dialogul
                                                             //valoarea e nr eventului la care e dialogul asta
     public static boolean talked=false; //verifica daca un dialog a fost accesat odata
     
