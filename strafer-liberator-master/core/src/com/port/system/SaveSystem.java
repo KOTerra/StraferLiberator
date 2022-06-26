@@ -12,6 +12,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.badlogic.gdx.Gdx;
 import com.port.UI.menu.Tutorial;
 import com.port.UI.menu.TutorialGallery;
 import com.port.entity.mover.player.Player;
@@ -82,8 +83,7 @@ abstract public class SaveSystem {
      * all the items and other proccesses
      */
     public static void load(int saveNumber, Player playerref) {
-        File director = new File(SaveSystem.directoryName);
-        File file = new File(director.getAbsoluteFile(), "save" + saveNumber + ".txt");
+        File file = Gdx.files.internal(directoryName).child("save" + saveNumber + ".txt").file();
 
         //
         Player player = playerref;
@@ -223,11 +223,13 @@ abstract public class SaveSystem {
      * must be saved
      */
     public static void save(int saveNumber, Player player) {
-        File director = new File(SaveSystem.directoryName);
+   
+        File director = Gdx.files.internal(SaveSystem.directoryName).file();
         if (!director.isDirectory()) {
             director.mkdir();
         }
-        File file = new File(director.getAbsolutePath(), "save" + saveNumber + ".txt");
+        
+        File file = Gdx.files.internal(SaveSystem.directoryName).child("save" + saveNumber + ".txt").file();
         try {
             if (file.exists()) {
                 // sterg continutul save-ului trecut
@@ -278,7 +280,7 @@ abstract public class SaveSystem {
      */
     public static List<File> getSaveFiles() {
         List<File> fisiere = new ArrayList<>();
-        File f = new File(SaveSystem.directoryName);
+        File f =  Gdx.files.internal(SaveSystem.directoryName).file();
         File[] matchingFiles = f.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.startsWith("save") && name.endsWith("txt");
@@ -293,7 +295,7 @@ abstract public class SaveSystem {
     }
 
     public static int getNumberOfSaveFiles() {
-        File f = new File(SaveSystem.directoryName);
+        File f =  Gdx.files.internal(SaveSystem.directoryName).file();
         File[] matchingFiles = f.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.startsWith("save") && name.endsWith("txt");
