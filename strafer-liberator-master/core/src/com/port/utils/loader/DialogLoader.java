@@ -42,14 +42,14 @@ public abstract class DialogLoader extends Loader{
      * @return a list of strings with all the phrases spoken by this character
      */
     public static List<String> loadPhrases(String NPCName, int dialogNumber) {
-    	FileHandle director = Gdx.files.internal(DialogLoader.directoryName+ NPCName);
-    	FileHandle file = Gdx.files.internal(director.path()+ NPCName + dialogNumber + ".txt");
+    	FileHandle director = Gdx.files.internal(DialogLoader.directoryName+ "/"+NPCName);
+    	File file = Gdx.files.internal(director.path()+"/" +NPCName + dialogNumber + ".txt").file();
 
         List<String> phrases = new ArrayList<>();
 
         try {
         	
-            Scanner fin = new Scanner(file.path());
+            Scanner fin = new Scanner(file);
             StringBuilder strB = new StringBuilder();
             while (fin.hasNext()) {
                 String str = fin.nextLine();
