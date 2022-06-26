@@ -4,7 +4,7 @@ import greenfoot.*;
 
 import java.util.List;
 
-import com.port.UI.Buton;
+import com.port.UI.buton.Buton;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.npc.friendly.Friendly;
 import com.port.world.WorldData;

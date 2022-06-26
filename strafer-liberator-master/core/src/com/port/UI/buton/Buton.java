@@ -1,4 +1,4 @@
-package com.port.UI;
+package com.port.UI.buton;
 
 
 import greenfoot.*;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.port.UI.UI;
 import com.port.UI.menu.Dialog;
 import com.port.UI.menu.GameOver;
 import com.port.UI.menu.MainMenu;

@@ -6,7 +6,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.port.UI.Buton;
+import com.port.UI.buton.Buton;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Picture;
 import com.port.utils.graphics.Text;

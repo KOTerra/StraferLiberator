@@ -18,7 +18,7 @@ public class DesktopLauncher {
 		config.pauseWhenMinimized = true;
 		config.resizable = false;
 		config.vSyncEnabled = true;
-		config.foregroundFPS=60;
+		config.foregroundFPS=90;
 		
 		config.addIcon("assets/icons/icon_128.png", FileType.Internal);
 		config.addIcon("assets/icons/icon_64.png", FileType.Internal);

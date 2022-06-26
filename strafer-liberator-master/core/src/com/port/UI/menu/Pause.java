@@ -1,6 +1,6 @@
 package com.port.UI.menu;
 
-import com.port.UI.Buton;
+import com.port.UI.buton.Buton;
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 

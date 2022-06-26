@@ -5,7 +5,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.port.UI.Buton;
+import com.port.UI.buton.Buton;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;

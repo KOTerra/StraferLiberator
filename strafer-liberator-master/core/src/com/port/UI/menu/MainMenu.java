@@ -1,6 +1,6 @@
 package com.port.UI.menu;
 
-import com.port.UI.Buton;
+import com.port.UI.buton.Buton;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
