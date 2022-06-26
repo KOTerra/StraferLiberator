@@ -24,14 +24,14 @@ public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 	public Font(java.lang.String name, int size) {
 
 		//super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
-		super(Gdx.files.internal("assets/fonts/" + name + ".fnt"), true);
+		super(Gdx.files.internal("fonts/" + name + ".fnt"), true);
 		data = getData();
 		data.setScale(size / 10);
 	}
 
 	public Font(java.lang.String name, boolean bold, boolean italic, int size) {
 		//super(new FileHandle("assets/fonts/" + name + ".fnt"), true);
-		super(Gdx.files.internal("assets/fonts/" + name + ".fnt"), true);
+		super(Gdx.files.internal("fonts/" + name + ".fnt"), true);
 		data = getData();
 		data.setScale(size);
 	}

@@ -36,11 +36,9 @@ public class WorldListener extends WorldSection {
 		scroller.setScrollImage(fundaluri.get(WorldData.getWorldSectionShort(worldSection) - 1));
 		WorldData.worldSection = this.worldSection;
 		if (!atLoad) {
-			System.out.println(
-					"                                            " + WorldData.worldSection + " " + player.getX());
+			
 			relocatePlayer();
-			System.out.println(
-					"                                            " + WorldData.worldSection + " " + player.getX());
+			
 		}
 		clearWorldObjects();
 
@@ -164,7 +162,11 @@ public class WorldListener extends WorldSection {
 	/*
 	 * - vedem toata mapa organizata ca o matrice (linii,coloane) de sectiuni de
 	 * mapa(8192x8192 pixeli) fiecare in continuarea celeilalte cu background
-	 * ________ |11|12|13| |__|__|__| |21|22|23| |__|__|__|
+	 * ________ 
+	 * |11|12|13| 
+	 * |__|__|__| 
+	 * |21|22|23| 
+	 * |__|__|__|
 	 * 
 	 * 
 	 * 
@@ -179,8 +181,9 @@ public class WorldListener extends WorldSection {
 	 * - ex pt sectiunea 11:
 	 * 
 	 * index: 0 1 2 3 directie: sus stanga jos dreapta
-	 * _______________________________ nr sectiunii | 0 | 0 | 21 | 12 | urmatoare:
-	 * |____|_________|_______|________|
+	 * 				_______________________________ 
+	 * nr sectiunii | 0 | 0 | 21 | 12 | urmatoare:
+	 * 				|____|_________|_______|________|
 	 * 
 	 * 
 	 * 

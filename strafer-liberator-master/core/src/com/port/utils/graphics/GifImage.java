@@ -25,7 +25,7 @@ public class GifImage {
 	
 	
 	public GifImage(String file){
-		 animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("assets/images/"+file).read());
+		 animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("images/"+file).read());
 
 		 frameDuration=animation.getFrameDuration();
 	}
@@ -48,11 +48,12 @@ public class GifImage {
 			}
 		}
 		else {
-
+			
 			for (Object t : animation.getKeyFrames()) {
 				TextureRegion a = (TextureRegion) t;
 				l.add(new GreenfootImage(a));
 			}
+			
 		}
 		return l;
 	}

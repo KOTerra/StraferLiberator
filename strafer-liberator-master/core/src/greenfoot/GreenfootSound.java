@@ -13,7 +13,7 @@ public class GreenfootSound {
 
 	public GreenfootSound(java.lang.String name) {
 		//sound = Gdx.audio.newSound(new FileHandle("assets/sounds/" + name));
-		sound = Gdx.audio.newSound(Gdx.files.internal("assets/sounds/" + name));
+		sound = Gdx.audio.newSound(Gdx.files.internal("sounds/" + name));
 	}
 
 	int getVolume() {
