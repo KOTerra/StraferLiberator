@@ -69,24 +69,24 @@ public class HighscoresScreen extends ScreenAdapter {
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		guiCam.update();
 
-		game.batcher.setProjectionMatrix(guiCam.combined);
-		game.batcher.disableBlending();
-		game.batcher.begin();
-		game.batcher.draw(Assets.backgroundRegion, 0, 0, 320, 480);
-		game.batcher.end();
+		game.batch.setProjectionMatrix(guiCam.combined);
+		game.batch.disableBlending();
+		game.batch.begin();
+		game.batch.draw(Assets.backgroundRegion, 0, 0, 320, 480);
+		game.batch.end();
 
-		game.batcher.enableBlending();
-		game.batcher.begin();
-		game.batcher.draw(Assets.highScoresRegion, 10, 360 - 16, 300, 33);
+		game.batch.enableBlending();
+		game.batch.begin();
+		game.batch.draw(Assets.highScoresRegion, 10, 360 - 16, 300, 33);
 
 		float y = 230;
 		for (int i = 4; i >= 0; i--) {
-			Assets.font.draw(game.batcher, highScores[i], xOffset, y);
+			Assets.font.draw(game.batch, highScores[i], xOffset, y);
 			y += Assets.font.getLineHeight();
 		}
 
-		game.batcher.draw(Assets.arrow, 0, 0, 64, 64);
-		game.batcher.end();
+		game.batch.draw(Assets.arrow, 0, 0, 64, 64);
+		game.batch.end();
 	}
 
 	@Override

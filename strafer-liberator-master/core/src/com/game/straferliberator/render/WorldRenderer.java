@@ -1,25 +1,29 @@
 package com.game.straferliberator.render;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
+import com.game.straferliberator.StraferLiberator;
 
 public class WorldRenderer<A> {
 	static final float WIDTH = com.port.world.WorldData.WIDTH;
-	static final float HEIGHT =com.port.world.WorldData.HEIGHT;
+	static final float HEIGHT = com.port.world.WorldData.HEIGHT;
 	greenfoot.World world;
-	OrthographicCamera cam;
-	SpriteBatch batch;
 
-	public WorldRenderer(SpriteBatch batch, greenfoot.World world) {
-		this.world =  world;
-		this.cam = new OrthographicCamera(WIDTH, HEIGHT);
-		this.cam.position.set(WIDTH / 2, HEIGHT / 2, 0);
-		this.batch = batch;
+	SpriteBatch batch;
+	OrthographicCamera camera;
+
+	public WorldRenderer(greenfoot.World world) {
+		this.world = world;
+		this.batch=StraferLiberator.batch;
+		this.camera = StraferLiberator.camera;
+		camera.position.set(WIDTH / 2, HEIGHT / 2, 0);
 	}
 
 	public void render() {
-		cam.update();
-		batch.setProjectionMatrix(cam.combined);
+		batch.setProjectionMatrix(camera.combined);
+		camera.update();
+		
 		renderBackground();
 		renderObjects();
 	}
@@ -27,26 +31,22 @@ public class WorldRenderer<A> {
 	public void renderBackground() {
 		batch.disableBlending();
 		batch.begin();
-		batch.draw(world.getBackground(), cam.position.x - WIDTH / 2, cam.position.y - HEIGHT / 2,
-				WIDTH, HEIGHT);
+		batch.draw(world.getBackground(), camera.position.x - WIDTH / 2, camera.position.y - HEIGHT / 2, WIDTH, HEIGHT);
 		batch.end();
 	}
 
 	public void renderObjects() {
 		batch.enableBlending();
 		batch.begin();
-		
-		
-		Array<com.badlogic.gdx.scenes.scene2d.Actor> l=world.getActors();
-		for(com.badlogic.gdx.scenes.scene2d.Actor a:l) {
-			
+
+		Array<com.badlogic.gdx.scenes.scene2d.Actor> l = world.getActors();
+		for (com.badlogic.gdx.scenes.scene2d.Actor a : l) {
+
 			((greenfoot.Actor) a).draw();
-			
+
 		}
-		
-		
-	
+
 		batch.end();
 	}
-
+	
 }

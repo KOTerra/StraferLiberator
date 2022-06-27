@@ -7,6 +7,7 @@ import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.game.straferliberator.StraferLiberator;
+import com.port.world.WorldData;
 
 public class DesktopLauncher {
 	public static Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
@@ -16,11 +17,13 @@ public class DesktopLauncher {
 		config.setTitle( "Strafer Liberator");
 		config.setWindowIcon(FileType.Internal, "icons/icon_128.png","icons/icon_64.png","icons/icon_32.png","icons/icon_16.png");
 		//config.setDecorated(false);
-		config.setWindowedMode(com.port.world.WorldData.WIDTH, com.port.world.WorldData.HEIGHT);
+
+		config.setWindowedMode(WorldData.WIDTH, WorldData.HEIGHT);
+
 		config.setResizable(false);
 		
 
-		config.setForegroundFPS(90);
+		config.setForegroundFPS(WorldData.FPS);
 		config.useVsync(true);
 
 

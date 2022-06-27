@@ -27,7 +27,7 @@ public class TestWorld extends World {
 
 		super(1024, 576, 1, false);
 		this.setBackground(new GreenfootImage("C.jpg"));
-		this.addObject(ta, 300, 100);
+		this.addObject(ta, 500, 30);
 		//taa2();
 		//poza();
 	//	new Thread(new Runnable() {

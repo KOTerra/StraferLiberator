@@ -10,11 +10,11 @@ import com.badlogic.gdx.Gdx;
 public class WorldData {
 
     public static boolean PAUZA;
-    public static final int WIDTH = 1024, HEIGHT = 576;
-    public static final int FPS = 60;
+    public static final int WIDTH = 2400, HEIGHT = 1080;
+    public static final int FPS = 90;
 
-    public static int menuX = 512; //  pt adaugat meniuri in mijlocu ecranului
-    public static int menuY = 288;
+    public static int menuX = WIDTH/2; //  pt adaugat meniuri in mijlocu ecranului
+    public static int menuY = HEIGHT/2;
 //
 
     //player state

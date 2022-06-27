@@ -13,11 +13,12 @@ public class TestActor extends Actor {
 
 	public TestActor() {
 		this.setImage("R.png");
+		
 	}
 
 	public void act() {
 
-		//miscaTest();
+		miscaTest();
 		if (Greenfoot.mouseClicked(this)) {
 			System.out.println("click");
 		}
@@ -28,10 +29,11 @@ public class TestActor extends Actor {
 	//	this.setImage(gif.getCurrentImage());
 		moveTest();
 		// this.setLocation(100,100);
+		//setLocation(300,300);
 	}
 
 	private void moveTest() {
-
+		System.out.println("actor             "+getX()+"      "+getY());
 		if (Greenfoot.isKeyDown("W")) {
 			// merge in nord
 

@@ -41,9 +41,9 @@ public class GifImage {
 	public List<GreenfootImage> getImages() {	 
 		List<GreenfootImage> l =new ArrayList<GreenfootImage>();
 		
-		for(Object t:animation.getKeyFrames()) {
-			TextureRegion a=(TextureRegion)t;
-			l.add(new GreenfootImage(a));
+		for(TextureRegion t:animation.getKeyFrames()) {
+			//TextureRegion a=(TextureRegion)t;
+			l.add(new GreenfootImage(t));
 		}
 		return l;
 	}

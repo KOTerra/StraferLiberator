@@ -9,12 +9,19 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
+import com.game.straferliberator.render.WorldRenderer;
+import com.port.world.WorldData;
 
 public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
-	SpriteBatch batch = StraferLiberator.batcher;
+	SpriteBatch batch = StraferLiberator.batch;
 	GreenfootImage background;
 	int cellSize; // unitatea de masura pixel^2
 	private float wwidth, wheight;
@@ -24,6 +31,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	
 
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
+		//super.setViewport(new ScalingViewport(Scaling.fit,WorldData.WIDTH,WorldData.HEIGHT,StraferLiberator.camera));
 		this.cellSize = cellSize;
 		wwidth = worldWidth;
 		wheight = worldHeight;
@@ -31,7 +39,6 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 
 	public void act() {
-		// super.act(1f);// apeleaza act pt fiecare actor
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> l = getActors();
 
 		for (int i = 0; i < l.size; i++) {

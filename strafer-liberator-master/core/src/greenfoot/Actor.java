@@ -3,11 +3,13 @@ package greenfoot;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.game.straferliberator.StraferLiberator;
 import com.port.world.WorldData;
 
@@ -20,7 +22,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	Rectangle rect;
 
 	public Actor() {
-		batch = StraferLiberator.batcher;
+		batch = StraferLiberator.batch;
 	}
 
 	public void act() {
@@ -76,7 +78,8 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public boolean isAtEdge() {
-		return (x <= 0 || y <= 0 || x >= com.port.world.WorldData.WIDTH - 1 || y >= com.port.world.WorldData.HEIGHT - 1);
+		return (x <= 0 || y <= 0 || x >= com.port.world.WorldData.WIDTH - 1
+				|| y >= com.port.world.WorldData.HEIGHT - 1);
 	}
 
 	public void move(int distance) {
@@ -215,9 +218,14 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	}
 
+
 	public void draw() {
 		if (isInScreenRange()) {
-			batch.draw(this.getImage(), getX() - this.iw() / 2, getStageY() - this.ih() / 2, // coordonatele
+
+			float icx = (getX() - this.iw() / 2);
+			float icy = (getStageY() - this.ih() / 2);
+
+			batch.draw(this.getImage(), icx, icy, // coordonatele
 					this.iw() / 2, this.ih() / 2, // pct in care e rotit
 					this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
 					1, 1, // scale

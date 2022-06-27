@@ -708,7 +708,7 @@ public class GifDecoder {
 		}
 
 		Texture texture = new Texture(target);
-		Array<TextureRegion> texReg = new Array<TextureRegion>();
+		Array texReg=new Array(true,nrFrames,TextureRegion.class);
 
 		for (h = 0; h < hzones; h++) {
 			for (v = 0; v < vzones; v++) {
