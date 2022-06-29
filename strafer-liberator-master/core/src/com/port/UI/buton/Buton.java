@@ -125,7 +125,6 @@ public class Buton extends UI {
                         if (obj instanceof Tutorial) {
                             tutorial.setNrSlide(tutorial.getNrSlide() + 1);
                             tutorial.setAddedPicture(false);
-                            getWorld().removeObject(tutorial.getPicture());
                         }
                         break;
                     }
@@ -134,7 +133,6 @@ public class Buton extends UI {
                         if (obj instanceof Tutorial) {
                             tutorial.setNrSlide(tutorial.getNrSlide() - 1);
                             tutorial.setAddedPicture(false);
-                            getWorld().removeObject(tutorial.getPicture());
                         }
                         break;
                     }

@@ -18,7 +18,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	private float x = 0, y = 0;
 	public greenfoot.World world;
-	public static greenfoot.GreenfootImage invisibleImg = new GreenfootImage("invisible.png");
+	public static greenfoot.GreenfootImage invisibleImg = new GreenfootImage(1,1);
 	greenfoot.GreenfootImage image = invisibleImg;
 	SpriteBatch batch;
 	Rectangle rect;

@@ -70,6 +70,7 @@ public class SabieGoblin extends NpcItem {
 			move();
 			if (sabieImg != null) {
 				setImage(sabieImg.getCurrentImage());
+				setLocation(goblin.getX(),goblin.getY());
 			}
 			time++;
 			if (time > constantEraseTime) {

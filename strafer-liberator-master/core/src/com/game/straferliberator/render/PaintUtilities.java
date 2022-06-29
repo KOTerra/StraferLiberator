@@ -11,6 +11,7 @@ import java.util.List;
 import com.port.UI.buton.Buton;
 import com.port.UI.hud.HealthBar;
 import com.port.UI.hud.HealthBarImg;
+import com.port.UI.hud.HealthBarPlayer;
 import com.port.UI.menu.Dialog;
 import com.port.UI.menu.MainMenu;
 import com.port.UI.menu.MapMenu;
@@ -41,7 +42,7 @@ public abstract class PaintUtilities {
 	 * The standard paint order, saved in an array
 	 */
 	public static Class<?>[] paintOrder = { Buton.class,MainMenu.class, Menu.class, HealthBar.class, Text.class, Picture.class,
-			MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class, Effect.class, Item.class, NpcItem.class,
+			MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,HealthBarPlayer.class, Effect.class, Item.class, NpcItem.class,
 			Lantern.class, Light.class, Droid.class, Player.class, Npc.class };
 
 	/**
@@ -134,10 +135,8 @@ public abstract class PaintUtilities {
 		actorsToRenderInOrder = new ArrayList<>();
 		for (int i = 1; i <= getPaintDepth(); i++) {
 			ArrayList<greenfoot.Actor> foundList;
-			// if (foundList.size() != 0) {
 			actorsToRenderInOrder.addAll(objectsInPaintOrder.get(i));
-			// }
-			 
+		
 		}
 
 		isActorRenderOrderModified = false;
@@ -145,6 +144,7 @@ public abstract class PaintUtilities {
 	}
 
 	public static Class<?> getAbsoluteClassInPaintOrder(Object obj) {
+		
 		for (Class<?> cls : paintOrder) {
 			if(isOneSubclass(obj.getClass(),cls)) {
 				return cls;
