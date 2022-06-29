@@ -11,15 +11,18 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.game.straferliberator.StraferLiberator;
+import com.game.straferliberator.render.PaintUtilities;
 import com.port.world.WorldData;
 
 public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	private float x = 0, y = 0;
 	public greenfoot.World world;
-	greenfoot.GreenfootImage image = new GreenfootImage(1, 1);
+	public static greenfoot.GreenfootImage invisibleImg = new GreenfootImage("invisible.png");
+	greenfoot.GreenfootImage image = invisibleImg;
 	SpriteBatch batch;
 	Rectangle rect;
+	boolean notRemovedYet = true;
 
 	public Actor() {
 		batch = StraferLiberator.batch;
@@ -218,19 +221,27 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	}
 
-
 	public void draw() {
-		if (isInScreenRange()) {
+		if (notRemovedYet) {
+			if (isInScreenRange()) {
 
-			float icx = (getX() - this.iw() / 2);
-			float icy = (getStageY() - this.ih() / 2);
+				float icx = (getX() - this.iw() / 2);
+				float icy = (getStageY() - this.ih() / 2);
 
-			batch.draw(this.getImage(), icx, icy, // coordonatele
-					this.iw() / 2, this.ih() / 2, // pct in care e rotit
-					this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
-					1, 1, // scale
-					super.getRotation()); // rotation
+				batch.draw(this.getImage(), icx, icy, // coordonatele
+						this.iw() / 2, this.ih() / 2, // pct in care e rotit
+						this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
+						1, 1, // scale
+						super.getRotation()); // rotation
+			}
 		}
+		else {
+			PaintUtilities.removeObjectFromPaintOrder(this);
+		}
+	}
+
+	public void setNotRemovedYet(boolean canDraw) {
+		this.notRemovedYet = canDraw;
 	}
 
 	public boolean isInScreenRange() {

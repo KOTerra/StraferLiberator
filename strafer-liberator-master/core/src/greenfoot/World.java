@@ -31,7 +31,6 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	
 
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
-		//super.setViewport(new ScalingViewport(Scaling.fit,WorldData.WIDTH,WorldData.HEIGHT,StraferLiberator.camera));
 		this.cellSize = cellSize;
 		wwidth = worldWidth;
 		wheight = worldHeight;
@@ -59,18 +58,21 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		}
 		object.setWorld(this);
 		super.addActor(object);
+		PaintUtilities.addObjectToPaintOrder(object);
 		object.setLocation(initx, inity);
+
 	}
 
 	public void removeObject(greenfoot.Actor actor) { // si asta mergess
 		if (actor == null) {
 			return;
 		}
+		actor.setNotRemovedYet(false);
 		actor.remove();
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();
 		actor.setWorld(null);
 		a.removeValue(actor, false);
-		//PaintUtilities.removeObjectFromPaintOrder(actor);
+		
 	}
 
 	public void removeObjects(Collection<?> objects) { // si asta merge

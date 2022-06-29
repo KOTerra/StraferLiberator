@@ -52,7 +52,7 @@ public class PlayWorld extends World {
 		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); // width, height, cellsize, daca sunt actorii restricted la
 															// lume
 
-		PaintUtilities.setPaintOrder(PaintUtilities.paintOrderStandard);//sets the paint order to the standard one
+		PaintUtilities.setPaintOrder(PaintUtilities.paintOrder);//sets the paint order to the standard one
 
 		WIDE = WorldData.WIDTH;
 		HIGH = WorldData.HEIGHT;

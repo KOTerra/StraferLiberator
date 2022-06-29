@@ -46,7 +46,7 @@ public class GameScreen extends ScreenAdapter {
 	public void update(float deltaTime) {
 
 		world.act();
-
+		System.out.println(Gdx.graphics.getFramesPerSecond());
 	}
 
 	public void draw() {

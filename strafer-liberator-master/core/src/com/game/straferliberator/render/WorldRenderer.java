@@ -1,9 +1,13 @@
 package com.game.straferliberator.render;
 
+import java.util.List;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
+
+import greenfoot.Actor;
 
 public class WorldRenderer<A> {
 	static final float WIDTH = com.port.world.WorldData.WIDTH;
@@ -15,7 +19,7 @@ public class WorldRenderer<A> {
 
 	public WorldRenderer(greenfoot.World world) {
 		this.world = world;
-		this.batch=StraferLiberator.batch;
+		this.batch = StraferLiberator.batch;
 		this.camera = StraferLiberator.camera;
 		camera.position.set(WIDTH / 2, HEIGHT / 2, 0);
 	}
@@ -23,7 +27,7 @@ public class WorldRenderer<A> {
 	public void render() {
 		batch.setProjectionMatrix(camera.combined);
 		camera.update();
-		
+
 		renderBackground();
 		renderObjects();
 	}
@@ -38,15 +42,18 @@ public class WorldRenderer<A> {
 	public void renderObjects() {
 		batch.enableBlending();
 		batch.begin();
+		//Array<com.badlogic.gdx.scenes.scene2d.Actor> l = world.getActors();
+		//for (com.badlogic.gdx.scenes.scene2d.Actor a : l) {
 
-		Array<com.badlogic.gdx.scenes.scene2d.Actor> l = world.getActors();
-		for (com.badlogic.gdx.scenes.scene2d.Actor a : l) {
+		//	((greenfoot.Actor) a).draw();
 
-			((greenfoot.Actor) a).draw();
+		//}
 
-		}
+		 for(greenfoot.Actor a:PaintUtilities.getActorsToRenderInOrder()) {
+				 a.draw();
+		 }
 
 		batch.end();
 	}
-	
+
 }
