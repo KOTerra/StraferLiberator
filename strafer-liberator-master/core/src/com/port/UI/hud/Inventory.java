@@ -25,7 +25,9 @@ public class Inventory extends Menu{
                                     //4 lantern
                                     //5 laser
                                     //6 portal gun
-     public int raza=275/2;                           
+     public int raza=275/2;      
+     int x=WorldData.WIDTH-149;
+     int y= WorldData.HEIGHT-146;
     
     protected Player player;
      
@@ -82,8 +84,8 @@ public class Inventory extends Menu{
             
           
             
-            double delta_x = Greenfoot.getMouseInfo().getX() - 875;
-            double delta_y =  Greenfoot.getMouseInfo().getY()-430;
+            double delta_x = Greenfoot.getMouseInfo().getX() - x;
+            double delta_y =  Greenfoot.getMouseInfo().getY()-y;
             double grade =Math.toDegrees( Math.atan2(delta_y, delta_x));
             
             
@@ -147,7 +149,7 @@ public class Inventory extends Menu{
     
     public void act(){
         checkMouse();
-        this.setLocation(875,430);
+        this.setLocation(x,y);
         if(!player.isToggledInventory()){
             WorldData.PAUZA=false;
             getWorld().removeObject(this);

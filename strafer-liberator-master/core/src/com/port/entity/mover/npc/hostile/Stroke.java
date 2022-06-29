@@ -187,7 +187,7 @@ boolean enter=false;
                         if (deltaPGY < 0) {
                             deltaPGY *= (-1);
                         }
-                        if (deltaPGX <= 800 && deltaPGY <= 600) {//e in range
+                        if (deltaPGX <= WorldData.WIDTH*0.75f && deltaPGY <= WorldData.HEIGHT*0.75f) {//e in range
                             if(!enter){
                                ((PlayWorld)getWorld()).initObject(new Tutorial("Cutscene", "bossfight", 1, false), WorldData.menuX, WorldData.menuY);
                                 enter=true;
@@ -195,8 +195,8 @@ boolean enter=false;
                             
                             atac();//cauta playerul
                             if (!addedHealthBar) {
-                                getWorld().addObject(healthBarImg, WorldData.menuX, 540);
-                                getWorld().addObject(healthBar, WorldData.menuX + 40, 544);
+                                getWorld().addObject(healthBarImg, WorldData.menuX, WorldData.HEIGHT-36);
+                                getWorld().addObject(healthBar, WorldData.menuX + 40, WorldData.HEIGHT-32);
                                 healthBar.setValue(this.hp); 
                                
                                 

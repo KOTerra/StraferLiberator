@@ -49,14 +49,14 @@ public class Dialog extends Menu {
 
     public void displayText(String txt) {
         if (!addedText) {
-            getWorld().addObject(new Text(txt, 24), 280, 340);
+            getWorld().addObject(new Text(txt, 24), WorldData.WIDTH/2+24, getY()-WorldData.HEIGHT/5+30);
             addedText = true;
         }
     }
 
     public void addButon() {
         if (!addedButon) {
-            getWorld().addObject(new Buton("Next", this), 730, 470);
+            getWorld().addObject(new Buton("Next", this), getX()+218, getY()+getImage().getHeight()/2-33);
             addedButon = true;
         }
     }

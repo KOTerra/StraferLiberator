@@ -97,7 +97,7 @@ public class ItemSelect extends Menu {
 
     public void act() {
         select();
-        setLocation(875, 430);
+        setLocation(WorldData.WIDTH-149, WorldData.HEIGHT-146);
         if (!player.isToggledInventory()) {
             getWorld().removeObject(this);
         }

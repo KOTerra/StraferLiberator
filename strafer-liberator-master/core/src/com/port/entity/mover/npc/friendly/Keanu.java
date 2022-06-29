@@ -28,7 +28,7 @@ public class Keanu extends Friendly
     }
     
     public void addDialogs(){
-        getWorld().addObject(new Dialog(this, "Keanu",  nrDialog), 512, 400);
+        getWorld().addObject(new Dialog(this, "Keanu",  nrDialog), WorldData.WIDTH/2, WorldData.HEIGHT*7/10);
     }
     
     private int timer=0;
@@ -36,7 +36,7 @@ public class Keanu extends Friendly
         
         if (!WorldData.PAUZA) {
             timer ++;
-            if (isTouching(Player.class) && !WorldData.addedDialogs&& timer>=180 ){
+            if (isTouching(Player.class) && !WorldData.addedDialogs&& timer>=WorldData.FPS*3){
                 timer=0;
                 this.addDialogs();
                 WorldData.addedDialogs=true;

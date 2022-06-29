@@ -73,7 +73,7 @@ public class Npc extends Movers {
     }
 
     protected boolean checkPlayerInChunck() {
-        if (getObjectsInRange(1024, Player.class) != null) {
+        if (getObjectsInRange(WorldData.WIDTH, Player.class) != null) {
             return true;
         }
         return false;

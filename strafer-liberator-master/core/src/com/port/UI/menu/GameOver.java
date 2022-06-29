@@ -24,8 +24,8 @@ public class GameOver extends Menu{
     }
 
     private void addButoane() {
-        getWorld().addObject(new Buton("Continue", this), 355, 475);
-        getWorld().addObject(new Buton("Main Menu", this), 655, 475);
+        getWorld().addObject(new Buton("Continue", this), WorldData.WIDTH/2-150,	WorldData.HEIGHT-100);
+        getWorld().addObject(new Buton("Main Menu", this), WorldData.WIDTH/2+150, WorldData.HEIGHT-100);
     }
     
 

@@ -157,7 +157,7 @@ public class Goblin extends Inamic {
                         if (deltaPGY < 0) {
                             deltaPGY *= (-1);
                         }
-                        if (deltaPGX <= 600 && deltaPGY <= 400) {
+                        if (deltaPGX <= WorldData.WIDTH*0.65f && deltaPGY <= WorldData.HEIGHT*0.65f) {
                             if(!WorldData.metGoblin&&WorldData.nrEvent<=9){
                                 getWorld().addObject(new Tutorial("Combat","Goblin",2,false), WorldData.menuX, WorldData.menuY);
                                 WorldData.metGoblin=true;
