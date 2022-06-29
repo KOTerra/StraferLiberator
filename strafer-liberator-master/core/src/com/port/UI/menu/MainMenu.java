@@ -9,7 +9,7 @@ import greenfoot.*;
 
 public class MainMenu extends Menu {
 
-	GifImage background = new GifImage("UI/menu/titleScreen.gif");
+	GifImage background = new GifImage("UI/menu/test2.gif");
 
 	boolean butoanead = false;
 
@@ -31,6 +31,8 @@ public class MainMenu extends Menu {
 
 	public void act() {
 		setImage(background.getCurrentImage());
+		getImage().scale(2400,1080);
+		setLocation(300,900);
 
 		if (!butoanead) {
 			addButoane();
