@@ -41,9 +41,10 @@ public abstract class PaintUtilities {
 	/**
 	 * The standard paint order, saved in an array
 	 */
-	public static Class<?>[] paintOrder = { Buton.class,MainMenu.class, Menu.class, HealthBar.class, Text.class, Picture.class,
-			MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,HealthBarPlayer.class, Transition.class, Item.class, NpcItem.class,
-			Lantern.class, Light.class, Droid.class, Player.class, Npc.class };
+	public static Class<?>[] paintOrder = { Buton.class, MainMenu.class, Menu.class, HealthBarPlayer.class,
+			HealthBar.class, Text.class, Picture.class, MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,
+			Transition.class, Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class,
+			Npc.class };
 
 	/**
 	 * Nivelul si listele efective trimise la worldRenderer
@@ -136,7 +137,7 @@ public abstract class PaintUtilities {
 		for (int i = 1; i <= getPaintDepth(); i++) {
 			ArrayList<greenfoot.Actor> foundList;
 			actorsToRenderInOrder.addAll(objectsInPaintOrder.get(i));
-		
+
 		}
 
 		isActorRenderOrderModified = false;
@@ -144,25 +145,26 @@ public abstract class PaintUtilities {
 	}
 
 	public static Class<?> getAbsoluteClassInPaintOrder(Object obj) {
-		
+
 		for (Class<?> cls : paintOrder) {
-			if(isOneSubclass(obj.getClass(),cls)) {
+			if (isOneSubclass(obj.getClass(), cls)) {
 				return cls;
 			}
-			
+
 		}
 		return obj.getClass();
 	}
-	private static boolean isOneSubclass(Class obj, Class<?>cls) {
-		if(obj==cls) {
-				return true;
-		}
-		if(obj.getSuperclass()!=null) {
 
-			return isOneSubclass(obj.getSuperclass(),cls);
-				
+	private static boolean isOneSubclass(Class obj, Class<?> cls) {
+		if (obj == cls) {
+			return true;
+		}
+		if (obj.getSuperclass() != null) {
+
+			return isOneSubclass(obj.getSuperclass(), cls);
+
 		}
 		return false;
-		
+
 	}
 }

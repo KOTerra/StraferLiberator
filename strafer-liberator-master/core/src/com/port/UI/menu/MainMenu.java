@@ -58,7 +58,7 @@ public class MainMenu extends Menu {
 	public void act() {
 		setImage(background.getCurrentImage());
 		playerAnimation.setImage(playerAnimationGif.getCurrentImage());
-		
+		setLocation(300, WorldData.HEIGHT-135);
 		if (!addedStuff) {
 			addStuff();
 			addedStuff = true;

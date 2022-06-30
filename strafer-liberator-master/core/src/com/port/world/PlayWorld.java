@@ -82,7 +82,7 @@ public class PlayWorld extends World {
 	}
 
 	private void addMainMenu() {
-		addObject(new MainMenu(),300, WorldData.HEIGHT-136);
+		addObject(new MainMenu(),300, WorldData.HEIGHT-135);
 
 	}
 
