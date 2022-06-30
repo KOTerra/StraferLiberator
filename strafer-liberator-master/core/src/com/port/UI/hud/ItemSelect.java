@@ -3,21 +3,29 @@ package com.port.UI.hud;
 
 import greenfoot.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.port.UI.menu.Menu;
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.Picture;
 import com.port.world.WorldData;
 
 public class ItemSelect extends Menu {
 
-    GreenfootImage overlay = new GreenfootImage("UI/hud/selectOverlay.png");
+	String path="UI/hud/wheel";
 
     private Player player;
 
+    int x=WorldData.WIDTH-149, y= WorldData.HEIGHT-146;
+    List<Actor> thingsToRemove=new ArrayList<>();
+    boolean added=false;
+    
     public ItemSelect(Player player) {
         this.player = player;
-        setImage(overlay);
+        setImage(new GreenfootImage("UI/hud/select.png"));
+        
     }
 
     public String getItemSelected() {
@@ -48,7 +56,6 @@ public class ItemSelect extends Menu {
         if (Greenfoot.mouseClicked(this)) {
             if (Greenfoot.getMouseInfo().getButton() == 1) {
 
-                //System.out.println(super.getItemSelected());
                 switch (getItemSelected()) {
                     case "sword": {
                         if (WorldData.hasSword) {
@@ -94,11 +101,49 @@ public class ItemSelect extends Menu {
             }
         }
     }
+    
+    private void makeOverlay() {
+    	if(WorldData.hasSword) {
+    		Picture p=new Picture(path+"Sword.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    	if(WorldData.hasIceLock) {
+    		Picture p=new Picture(path+"IceLock.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    	if(WorldData.hasBlackHole) {
+    		Picture p=new Picture(path+"BlackHole.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    	if(WorldData.hasLantern) {
+    		Picture p=new Picture(path+"Lantern.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    	if(WorldData.hasLaser) {
+    		Picture p=new Picture(path+"Laser.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    	if(WorldData.hasPortalGun) {
+    		Picture p=new Picture(path+"PortalGun.png");
+    		thingsToRemove.add(p);
+    		getWorld().addObject(p, x, y);
+    	}
+    }
 
     public void act() {
+    	if(!added) {
+    		makeOverlay();
+    		added=true;
+    	}
         select();
-        setLocation(WorldData.WIDTH-149, WorldData.HEIGHT-146);
+        setLocation(x,y);
         if (!player.isToggledInventory()) {
+        	getWorld().removeObjects(thingsToRemove);
             getWorld().removeObject(this);
         }
 

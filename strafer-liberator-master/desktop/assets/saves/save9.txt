@@ -1,6 +1,6 @@
-PlayerX:3484
-PlayerY:3382
-Health:96
+PlayerX:614
+PlayerY:563
+Health:76
 WorldSection:11
 WS11:true
 WS12:true
