@@ -10,7 +10,6 @@ import com.port.entity.mover.npc.hostile.Inamic;
 import com.port.entity.mover.npc.hostile.SchrodingersCat;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;
-import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 
 public class IceLock extends Item {

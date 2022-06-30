@@ -47,6 +47,7 @@ public class GameScreen extends ScreenAdapter {
 
 		world.act();
 		WorldData.FPS=Gdx.graphics.getFramesPerSecond();
+		System.out.println(WorldData.FPS);
 	}
 
 	public void draw() {

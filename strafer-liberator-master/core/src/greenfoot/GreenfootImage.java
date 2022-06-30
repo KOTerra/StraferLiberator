@@ -7,9 +7,11 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont.BitmapFontData;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.game.straferliberator.StraferLiberator;
 import com.port.world.WorldData;
 
 public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion {
@@ -21,10 +23,13 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	com.badlogic.gdx.graphics.Color backgroundColor = new Color(0, 0, 0, 0f);
 	com.badlogic.gdx.graphics.Color textColor = new Color(0, 0, 0, 1);
 
-	public static Font font= new Font("consolas", 24);;
+	 Font font = StraferLiberator.cFont;
+
 
 	float scaleX;
 	float scaleY;
+	float difx=0;
+	float dify=0;
 
 	public GreenfootImage(FileHandle file) {
 		super(new Texture(file));
@@ -33,7 +38,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public GreenfootImage(String f) {
-		//super(new Texture(new FileHandle("assets/images/" + f)));
+		// super(new Texture(new FileHandle("assets/images/" + f)));
 		super(new Texture(Gdx.files.internal("images/" + f)));
 		scaleX = getWidth();
 		scaleY = getHeight();
@@ -189,9 +194,13 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 	}
 
 	public void scale(float f, float g) {
+		difx=scaleX-f;
+		dify=scaleY-g;
 		scaleX = f;
 		scaleY = g;
 	}
+
+	
 
 	public float getScaleX() {
 		return scaleX;
@@ -227,8 +236,12 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		this.textColor = textColor;
 	}
 
-	public void setTransparency(int i) {
-		// TODO Auto-generated method stub
-
+	public void setTransparency(int t) {
+		transparency=t;
 	}
+
+	public float getTransparency() {
+		return transparency;
+	}
+
 }

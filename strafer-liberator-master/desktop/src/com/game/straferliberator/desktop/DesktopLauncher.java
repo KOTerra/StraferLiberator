@@ -19,6 +19,7 @@ public class DesktopLauncher {
 		WorldData.runOnDesktop=true;
 		Dimension screenDimensions=Toolkit.getDefaultToolkit().getScreenSize();
 		WorldData.setResolution(screenDimensions.width, screenDimensions.height);
+		//WorldData.setResolution(2400, 1080);
 		
 		config.setTitle( "Strafer Liberator");
 		config.setWindowIcon(FileType.Internal, "icons/icon_128.png","icons/icon_64.png","icons/icon_32.png","icons/icon_16.png");

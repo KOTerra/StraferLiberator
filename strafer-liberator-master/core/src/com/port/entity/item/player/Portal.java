@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.port.entity.mover.player.Player;
-import com.port.utils.graphics.Effect;
-import com.port.utils.graphics.GifImage;
+import com.port.utils.graphics.Transition;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 
@@ -40,7 +39,7 @@ public class Portal extends PortalGun {
             Player player = (Player) players.get(0);
             if (Greenfoot.isKeyDown("T")) {
 
-                getWorld().addObject(new Effect("kingcrimson", 62, 1), 0, 0);
+                getWorld().addObject(new Transition("kingcrimson", 62, 1), 0, 0);
                 
                 player.setWorldX((int) (player.getWorldX()+(this.getX() + Scroller.scrolledX - player.getX())));
                 player.setWorldY((int) (player.getWorldY()+(this.getY() + Scroller.scrolledY - player.getY())));

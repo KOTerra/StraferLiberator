@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
@@ -220,19 +222,24 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		setPosition(x, y);
 
 	}
-
+	
+	
+	
 	public void draw() {
 		if (notRemovedYet) {
 			if (isInScreenRange()) {
 
-				float icx = (getX() - this.iw() / 2);
-				float icy = (getStageY() - this.ih() / 2);
-
-				batch.draw(this.getImage(), icx, icy, // coordonatele
-						this.iw() / 2, this.ih() / 2, // pct in care e rotit
+				float icx = (getX() - this.iw()/2 );
+				float icy = (getStageY() - this.ih()/2);
+				batch.setColor(255, 255, 255, image.getTransparency());
+				batch.draw(this.getImage(), 
+						icx, icy, 		// coordonatele
+						this.iw() / 2, this.ih() / 2, 								// pct in care e rotit
 						this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
 						1, 1, // scale
 						super.getRotation()); // rotation
+
+				batch.setColor(Color.WHITE);
 			}
 		}
 		else {

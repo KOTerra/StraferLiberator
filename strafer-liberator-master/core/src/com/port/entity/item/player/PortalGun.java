@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
-import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 
 public class PortalGun extends Item {

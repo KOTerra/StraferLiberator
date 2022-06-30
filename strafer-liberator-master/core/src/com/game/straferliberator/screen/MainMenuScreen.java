@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.game.straferliberator.StraferLiberator;
-import com.game.straferliberator.assets.Assets;
 import com.game.straferliberator.settings.Settings;
 
 public class MainMenuScreen extends ScreenAdapter {
@@ -37,28 +36,28 @@ public class MainMenuScreen extends ScreenAdapter {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
 			if (playBounds.contains(touchPoint.x, touchPoint.y)) {
-				Assets.playSound(Assets.clickSound);
-				game.setScreen(new GameScreen(game));
+				// Assets.playSound(Assets.clickSound);
+			//	game.setScreen(new GameScreen(game));
 				return;
 			}
 			if (highscoresBounds.contains(touchPoint.x, touchPoint.y)) {
-				Assets.playSound(Assets.clickSound);
-				game.setScreen(new HighscoresScreen(game));
+			//	Assets.playSound(Assets.clickSound);
+			//	game.setScreen(new HighscoresScreen(game));
 				return;
 			}
-			if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
-				Assets.playSound(Assets.clickSound);
-				
+			//if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
+			//	Assets.playSound(Assets.clickSound);
+			//	
 				return;
 			}
 			if (soundBounds.contains(touchPoint.x, touchPoint.y)) {
-				Assets.playSound(Assets.clickSound);
-				Settings.soundEnabled = !Settings.soundEnabled;
-				if (Settings.soundEnabled)
-					Assets.music.play();
-				else
-					Assets.music.pause();
-			}
+			//	Assets.playSound(Assets.clickSound);
+				//Settings.soundEnabled = !Settings.soundEnabled;
+				//f (Settings.soundEnabled)
+				//	Assets.music.play();
+				//else
+				//	Assets.music.pause();
+			//}
 		}
 	}
 
@@ -71,14 +70,14 @@ public class MainMenuScreen extends ScreenAdapter {
 
 		game.batch.disableBlending();
 		game.batch.begin();
-		game.batch.draw(Assets.backgroundRegion, 0, 0, 320, 480);
+		//game.batch.draw(Assets.backgroundRegion, 0, 0, 320, 480);
 		game.batch.end();
 
 		game.batch.enableBlending();
 		game.batch.begin();
-		game.batch.draw(Assets.logo, 160 - 274 / 2, 480 - 10 - 142, 274, 142);
-		game.batch.draw(Assets.mainMenu, 10, 200 - 110 / 2, 300, 110);
-		game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
+		//game.batch.draw(Assets.logo, 160 - 274 / 2, 480 - 10 - 142, 274, 142);
+		//game.batch.draw(Assets.mainMenu, 10, 200 - 110 / 2, 300, 110);
+		//game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
 		game.batch.end();	
 	}
 

@@ -56,7 +56,7 @@ public class Dialog extends Menu {
 
     public void addButon() {
         if (!addedButon) {
-            getWorld().addObject(new Buton("Next", this), getX()+218, getY()+getImage().getHeight()/2-33);
+            getWorld().addObject(new Buton("next", this), getX()+218, getY()+getImage().getHeight()/2-33);
             addedButon = true;
         }
     }

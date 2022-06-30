@@ -1,6 +1,7 @@
 package com.port.world;
 
 import com.badlogic.gdx.graphics.Color;
+import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
 import com.port.UI.buton.Buton;
 import com.port.UI.hud.HealthBar;
@@ -20,7 +21,7 @@ import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.npc.hostile.Droid;
 import com.port.entity.mover.player.Player;
 import com.port.system.event.EventSystem;
-import com.port.utils.graphics.Effect;
+import com.port.utils.graphics.Transition;
 import com.port.utils.graphics.Picture;
 import com.port.utils.graphics.Text;
 
@@ -43,7 +44,8 @@ public class PlayWorld extends World {
 
 	public HealthBarPlayer healthBar;
 	private boolean addedHealthBar = false;
-
+	HealthBarImg barBack = new HealthBarImg("Player");
+	
 	public GreenfootSound musicIdle;
 	public GreenfootSound musicCombat;
 	boolean musicLoaded = false;
@@ -80,7 +82,7 @@ public class PlayWorld extends World {
 	}
 
 	private void addMainMenu() {
-		addObject(new MainMenu(), WorldData.menuX, WorldData.menuY);
+		addObject(new MainMenu(),300, WorldData.HEIGHT-136);
 
 	}
 
@@ -103,7 +105,7 @@ public class PlayWorld extends World {
 
 	}
 
-	Picture barBack = new Picture("UI/hud/healthBar.png");
+
 
 	private void addHealthBar() {
 
@@ -116,8 +118,9 @@ public class PlayWorld extends World {
 		healthBar.setReferenceText("");
 		healthBar.setTextColor(new Color(4, 69, 85, 214));
 
-		addObject(barBack, 148, 40);
+		
 		addObject(healthBar, 172, 33);
+		addObject(barBack, 148, 40);
 	}
 
 	void relocBar() {
@@ -128,6 +131,10 @@ public class PlayWorld extends World {
 		} else {
 			barBack.setLocation(148, 40);
 		}
+		if(barBack.getWorld()!=this) {
+			addObject(barBack,148,40);
+		}
+		
 	}
 
 	// adauga obiectele pe toata mapa, nu doar pe suprafata de display

@@ -24,7 +24,6 @@ import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.npc.hostile.Inamic;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.Animation;
-import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;

@@ -1,6 +1,7 @@
 package com.port.utils.graphics;
 
 
+import com.badlogic.gdx.graphics.Texture;
 import com.port.UI.menu.Menu;
 
 import greenfoot.*;
@@ -28,6 +29,7 @@ public class Picture extends Menu {
         this.moveable=moveable;
         
     }
+  
 
      public Picture(GreenfootImage image) {
         added=false;
@@ -36,14 +38,23 @@ public class Picture extends Menu {
         setImage(img);
         moveable=false;
     }
+     public Picture(Texture t) {
+         added=false;
+  
+         img = new GreenfootImage(t);
+         setImage(img);
+         this.moveable=false;
+         
+     }
     
-    public void act() {
+   
+	public void act() {
         if(!added){
             added=true;
             x=(int) getX();
             y=(int) getY();
         }
-        if(moveable){
+        if(!moveable){
             setLocation(x,y);
         }
     }

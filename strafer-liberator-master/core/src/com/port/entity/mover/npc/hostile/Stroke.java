@@ -16,7 +16,6 @@ import com.port.entity.item.player.Sabie;
 import com.port.entity.mover.player.Jucator;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
-import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
@@ -32,7 +31,7 @@ public class Stroke extends Inamic {
     int hpMax = 1000;
 
     public HealthBar healthBar;
-    HealthBarImg healthBarImg=new HealthBarImg();
+    HealthBarImg healthBarImg=new HealthBarImg("Stroke");
     private Color cSQ = Color.FOREST;
     private boolean addedHealthBar = false;
 

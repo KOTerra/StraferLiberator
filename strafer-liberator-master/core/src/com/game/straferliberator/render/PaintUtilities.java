@@ -24,7 +24,7 @@ import com.port.entity.item.player.Light;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.npc.hostile.Droid;
 import com.port.entity.mover.player.Player;
-import com.port.utils.graphics.Effect;
+import com.port.utils.graphics.Transition;
 import com.port.utils.graphics.Picture;
 import com.port.utils.graphics.Text;
 
@@ -42,7 +42,7 @@ public abstract class PaintUtilities {
 	 * The standard paint order, saved in an array
 	 */
 	public static Class<?>[] paintOrder = { Buton.class,MainMenu.class, Menu.class, HealthBar.class, Text.class, Picture.class,
-			MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,HealthBarPlayer.class, Effect.class, Item.class, NpcItem.class,
+			MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,HealthBarPlayer.class, Transition.class, Item.class, NpcItem.class,
 			Lantern.class, Light.class, Droid.class, Player.class, Npc.class };
 
 	/**

@@ -56,6 +56,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 			}
 			object.world.removeObject(object);
 		}
+		object.notRemovedYet=true;
 		object.setWorld(this);
 		super.addActor(object);
 		PaintUtilities.addObjectToPaintOrder(object);

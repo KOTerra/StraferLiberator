@@ -1,13 +1,15 @@
 package com.port.utils.graphics;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
+import com.port.world.WorldData;
 
 import greenfoot.Font;
 import greenfoot.GreenfootImage;
 
 public class Text extends Menu {
 
-	Font fontu = new Font("edo", true, false, 10);
+	Font fontu = StraferLiberator.eFont;
 
 	String txt;
 	int size;
@@ -16,15 +18,12 @@ public class Text extends Menu {
 		txt = txtref;
 		size = sizeref;
 
-		GreenfootImage textImage = new GreenfootImage(1024, 576);
-		textImage.setFont(new Font("consolas", size));
+		GreenfootImage textImage = new GreenfootImage(WorldData.WIDTH, WorldData.HEIGHT);
+		textImage.setFont(StraferLiberator.cFont);
 		//int textWidth = (int) new GlyphLayout(textImage.getFont(), txtref).width;
-		textImage.drawString(txt, 512 , 576 / 2);//- textWidth / 2, 576 / 2);
+		textImage.drawString(txt, WorldData.WIDTH/2 , WorldData.HEIGHT / 2);
 
 		setImage(textImage);
 	}
 
-	public void act() {
-		// Add your action code here.
-	}
 }
