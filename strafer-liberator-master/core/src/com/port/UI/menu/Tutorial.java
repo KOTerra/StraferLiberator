@@ -61,16 +61,18 @@ public class Tutorial extends Menu {
 			if (tip == "Cutscene") {
 				getWorld().addObject(buton, WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
 			} else {
-				butonTutorialInitialx=(int) (getX()+getImage().getWidth()/2-50);
-				getWorld().addObject(buton,butonTutorialInitialx,getY()+getImage().getHeight()/2-50);
+				butonTutorialInitialx=(int) (WorldData.menuX+getImage().getWidth()/2-50);
+				getWorld().addObject(buton,butonTutorialInitialx,WorldData.menuY+getImage().getHeight()/2-50);
 			}
+
+			
 			addedButon = true;
 		}
 		if (addedButon) {
 			if (tip == "Cutscene") {
 				buton.setLocation(WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
 			} else {
-				buton.setLocation(butonTutorialInitialx,getY()+getImage().getHeight()/2-50);
+				buton.setLocation(butonTutorialInitialx,WorldData.menuY+getImage().getHeight()/2-50);
 			}
 		}
 	}
