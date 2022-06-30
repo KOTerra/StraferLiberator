@@ -49,7 +49,7 @@ public class Dialog extends Menu {
 
     public void displayText(String txt) {
         if (!addedText) {
-            getWorld().addObject(new Text(txt, 24), WorldData.WIDTH/2+24, getY()-WorldData.HEIGHT/5+30);
+            getWorld().addObject(new Text(txt, 24), getX()-getImage().getWidth()/2+25, getY()-WorldData.HEIGHT/5+getImage().getHeight()/2+50);
             addedText = true;
         }
     }

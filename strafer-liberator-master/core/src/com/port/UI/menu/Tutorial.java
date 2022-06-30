@@ -1,6 +1,5 @@
 package com.port.UI.menu;
 
-
 import com.port.UI.buton.Buton;
 import com.port.utils.graphics.Picture;
 import com.port.world.WorldData;
@@ -12,126 +11,135 @@ import greenfoot.*;
  */
 public class Tutorial extends Menu {
 
-    private int nrSlide;
-    private int nrSlideMax;
+	private int nrSlide;
+	private int nrSlideMax;
 
-    /**
-     * Numele folderului in care sunt slideurile unui tutorial aferent adica
-     * numele tutorialului
-     */
-    private String img;
-    private String tip;
-    private Picture picture = new Picture("UI/tutorial/tutorial.png");
-    private Buton buton=new Buton("next", this);
-    
-    private boolean addedButon = false;
-    private boolean addedButonBack = false;
-    private boolean inPause;
-    private boolean addedPicture = false;
-    
-    
-    public Tutorial(String tipref, String imgref, int slideref, boolean inPauseref) {
-        WorldData.PAUZA = true;
-        nrSlideMax = slideref;
-        tip = tipref;
-        nrSlide = 0;
-        img = imgref;
-        addedButon = false;
-        addedPicture = false;
-        this.inPause = inPauseref;
+	/**
+	 * Numele folderului in care sunt slideurile unui tutorial aferent adica numele
+	 * tutorialului
+	 */
+	private String img;
+	private String tip;
+	private Picture picture = new Picture("UI/tutorial/tutorial.png");
+	private Buton buton = new Buton("next", this);
 
-        setImage("UI/tutorial/tutorial.png");
-        
-        
-    }
+	private boolean addedButon = false;
+	private boolean addedButonBack = false;
+	private boolean inPause;
+	private boolean addedPicture = false;
 
-    public void displayPicture() {
-        if (!addedPicture) {
-            getWorld().addObject(picture, WorldData.menuX, WorldData.menuY);
-            updateImage();
+	public Tutorial(String tipref, String imgref, int slideref, boolean inPauseref) {
+		WorldData.PAUZA = true;
+		nrSlideMax = slideref;
+		tip = tipref;
+		nrSlide = 0;
+		img = imgref;
+		addedButon = false;
+		addedPicture = false;
+		this.inPause = inPauseref;
 
-            addedPicture = true;
-        }
-        if(addedPicture) {
-        	picture.setLocation(WorldData.menuX, WorldData.menuY);
-        }
+		setImage("UI/tutorial/tutorial.png");
 
-    }
+	}
 
-    public void addButon() {
-        if (!addedButon) {
-            getWorld().addObject(buton, 945, 485);
-            addedButon = true;
-        }
-        if(addedButon) {
-        	buton.setLocation(945, 485);
-        }
-    }
+	public void displayPicture() {
+		if (!addedPicture) {
+			getWorld().addObject(picture, WorldData.menuX, WorldData.menuY);
+			updateImage();
 
-    public void act() {
-        addButon();
-        displayPicture();
-        this.setLocation(WorldData.menuX,WorldData.menuY);
-    }
+			addedPicture = true;
+		}
+		if (addedPicture) {
+			picture.setLocation(WorldData.menuX, WorldData.menuY);
+		}
 
-    public void updateImage() {
-        if (tip == "Cutscene") {
-            picture.setImageName("UI/cutscene/" + img +"/"+img+nrSlide+ ".png");
-        } else {
-            picture.setImageName("UI/tutorial/tutorialSlides/" + tip + "/" + img + "/" + tip + "#" + "tutorial" + img + nrSlide + ".png");
-        }
-    }
+	}
+	int butonTutorialInitialx;
 
-    public String toString() {
-        String str = tip + " " + img + " " + nrSlideMax;
-        return str;
-    }
+	public void addButon() {
+		if (!addedButon) {
+			if (tip == "Cutscene") {
+				getWorld().addObject(buton, WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
+			} else {
+				butonTutorialInitialx=(int) (getX()+getImage().getWidth()/2-50);
+				getWorld().addObject(buton,butonTutorialInitialx,getY()+getImage().getHeight()/2-50);
+			}
+			addedButon = true;
+		}
+		if (addedButon) {
+			if (tip == "Cutscene") {
+				buton.setLocation(WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
+			} else {
+				buton.setLocation(butonTutorialInitialx,getY()+getImage().getHeight()/2-50);
+			}
+		}
+	}
 
-    public int getNrSlideMax() {
-        return nrSlideMax;
-    }
+	public void act() {
+		addButon();
+		displayPicture();
+		this.setLocation(WorldData.menuX, WorldData.menuY);
+	}
 
-    public int getNrSlide() {
-        return nrSlide;
-    }
+	public void updateImage() {
+		if (tip == "Cutscene") {
+			picture.setImageName("UI/cutscene/" + img + "/" + img + nrSlide + ".png");
+		} else {
+			picture.setImageName("UI/tutorial/tutorialSlides/" + tip + "/" + img + "/" + tip + "#" + "tutorial" + img
+					+ nrSlide + ".png");
+		}
+	}
 
-    public void setNrSlide(int nrSlide) {
-        this.nrSlide = nrSlide;
-    }
+	public String toString() {
+		String str = tip + " " + img + " " + nrSlideMax;
+		return str;
+	}
 
-    public String getImgName() {
-        return img;
-    }
+	public int getNrSlideMax() {
+		return nrSlideMax;
+	}
 
-    public String getTip() {
-        return tip;
-    }
+	public int getNrSlide() {
+		return nrSlide;
+	}
 
-    public boolean isLastSlide() {
-        return nrSlide == nrSlideMax - 1 ? true : false;
-    }
+	public void setNrSlide(int nrSlide) {
+		this.nrSlide = nrSlide;
+	}
 
-    public boolean isFirstSlide() {
-        return nrSlide == 0 ? true : false;
-    }
+	public String getImgName() {
+		return img;
+	}
 
-    public boolean isAddedPicture() {
-        return addedPicture;
-    }
+	public String getTip() {
+		return tip;
+	}
 
-    public void setAddedPicture(boolean addedPicture) {
-        this.addedPicture = addedPicture;
-    }
+	public boolean isLastSlide() {
+		return nrSlide == nrSlideMax - 1 ? true : false;
+	}
 
-    public boolean isAddedButonBack() {
-        return addedButonBack;
-    }
+	public boolean isFirstSlide() {
+		return nrSlide == 0 ? true : false;
+	}
 
-    public boolean isInPause() {
-        return inPause;
-    }
+	public boolean isAddedPicture() {
+		return addedPicture;
+	}
 
-    public Picture getPicture() {
-        return picture;
-    }
+	public void setAddedPicture(boolean addedPicture) {
+		this.addedPicture = addedPicture;
+	}
+
+	public boolean isAddedButonBack() {
+		return addedButonBack;
+	}
+
+	public boolean isInPause() {
+		return inPause;
+	}
+
+	public Picture getPicture() {
+		return picture;
+	}
 }
