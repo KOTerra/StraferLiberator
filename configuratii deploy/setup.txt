@@ -1,0 +1,5 @@
+Strafer Liberator
+com.game.straferliberator
+StraferLiberator
+C:\REPOSITORIES\Personal\STRAFER\StraferLiberator
+C:\Users\Syncro Developer\AppData\Local\Android\Sdk

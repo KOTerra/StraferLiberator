@@ -1,0 +1,7 @@
+cd C:\REPOSITORIES\Personal\STRAFER\StraferLiberator
+gradlew desktop:dist
+cd C:\REPOSITORIES\Personal\STRAFER\StraferLiberator\desktop\build\libs
+java -jar desktop-1.0.jar
+
+
+//copiaza folderele din assets langa jar
