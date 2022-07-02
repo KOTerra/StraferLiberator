@@ -1,6 +1,6 @@
 android {
-    buildToolsVersion project.androidToolsVersion
-    compileSdkVersion project.androidSDKVersion.toInteger()
+    buildToolsVersion "33.0.0"
+    compileSdkVersion 32
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -8,7 +8,7 @@ android {
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
-            assets.srcDirs=['assets', 'src\\main\\assets']
+            assets.srcDirs = ['../assets']
             jniLibs.srcDirs = ['libs']
         }
 
@@ -17,21 +17,17 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "com.gdx.game"
-        minSdkVersion 16
-        targetSdkVersion 30
+        applicationId "com.game.straferliberator"
+        minSdkVersion 14
+        targetSdkVersion 32
         versionCode 1
-        versionName '0.1.quierres'
+        versionName "1.0"
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
     }
 }
 
@@ -46,7 +42,7 @@ task copyAndroidNatives {
         file("libs/x86_64/").mkdirs()
         file("libs/x86/").mkdirs()
 
-        configurations.natives.files.each { jar ->
+        configurations.natives.copy().files.each { jar ->
             def outputDir = null
             if (jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
             if (jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
@@ -64,7 +60,7 @@ task copyAndroidNatives {
 }
 
 tasks.whenTaskAdded { packageTask ->
-    if (packageTask.name.contains("package")) {
+    if (packageTask.name.contains("merge") && packageTask.name.contains("JniLibFolders")) {
         packageTask.dependsOn 'copyAndroidNatives'
     }
 }
@@ -88,8 +84,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.game.straferliberator.android/com.game.straferlierator.android.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.game.straferliberator/com.game.straferliberator.AndroidLauncher'
 }
-
 
 eclipse.project.name = appName + "-android"

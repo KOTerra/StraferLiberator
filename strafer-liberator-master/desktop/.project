@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>Strafer Liberator-desktop</name>
-	<comment></comment>
+	<comment>Project Strafer Liberator-desktop created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -20,36 +20,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>assets</name>
-			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/desktop/assets</locationURI>
-		</link>
-	</linkedResources>
-	<filteredResources>
-		<filter>
-			<id>1</id>
-			<name></name>
-			<type>30</type>
-			<matcher>
-				<id>org.eclipse.core.resources.regexFilterMatcher</id>
-				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
-	<variableList>
-		<variable>
-			<name>copy_PARENT</name>
-			<value>$%7BPARENT-3-PROJECT_LOC%7D/Games/CV9%20projekt%20red/libgdx-demo-superjumper-master</value>
-		</variable>
-		<variable>
-			<name>copy_PARENT1</name>
-			<value>$%7BPARENT-2-copy_PARENT%7D/Games/CV9%20projekt%20red/libgdx-demo-superjumper-master</value>
-		</variable>
-		<variable>
-			<name>copy_PARENT12</name>
-			<value>$%7BPARENT-1-copy_PARENT%7D/strafer-liberator-master</value>
-		</variable>
-	</variableList>
 </projectDescription>

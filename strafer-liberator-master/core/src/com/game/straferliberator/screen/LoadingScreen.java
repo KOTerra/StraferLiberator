@@ -105,7 +105,6 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.load("images/UI/menu/test2.gif", Texture.class);
 		game.assetManager.load("images/C.jpg", Texture.class);
-		game.assetManager.load("images/cioata.png", Texture.class);
 		game.assetManager.load("images/logo.png", Texture.class);
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", Texture.class);
 	}
