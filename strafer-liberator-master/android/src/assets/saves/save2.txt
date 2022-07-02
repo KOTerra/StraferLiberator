@@ -1,0 +1,12 @@
+PlayerX:60
+PlayerY:5996
+Health:400
+WorldSection:11
+WS11:true
+WS12:true
+WS13:false
+WS21:true
+WS22:true
+WS23:false
+DialogIndex:0
+NrEvent:1
