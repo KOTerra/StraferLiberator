@@ -1,0 +1,53 @@
+﻿  MapGen.cpp
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(71,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(72,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(100,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(101,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(179,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(180,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(220,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(221,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(263,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(264,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\MapGen.cpp(311,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MapGen.vcxproj -> C:\REPOSITORIES\Personal\StraferLiberator\mapGenerator\Mapgenerator\MapGen\x64\Debug\MapGen.exe

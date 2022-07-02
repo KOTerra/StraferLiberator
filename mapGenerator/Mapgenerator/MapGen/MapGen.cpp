@@ -94,13 +94,11 @@ void matrixGen(std::unique_ptr<tson::Map>& map, short int mapMatrix[10001][10001
             for (auto& [pos, tileObject] : layer->getTileObjects()) //Loops through absolutely all existing tileObjects
             {
                 tson::Tileset* tileset = tileObject.getTile()->getTileset();
-                //std::cout << tileset->getName() << " ";
-
+                
                 tson::Vector2f position = tileObject.getPosition();
                 int pX = position.x;
                 int pY = position.y;
-                //std::cout << position.x << " " << position.y << '\n';
-
+                
                 if (tileset->getName() == "perete" ||
                     tileset->getName() == "pereteW" ||
                     tileset->getName() == "pereteA" ||
@@ -116,35 +114,17 @@ void matrixGen(std::unique_ptr<tson::Map>& map, short int mapMatrix[10001][10001
 
     }
 
-
-    //fout << "{\n";
-    for (int i = 0; i < height; i++) {
-        //fout << "{";
+for (int i = 0; i < height; i++) {
         int j;
         for ( j= 0; j < width; j++) {
             fout << mapMatrix[i][j];
-          //  if (mapMatrix[i][j] == 0) {
-           //     fout << " ";
-          //  }
             fout<<" ";
-          //  if (j < width - 1) {
-           //     fout << ",";
-           // }
         }
-      //  if (j == width - 1 && i == height - 1) {
-       //     fout << "}";
-      //  }
-      //  else if (j == width - 1) {
-       //    fout << "}";
-     //   }
-      //  else {
-        //   fout << "},";
-      //  }
+ 
         
         fout << "\n";
 
     }
-    //fout << "}";
 }
 
 
@@ -193,9 +173,6 @@ wout << R"(//Walls)"<<"\n";
                 }
 
 
-                /// world.initObject(new PereteInvizibil("W", 1, "mic"), i, 16);
-                /// world.initObject(new PereteInvizibil("A", 1, "mic90"), i, 16);
-
             }
         }
         layer = map->getLayer("WallLayer2"); ///walls on floor 1
@@ -234,8 +211,6 @@ wout << R"(//Walls)"<<"\n";
                 }
 
 
-                /// world.initObject(new PereteInvizibil("W", 1, "mic"), i, 16);
-                /// world.initObject(new PereteInvizibil("A", 1, "mic90"), i, 16);
 
             }
         }
@@ -294,8 +269,7 @@ void npcGen(std::unique_ptr<tson::Map>& map, std::ofstream& wout){
                 }
 
 
-                /// world.initObject(new PereteInvizibil("W", 1, "mic"), i, 16);
-                /// world.initObject(new PereteInvizibil("A", 1, "mic90"), i, 16);
+       
 
             }
             wout << R"(//npc)" << "\n";
