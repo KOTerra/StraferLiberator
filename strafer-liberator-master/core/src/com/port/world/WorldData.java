@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
+import com.port.utils.loader.Loader;
 
 public class WorldData {
 
@@ -84,10 +85,10 @@ public class WorldData {
 	// incarca matricele de pathfind pt fiecare mapa
 	public static void loadWorldMatrices() {
 
-		String director = new String("assets/maps/");
-		for (int i = 1; i <= 1; i++) {
+		String director = new String("maps/");
+		for (int i = 1; i <= 6; i++) {
 
-			worldSectionMatrix[i] = com.port.utils.loader.Loader.loadMatrix(Gdx.files.internal(director + i + ".txt"));
+			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.internal(director + i + ".txt")).file());
 		}
 	}
 
@@ -101,7 +102,7 @@ public class WorldData {
 																									// care e in numele
 																									// txt-ului cu
 																									// dialogul
-	// valoarea e nr eventului la care e dialogul asta
+																									// valoarea e nr eventului la care e dialogul asta
 	public static boolean talked = false; // verifica daca un dialog a fost accesat odata
 
 	public static void reset() {// pt save file nou

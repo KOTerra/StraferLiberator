@@ -1,0 +1,17 @@
+PlayerX:8132
+PlayerY:3742
+Health:331
+WorldSection:21
+WS11:true
+WS12:true
+WS13:true
+WS21:true
+WS22:true
+WS23:true
+Item:laser
+Item:sword
+Item:lantern
+Item:blackhole
+Item:portalgun
+DialogIndex:9
+NrEvent:24

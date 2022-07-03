@@ -44,12 +44,12 @@ public class LoadingScreen implements Screen {
 
 		if (game.assetManager.update()) {
 			if (progress >= game.assetManager.getProgress() - .001f) {
-				System.out.println("gata");
+				//System.out.println("gata");
 				 game.setScreen(new GameScreen(game));
 			}
 		}
 
-		System.out.println("loader");
+		//System.out.println("loader");
 	}
 
 	@Override

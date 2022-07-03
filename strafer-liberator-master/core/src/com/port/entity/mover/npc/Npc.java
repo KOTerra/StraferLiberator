@@ -93,7 +93,7 @@ public class Npc extends Movers {
     protected void Lee(int startL, int startC, int x, int y) {
         //aici trebuie pusa matricea din WorldData
         if (sectiune == -1) {
-            sectiune = WorldData.getWorldSectionShort((~((PlayWorld) getWorld()).getWorldListener().getWorldSection()));
+            sectiune = ((PlayWorld) getWorld()).getWorldListener().getWorldSection();
         }
         // if ( x < 128 && y < 128) {
         if (WorldData.worldSectionMatrix[WorldData.getWorldSectionShort(sectiune)][x][y] == -1) {
