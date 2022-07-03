@@ -29,8 +29,8 @@ public class GameScreen extends ScreenAdapter {
 		this.game = straferLiberator;
 
 		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
-			//world = new TestWorld();
-			 world=new PlayWorld();
+			world = new TestWorld();
+			// world=new PlayWorld();
 		} else {
 			world = new PlayWorld();
 			// world = new TestWorld();

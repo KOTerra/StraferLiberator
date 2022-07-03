@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.port.world.WorldData;
 
 import greenfoot.Actor;
 import greenfoot.Font;
@@ -25,9 +26,9 @@ public class TestWorld extends World {
 
 	public TestWorld() {
 
-		super(1024, 576, 1, false);
+		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false);
 		this.setBackground(new GreenfootImage("C.jpg"));
-		this.addObject(ta, 500, 30);
+		//this.addObject(ta, 500, 30);
 		//taa2();
 		//poza();
 	//	new Thread(new Runnable() {
