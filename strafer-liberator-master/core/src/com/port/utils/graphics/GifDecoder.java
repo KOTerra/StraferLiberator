@@ -1,4 +1,4 @@
-package greenfoot;
+package com.port.utils.graphics;
 
 import java.io.InputStream;
 import java.util.Vector;
@@ -9,8 +9,12 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
-
+	/*
+	 * O clasa ajutatoare pt a incarca fisiere gif 
+	 */
+	
 public class GifDecoder {
+
 	/**
 	 * File read status: No errors.
 	 */

@@ -7,7 +7,10 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Greenfoot extends com.badlogic.gdx.Gdx {
-
+	/*Port al clasei Greenfoot
+	 * ofera utilitati
+	 * */
+	
 	static MouseInfo mouseInfo = new MouseInfo();
 
 	public static int getRandomNumber(int limit) {

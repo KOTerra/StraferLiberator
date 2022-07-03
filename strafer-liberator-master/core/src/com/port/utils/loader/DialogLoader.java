@@ -8,6 +8,10 @@ import java.util.Scanner;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
+/*
+ * clasa care incarca dialogurile NPC-urilor din fisiere text
+ */
+
 public abstract class DialogLoader extends Loader{
 
     /*

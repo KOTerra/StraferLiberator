@@ -13,11 +13,15 @@ import java.util.regex.Pattern;
 
 import com.badlogic.gdx.Gdx;
 import com.port.UI.menu.Tutorial;
-import com.port.UI.menu.TutorialGallery;
 import com.port.entity.mover.player.Player;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 import com.port.world.WorldListener;
+
+/*
+ * Sistemul de salvari
+ * se ocupa cu incarcatul datelor intre joc si fisiere de salvare txt
+ */
 
 abstract public class SaveSystem {
 
@@ -135,18 +139,7 @@ abstract public class SaveSystem {
 					}
 				} else if (tip.equalsIgnoreCase("Tutorial:")) {
 
-					String[] arr = getContentString(str).split(" ");
-					if (arr.length > 0) {
-						Tutorial tut = new Tutorial(arr[0], arr[1], Integer.parseInt(arr[2]), false);
-						if (TutorialGallery.tutorialsInFolder.containsKey(arr[0])) {
-							TutorialGallery.tutorialsInFolder.get(arr[0]).add(tut);
-						} else {
-							ArrayList<Tutorial> startTutorials = new ArrayList<>();
-							startTutorials.add(tut);
-							TutorialGallery.tutorialsInFolder.put(arr[0], startTutorials);
-						}
 
-					}
 
 				} else if (tip.equalsIgnoreCase("WorldSection:")) {
 					int ws = Integer.parseInt(getContentString(str));

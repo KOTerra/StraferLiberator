@@ -4,10 +4,13 @@ package com.port.entity.item.pickup;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 
 import greenfoot.*;
-
+/*
+ * un item ce poate fi obtinut de player prin atingere
+ */
 public class PickUp extends Item {
 
     protected boolean picked = false;

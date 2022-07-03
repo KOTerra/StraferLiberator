@@ -1,5 +1,6 @@
 package greenfoot;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,10 @@ import com.game.straferliberator.render.PaintUtilities;
 import com.port.world.WorldData;
 
 public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
+	/*Port pt greenfoot al clasei de Actor 
+	 * reprezinta o imagine cu bounds ce este desenata in World de WorldRenderer
+	 **/
+	
 
 	private float x = 0, y = 0;
 	public greenfoot.World world;

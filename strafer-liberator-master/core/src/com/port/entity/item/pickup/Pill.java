@@ -1,6 +1,7 @@
 package com.port.entity.item.pickup;
 
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 
 import greenfoot.*;  

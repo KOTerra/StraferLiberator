@@ -1,4 +1,4 @@
-package greenfoot;
+package com.port.utils.graphics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
+import greenfoot.GreenfootImage;
+
+/*
+ * Clasa ajutatoare care actualizeaza in timp frame-urile unui gif in GreenfootImage
+ */
 public class GifImage {
 
 	Animation<TextureRegion> animation;

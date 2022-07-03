@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.utils.graphics.Transition;
 import com.port.world.Scroller;
 import com.port.world.WorldData;

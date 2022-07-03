@@ -8,7 +8,9 @@ import java.util.List;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.port.utils.loader.Loader;
-
+/*
+ * Valorile necesare jocului
+ */
 public class WorldData {
 
 	public static boolean PAUZA;

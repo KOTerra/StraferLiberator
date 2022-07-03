@@ -14,6 +14,11 @@ import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.game.straferliberator.StraferLiberator;
 import com.port.world.WorldData;
 
+
+/*
+ * port al clasei din Greenfoot 
+ * reprezinta imaginile care le sunt atribuite Actorilor sau fundalurilor din World
+ */
 public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion {
 
 	Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);

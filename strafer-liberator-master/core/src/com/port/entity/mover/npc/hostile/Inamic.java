@@ -13,6 +13,7 @@ import com.port.entity.item.player.Sabie;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.player.Jucator;
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
 
 public class Inamic extends Npc {

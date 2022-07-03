@@ -4,6 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 
+/*
+ * port al clasei de sunet din Greenfoot
+ * ofera utilitati pentru sunet
+ */
 public class GreenfootSound {
 
 	Sound sound;

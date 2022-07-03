@@ -6,6 +6,11 @@ import greenfoot.*;
 import java.util.Arrays;
 import java.util.Collections;
 
+/*
+ * O clasa ajutatoare 
+ * ruleaza un gif o singura data prin toate frame-urile
+ */
+
 public class Animation {
 
     private Object animated; // the World or Actor object that to be animated

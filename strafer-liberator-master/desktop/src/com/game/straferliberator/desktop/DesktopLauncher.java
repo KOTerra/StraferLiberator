@@ -12,6 +12,9 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.game.straferliberator.StraferLiberator;
 import com.port.world.WorldData;
 
+/*
+ * Entry point pt platforme desktop
+ * */
 public class DesktopLauncher {
 	public static Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 

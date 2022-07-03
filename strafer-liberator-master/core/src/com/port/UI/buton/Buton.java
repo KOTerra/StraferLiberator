@@ -14,13 +14,17 @@ import com.port.UI.menu.MapMenu;
 import com.port.UI.menu.Menu;
 import com.port.UI.menu.Pause;
 import com.port.UI.menu.Tutorial;
-import com.port.UI.menu.TutorialFolder;
 import com.port.entity.mover.player.Player;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.Text;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
+
+/*
+ * Butoane ce controleaza UI-ul 
+ * functioneaza atat pe desktop cat si pe mobile cu touch
+ */
 
 public class Buton extends UI {
 
@@ -31,7 +35,6 @@ public class Buton extends UI {
 	Tutorial tutorial;
 	ArrayList<Tutorial> tutorials;
 	Tutorial tutorialToOpen;
-	TutorialFolder tutorialFolderToOpen;
 	HashMap<String, List<GreenfootImage>> tutorialsImages;
 
 	Dialog dialog;
@@ -81,9 +84,7 @@ public class Buton extends UI {
 		if (tutToOp instanceof Tutorial) {
 			tutorialToOpen = (Tutorial) tutToOp;
 		}
-		if (tutToOp instanceof TutorialFolder) {
-			tutorialFolderToOpen = (TutorialFolder) tutToOp;
-		}
+
 		this.tutorials = tutorials;
 
 		if (obj instanceof Dialog) {

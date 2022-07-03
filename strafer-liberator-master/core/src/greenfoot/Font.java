@@ -6,7 +6,9 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 
 public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
-
+	/* Port al clasei Font din Greenfoot
+	 * Este folosit pt a desena pe GreenfootImage
+	 * */
 	boolean bold;
 	boolean italic;
 	float size = 10;

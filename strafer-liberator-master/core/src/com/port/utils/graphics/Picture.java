@@ -6,6 +6,11 @@ import com.port.UI.menu.Menu;
 
 import greenfoot.*;
 
+/*
+ * Clasa ajutatoare
+ * este un actor care doar da display unei imagini
+ */
+
 public class Picture extends Menu {
 
     GreenfootImage img;

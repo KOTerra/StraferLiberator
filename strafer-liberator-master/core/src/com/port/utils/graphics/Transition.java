@@ -6,6 +6,10 @@ import com.port.world.WorldData;
 
 import greenfoot.*;
 
+/*
+ * clasa ajutatoare
+ * animatie fullscreen cu scop estetic
+ */
 public class Transition extends Menu {
 
     private Animation animation;

@@ -18,7 +18,10 @@ import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
 import com.game.straferliberator.render.WorldRenderer;
 import com.port.world.WorldData;
-
+/*
+ * Port al clasei din Greenfoot
+ * este locul in care exista toti actorii 
+ */
 public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	SpriteBatch batch = StraferLiberator.batch;

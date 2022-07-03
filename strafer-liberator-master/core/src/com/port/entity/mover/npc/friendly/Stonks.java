@@ -2,6 +2,7 @@ package com.port.entity.mover.npc.friendly;
 
 import com.port.UI.menu.Dialog;
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;

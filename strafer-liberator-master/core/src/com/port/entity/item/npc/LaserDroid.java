@@ -5,6 +5,7 @@ import greenfoot.*;
 import java.util.List;
 
 import com.port.entity.mover.player.Player;
+import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 import com.port.world.structure.Perete;

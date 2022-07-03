@@ -11,6 +11,10 @@ import com.port.world.WorldData;
 import com.port.utils.graphics.Text;
 import com.port.utils.loader.DialogLoader;
 
+
+/*
+ * Clasa pentru dialogurile afisate de NPC-uri
+ */
 public class Dialog extends Menu {
 
     protected int nrSlide;

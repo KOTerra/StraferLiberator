@@ -2,7 +2,10 @@ package greenfoot;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-
+/*
+ * Port al clasei din Greenfoot
+ * ofera informatii despre cursor pe desktop
+ */
 public class MouseInfo {
 
 	public int getButton() {

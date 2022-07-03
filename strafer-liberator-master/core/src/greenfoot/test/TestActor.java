@@ -1,9 +1,9 @@
 package greenfoot.test;
 
 import com.port.entity.item.Item;
+import com.port.utils.graphics.GifImage;
 
 import greenfoot.Actor;
-import greenfoot.GifImage;
 import greenfoot.Greenfoot;
 
 public class TestActor extends Actor {

@@ -7,6 +7,10 @@ import com.port.world.WorldData;
 import greenfoot.Font;
 import greenfoot.GreenfootImage;
 
+/*
+ * Clasa ajutatoare
+ * actor care da display unui text
+ */
 public class Text extends Menu {
 
 	Font fontu = StraferLiberator.eFont;

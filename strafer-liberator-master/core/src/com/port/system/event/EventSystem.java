@@ -14,6 +14,10 @@ import com.port.world.WorldListener;
 
 import greenfoot.*;
 
+
+/*
+ * aici sunt definite obiectivele pe care le are playerul si in functie de acestea lumea se schimba
+ */
 public class EventSystem extends Actor {
 
 	PlayWorld playWorld;

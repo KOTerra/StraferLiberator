@@ -13,6 +13,10 @@ import com.port.system.event.EventSystem;
 import com.port.utils.graphics.Picture;
 import com.port.world.section.WorldSection;
 
+/*
+ * clasa care exista permanent in playWorld
+ * verifica pozitia playerului si decide cand sa schimbe sectiunile intre ele impreuna cu ce se afla in lume in acel timp
+ */
 public class WorldListener extends WorldSection {
 
 	public int worldSection = 11;

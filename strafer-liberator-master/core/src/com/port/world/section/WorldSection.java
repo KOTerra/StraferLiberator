@@ -14,7 +14,10 @@ import com.port.world.section.sections.WorldSection23;
 import com.port.world.structure.Door;
 
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/*
+ * clasa generala de WorldSection
+ * un WorldSection reprezinta o portiune din intreaga lume
+ */
 public class WorldSection extends Actor {
 
     protected PlayWorld world;

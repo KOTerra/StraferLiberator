@@ -4,6 +4,7 @@ import greenfoot.*;
 import java.util.HashMap;
 
 import com.port.entity.item.Item;
+import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 import com.port.world.structure.WorldStructures;
 

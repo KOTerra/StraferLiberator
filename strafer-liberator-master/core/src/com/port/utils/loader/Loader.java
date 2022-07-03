@@ -7,6 +7,10 @@ import java.util.Scanner;
 import com.badlogic.gdx.files.FileHandle;
 import com.port.world.WorldData;
 
+/*
+ * incarca matricele pentru pathfind in WorldData
+ */
+
 public abstract class Loader {
 
 	public static int[][] loadMatrix(File fin) {
