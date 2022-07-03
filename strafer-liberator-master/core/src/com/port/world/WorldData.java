@@ -85,7 +85,7 @@ public class WorldData {
 	public static void loadWorldMatrices() {
 
 		String director = new String("assets/maps/");
-		for (int i = 1; i <= 1; i++) {
+		for (int i = 1; i <= 6; i++) {
 
 			worldSectionMatrix[i] = com.port.utils.loader.Loader.loadMatrix(Gdx.files.internal(director + i + ".txt"));
 		}
