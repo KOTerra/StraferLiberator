@@ -14,6 +14,7 @@ import com.port.world.WorldData;
 public class SabieGoblin extends NpcItem {
 	public static final int damage = 5;
 	public static final int mass = 2;
+	int repositionX=0, repositionY=0;
 
 	HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
 	GifImage sabieImg = directie.get(Item.itemGif);
@@ -46,6 +47,7 @@ public class SabieGoblin extends NpcItem {
 		super.move(this);
 
 		sabieImg = directie.get(((Inamic) goblin).getGifItem());
+		reposition();
 	}
 
 	protected void atac() {
@@ -63,6 +65,34 @@ public class SabieGoblin extends NpcItem {
 		}
 	}
 
+	private void reposition() {
+		switch (((Inamic) goblin).getGifItem()) {
+		case "W": {
+			repositionY=-50;
+			repositionX=0;
+			break;
+		}
+		case "A": {
+
+			repositionY=0;
+			repositionX=-40;
+			break;
+		}
+		case "S": {
+
+			repositionY=50;
+			repositionX=0;
+			break;
+		}
+		case "D": {
+			repositionY=0;
+			repositionX=40;
+			break;
+		}
+		}
+
+	}
+
 	public void act() {
 
 		if (!WorldData.PAUZA) {
@@ -70,7 +100,7 @@ public class SabieGoblin extends NpcItem {
 			move();
 			if (sabieImg != null) {
 				setImage(sabieImg.getCurrentImage());
-				setLocation(goblin.getX(),goblin.getY());
+				setLocation(goblin.getX()+repositionX, goblin.getY()+repositionY);
 			}
 			time++;
 			if (time > constantEraseTime) {

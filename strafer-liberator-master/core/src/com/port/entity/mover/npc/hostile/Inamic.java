@@ -10,6 +10,7 @@ import java.util.List;
 import com.port.entity.item.pickup.Pill;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sabie;
+import com.port.entity.mover.Movers;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.player.Jucator;
 import com.port.entity.mover.player.Player;
@@ -112,6 +113,9 @@ public class Inamic extends Npc {
 
     }
 
+    
+   
+    
     protected void move() {
         pasi = super.ord.size() - 1;
         if (pasi > 0) {
@@ -248,6 +252,9 @@ public class Inamic extends Npc {
             //
         }
     }
+    
+    
+  
 
     int blinks = 0;
 

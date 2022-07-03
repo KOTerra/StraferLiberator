@@ -89,7 +89,7 @@ public class HealthBar extends UI {
 			if (breakLow) {
 				if (value > (usingBreakValue ? breakValue
 						: (int) (breakPercent * (maximumValue - minimumValue) / 100 + minimumValue))) {
-					
+
 					barImg.setColor(safeColor);
 				} else {
 					barImg.setColor(dangerColor);
@@ -102,7 +102,7 @@ public class HealthBar extends UI {
 					barImg.setColor(dangerColor);
 				}
 			}
-			
+
 			barImg.fillRect(2, 2, barValue, barHeight);
 		}
 
@@ -120,20 +120,23 @@ public class HealthBar extends UI {
 		}
 
 		// pixelare text
-		//leftImg.scale(leftImg.getWidth() / 4, leftImg.getHeight() / 4);
-		//GreenfootImage leftImgPixelated = leftImg;
-		//leftImg = leftImgPixelated;
-		//leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() * 2);
+		// leftImg.scale(leftImg.getWidth() / 4, leftImg.getHeight() / 4);
+		// GreenfootImage leftImgPixelated = leftImg;
+		// leftImg = leftImgPixelated;
+		// leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() *
+		// 2);
 		// pixelare text
 
 		GreenfootImage image = new GreenfootImage(sumX, maxY);
 		image.setColor(backgroundColor);
 		image.fill();
 
-		//image.drawImage(leftImg, maxX + 2 - leftImg.getWidth(), (image.getHeight() - leftImg.getHeight()) / 2);
+		// image.drawImage(leftImg, maxX + 2 - leftImg.getWidth(), (image.getHeight() -
+		// leftImg.getHeight()) / 2);
 
 		image.drawImage(barImg, maxX, (image.getHeight() - barImg.getHeight()) / 2);
-	//	image.drawImage(rightImg, maxX + barImg.getWidth(), (image.getHeight() - rightImg.getHeight()) / 2);
+		// image.drawImage(rightImg, maxX + barImg.getWidth(), (image.getHeight() -
+		// rightImg.getHeight()) / 2);
 		setImage(image);
 	}
 
@@ -365,9 +368,11 @@ public class HealthBar extends UI {
 	 * @param 'val': the new value for the bar
 	 */
 	public void setValue(int val) {
-		value = val;
-		checkValue();
-		newImage();
+		if (value != val) {
+			value = val;
+			checkValue();
+			newImage();
+		}
 	}
 
 	/**
