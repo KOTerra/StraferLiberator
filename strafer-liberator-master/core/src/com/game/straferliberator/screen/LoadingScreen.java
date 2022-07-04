@@ -12,10 +12,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
-import com.game.straferliberator.StraferLiberator;
+import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
+import com.game.straferliberator.StraferLiberator;
 
-import greenfoot.GreenfootSound;
+import com.game.straferliberator.assetloaders.*;
+import greenfoot.*;
 
 public class LoadingScreen implements Screen {
 
@@ -88,8 +90,7 @@ public class LoadingScreen implements Screen {
 	}
 
 	private void queueAssets() {
-		// game.assetManager.setLoader(TextureRegion.class,new TextureLoader(new
-		// InternalFileHandleResolver()));
+		//test
 		game.assetManager.load("images/UI/menu/mainMenu/logo.png", Texture.class);
 		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
 		
@@ -97,6 +98,21 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/C.jpg", Texture.class);
 		game.assetManager.load("images/logo.png", Texture.class);
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", Texture.class);
+		//test
+		
+		
+		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
+		//dam load la fonturi
+	
+		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
+		//dam load la sunete
+		
+		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
+		//dam load la imageuri
+		
+		game.assetManager.setLoader(GifImage.class,new GifImageLoader(new InternalFileHandleResolver()));
+		//dam load la GifImageuri
+		
 	}
 
 }

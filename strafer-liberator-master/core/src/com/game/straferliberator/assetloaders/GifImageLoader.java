@@ -7,38 +7,41 @@ import com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
+import com.game.straferliberator.assetloaders.GreenfootImageLoader.GreenfootImageLoaderParameters;
+import com.port.utils.graphics.GifImage;
 
 import greenfoot.GreenfootImage;
 
-public class GreenfootImageLoader
-		extends AsynchronousAssetLoader<GreenfootImage, GreenfootImageLoader.GreenfootImageLoaderParameters> {
+public class GifImageLoader extends AsynchronousAssetLoader<GifImage, GifImageLoader.GifImageLoaderParameters> {
 
-	public GreenfootImageLoader(FileHandleResolver resolver) {
+	public GifImageLoader(FileHandleResolver resolver) {
 		super(resolver);
+		// TODO Auto-generated constructor stub
 	}
 
+
+
 	@Override
-	public void loadAsync(AssetManager manager, String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+	public void loadAsync(AssetManager manager, String fileName, FileHandle file, GifImageLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public GreenfootImage loadSync(AssetManager manager, String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+	public GifImage loadSync(AssetManager manager, String fileName, FileHandle file,
+			GifImageLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+			GifImageLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	static public class GreenfootImageLoaderParameters extends AssetLoaderParameters<GreenfootImage> {
+	static public class GifImageLoaderParameters extends AssetLoaderParameters<GifImage> {
 
 	}
 }

@@ -7,38 +7,42 @@ import com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
+import com.port.utils.graphics.GifImage;
 
 import greenfoot.GreenfootImage;
+import greenfoot.GreenfootSound;
 
-public class GreenfootImageLoader
-		extends AsynchronousAssetLoader<GreenfootImage, GreenfootImageLoader.GreenfootImageLoaderParameters> {
+public class GreenfootSoundLoader extends AsynchronousAssetLoader<GreenfootSound, GreenfootSoundLoader.GreenfootSoundLoaderParameters> {
 
-	public GreenfootImageLoader(FileHandleResolver resolver) {
+	public GreenfootSoundLoader(FileHandleResolver resolver) {
 		super(resolver);
+		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public void loadAsync(AssetManager manager, String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+			GreenfootSoundLoaderParameters parameter) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public GreenfootImage loadSync(AssetManager manager, String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+	public GreenfootSound loadSync(AssetManager manager, String fileName, FileHandle file,
+			GreenfootSoundLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file,
-			GreenfootImageLoaderParameters parameter) {
+			GreenfootSoundLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	static public class GreenfootImageLoaderParameters extends AssetLoaderParameters<GreenfootImage> {
+	
+	static public class GreenfootSoundLoaderParameters extends AssetLoaderParameters<GreenfootSound> {
 
 	}
+
 }
+	

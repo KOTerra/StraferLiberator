@@ -1,8 +1,6 @@
 package greenfoot.test;
 
 import com.port.entity.item.Item;
-import com.port.utils.graphics.GifImage;
-
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 
