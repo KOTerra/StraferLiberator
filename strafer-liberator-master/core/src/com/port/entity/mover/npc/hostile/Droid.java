@@ -18,7 +18,7 @@ import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 
-public class Droid extends Inamic {
+public class Droid extends HostileNpc {
 
     private String axa;
     private int dist;

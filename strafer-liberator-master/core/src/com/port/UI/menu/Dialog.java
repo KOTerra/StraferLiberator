@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.port.UI.buton.Buton;
 import com.port.entity.mover.npc.Npc;
-import com.port.entity.mover.npc.friendly.Friendly;
+import com.port.entity.mover.npc.friendly.FriendlyNpc;
 import com.port.world.WorldData;
 import com.port.utils.graphics.Text;
 import com.port.utils.loader.DialogLoader;
@@ -30,7 +30,7 @@ public class Dialog extends Menu {
     protected List lines ;
     
     
-    public Dialog(Friendly npcref, String imgref,int nrDialog) { 
+    public Dialog(FriendlyNpc npcref, String imgref,int nrDialog) { 
         WorldData.PAUZA = true;
         img = imgref;
         npc = npcref;

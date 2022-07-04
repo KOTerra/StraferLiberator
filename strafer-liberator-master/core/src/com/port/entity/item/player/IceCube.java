@@ -1,6 +1,6 @@
 package com.port.entity.item.player;
 
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.world.WorldData;
 
 import greenfoot.*;  
@@ -14,7 +14,7 @@ public class IceCube extends IceLock{
     
     public IceCube(Actor actor,IceLock icelock){
         this.actor=actor;
-       ((Inamic)this.actor).setFreeze(true);
+       ((HostileNpc)this.actor).setFreeze(true);
         this.iceLock=icelock;
         iceLock.setSent(false);
         
@@ -31,7 +31,7 @@ public class IceCube extends IceLock{
         	  setLocation(this.actor.getX()+175,this.actor.getY()-120);
             time++;
             if (time > constantEraseTime) {
-                ((Inamic)actor).setFreeze(false);
+                ((HostileNpc)actor).setFreeze(false);
                 getWorld().removeObject(iceLock);
                 getWorld().removeObject(this);
                 

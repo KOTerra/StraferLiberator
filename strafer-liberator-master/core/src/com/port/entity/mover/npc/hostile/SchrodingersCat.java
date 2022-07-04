@@ -9,7 +9,7 @@ import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.ExplozieSchrodingersCat;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sabie;
-import com.port.entity.mover.player.Jucator;
+import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
@@ -129,7 +129,7 @@ public class SchrodingersCat extends Goblin {
                 lovitLaser();
                 int waitseed = Greenfoot.getRandomNumber(2500);
 
-                if (isTouching(Jucator.class)) {
+                if (isTouching(BasePlayer.class)) {
 
                     timpAtins = 0;//{
                     inBoxTime = 0;

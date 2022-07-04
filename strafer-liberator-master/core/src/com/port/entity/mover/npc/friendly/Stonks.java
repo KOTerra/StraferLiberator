@@ -10,7 +10,7 @@ import com.port.world.WorldData;
 import greenfoot.*;  
 
 
-public class Stonks extends Friendly
+public class Stonks extends FriendlyNpc
 {
     private PlayWorld playWorld;
     private String dialogFile;

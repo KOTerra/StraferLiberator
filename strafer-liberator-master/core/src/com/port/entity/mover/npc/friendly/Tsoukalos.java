@@ -10,7 +10,7 @@ import com.port.world.WorldData;
 import greenfoot.*;  
 
 
-public class Tsoukalos extends Friendly
+public class Tsoukalos extends FriendlyNpc
 {
     private PlayWorld playWorld;
     private String dialogFile;

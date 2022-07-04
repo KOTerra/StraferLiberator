@@ -6,7 +6,7 @@ import greenfoot.*;
 import java.util.List;
 
 import com.port.entity.item.Item;
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.npc.hostile.SchrodingersCat;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;
@@ -31,8 +31,8 @@ public class IceLock extends Item {
                 if (getWorld().getObjects(IceCube.class).isEmpty()) {
                     sent = true;
                     this.setLocation(x, y);
-                    if (isTouching(Inamic.class)) {
-                        Actor in = getOneIntersectingObject(Inamic.class);
+                    if (isTouching(HostileNpc.class)) {
+                        Actor in = getOneIntersectingObject(HostileNpc.class);
                         if (!(in instanceof SchrodingersCat) &&!(in instanceof Stroke) ) {
                             getWorld().addObject(new IceCube(in, this), Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                             

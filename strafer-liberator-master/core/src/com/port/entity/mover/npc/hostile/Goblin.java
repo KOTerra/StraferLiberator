@@ -12,14 +12,14 @@ import com.port.entity.item.npc.SabieGoblin;
 import com.port.entity.item.player.BlackHole;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sabie;
-import com.port.entity.mover.player.Jucator;
+import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 
-public class Goblin extends Inamic {
+public class Goblin extends HostileNpc {
 
     public static int speed = 5;
     public static int mass = 80;
@@ -121,7 +121,7 @@ public class Goblin extends Inamic {
                 suckedBlackHole();
                 long waitseed = Greenfoot.getRandomNumber(2500);
 
-                if (isTouching(Jucator.class)) {
+                if (isTouching(BasePlayer.class)) {
 
                     timpAtins = 0;//{
                     atingePlayer = true;//ataca

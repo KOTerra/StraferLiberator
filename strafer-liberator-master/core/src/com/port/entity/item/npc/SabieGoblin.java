@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import com.port.entity.item.Item;
 import com.port.entity.mover.npc.hostile.Goblin;
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
@@ -46,12 +46,12 @@ public class SabieGoblin extends NpcItem {
 	protected void move() {
 		super.move(this);
 
-		sabieImg = directie.get(((Inamic) goblin).getGifItem());
+		sabieImg = directie.get(((HostileNpc) goblin).getGifItem());
 		reposition();
 	}
 
 	protected void atac() {
-		sabieImg = directie.get(((Inamic) goblin).getGifItem());
+		sabieImg = directie.get(((HostileNpc) goblin).getGifItem());
 		if (isTouching(Player.class)) {
 			Player player = (Player) getWorld().getObjects(Player.class).get(0);
 			if (player != null) {
@@ -66,7 +66,7 @@ public class SabieGoblin extends NpcItem {
 	}
 
 	private void reposition() {
-		switch (((Inamic) goblin).getGifItem()) {
+		switch (((HostileNpc) goblin).getGifItem()) {
 		case "W": {
 			repositionY=-50;
 			repositionX=0;
@@ -104,7 +104,7 @@ public class SabieGoblin extends NpcItem {
 			}
 			time++;
 			if (time > constantEraseTime) {
-				((Inamic) goblin).setUsedItem(false);
+				((HostileNpc) goblin).setUsedItem(false);
 				getWorld().removeObject(this);
 
 			}

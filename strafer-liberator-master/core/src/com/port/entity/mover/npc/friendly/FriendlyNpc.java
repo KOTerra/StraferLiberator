@@ -8,11 +8,11 @@ import com.port.entity.mover.npc.Npc;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 
-public class Friendly extends Npc {
+public class FriendlyNpc extends Npc {
 
     private PlayWorld playWorld;
 
-    public Friendly(PlayWorld playWorldref, Scroller scrl,String dialogFile) {
+    public FriendlyNpc(PlayWorld playWorldref, Scroller scrl,String dialogFile) {
         super(scrl);
         playWorld = playWorldref;
     }

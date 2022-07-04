@@ -6,7 +6,7 @@ import com.port.entity.mover.npc.Npc;
 
 import greenfoot.*;
 
-public class Jucator extends Movers {
+public class BasePlayer extends Movers {
 
     protected void atingeNpc() {
         Actor a = getOneIntersectingObject(Npc.class);//daca sunt in exterior

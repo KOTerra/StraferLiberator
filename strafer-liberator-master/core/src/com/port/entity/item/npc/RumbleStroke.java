@@ -1,6 +1,6 @@
 package com.port.entity.item.npc;
 
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
@@ -57,7 +57,7 @@ public class RumbleStroke extends NpcItem{
 setImage(gif.getCurrentImage());
             time++;
             if (time > constantEraseTime) {
-                ((Inamic)stroke).setUsedItem(false);
+                ((HostileNpc)stroke).setUsedItem(false);
                 getWorld().removeObject(this);
                 
             }

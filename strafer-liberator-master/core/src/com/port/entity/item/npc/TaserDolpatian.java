@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import com.port.entity.item.Item;
 import com.port.entity.mover.npc.hostile.Dolpatian;
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
@@ -49,11 +49,11 @@ public class TaserDolpatian extends NpcItem{
     protected void move() {
         setLocation(dolpatian.getX(), dolpatian.getY() );
 
-        itemImg = directie.get(((Inamic)dolpatian).getGifItem());
+        itemImg = directie.get(((HostileNpc)dolpatian).getGifItem());
     }
 
     protected void atac() {
-        itemImg = directie.get(((Inamic)dolpatian).getGifItem());
+        itemImg = directie.get(((HostileNpc)dolpatian).getGifItem());
         if(isTouching(Player.class)){
            Player player= (Player) getWorld().getObjects(Player.class).get(0);
            if(player!=null){
@@ -77,7 +77,7 @@ public class TaserDolpatian extends NpcItem{
             
             time++;
             if (time > constantEraseTime) {
-                ((Inamic)dolpatian).setUsedItem(false);
+                ((HostileNpc)dolpatian).setUsedItem(false);
                 getWorld().removeObject(this);
                 
             }

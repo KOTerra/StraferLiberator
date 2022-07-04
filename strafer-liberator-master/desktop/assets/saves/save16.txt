@@ -1,5 +1,5 @@
 PlayerX:8132
-PlayerY:6846
+PlayerY:6844
 Health:400
 WorldSection:11
 WS11:true

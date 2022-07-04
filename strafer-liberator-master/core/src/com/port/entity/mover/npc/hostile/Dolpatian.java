@@ -11,7 +11,7 @@ import com.port.entity.item.player.BlackHole;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Light;
 import com.port.entity.item.player.Sabie;
-import com.port.entity.mover.player.Jucator;
+import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
@@ -150,7 +150,7 @@ public class Dolpatian extends Goblin {
                 atinsLight();
                 long waitseed = Greenfoot.getRandomNumber(2500);
 
-                if (isTouching(Jucator.class)) {
+                if (isTouching(BasePlayer.class)) {
 
                     timpAtins = 0;//{
                     atingePlayer = true;//ataca

@@ -7,7 +7,7 @@ import java.util.List;
 import com.port.entity.item.Item;
 import com.port.entity.mover.npc.hostile.Droid;
 import com.port.entity.mover.npc.hostile.Goblin;
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.npc.hostile.SchrodingersCat;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
@@ -24,9 +24,9 @@ public class BlackHole extends Item {
     }
  
     public void suck() {
-        List npcs = getObjectsInRange(1000, Inamic.class);
+        List npcs = getObjectsInRange(1000, HostileNpc.class);
         for (Object in : npcs) {
-            Inamic inamic = (Inamic) in;
+            HostileNpc inamic = (HostileNpc) in;
             if (!(inamic instanceof SchrodingersCat)) {
                 if ((inamic instanceof Droid) || (inamic instanceof Goblin)) {
                     inamic.turnTowards(this.getX(), this.getY());

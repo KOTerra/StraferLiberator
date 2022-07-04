@@ -12,15 +12,18 @@ import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sabie;
 import com.port.entity.mover.Movers;
 import com.port.entity.mover.npc.Npc;
-import com.port.entity.mover.player.Jucator;
+import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
+import com.port.world.structure.Perete;
 
-public class Inamic extends Npc {
+public class HostileNpc extends Npc {
 
-    public static int speed = 5;
-    protected int hp = 150;
+    public int speed = 5;
+   
+
+	protected int hp = 150;
 
     Scroller scroller;
     HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
@@ -44,7 +47,7 @@ public class Inamic extends Npc {
 
     public String gifItem;
 
-    public Inamic(Scroller scrl, int x, int y) {
+    public HostileNpc(Scroller scrl, int x, int y) {
         super(scrl);
         prevsx = Scroller.scrolledX;
         prevsy = Scroller.scrolledY;
@@ -90,7 +93,7 @@ public class Inamic extends Npc {
 
             if (player.getHp() >= 0 && playerX < 128 && playerY < 128) {
                 try {
-					super.Lee(gY, gX, playerY, playerX);
+					super.pathfind(gY, gX, playerY, playerX);
 				} catch (Exception e) {
 					
 				}
@@ -99,7 +102,7 @@ public class Inamic extends Npc {
 
         if (super.gasit == true) {
 
-            if (isTouching(Jucator.class) && (player.getWorldY() <= (worldY + Scroller.scrolledY) - 10 || player.getWorldX() <= (worldX + Scroller.scrolledX) - 15
+            if (isTouching(BasePlayer.class) && (player.getWorldY() <= (worldY + Scroller.scrolledY) - 10 || player.getWorldX() <= (worldX + Scroller.scrolledX) - 15
                     || (player.getWorldY()) >= (worldY + Scroller.scrolledY) + 10 || player.getWorldX() >= (worldX + Scroller.scrolledX) + 15)) {
                 gif = "idle";
 
@@ -117,6 +120,7 @@ public class Inamic extends Npc {
    
     
     protected void move() {
+    	atingePerete();
         pasi = super.ord.size() - 1;
         if (pasi > 0) {
 
@@ -254,6 +258,41 @@ public class Inamic extends Npc {
     }
     
     
+    protected void atingePerete() {
+        Actor a = getOneIntersectingObject(Perete.class);//daca sunt in exterior
+        if (a != null) { 
+                if (a.getX() - getX() <= 0) {
+                    setLocation(getX() + 7, getY());
+                    worldX+=7;
+                }
+                if (a.getX() - getX() >= 0) {
+                    setLocation(getX() - 7, getY());
+                    worldX-=7;
+                }
+                if (a.getY() - getY() <= 0) {
+                    setLocation(getX(), getY() + 7);
+                    worldY+=7;
+                }
+                if (a.getY() - getY() >= 0) {
+                    setLocation(getX(), getY() - 7);
+                    worldY-=7;
+                }
+
+            }
+        
+
+        Actor b = getOneObjectAtOffset(0, 0, Perete.class);//daca sunt in interior\
+        if (b != null) {
+
+                int npcX = (int) (b.getX() - getX());
+                int npcY = (int) (b.getY() - getY());
+
+                setLocation(getX() - npcX, getY() - npcY);
+                worldX-=7;
+                worldY-=7;
+            
+        }
+    }
   
 
     int blinks = 0;
@@ -365,6 +404,12 @@ public class Inamic extends Npc {
         }
         nextMeleeAttack = System.currentTimeMillis();
     }
+    
+    
+   
+
+    
+    
     long timpMort = 0;
 
     protected void health(int dmg) {
@@ -410,6 +455,12 @@ public class Inamic extends Npc {
     public void setFreeze(boolean freeze) {
         this.freeze = freeze;
     }
+    public int getSpeed() {
+		return speed;
+	}
+
+
+
 
     /**
      * This method spawns a pill that heals the player a random amount

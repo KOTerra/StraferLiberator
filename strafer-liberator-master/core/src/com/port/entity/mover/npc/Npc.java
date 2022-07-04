@@ -90,7 +90,10 @@ public class Npc extends Movers {
         return this.getClass().getSimpleName();
     }
 
-    protected void Lee(int startL, int startC, int x, int y) {
+    /*
+     * Lee pe matricea din worldSection
+     */
+    protected void pathfind(int startL, int startC, int x, int y) {
         //aici trebuie pusa matricea din WorldData
         if (sectiune == -1) {
             sectiune = ((PlayWorld) getWorld()).getWorldListener().getWorldSection();

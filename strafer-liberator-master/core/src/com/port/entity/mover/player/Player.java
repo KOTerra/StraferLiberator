@@ -21,7 +21,7 @@ import com.port.entity.item.player.LaserHold;
 import com.port.entity.item.player.PortalGun;
 import com.port.entity.item.player.Sabie;
 import com.port.entity.item.player.SabieHold;
-import com.port.entity.mover.npc.hostile.Inamic;
+import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
@@ -31,7 +31,7 @@ import com.port.world.WorldData;
 
 import java.lang.Math;
 
-public class Player extends Jucator {
+public class Player extends BasePlayer {
 
     HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
     GifImage playerImg = directie.get(this.gif);
@@ -465,7 +465,7 @@ public class Player extends Jucator {
     long cntF = 0;
 
     public void lookForEnemies() {
-        if (!getObjectsInRange(WorldData.WIDTH+200, Inamic.class).isEmpty()) {
+        if (!getObjectsInRange(WorldData.WIDTH+200, HostileNpc.class).isEmpty()) {
             WorldData.isFighting = true;
         } else {
             if (WorldData.isFighting) {
