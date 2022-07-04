@@ -229,7 +229,7 @@ public class Player extends BasePlayer {
     public void move() {//se misca daca merge
 
         if (gif != "idle") {
-            super.atingeNpc();
+            super.atingeNpc(this.speed);
         }
         sprint();
         checkMove();
@@ -241,7 +241,7 @@ public class Player extends BasePlayer {
     
     private void sprint() {
     	  if (Greenfoot.isKeyDown("L-Shift")) {
-          	speed=14;
+          	speed=21;
           }
           else {
           	speed=7;

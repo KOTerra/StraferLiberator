@@ -8,30 +8,22 @@ import greenfoot.*;
 
 public class BasePlayer extends Movers {
 
-    protected void atingeNpc() {
+    protected void atingeNpc(int speed) {
         Actor a = getOneIntersectingObject(Npc.class);//daca sunt in exterior
         if (a != null) {
             Movers m = (Movers) a;
-            if (!m.isKnockbacked()) {
-                int procentX = 50;
-                int procentY = 60;
-
-                //am un npc care mi se atinge cu playerul
-                double npcX = (a.getX() - getX()) * procentX / 100;//8/100
-                double npcY = (a.getY() - getY()) * procentY / 100;//7/100   
-
-                //setLocation(getX() - (int)npcX, getY() - (int)npcY);
-                if (a.getX() - getX() <= 0) {
-                    setLocation(getX() + 7, getY());
+            if (!m.isKnockbacked()) {                
+            	if (a.getX() - getX() <= 0) {
+                    setLocation(getX() + speed, getY());
                 }
                 if (a.getX() - getX() >= 0) {
-                    setLocation(getX() - 7, getY());
+                    setLocation(getX() - speed, getY());
                 }
                 if (a.getY() - getY() <= 0) {
-                    setLocation(getX(), getY() + 7);
+                    setLocation(getX(), getY() + speed);
                 }
                 if (a.getY() - getY() >= 0) {
-                    setLocation(getX(), getY() - 7);
+                    setLocation(getX(), getY() - speed);
                 }
 
             }
