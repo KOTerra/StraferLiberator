@@ -18,6 +18,7 @@ import com.port.world.WorldData;
 import com.game.straferliberator.StraferLiberator;
 
 import com.game.straferliberator.assetloaders.*;
+import com.game.straferliberator.assetloaders.FontLoader.FontLoaderParameters;
 import com.game.straferliberator.assetloaders.GreenfootImageLoader.GreenfootImageLoaderParameters;
 
 import greenfoot.*;
@@ -34,7 +35,7 @@ public class LoadingScreen implements Screen {
 		this.game = game;
 		shapeRenderer = new ShapeRenderer();
 
-		queueAssets();
+		queueAssetsToLoad();
 	}
 
 	@Override
@@ -92,7 +93,7 @@ public class LoadingScreen implements Screen {
 
 	}
 
-	private void queueAssets() {
+	private void queueAssetsToLoad() {
 		//test
 		game.assetManager.load("images/UI/menu/mainMenu/logo.png", Texture.class);
 		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
@@ -103,10 +104,14 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
 		//dam load la fonturi
+		game.assetManager.load("fonts/consolas.fnt",Font.class, new FontLoaderParameters(false,false,24));
+		game.assetManager.load("fonts/edo.fnt",Font.class, new FontLoaderParameters(false,false,10));
+
 		
 		
 		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
 		//dam load la sunete
+		
 		
 		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));

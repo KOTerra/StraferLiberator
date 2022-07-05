@@ -20,7 +20,12 @@ public class StraferLiberator extends Game {
 	public static SpriteBatch batch;
 	public static OrthographicCamera camera;
 	public static AssetManager assetManager;
-	public static Font cFont,eFont;
+	public static Font cFont;
+	public static Font getcFont() {
+		return cFont;
+	}
+
+	public static Font eFont;
 	
 	public void create () {
 		batch = new SpriteBatch();
@@ -28,9 +33,6 @@ public class StraferLiberator extends Game {
 		camera=new OrthographicCamera(WorldData.WIDTH,WorldData.HEIGHT);
 		
 		assetManager=new AssetManager(new InternalFileHandleResolver());
-		
-		cFont=new Font("consolas", true, false, 24);
-		eFont=new Font("edo", true, false, 10);
 		
 		setScreen(new LoadingScreen(this));
 	}

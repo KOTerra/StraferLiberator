@@ -13,6 +13,7 @@ import com.game.straferliberator.render.WorldRenderer;
 import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
+import greenfoot.Font;
 import greenfoot.test.TestWorld;
 
 public class GameScreen extends ScreenAdapter {
@@ -27,6 +28,8 @@ public class GameScreen extends ScreenAdapter {
 
 	public GameScreen(StraferLiberator straferLiberator) {
 		this.game = straferLiberator;
+		game.cFont=game.assetManager.get("fonts/consolas.fnt",Font.class);
+		game.eFont=game.assetManager.get("fonts/edo.fnt",Font.class);
 
 		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
 			world = new TestWorld();

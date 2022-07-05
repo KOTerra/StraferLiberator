@@ -19,9 +19,8 @@ public class MainMenu extends Menu {
 
 	AssetManager assetManager=StraferLiberator.assetManager;	
 	
+	
 	GifImage background = assetManager.get("images/UI/menu/mainMenu/blur.gif",GifImage.class);
-	// GifImage background=new
-	// GifImage(StraferLiberator.assetManager.get("UI/menu/test2.gif",Texture.class));
 	Actor logo = new Actor();
 	GifImage playerAnimationGif=assetManager.get("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
 	Actor playerAnimation=new Actor();
@@ -42,7 +41,7 @@ public class MainMenu extends Menu {
 		WorldData.saveFileNumber = com.port.system.SaveSystem.getNumberOfSaveFiles() - 1;
 
 		logo.setImage(new GreenfootImage(
-				StraferLiberator.assetManager.get("images/UI/menu/mainMenu/logo.png", Texture.class)));
+				assetManager.get("images/UI/menu/mainMenu/logo.png", Texture.class)));
 		background.scale(WorldData.WIDTH, WorldData.HEIGHT);
 	}
 

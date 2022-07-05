@@ -4,12 +4,14 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 	/* Port al clasei Font din Greenfoot
 	 * Este folosit pt a desena pe GreenfootImage
 	 * */
 	boolean bold;
+
 	boolean italic;
 	float size = 10;
 
@@ -37,11 +39,19 @@ public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 		data = getData();
 		data.setScale(size);
 	}
+	public Font(java.lang.String name, boolean bold, boolean italic, int size,boolean atAssetManager) {
+		super(Gdx.files.internal( name ), true);
+		data = getData();
+		data.setScale(size);
+	}
 
 	public void setColor(Color color) {
 		super.setColor(color);
 	}
 
+	public void setData(BitmapFontData d) {
+		data=d;
+	}
 	public float getSize() {
 		return size;
 	}
@@ -50,5 +60,13 @@ public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 		this.size = size;
 		data.setScale(size / 10);
 	}
+	public void setBold(boolean bold) {
+		this.bold = bold;
+	}
+
+	public void setItalic(boolean italic) {
+		this.italic = italic;
+	}
+
 
 }
