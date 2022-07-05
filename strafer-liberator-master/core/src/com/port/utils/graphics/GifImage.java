@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.game.straferliberator.StraferLiberator;
 
 import greenfoot.GreenfootImage;
 
@@ -32,6 +33,11 @@ public class GifImage {
 		frameDuration = animation.getFrameDuration();
 	}
 
+	public GifImage(Animation anim) {
+		animation=anim;
+		frameDuration = animation.getFrameDuration();
+	}
+	
 	public GreenfootImage getCurrentImage() {
 		elapsed += Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(0, 0, 0, 0);

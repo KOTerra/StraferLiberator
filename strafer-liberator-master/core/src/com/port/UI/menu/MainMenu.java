@@ -3,6 +3,7 @@ package com.port.UI.menu;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.buton.Buton;
@@ -16,11 +17,13 @@ import greenfoot.*;
 
 public class MainMenu extends Menu {
 
-	GifImage background = new GifImage("UI/menu/mainMenu/blur.gif");
+	AssetManager assetManager=StraferLiberator.assetManager;	
+	
+	GifImage background = assetManager.get("images/UI/menu/mainMenu/blur.gif",GifImage.class);
 	// GifImage background=new
 	// GifImage(StraferLiberator.assetManager.get("UI/menu/test2.gif",Texture.class));
 	Actor logo = new Actor();
-	GifImage playerAnimationGif=new GifImage("UI/menu/mainMenu/playerAnimation.gif");
+	GifImage playerAnimationGif=assetManager.get("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
 	Actor playerAnimation=new Actor();
 	
 	Buton butonContinue = new Buton("continue", this);

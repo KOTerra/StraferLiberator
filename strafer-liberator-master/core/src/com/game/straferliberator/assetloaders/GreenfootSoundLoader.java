@@ -14,16 +14,18 @@ import greenfoot.GreenfootSound;
 
 public class GreenfootSoundLoader extends AsynchronousAssetLoader<GreenfootSound, GreenfootSoundLoader.GreenfootSoundLoaderParameters> {
 
+	GreenfootSound greenfootSound;
+	
 	public GreenfootSoundLoader(FileHandleResolver resolver) {
 		super(resolver);
-		// TODO Auto-generated constructor stub
 	}
+	
 	
 	@Override
 	public void loadAsync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootSoundLoaderParameters parameter) {
-		// TODO Auto-generated method stub
 		
+		greenfootSound=null;
 	}
 
 	@Override

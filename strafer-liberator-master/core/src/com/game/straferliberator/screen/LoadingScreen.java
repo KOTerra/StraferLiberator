@@ -8,6 +8,7 @@ import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -17,6 +18,8 @@ import com.port.world.WorldData;
 import com.game.straferliberator.StraferLiberator;
 
 import com.game.straferliberator.assetloaders.*;
+import com.game.straferliberator.assetloaders.GreenfootImageLoader.GreenfootImageLoaderParameters;
+
 import greenfoot.*;
 
 public class LoadingScreen implements Screen {
@@ -94,10 +97,7 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/UI/menu/mainMenu/logo.png", Texture.class);
 		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
 		
-		game.assetManager.load("images/UI/menu/test2.gif", Texture.class);
-		game.assetManager.load("images/C.jpg", Texture.class);
 		game.assetManager.load("images/logo.png", Texture.class);
-		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", Texture.class);
 		//test
 		
 		
@@ -109,9 +109,12 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		//dam load la imageuri
+		//game.assetManager.load("C.jpg",GreenfootImage.class);
 		
 		game.assetManager.setLoader(GifImage.class,new GifImageLoader(new InternalFileHandleResolver()));
-		//dam load la GifImageuri
+		//dam load la Animationuri pe care le incarcam in gifuri
+		game.assetManager.load("images/UI/menu/mainMenu/blur.gif",GifImage.class);
+		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
 		
 	}
 

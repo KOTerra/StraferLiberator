@@ -13,20 +13,16 @@ import greenfoot.GreenfootSound;
 
 public class FontLoader extends AsynchronousAssetLoader<Font, FontLoader.FontLoaderParameters> {
 
-	
+	Font font;
 	
 	public FontLoader(FileHandleResolver resolver) {
 		super(resolver);
-		// TODO Auto-generated constructor stub
 	}
 
-	static public class FontLoaderParameters extends AssetLoaderParameters<Font> {
-
-	}
 
 	@Override
 	public void loadAsync(AssetManager manager, String fileName, FileHandle file, FontLoaderParameters parameter) {
-		// TODO Auto-generated method stub
+		font= null;
 		
 	}
 
@@ -40,5 +36,9 @@ public class FontLoader extends AsynchronousAssetLoader<Font, FontLoader.FontLoa
 	public Array<AssetDescriptor> getDependencies(String fileName, FileHandle file, FontLoaderParameters parameter) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	static public class FontLoaderParameters extends AssetLoaderParameters<Font> {
+
 	}
 }

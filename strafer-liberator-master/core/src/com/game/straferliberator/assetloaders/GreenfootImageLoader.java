@@ -13,22 +13,26 @@ import greenfoot.GreenfootImage;
 public class GreenfootImageLoader
 		extends AsynchronousAssetLoader<GreenfootImage, GreenfootImageLoader.GreenfootImageLoaderParameters> {
 
+	GreenfootImage greenfootImage=null;
+
 	public GreenfootImageLoader(FileHandleResolver resolver) {
 		super(resolver);
 	}
+	
 
 	@Override
 	public void loadAsync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootImageLoaderParameters parameter) {
-		// TODO Auto-generated method stub
-
+		
+		greenfootImage=new GreenfootImage(fileName);
+		
 	}
 
 	@Override
 	public GreenfootImage loadSync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootImageLoaderParameters parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return greenfootImage;
 	}
 
 	@Override
@@ -39,6 +43,8 @@ public class GreenfootImageLoader
 	}
 
 	static public class GreenfootImageLoaderParameters extends AssetLoaderParameters<GreenfootImage> {
-
+		public GreenfootImageLoaderParameters(){
+			
+		}
 	}
 }
