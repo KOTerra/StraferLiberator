@@ -320,8 +320,8 @@ public class Player extends BasePlayer {
         //laser
         if (equipLaser) {
 
-            if (getWorld().getObjects(Sabie.class).isEmpty()) {
-                getWorld().addObject(new LaserHold(), getX(), getY());
+            if (getWorld().getObjects(LaserHold.class).isEmpty()) {
+                getWorld().addObject(new LaserHold(), getX(), getY()-3);
             }
 
             long timpCurent = System.currentTimeMillis();
