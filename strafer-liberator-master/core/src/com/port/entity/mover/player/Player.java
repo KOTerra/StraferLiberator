@@ -1,7 +1,6 @@
 package com.port.entity.mover.player;
 
-
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,676 +32,673 @@ import java.lang.Math;
 
 public class Player extends BasePlayer {
 
-    HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
-    GifImage playerImg = directie.get(this.gif);
+	HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
+	GifImage playerImg = directie.get(this.gif);
 
-    public String gif = "Ds";
+	public String gif = "Ds";
 
-    int direction;
+	int direction;
 
-    PlayWorld playWorld;
+	PlayWorld playWorld;
 
-    private int worldX, worldY;
-    public static int floorLevel = 1;
+	private int worldX, worldY;
+	public static int floorLevel = 1;
 
-    private boolean inViata = true;
-    private int hp = 400;
-    public static final int hpMax = 400;
-    private int speed = 7;
+	private boolean inViata = true;
+	private int hp = 400;
+	public static final int hpMax = 400;
+	private int initialSpeed = 7;
+	private int speed = initialSpeed;
 
-    private boolean equipSword = false;
-    private boolean equipLaser = false;
-    private boolean equipPortalGun = false;
-    private boolean equipIceLock = false;
-    private boolean equipLantern = false;
-    private boolean equipBlackHole = false;
+	private boolean equipSword = false;
+	private boolean equipLaser = false;
+	private boolean equipPortalGun = false;
+	private boolean equipIceLock = false;
+	private boolean equipLantern = false;
+	private boolean equipBlackHole = false;
 
-    private boolean toggledInventory = false;
-    public static boolean toggledPause = false;
-    private boolean toggledGameOver = false;
+	private boolean toggledInventory = false;
+	public static boolean toggledPause = false;
+	private boolean toggledGameOver = false;
 
-    private boolean loaded = false;
+	private boolean loaded = false;
 
-    Animation animation;
-    boolean playedAnimation;
+	Animation animation;
+	boolean playedAnimation;
 
-    private HashSet<String> iteme = new HashSet<String>();
+	private HashSet<String> iteme = new HashSet<String>();
 
-    protected long timpPrec;
-    private long timp = 0;
-    private long timpSab = 0, timpLaser = 0, timpBoaba = 0, timpPumni = 0;
+	protected long timpPrec;
+	private long timp = 0;
+	private long timpSab = 0, timpLaser = 0, timpBoaba = 0, timpPumni = 0;
 
-    private boolean apas;
+	private boolean apas;
 
-    public Player() {
+	public Player() {
 
-        prepareData();
+		prepareData();
 
-        playWorld = (PlayWorld) getWorld();
+		playWorld = (PlayWorld) getWorld();
 
-        //sta
-        directie.put("idle", new GifImage("player/player_m_Idle.gif"));
+		// sta
+		directie.put("idle", new GifImage("player/player_m_Idle.gif"));
 
-        //merge
-        directie.put("D", new GifImage("player/player_m_D.gif"));
-        directie.put("W", new GifImage("player/player_m_W.gif"));
-        directie.put("A", new GifImage("player/player_m_A.gif"));
-        directie.put("S", new GifImage("player/player_m_S.gif"));
+		// merge
+		directie.put("D", new GifImage("player/player_m_D.gif"));
+		directie.put("W", new GifImage("player/player_m_W.gif"));
+		directie.put("A", new GifImage("player/player_m_A.gif"));
+		directie.put("S", new GifImage("player/player_m_S.gif"));
 
-        //se uita
-        directie.put("Ds", new GifImage("player/vedere_D.gif"));
-        directie.put("Ws", new GifImage("player/vedere_W.gif"));
-        directie.put("As", new GifImage("player/vedere_A.gif"));
-        directie.put("Ss", new GifImage("player/vedere_S.gif"));
-
-        this.timpPrec = System.currentTimeMillis();
-    }
-
-    private void prepareData() {
-        //date inititale
-        equipSword = false;
-        equipLaser = false;
-        equipPortalGun = false;
-        equipIceLock = false;
-        equipLantern = false;
-        equipBlackHole = false;
-
-        toggledInventory = false;
-        toggledPause = false;
-        toggledGameOver = false;
-
-        loaded = false;
-
-        prepareAnimation();
-
-        WorldData.PAUZA = false;
-
-        this.floorLevel = 1;
-    }
-
-    public void load() {
-        //incarca salvarea
-        if (!loaded) {
-            SaveSystem.load(WorldData.saveFileNumber, this);
-            loaded = true;
-        }
-
-    }
-
-    protected void checkMove() { //verifica tastele pentru mers
-        apas = false;
-
-      
-        if (Greenfoot.isKeyDown("W")) {
-            //merge in nord 
-            apas = true;
-            gif = "W";
-            Item.itemGif = "W";
-            setLocation(getX(), getY() - speed);
-
-        }
-
-        if (Greenfoot.isKeyDown("S")) {
-            //merge in sud   
-            apas = true;
-            gif = "S";
-            Item.itemGif = "S";
-            setLocation(getX(), getY() + speed);
-
-        }
-        if (Greenfoot.isKeyDown("D")) {
-            //merg in est
-            apas = true;
-            gif = "D";
-            Item.itemGif = "D";
-            setLocation(getX() + speed, getY());
-
-        }
-
-        if (Greenfoot.isKeyDown("A")) {
-            //merg in vest
-            apas = true;
-            gif = "A";
-            Item.itemGif = "A";
-            setLocation(getX() - speed, getY());
-
-        }
-        if (apas == false) {
-            WorldData.isWalking = true;
-            if (equipSword == false && equipLaser == false && equipPortalGun == false && equipIceLock == false && equipLantern == false && equipBlackHole == false) {
-                gif = "idle";
-
-            }
-
-            switch (gif) {
-                case "W": {
-                    gif = "Ws";
-                    Item.itemGif = "W";
-                    break;
-                }
-
-                case "A": {
-                    gif = "As";
-                    Item.itemGif = "A";
-                    break;
-                }
-
-                case "S": {
-                    gif = "Ss";
-                    Item.itemGif = "S";
-                    break;
-                }
-                case "D": {
-                    gif = "Ds";
-                    Item.itemGif = "D";
-                    break;
-                }
-
-                case "Ws": {
-                    Item.itemGif = "W";
-                    break;
-                }
-                case "As": {
-                    Item.itemGif = "A";
-                    break;
-                }
-                case "Ss": {
-                    Item.itemGif = "S";
-                    break;
-                }
-                case "Ds": {
-                    Item.itemGif = "D";
-                    break;
-                }
-                default: {
-                    Item.itemGif = "S";
-                }
-
-            }
-
-        } else {
-            WorldData.isWalking = false;
-        }
-
-    }
-
-    public void move() {//se misca daca merge
-
-        if (gif != "idle") {
-            super.atingeNpc(this.speed);
-        }
-        sprint();
-        checkMove();
-        worldX = (int) (getX() + Scroller.scrolledX);
-        worldY = (int) (getY() + Scroller.scrolledY);
-
-        playerImg = directie.get(this.gif);
-    }
-    
-    private void sprint() {
-    	  if (Greenfoot.isKeyDown("L-Shift")) {
-          	speed=21;
-          }
-          else {
-          	speed=7;
-          }
-    }
-    
-    protected void vedere() {
-        playerImg = directie.get(this.gif);
-    }
-
-    protected void toggleMenu() {// deschide inventoryul
-
-        if (!toggledInventory) {
-
-            if (Greenfoot.isKeyDown("E")) {
-                toggledInventory = !toggledInventory;
-                getWorld().addObject(new Inventory(this), WorldData.WIDTH-150, WorldData.HEIGHT-150);
-
-                getWorld().addObject(new ItemSelect(this), WorldData.WIDTH-150, WorldData.HEIGHT-150);
-            }
-
-        }
-
-    }
-
-    protected void useItem() {      //foloseste itemele equipate
-
-        //portalGun
-        if (equipPortalGun) {
-            long timpCurent = System.currentTimeMillis();
-            if (timpCurent - timpPrec >= 20) {
-                if (getWorld().getObjects(PortalGun.class).isEmpty()) {
-                    getWorld().addObject(new PortalGun(), getX(), getY());
-                }
-                timpPrec = timpCurent;
-            }
-            Item.itemGif = gif;
-
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipPortalGun = false;
-                }
-            }
-        }
-        //portalGun
-
-        //sabie
-        if (equipSword) {
-
-            if (getWorld().getObjects(Sabie.class).isEmpty()) {
-                getWorld().addObject(new SabieHold(), getX(), getY());
-            }
-
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 1) {  //right 3 left 1
-
-                    long timpCurent = System.currentTimeMillis();
-                    if (timpCurent - timpPrec >= 20) {
-                        if (getWorld().getObjects(Sabie.class).isEmpty()) {
-
-                            getWorld().addObject(new Sabie(this), getX(), getY());
-                        }
-                        timpPrec = timpCurent;
-                    }
-                    Item.itemGif = gif;
-                }
-            }
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipSword = false;
-                }
-            }
-        }
-        //sabie
-
-        //laser
-        if (equipLaser) {
-
-            if (getWorld().getObjects(LaserHold.class).isEmpty()) {
-                getWorld().addObject(new LaserHold(), getX(), getY()-3);
-            }
-
-            long timpCurent = System.currentTimeMillis();
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 1) {
-                    if (timpCurent - timpPrec >= 20) {
-
-                        if (getWorld().getObjects(PortalGun.class).isEmpty()) {
-
-                            MouseInfo mouseul = Greenfoot.getMouseInfo();
-                            if (mouseul != null) {
-
-                                double delta_x = Greenfoot.getMouseInfo().getX() - getX();
-                                double delta_y = Greenfoot.getMouseInfo().getY() - getY();
-                                double grade = Math.toDegrees(Math.atan2(delta_y, delta_x));
-
-                                int gr = (int) grade;
-                                gr -= gr % 10;
-                                gr += (Greenfoot.getRandomNumber(2) - 1) * 5;  //reduce din precizie
-                                grade = gr;
-
-                                if (grade >= -45 && grade < 45) {       //se intoarce playerul in dir in care trage 
-
-                                    this.gif = "D";
-                                }
-                                if (grade >= 45 && grade < 135) {
-
-                                    this.gif = "S";
-
-                                }
-                                if (grade >= 135 && grade < 225) {
-
-                                    this.gif = "A";
-
-                                }
-                                if (grade >= -135 && grade < -45) {
-
-                                    this.gif = "W";
-                                }
-                                vedere();
-
-                                getWorld().addObject(new Laser(grade), getX(), getY());
-
-                            }
-                            timpPrec = timpCurent;
-                        }
-
-                    }
-                    Item.itemGif = gif;
-                }
-            }
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipLaser = false;
-                }
-            }
-        }
-        //laser
-
-        //lantern
-        if (equipLantern) {
-            long timpCurent = System.currentTimeMillis();
-            if (timpCurent - timpPrec >= 20) {
-                if (getWorld().getObjects(Lantern.class).isEmpty()) {
-                    getWorld().addObject(new Lantern(this), getX() + 30, getY());
-                }
-                timpPrec = timpCurent;
-            }
-
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipLantern = false;
-                }
-            }
-        }
-        //lantern
-
-        //icelock
-        if (equipIceLock) {
-            long timpCurent = System.currentTimeMillis();
-            if (timpCurent - timpPrec >= 20) {
-                if (getWorld().getObjects(IceLock.class).isEmpty()) {
-                    getWorld().addObject(new IceLock(), getX(), getY());
-                }
-                timpPrec = timpCurent;
-            }
-            Item.itemGif = gif;
-
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipIceLock = false;
-                }
-            }
-        }
-        //icelock
-
-        //blackHole
-        if (equipBlackHole) {
-
-            long timpCurent = System.currentTimeMillis();
-            if (timpCurent - timpPrec >= 20) {
-
-                if (getWorld().getObjects(BlackHole.class).isEmpty()) {
-                    getWorld().addObject(new BlackHole(), getX()+150, getY());
-                }
-
-                timpPrec = timpCurent;
-            }
-
-            if (Greenfoot.mouseClicked(null)) {
-                if (Greenfoot.getMouseInfo().getButton() == 3) {
-                    equipBlackHole = false;
-                }
-            }
-        }
-        //blackhole
-
-    }
-
-    protected void checkPauza() {
-
-        if (!toggledPause && !WorldData.PAUZA) {
-
-            if (Greenfoot.isKeyDown("Escape")) {
-                toggledPause = !toggledPause;
-                WorldData.PAUZA = true;
-
-                getWorld().removeObjects(getWorld().getObjects(Inventory.class));
-                getWorld().removeObjects(getWorld().getObjects(ItemSelect.class));
-                toggledInventory = false;
-
-                Pause pause = new Pause();
-                getWorld().addObject(pause, WorldData.menuX, WorldData.menuY);
-
-            }
-
-        }
-
-    }
-
-    long cntF = 0;
-
-    public void lookForEnemies() {
-        if (!getObjectsInRange(WorldData.WIDTH+200, HostileNpc.class).isEmpty()) {
-            WorldData.isFighting = true;
-        } else {
-            if (WorldData.isFighting) {
-                cntF++;
-                if (cntF > 2000) {
-                    WorldData.isFighting = false;
-                    cntF = 0;
-                }
-            }
-        }
-    }
-
- 
+		// se uita
+		directie.put("Ds", new GifImage("player/vedere_D.gif"));
+		directie.put("Ws", new GifImage("player/vedere_W.gif"));
+		directie.put("As", new GifImage("player/vedere_A.gif"));
+		directie.put("Ss", new GifImage("player/vedere_S.gif"));
+
+		this.timpPrec = System.currentTimeMillis();
+	}
+
+	private void prepareData() {
+		// date inititale
+		equipSword = false;
+		equipLaser = false;
+		equipPortalGun = false;
+		equipIceLock = false;
+		equipLantern = false;
+		equipBlackHole = false;
+
+		toggledInventory = false;
+		toggledPause = false;
+		toggledGameOver = false;
+
+		loaded = false;
+
+		prepareAnimation();
+
+		WorldData.PAUZA = false;
+
+		this.floorLevel = 1;
+	}
+
+	public void load() {
+		// incarca salvarea
+		if (!loaded) {
+			SaveSystem.load(WorldData.saveFileNumber, this);
+			loaded = true;
+		}
+
+	}
+
+	protected void checkMove() { // verifica tastele pentru mers
+		apas = false;
+
+		if (Greenfoot.isKeyDown("W")) {
+			// merge in nord
+			apas = true;
+			gif = "W";
+			Item.itemGif = "W";
+			setLocation(getX(), getY() - speed);
+
+		}
+
+		if (Greenfoot.isKeyDown("S")) {
+			// merge in sud
+			apas = true;
+			gif = "S";
+			Item.itemGif = "S";
+			setLocation(getX(), getY() + speed);
+
+		}
+		if (Greenfoot.isKeyDown("D")) {
+			// merg in est
+			apas = true;
+			gif = "D";
+			Item.itemGif = "D";
+			setLocation(getX() + speed, getY());
+
+		}
+
+		if (Greenfoot.isKeyDown("A")) {
+			// merg in vest
+			apas = true;
+			gif = "A";
+			Item.itemGif = "A";
+			setLocation(getX() - speed, getY());
+
+		}
+		if (apas == false) {
+			WorldData.isWalking = true;
+			if (equipSword == false && equipLaser == false && equipPortalGun == false && equipIceLock == false
+					&& equipLantern == false && equipBlackHole == false) {
+				gif = "idle";
+
+			}
+
+			switch (gif) {
+			case "W": {
+				gif = "Ws";
+				Item.itemGif = "W";
+				break;
+			}
+
+			case "A": {
+				gif = "As";
+				Item.itemGif = "A";
+				break;
+			}
+
+			case "S": {
+				gif = "Ss";
+				Item.itemGif = "S";
+				break;
+			}
+			case "D": {
+				gif = "Ds";
+				Item.itemGif = "D";
+				break;
+			}
+
+			case "Ws": {
+				Item.itemGif = "W";
+				break;
+			}
+			case "As": {
+				Item.itemGif = "A";
+				break;
+			}
+			case "Ss": {
+				Item.itemGif = "S";
+				break;
+			}
+			case "Ds": {
+				Item.itemGif = "D";
+				break;
+			}
+			default: {
+				Item.itemGif = "S";
+			}
+
+			}
+
+		} else {
+			WorldData.isWalking = false;
+		}
+
+	}
+
+	public void move() {// se misca daca merge
+
+		if (gif != "idle") {
+			super.atingeNpc(this.speed);
+		}
+		sprint();
+		checkMove();
+		worldX = (int) (getX() + Scroller.scrolledX);
+		worldY = (int) (getY() + Scroller.scrolledY);
+
+		playerImg = directie.get(this.gif);
+	}
+
+	private void sprint() {
+		if (Greenfoot.isKeyDown("L-Shift")) {
+			speed = initialSpeed * 3;
+		} else {
+				speed = initialSpeed;
+		}
+	}
+
+	protected void vedere() {
+		playerImg = directie.get(this.gif);
+	}
+
+	protected void toggleMenu() {// deschide inventoryul
+
+		if (!toggledInventory) {
+
+			if (Greenfoot.isKeyDown("E")) {
+				toggledInventory = !toggledInventory;
+				getWorld().addObject(new Inventory(this), WorldData.WIDTH - 150, WorldData.HEIGHT - 150);
+
+				getWorld().addObject(new ItemSelect(this), WorldData.WIDTH - 150, WorldData.HEIGHT - 150);
+			}
+
+		}
+
+	}
+
+	protected void useItem() { // foloseste itemele equipate
+
+		// portalGun
+		if (equipPortalGun) {
+			long timpCurent = System.currentTimeMillis();
+			if (timpCurent - timpPrec >= 20) {
+				if (getWorld().getObjects(PortalGun.class).isEmpty()) {
+					getWorld().addObject(new PortalGun(), getX(), getY());
+				}
+				timpPrec = timpCurent;
+			}
+			Item.itemGif = gif;
+
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipPortalGun = false;
+				}
+			}
+		}
+		// portalGun
+
+		// sabie
+		if (equipSword) {
+			if (getWorld().getObjects(Sabie.class).isEmpty()) {
+				getWorld().addObject(new SabieHold(), getX(), getY());
+			}
+
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 1) { // right 3 left 1
+
+					long timpCurent = System.currentTimeMillis();
+					if (timpCurent - timpPrec >= 20) {
+						if (getWorld().getObjects(Sabie.class).isEmpty()) {
+
+							getWorld().addObject(new Sabie(this), getX(), getY());
+						}
+						timpPrec = timpCurent;
+					}
+					Item.itemGif = gif;
+				}
+			}
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipSword = false;
+				}
+			}
+		}
+
+		// sabie
+
+		// laser
+		if (equipLaser) {
+
+			if (getWorld().getObjects(LaserHold.class).isEmpty()) {
+				getWorld().addObject(new LaserHold(), getX(), getY() - 3);
+			}
+
+			long timpCurent = System.currentTimeMillis();
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 1) {
+					if (timpCurent - timpPrec >= 20) {
+
+						if (getWorld().getObjects(PortalGun.class).isEmpty()) {
+
+							MouseInfo mouseul = Greenfoot.getMouseInfo();
+							if (mouseul != null) {
+
+								double delta_x = Greenfoot.getMouseInfo().getX() - getX();
+								double delta_y = Greenfoot.getMouseInfo().getY() - getY();
+								double grade = Math.toDegrees(Math.atan2(delta_y, delta_x));
+
+								int gr = (int) grade;
+								gr -= gr % 10;
+								gr += (Greenfoot.getRandomNumber(2) - 1) * 5; // reduce din precizie
+								grade = gr;
+
+								if (grade >= -45 && grade < 45) { // se intoarce playerul in dir in care trage
+
+									this.gif = "D";
+								}
+								if (grade >= 45 && grade < 135) {
+
+									this.gif = "S";
+
+								}
+								if (grade >= 135 && grade < 225) {
+
+									this.gif = "A";
+
+								}
+								if (grade >= -135 && grade < -45) {
+
+									this.gif = "W";
+								}
+								vedere();
+
+								getWorld().addObject(new Laser(grade), getX(), getY());
+
+							}
+							timpPrec = timpCurent;
+						}
+
+					}
+					Item.itemGif = gif;
+				}
+			}
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipLaser = false;
+				}
+			}
+		}
+		// laser
+
+		// lantern
+		if (equipLantern) {
+			long timpCurent = System.currentTimeMillis();
+			if (timpCurent - timpPrec >= 20) {
+				if (getWorld().getObjects(Lantern.class).isEmpty()) {
+					getWorld().addObject(new Lantern(this), getX() + 30, getY());
+				}
+				timpPrec = timpCurent;
+			}
+
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipLantern = false;
+				}
+			}
+		}
+		// lantern
+
+		// icelock
+		if (equipIceLock) {
+			long timpCurent = System.currentTimeMillis();
+			if (timpCurent - timpPrec >= 20) {
+				if (getWorld().getObjects(IceLock.class).isEmpty()) {
+					getWorld().addObject(new IceLock(), getX(), getY());
+				}
+				timpPrec = timpCurent;
+			}
+			Item.itemGif = gif;
+
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipIceLock = false;
+				}
+			}
+		}
+		// icelock
+
+		// blackHole
+		if (equipBlackHole) {
+
+			long timpCurent = System.currentTimeMillis();
+			if (timpCurent - timpPrec >= 20) {
+
+				if (getWorld().getObjects(BlackHole.class).isEmpty()) {
+					getWorld().addObject(new BlackHole(), getX() + 150, getY());
+				}
+
+				timpPrec = timpCurent;
+			}
+
+			if (Greenfoot.mouseClicked(null)) {
+				if (Greenfoot.getMouseInfo().getButton() == 3) {
+					equipBlackHole = false;
+				}
+			}
+		}
+		// blackhole
+
+	}
+
+	protected void checkPauza() {
+
+		if (!toggledPause && !WorldData.PAUZA) {
+
+			if (Greenfoot.isKeyDown("Escape")) {
+				toggledPause = !toggledPause;
+				WorldData.PAUZA = true;
+
+				getWorld().removeObjects(getWorld().getObjects(Inventory.class));
+				getWorld().removeObjects(getWorld().getObjects(ItemSelect.class));
+				toggledInventory = false;
+
+				Pause pause = new Pause();
+				getWorld().addObject(pause, WorldData.menuX, WorldData.menuY);
+
+			}
+
+		}
+
+	}
+
+	long cntF = 0;
+
+	public void lookForEnemies() {
+		if (!getObjectsInRange(WorldData.WIDTH + 200, HostileNpc.class).isEmpty()) {
+			WorldData.isFighting = true;
+		} else {
+			if (WorldData.isFighting) {
+				cntF++;
+				if (cntF > 2000) {
+					WorldData.isFighting = false;
+					cntF = 0;
+				}
+			}
+		}
+	}
 
 	public void takeDamage(int dmg) {// cand e atact pierde viata
-        hp -= dmg;
-        getHealthBar().subtract(dmg);
-    }
+		hp -= dmg;
+		getHealthBar().subtract(dmg);
+	}
 
-    boolean firstCycle = false;
-    public void die() {
-        if (hp >= hpMax) {//sa nu aiba mai multa
-            hp = hpMax;
-            getHealthBar().setValue(getHealthBar().getMaximumValue());
-        }
-        if (hp <= 0) {
-            getHealthBar().setValue(getHealthBar().getMinimumValue());
-            inViata = false;
-        }
+	boolean firstCycle = false;
 
-    }
+	public void die() {
+		if (hp >= hpMax) {// sa nu aiba mai multa
+			hp = hpMax;
+			getHealthBar().setValue(getHealthBar().getMaximumValue());
+		}
+		if (hp <= 0) {
+			getHealthBar().setValue(getHealthBar().getMinimumValue());
+			inViata = false;
+		}
 
-    public void revive() {      //e inviat la load sau dupa game over
-        this.toggledGameOver = false;
-        playedAnimation = false;
-        prepareAnimation();
-        getHealthBar().setValue(getHealthBar().getMaximumValue());
-        this.inViata = true;
-        hp = hpMax;
+	}
 
-    }
+	public void revive() { // e inviat la load sau dupa game over
+		this.toggledGameOver = false;
+		playedAnimation = false;
+		prepareAnimation();
+		getHealthBar().setValue(getHealthBar().getMaximumValue());
+		this.inViata = true;
+		hp = hpMax;
 
-    public void act() {
+	}
 
-        checkPauza();
+	public void act() {
 
-        if (!WorldData.PAUZA) {
-            load();
-        }
+		checkPauza();
 
-        if (inViata) {
-            if (!WorldData.PAUZA) {
-                lookForEnemies();
-                useItem();
-                move();
-                super.knockbackMove();
-                die();
+		if (!WorldData.PAUZA) {
+			load();
+		}
 
-                toggleMenu();
+		if (inViata) {
+			if (!WorldData.PAUZA) {
+				lookForEnemies();
+				useItem();
+				move();
+				super.knockbackMove();
+				die();
 
-                setImage(playerImg.getCurrentImage());
+				toggleMenu();
 
-            }
-        } else {
+				setImage(playerImg.getCurrentImage());
 
-            if (!playedAnimation) {
-                if (animation.isActive()) {
-                    animation.run();
-                }
-            }
-            if (!animation.isActive()) {
-                playedAnimation = true;
-                if (!toggledGameOver && playedAnimation) {                                              //animatia cand moare
-                    getWorld().addObject(new GameOver(playWorld), WorldData.menuX, WorldData.menuY);
-                    playedAnimation = false;
-                    toggledGameOver = true;
+			}
+		} else {
 
-                }
-            }
-        }
+			if (!playedAnimation) {
+				if (animation.isActive()) {
+					animation.run();
+				}
+			}
+			if (!animation.isActive()) {
+				playedAnimation = true;
+				if (!toggledGameOver && playedAnimation) { // animatia cand moare
+					getWorld().addObject(new GameOver(playWorld), WorldData.menuX, WorldData.menuY);
+					playedAnimation = false;
+					toggledGameOver = true;
 
-    }
+				}
+			}
+		}
 
-    public int getExitDirection() {  //directia pe care iese din worldSection
+	}
 
-        if (getX() >= WorldData.WIDTH-5) {
-            direction = 3;
-        }
-        if (getX() <= 5) {
-            direction = 1;
-        }
-        if (getY() >= WorldData.HEIGHT-5) {
-            direction = 2;
-        }
-        if (getY() <= 5) {
-            direction = 0;
-        }
+	public int getExitDirection() { // directia pe care iese din worldSection
 
-        return direction;
-    }
+		if (getX() >= WorldData.WIDTH - 5) {
+			direction = 3;
+		}
+		if (getX() <= 5) {
+			direction = 1;
+		}
+		if (getY() >= WorldData.HEIGHT - 5) {
+			direction = 2;
+		}
+		if (getY() <= 5) {
+			direction = 0;
+		}
 
-    
-    
-    //gettere settere
-    public PlayWorld getPlayWorld() {
-        return playWorld;
-    }
+		return direction;
+	}
 
-    public int getWorldX() {
-        return worldX;
-    }
+	// gettere settere
+	public PlayWorld getPlayWorld() {
+		return playWorld;
+	}
 
-    public int getWorldY() {
-        return worldY;
-    }
+	public int getWorldX() {
+		return worldX;
+	}
 
-    public void setWorldX(int val) {
-        worldX = val;
-    }
+	public int getWorldY() {
+		return worldY;
+	}
 
-    public void setWorldY(int val) {
-        worldY = val;
-    }
+	public void setWorldX(int val) {
+		worldX = val;
+	}
 
-    public HealthBarPlayer getHealthBar() {
-        return (HealthBarPlayer) (getWorld().getObjects(HealthBarPlayer.class).get(0));
-    }
+	public void setWorldY(int val) {
+		worldY = val;
+	}
 
-    public boolean isInViata() {
-        return inViata;
-    }
+	public HealthBarPlayer getHealthBar() {
+		return (HealthBarPlayer) (getWorld().getObjects(HealthBarPlayer.class).get(0));
+	}
 
-    public void setInViata(boolean inViata) {
-        this.inViata = inViata;
-    }
+	public boolean isInViata() {
+		return inViata;
+	}
 
-    public int getHp() {
-        return hp;
-    }
+	public void setInViata(boolean inViata) {
+		this.inViata = inViata;
+	}
 
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
+	public int getHp() {
+		return hp;
+	}
 
-    public int getSpeed() {
-        return speed;
-    }
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
+	public int getSpeed() {
+		return speed;
+	}
 
-    public HashSet<String> getIteme() {
-        return iteme;
-    }
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 
-    public boolean isEquipSword() {
-        return equipSword;
-    }
+	public HashSet<String> getIteme() {
+		return iteme;
+	}
 
-    public void setEquipSword(boolean equipSword) {
-        this.equipSword = equipSword;
-    }
+	public boolean isEquipSword() {
+		return equipSword;
+	}
 
-    public boolean isEquipLaser() {
-        return equipLaser;
-    }
+	public void setEquipSword(boolean equipSword) {
+		this.equipSword = equipSword;
+	}
 
-    public void setEquipLaser(boolean equipLaser) {
-        this.equipLaser = equipLaser;
-    }
+	public boolean isEquipLaser() {
+		return equipLaser;
+	}
 
-    public boolean isEquipPortalGun() {
-        return equipPortalGun;
-    }
+	public void setEquipLaser(boolean equipLaser) {
+		this.equipLaser = equipLaser;
+	}
 
-    public void setEquipPortalGun(boolean equipPortalGun) {
-        this.equipPortalGun = equipPortalGun;
-    }
+	public boolean isEquipPortalGun() {
+		return equipPortalGun;
+	}
 
-    public boolean isEquipIceLock() {
-        return equipIceLock;
-    }
+	public void setEquipPortalGun(boolean equipPortalGun) {
+		this.equipPortalGun = equipPortalGun;
+	}
 
-    public void setEquipIceLock(boolean equipIceLock) {
-        this.equipIceLock = equipIceLock;
-    }
+	public boolean isEquipIceLock() {
+		return equipIceLock;
+	}
 
-    public boolean isEquipLantern() {
-        return equipLantern;
-    }
+	public void setEquipIceLock(boolean equipIceLock) {
+		this.equipIceLock = equipIceLock;
+	}
 
-    public void setEquipLantern(boolean equipLantern) {
-        this.equipLantern = equipLantern;
-    }
+	public boolean isEquipLantern() {
+		return equipLantern;
+	}
 
-    public boolean isEquipBlackHole() {
-        return equipBlackHole;
-    }
+	public void setEquipLantern(boolean equipLantern) {
+		this.equipLantern = equipLantern;
+	}
 
-    public void setEquipBlackHole(boolean equipBlackHole) {
-        this.equipBlackHole = equipBlackHole;
-    }
+	public boolean isEquipBlackHole() {
+		return equipBlackHole;
+	}
 
-    public boolean isToggledInventory() {
-        return toggledInventory;
-    }
+	public void setEquipBlackHole(boolean equipBlackHole) {
+		this.equipBlackHole = equipBlackHole;
+	}
 
-    public void setToggledInventory(boolean toggledInventory) {
-        this.toggledInventory = toggledInventory;
-    }
+	public boolean isToggledInventory() {
+		return toggledInventory;
+	}
 
-    public boolean isLoaded() {
-        return loaded;
-    }
+	public void setToggledInventory(boolean toggledInventory) {
+		this.toggledInventory = toggledInventory;
+	}
 
-    public void setLoaded(boolean loaded) {
-        this.loaded = loaded;
-    }
+	public boolean isLoaded() {
+		return loaded;
+	}
 
-    public int getHpMax() {
-        return hpMax;
-    }
+	public void setLoaded(boolean loaded) {
+		this.loaded = loaded;
+	}
 
-    private void prepareAnimation() {       //pregateste animatia pt moarte
-        java.util.List<GreenfootImage> imgs = new GifImage("player/player_death.gif").getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
-        for (int i = 0; i < imgs.size(); i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        playedAnimation = false;
-        animation = new Animation(this, images);
-        animation.setCycleActs(15);
-        animation.setCycleCount(1);
-        animation.setScalar(5);
-        animation.run();
-        animation.setActiveState(true);
-    }
+	public int getHpMax() {
+		return hpMax;
+	}
+
+	private void prepareAnimation() { // pregateste animatia pt moarte
+		java.util.List<GreenfootImage> imgs = new GifImage("player/player_death.gif").getImages();
+		GreenfootImage[] images = new GreenfootImage[imgs.size()];
+		for (int i = 0; i < imgs.size(); i++) {
+			images[i] = (GreenfootImage) imgs.get(i);
+		}
+		playedAnimation = false;
+		animation = new Animation(this, images);
+		animation.setCycleActs(15);
+		animation.setCycleCount(1);
+		animation.setScalar(5);
+		animation.run();
+		animation.setActiveState(true);
+	}
 
 }

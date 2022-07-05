@@ -35,6 +35,7 @@ public class Sabie extends Item {
 
     public Sabie(Player player) {
         playerul=player;
+        player.setSpeed(0);
         directie.put("D", new GifImage("item/sabie_a_D.gif"));
         directie.put("W", new GifImage("item/sabie_a_W.gif"));
         directie.put("A", new GifImage("item/sabie_a_A.gif"));
@@ -68,7 +69,7 @@ public class Sabie extends Item {
 
             time++;
             if (time > constantEraseTime) {
-
+            	
                 getWorld().removeObject(this);
             }
             setImage(sabieImg.getCurrentImage());
