@@ -103,13 +103,16 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
 		//dam load la fonturi
-	
+		
+		
 		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
 		//dam load la sunete
 		
+		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		//dam load la imageuri
-		//game.assetManager.load("C.jpg",GreenfootImage.class);
+		
+		
 		
 		game.assetManager.setLoader(GifImage.class,new GifImageLoader(new InternalFileHandleResolver()));
 		//dam load la Animationuri pe care le incarcam in gifuri
