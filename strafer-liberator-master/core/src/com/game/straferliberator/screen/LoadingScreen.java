@@ -95,7 +95,6 @@ public class LoadingScreen implements Screen {
 
 	private void queueAssetsToLoad() {
 		//test
-		game.assetManager.load("images/UI/menu/mainMenu/logo.png", Texture.class);
 		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
 		
 		game.assetManager.load("images/logo.png", Texture.class);
@@ -116,6 +115,7 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		//dam load la imageuri
+		game.assetManager.load("images/UI/menu/mainMenu/logo.png",GreenfootImage.class);
 		
 		
 		

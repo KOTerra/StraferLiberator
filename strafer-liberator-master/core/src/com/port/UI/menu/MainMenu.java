@@ -40,8 +40,7 @@ public class MainMenu extends Menu {
 		WorldData.PAUZA = true;
 		WorldData.saveFileNumber = com.port.system.SaveSystem.getNumberOfSaveFiles() - 1;
 
-		logo.setImage(new GreenfootImage(
-				assetManager.get("images/UI/menu/mainMenu/logo.png", Texture.class)));
+		logo.setImage(assetManager.get("images/UI/menu/mainMenu/logo.png", GreenfootImage.class));
 		background.scale(WorldData.WIDTH, WorldData.HEIGHT);
 	}
 

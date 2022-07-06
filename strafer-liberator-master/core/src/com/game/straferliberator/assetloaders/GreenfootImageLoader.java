@@ -6,6 +6,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
 
 import greenfoot.GreenfootImage;
@@ -24,14 +25,13 @@ public class GreenfootImageLoader
 	public void loadAsync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootImageLoaderParameters parameter) {
 		
-		greenfootImage=new GreenfootImage(fileName);
-		
 	}
 
 	@Override
 	public GreenfootImage loadSync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootImageLoaderParameters parameter) {
 		
+		greenfootImage=new GreenfootImage(new Texture(file));
 		return greenfootImage;
 	}
 
