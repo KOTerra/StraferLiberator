@@ -5,6 +5,8 @@ import greenfoot.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.assets.AssetManager;
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.buton.Buton;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.entity.mover.npc.hostile.Stroke;
@@ -23,21 +25,23 @@ public class WorldListener extends WorldSection {
 	int playerDirection = 0;
 	boolean loaded = false;
 	boolean canChange = true;
-
-	List<GreenfootImage> fundaluri = new ArrayList<>();
+	AssetManager assetManager;
+	
+	List<GreenfootImage> backgrounds = new ArrayList<>();
 
 	public WorldListener(PlayWorld world) {
 		this.loaded = false;
 		this.world = world;
-
+		assetManager=StraferLiberator.assetManager;
+		
 		scroller = world.getScroller();
 		player = (Player) world.getObjects(Player.class).get(0);
-		loadImages();
+		makeBackgroundList();
 
 	}
 
 	void changeWorldSection(boolean atLoad) { // daca e schimbata pt load sau pt miscare
-		scroller.setScrollImage(fundaluri.get(WorldData.getWorldSectionShort(worldSection) - 1));
+		scroller.setScrollImage(backgrounds.get(WorldData.getWorldSectionShort(worldSection) - 1));
 		WorldData.worldSection = this.worldSection;
 		if (!atLoad) {
 			
@@ -240,18 +244,14 @@ urmatoare:        |____|_________|_______|________|
 		this.worldSection = worldSection;
 	}
 
-	void loadImages() {
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 11 + ".png"));
+	void makeBackgroundList() {
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection11.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection12.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection13.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection21.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection22.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection23.png",GreenfootImage.class));
 
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 12 + ".png"));
-
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 13 + ".png"));
-
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 21 + ".png"));
-
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 22 + ".png"));
-
-		fundaluri.add(new GreenfootImage("map/worldSection/worldSection" + 23 + ".png"));
 	}
 
 	void addBoss() { /// il adauga pe stroke cand e posibil bossfightul

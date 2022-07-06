@@ -43,7 +43,7 @@ public class Sabie extends Item {
 
         sabieImg = directie.get("D");
         this.time = 0;
-        Greenfoot.playSound("sabie.mp3");
+        Greenfoot.playSound("sounds/sabie.mp3");
 
     }
 

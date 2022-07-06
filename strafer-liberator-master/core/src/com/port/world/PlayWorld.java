@@ -1,5 +1,6 @@
 package com.port.world;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
@@ -39,7 +40,8 @@ public class PlayWorld extends World {
 	public EventSystem eventSystem;
 
 	public Scroller scroller;
-
+	public AssetManager assetManager=StraferLiberator.assetManager;
+	
 	Player player;
 
 	public HealthBarPlayer healthBar;
@@ -70,8 +72,8 @@ public class PlayWorld extends World {
 		new Thread(new Runnable() {
 
 			public void run() {
-				musicIdle = new GreenfootSound("music/Default.mp3");
-				musicCombat = new GreenfootSound("music/Combat.mp3");
+				musicIdle = 
+				musicCombat = assetManager.get("sounds/music/Combat.mp3",GreenfootSound.class);
 				musicCombat.setVolume(45);
 				musicIdle.setVolume(45);
 				musicLoaded = true;
@@ -87,7 +89,7 @@ public class PlayWorld extends World {
 	}
 
 	public void addPlayer() {
-		GreenfootImage background = new GreenfootImage("map/worldSection/worldSection11.png");// imi pun fundalul
+		GreenfootImage background = assetManager.get("images/map/worldSection/worldSection11.png",GreenfootImage.class);// imi pun fundalul
 		setBackground(background);
 		scroller = new Scroller(this, background, 8192, 8192);
 

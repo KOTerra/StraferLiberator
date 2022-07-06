@@ -101,6 +101,21 @@ public class LoadingScreen implements Screen {
 		//test
 		
 		
+
+		
+		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
+		//dam load la imageuri
+		game.assetManager.load("images/map/worldSection/worldSection11.png",GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection12.png",GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection13.png",GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection21.png",GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection22.png",GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection23.png",GreenfootImage.class);
+		
+		game.assetManager.load("images/UI/menu/mainMenu/logo.png",GreenfootImage.class);
+		
+		
+		
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
 		//dam load la fonturi
 		game.assetManager.load("fonts/consolas.fnt",Font.class, new FontLoaderParameters(false,false,24));
@@ -110,12 +125,10 @@ public class LoadingScreen implements Screen {
 		
 		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
 		//dam load la sunete
-		
-		
-		
-		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
-		//dam load la imageuri
-		game.assetManager.load("images/UI/menu/mainMenu/logo.png",GreenfootImage.class);
+		game.assetManager.load("sounds/music/Rename.mp3", GreenfootSound.class);
+		game.assetManager.load("sounds/music/Default.mp3", GreenfootSound.class);
+		game.assetManager.load("sounds/music/Combat.mp3", GreenfootSound.class);
+
 		
 		
 		

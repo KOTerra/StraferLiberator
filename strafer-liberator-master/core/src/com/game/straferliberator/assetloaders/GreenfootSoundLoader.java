@@ -31,8 +31,8 @@ public class GreenfootSoundLoader extends AsynchronousAssetLoader<GreenfootSound
 	@Override
 	public GreenfootSound loadSync(AssetManager manager, String fileName, FileHandle file,
 			GreenfootSoundLoaderParameters parameter) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new GreenfootSound(fileName);
 	}
 
 	@Override

@@ -67,7 +67,7 @@ public class MainMenu extends Menu {
 			addedStuff = true;
 			new Thread(new Runnable() {
 				public void run() {
-					music = new GreenfootSound("music/Rename.mp3");
+					music = assetManager.get("sounds/music/Rename.mp3",GreenfootSound.class);
 					music.playLoop();
 					music.setVolume(60);
 				}

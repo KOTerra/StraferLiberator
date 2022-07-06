@@ -16,8 +16,8 @@ public class GreenfootSound {
 	boolean playing = false;
 
 	public GreenfootSound(java.lang.String name) {
-		//sound = Gdx.audio.newSound(new FileHandle("assets/sounds/" + name));
-		sound = Gdx.audio.newSound(Gdx.files.internal("sounds/" + name));
+		// sound = Gdx.audio.newSound(new FileHandle("assets/sounds/" + name));
+		sound = Gdx.audio.newSound(Gdx.files.internal(name));
 	}
 
 	int getVolume() {
@@ -32,7 +32,7 @@ public class GreenfootSound {
 		sound.pause();
 		playing = false;
 	}
-
+	
 	public void play() {
 		playing = true;
 		id = sound.play();
