@@ -48,12 +48,12 @@ public class LoadingScreen implements Screen {
 
 		if (game.assetManager.update()) {
 			if (progress >= game.assetManager.getProgress() - .001f) {
-				//System.out.println("gata");
-				 game.setScreen(new GameScreen(game));
+				// System.out.println("gata");
+				game.setScreen(new GameScreen(game));
 			}
 		}
 
-		//System.out.println("loader");
+		// System.out.println("loader");
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class LoadingScreen implements Screen {
 	}
 
 	@Override
-	public void hide() { 
+	public void hide() {
 	}
 
 	@Override
@@ -94,50 +94,49 @@ public class LoadingScreen implements Screen {
 	}
 
 	private void queueAssetsToLoad() {
-		//test
+		// test
 		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
-		
+
 		game.assetManager.load("images/logo.png", Texture.class);
-		//test
+		// test
+
+		
+		
+		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
+		// dam load la imageuri
+		game.assetManager.load("images/map/worldSection/worldSection11.png", GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection12.png", GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection13.png", GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection21.png", GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection22.png", GreenfootImage.class);
+		game.assetManager.load("images/map/worldSection/worldSection23.png", GreenfootImage.class);
+		game.assetManager.load("images/UI/menu/mainMenu/logo.png", GreenfootImage.class);
 		
 		
 
-		
-		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
-		//dam load la imageuri
-		game.assetManager.load("images/map/worldSection/worldSection11.png",GreenfootImage.class);
-		game.assetManager.load("images/map/worldSection/worldSection12.png",GreenfootImage.class);
-		game.assetManager.load("images/map/worldSection/worldSection13.png",GreenfootImage.class);
-		game.assetManager.load("images/map/worldSection/worldSection21.png",GreenfootImage.class);
-		game.assetManager.load("images/map/worldSection/worldSection22.png",GreenfootImage.class);
-		game.assetManager.load("images/map/worldSection/worldSection23.png",GreenfootImage.class);
-		
-		game.assetManager.load("images/UI/menu/mainMenu/logo.png",GreenfootImage.class);
-		
-		
-		
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
-		//dam load la fonturi
-		game.assetManager.load("fonts/consolas.fnt",Font.class, new FontLoaderParameters(false,false,24));
-		game.assetManager.load("fonts/edo.fnt",Font.class, new FontLoaderParameters(false,false,10));
+		// dam load la fonturi
+		game.assetManager.load("fonts/consolas.fnt", Font.class, new FontLoaderParameters(false, false, 24));
+		game.assetManager.load("fonts/edo.fnt", Font.class, new FontLoaderParameters(false, false, 10));
 
 		
 		
 		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
-		//dam load la sunete
+		// dam load la sunete
 		game.assetManager.load("sounds/music/Rename.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/music/Default.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/music/Combat.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/sabie.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/laser.mp3", GreenfootSound.class);
+
 		
 		
-		game.assetManager.setLoader(GifImage.class,new GifImageLoader(new InternalFileHandleResolver()));
-		//dam load la Animationuri pe care le incarcam in gifuri
-		game.assetManager.load("images/UI/menu/mainMenu/blur.gif",GifImage.class);
-		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
+		game.assetManager.setLoader(GifImage.class, new GifImageLoader(new InternalFileHandleResolver()));
+		// dam load la Animationuri pe care le incarcam in gifuri
+		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", GifImage.class);
+		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif", GifImage.class);
 		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
-		
+
 	}
 
 }

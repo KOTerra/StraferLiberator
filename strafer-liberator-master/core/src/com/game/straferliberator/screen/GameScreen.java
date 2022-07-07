@@ -32,8 +32,8 @@ public class GameScreen extends ScreenAdapter {
 		game.eFont=game.assetManager.get("fonts/edo.fnt",Font.class);
 
 		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
-			world = new TestWorld();
-			// world=new PlayWorld();
+			//world = new TestWorld();
+			 world=new PlayWorld();
 		} else {
 			world = new PlayWorld();
 			// world = new TestWorld();
