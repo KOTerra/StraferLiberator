@@ -5,6 +5,7 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
+import com.game.straferliberator.StraferLiberator;
 
 public class Greenfoot extends com.badlogic.gdx.Gdx {
 	/*Port al clasei Greenfoot
@@ -69,7 +70,7 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 	}
 
 	public static void playSound(String string) {
-		GreenfootSound sound=new GreenfootSound(string);
+		GreenfootSound sound=StraferLiberator.assetManager.get(string,GreenfootSound.class);
 		sound.play();
 		
 	}

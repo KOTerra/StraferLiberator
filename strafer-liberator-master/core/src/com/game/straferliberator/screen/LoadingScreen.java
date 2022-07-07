@@ -128,14 +128,15 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("sounds/music/Rename.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/music/Default.mp3", GreenfootSound.class);
 		game.assetManager.load("sounds/music/Combat.mp3", GreenfootSound.class);
-
-		
+		game.assetManager.load("sounds/sabie.mp3", GreenfootSound.class);
+		game.assetManager.load("sounds/laser.mp3", GreenfootSound.class);
 		
 		
 		game.assetManager.setLoader(GifImage.class,new GifImageLoader(new InternalFileHandleResolver()));
 		//dam load la Animationuri pe care le incarcam in gifuri
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif",GifImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
+		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
 		
 	}
 

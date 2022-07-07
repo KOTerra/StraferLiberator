@@ -1,7 +1,7 @@
-PlayerX:60
-PlayerY:4380
-Health:351
-WorldSection:22
+PlayerX:8132
+PlayerY:6974
+Health:271
+WorldSection:11
 WS11:true
 WS12:true
 WS13:true
@@ -14,5 +14,5 @@ Item:lantern
 Item:blackhole
 Item:portalgun
 Item:icelock
-DialogIndex:10
-NrEvent:27
+DialogIndex:11
+NrEvent:36

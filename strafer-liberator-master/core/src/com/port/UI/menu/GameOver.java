@@ -1,5 +1,6 @@
 package com.port.UI.menu;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.buton.Buton;
 import com.port.world.PlayWorld;
 import com.port.world.WorldData;
@@ -13,7 +14,7 @@ public class GameOver extends Menu{
 
     boolean butoanead = false;
 
-    public GreenfootSound music = new GreenfootSound("music/Rename.mp3");
+    public GreenfootSound music = StraferLiberator.assetManager.get("sounds/music/Rename.mp3",GreenfootSound.class);
 
     public GameOver(PlayWorld playWorldref) {
 

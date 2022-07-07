@@ -40,7 +40,7 @@ public class Portal extends PortalGun {
             Player player = (Player) players.get(0);
             if (Greenfoot.isKeyDown("T")) {
 
-                getWorld().addObject(new Transition("kingcrimson", 62, 1), 0, 0);
+                getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 62, 1), 0, 0);
                 
                 player.setWorldX((int) (player.getWorldX()+(this.getX() + Scroller.scrolledX - player.getX())));
                 player.setWorldY((int) (player.getWorldY()+(this.getY() + Scroller.scrolledY - player.getY())));
