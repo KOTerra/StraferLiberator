@@ -24,6 +24,7 @@ public class AndroidLauncher extends AndroidApplication {
 
 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+		config.useImmersiveMode=true;
 		initialize(new StraferLiberator(), config);
 	}
 }
