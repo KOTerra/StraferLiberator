@@ -25,7 +25,7 @@ public class MainMenu extends Menu {
 	GifImage playerAnimationGif=assetManager.get("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
 	Actor playerAnimation=new Actor();
 	
-	Buton butonContinue = new Buton("continue", this);
+	Buton butonContinue = new Buton("Continue", this);
 	Buton butonNewGame = new Buton("newGame", this);
 	
 	

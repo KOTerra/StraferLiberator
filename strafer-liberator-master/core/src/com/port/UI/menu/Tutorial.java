@@ -21,7 +21,7 @@ public class Tutorial extends Menu {
 	private String img;
 	private String tip;
 	private Picture picture = new Picture("UI/tutorial/tutorial.png");
-	private Buton buton = new Buton("next", this);
+	private Buton buton = new Buton("Next", this);
 
 	private boolean addedButon = false;
 	private boolean addedButonBack = false;

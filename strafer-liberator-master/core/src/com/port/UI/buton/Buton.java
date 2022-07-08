@@ -117,7 +117,7 @@ public class Buton extends UI {
 
 			if (Greenfoot.getMouseInfo().getButton() == 1) {
 				switch (img) {
-				case "next": {
+				case "Next": {
 					if (obj instanceof Dialog) {
 						dialog.setNrSlide(dialog.getNrSlide() + 1);
 						dialog.setAddedText(false);
@@ -130,7 +130,7 @@ public class Buton extends UI {
 					}
 					break;
 				}
-				case "back": {
+				case "Back": {
 
 					if (obj instanceof Tutorial) {
 						tutorial.setNrSlide(tutorial.getNrSlide() - 1);
@@ -182,7 +182,7 @@ public class Buton extends UI {
 					break;
 				}
 
-				case "resume": {
+				case "Resume": {
 
 					WorldData.PAUZA = false;
 					Player.toggledPause = false;
@@ -194,7 +194,7 @@ public class Buton extends UI {
 					break;
 
 				}
-				case "map": {
+				case "Map": {
 
 					getWorld().addObject(new MapMenu((PlayWorld) getWorld()), WorldData.menuX, WorldData.menuY);
 
@@ -253,7 +253,7 @@ public class Buton extends UI {
 					getWorld().removeObjects(getWorld().getObjects(Buton.class));
 					break;
 				}
-				case "continue": {
+				case "Continue": {
 					WorldData.PAUZA = false;
 					Player.toggledPause = false;
 					if (obj instanceof Menu) {
@@ -295,7 +295,7 @@ public class Buton extends UI {
 
 	public void exists() { // verifica daca trebuie inchis
 		switch (img) {
-		case "next": {
+		case "Next": {
 			if (obj instanceof Dialog) {
 				if (dialog.isLastSlide()) {
 					this.getWorld().addObject(new Buton("X", dialog), this.getX(), this.getY());
@@ -306,10 +306,10 @@ public class Buton extends UI {
 				if (tutorial.getNrSlide() > 0) {
 					if (!tutorial.isAddedButonBack()) {
 						if (((Tutorial) obj).getTip() == "Cutscene") {
-							this.getWorld().addObject(new Buton("back", tutorial), 100, this.getY());
+							this.getWorld().addObject(new Buton("Back", tutorial), 100, this.getY());
 						}
 						else {
-							this.getWorld().addObject(new Buton("back", tutorial), tutorial.getX()-tutorial.getImage().getWidth()/2+50, this.getY());
+							this.getWorld().addObject(new Buton("Back", tutorial), tutorial.getX()-tutorial.getImage().getWidth()/2+50, this.getY());
 						}
 					}
 				}
@@ -320,7 +320,7 @@ public class Buton extends UI {
 			}
 			break;
 		}
-		case "back": {
+		case "Back": {
 			if (obj instanceof Tutorial) {
 				if (tutorial.isFirstSlide()) {
 					this.getWorld().removeObject(this);
@@ -331,7 +331,7 @@ public class Buton extends UI {
 		case "X": {
 			if (obj instanceof Tutorial) {
 				if (!tutorial.isLastSlide()) {
-					getWorld().addObject(new Buton("next", obj), this.getX(), this.getY());
+					getWorld().addObject(new Buton("Next", obj), this.getX(), this.getY());
 					getWorld().removeObject(this);
 				}
 			}
