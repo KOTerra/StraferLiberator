@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.LaserDroid;
 import com.port.entity.item.player.BlackHole;
@@ -25,7 +26,7 @@ public class Droid extends HostileNpc {
     private int distParc;
     private boolean sensPoz = true;
     int gX, gY;
-    GifImage img = new GifImage("npc/inamic/droid/droid.gif");
+    GifImage img = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid.gif",GifImage.class);
 
     public static int speed = 3;
     private int hp = 75;
@@ -238,7 +239,7 @@ public class Droid extends HostileNpc {
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = new GifImage("npc/inamic/droid/droid_death.gif").getImages();
+        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif",GifImage.class).getImages();
         GreenfootImage[] images = new GreenfootImage[imgs.size()];
         for (int i = 0; i < imgs.size(); i++) {
             images[i] = (GreenfootImage) imgs.get(i);

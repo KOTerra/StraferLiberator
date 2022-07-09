@@ -24,48 +24,55 @@ public class GifImage {
 
 	float frameDuration;
 	float elapsed;
-	GreenfootImage greenfootImage;
+	List<GreenfootImage> greenfootImages = new ArrayList<>();
+	int numberOfFrames = 0;
 	float scaleX = -1, scaleY = -1;
 
+	
+	
 	public GifImage(String file) {
 		animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("images/" + file).read());
+		
 
 		frameDuration = animation.getFrameDuration();
+		for (TextureRegion t : animation.getKeyFrames()) {
+			greenfootImages.add(new GreenfootImage(t));
+			++numberOfFrames;
+		}
 	}
 
 	public GifImage(Animation anim) {
-		animation=anim;
+		animation = anim;
+		
+		animation.setFrameDuration(animation.getFrameDuration());
 		frameDuration = animation.getFrameDuration();
+		for (TextureRegion t : animation.getKeyFrames()) {
+			greenfootImages.add(new GreenfootImage(t));
+			++numberOfFrames;
+		}
 	}
-	
+
 	public GreenfootImage getCurrentImage() {
 		elapsed += Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		TextureRegion region = (animation.getKeyFrame(elapsed, true));
-		GreenfootImage img = new GreenfootImage(region);
-		if (scaleX >= 0 && scaleY >= 0) {
-			img.scale(scaleX, scaleY);
-		}
-		return img;
+		int ind=animation.getKeyFrameIndex(elapsed);
+		return greenfootImages.get(ind);
 	}
 
 	public List<GreenfootImage> getImages() {
-		List<GreenfootImage> l = new ArrayList<GreenfootImage>();
-
-		for (TextureRegion t : animation.getKeyFrames()) {
-			GreenfootImage img = new GreenfootImage(t);
-			if (scaleX >= 0 && scaleY >= 0) {
-				img.scale(scaleX, scaleY);
-			}
-			l.add(img);
-		}
-		return l;
+		
+		return greenfootImages;
 	}
 
 	public void scale(float x, float y) {
 		scaleX = x;
 		scaleY = y;
+		for (GreenfootImage g : greenfootImages) {
+			if (scaleX >= 0 && scaleY >= 0) {
+				g.scale(scaleX, scaleY);
+			}
+		}
 	}
 }

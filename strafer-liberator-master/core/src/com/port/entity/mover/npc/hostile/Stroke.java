@@ -6,6 +6,7 @@ import greenfoot.*;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Color;
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.hud.HealthBar;
 import com.port.UI.hud.HealthBarImg;
 import com.port.UI.menu.Tutorial;
@@ -46,11 +47,12 @@ public class Stroke extends HostileNpc {
         super(scrl, x, y);
         this.player = player;
 
-        directie.put("D", new GifImage("npc/inamic/stroke/stroke_m.gif"));
-        directie.put("W", new GifImage("npc/inamic/stroke/stroke_m.gif"));
-        directie.put("A", new GifImage("npc/inamic/stroke/stroke_m.gif"));
-        directie.put("S", new GifImage("npc/inamic/stroke/stroke_m.gif"));
-        directie.put("idle", new GifImage("npc/inamic/stroke/stroke_idle.gif"));
+        
+        directie.put("D", StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_m.gif",GifImage.class));
+        directie.put("W", StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_m.gif",GifImage.class));
+        directie.put("A", StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_m.gif",GifImage.class));
+        directie.put("S", StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_m.gif",GifImage.class));
+        directie.put("idle", StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_idle.gif",GifImage.class));
 
         prepareHealthBar();
 
@@ -278,7 +280,7 @@ boolean enter=false;
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = new GifImage("npc/inamic/stroke/stroke_death.gif").getImages();
+        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_death.gif",GifImage.class).getImages();
         GreenfootImage[] images = new GreenfootImage[imgs.size()];
         for (int i = 0; i < imgs.size(); i++) {
             images[i] = (GreenfootImage) imgs.get(i);

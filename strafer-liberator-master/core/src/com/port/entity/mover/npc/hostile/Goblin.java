@@ -1,12 +1,13 @@
 package com.port.entity.mover.npc.hostile;
 
 
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.SabieGoblin;
 import com.port.entity.item.player.BlackHole;
@@ -36,11 +37,12 @@ public class Goblin extends HostileNpc {
     public Goblin(Scroller scrl, int x, int y) {
         super(scrl, x, y);
 
-        directie.put("D", new GifImage("npc/inamic/goblin/goblin_m_D.gif"));
-        directie.put("W", new GifImage("npc/inamic/goblin/goblin_m_W.gif"));
-        directie.put("A", new GifImage("npc/inamic/goblin/goblin_m_A.gif"));
-        directie.put("S", new GifImage("npc/inamic/goblin/goblin_m_S.gif"));
-        directie.put("idle", new GifImage("npc/inamic/goblin/goblin_m_Idle.gif"));
+        
+        directie.put("W", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_W.gif",GifImage.class));
+        directie.put("A", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_A.gif",GifImage.class));
+        directie.put("S", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_S.gif",GifImage.class));
+        directie.put("D", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_D.gif",GifImage.class));
+        directie.put("idle", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_Idle.gif",GifImage.class));
 
         changeAnimation();
         animation.setActiveState(false);
@@ -189,7 +191,7 @@ public class Goblin extends HostileNpc {
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = new GifImage("npc/inamic/goblin/goblin_death.gif").getImages();
+        java.util.List<GreenfootImage> imgs =StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_death.gif",GifImage.class).getImages();
         GreenfootImage[] images = new GreenfootImage[imgs.size()];
         for (int i = 0; i < imgs.size(); i++) {
             images[i] = (GreenfootImage) imgs.get(i);

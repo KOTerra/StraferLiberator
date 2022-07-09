@@ -5,6 +5,7 @@ import greenfoot.*;
 
 import java.util.List;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.ExplozieSchrodingersCat;
 import com.port.entity.item.player.Laser;
@@ -31,12 +32,14 @@ public class SchrodingersCat extends Goblin {
     public SchrodingersCat(Scroller scrl, int x, int y) {
         super(scrl, x, y);
 
-        directie.put("D", new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_m.gif"));
-        directie.put("W", new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_m.gif"));
-        directie.put("A", new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_m.gif"));
-        directie.put("S", new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_m.gif"));
-        directie.put("idle", new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_m_idle.gif"));
-
+        
+        directie.put("D", StraferLiberator.assetManager.get("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif",GifImage.class)); 
+        directie.put("W", StraferLiberator.assetManager.get("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif",GifImage.class)); 
+        directie.put("A", StraferLiberator.assetManager.get("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif",GifImage.class)); 
+        directie.put("S", StraferLiberator.assetManager.get("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif",GifImage.class));
+        directie.put("idle", StraferLiberator.assetManager.get("images/npc/inamic/schrodingersCat/schrodingersCat_m_Idle.gif",GifImage.class)); 
+        
+        
         changeAnimation("Exit", 10, 60);
         animation.setActiveState(false);
         changedAnimation = false;
@@ -245,7 +248,8 @@ public class SchrodingersCat extends Goblin {
     private void changeAnimation(String anim, int nrframeuri, int scalar) {
 
         animationName = anim;
-        java.util.List<GreenfootImage> imgs = new GifImage("npc/inamic/schrodinger's cat/schrodinger'sCat_" + anim + ".gif").getImages();
+        String animationToGet="images/npc/inamic/schrodingersCat/schrodingersCat_" + anim + ".gif";
+        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get(animationToGet,GifImage.class).getImages();
         GreenfootImage[] images = new GreenfootImage[imgs.size()];
         for (int i = 0; i < imgs.size(); i++) {
             images[i] = (GreenfootImage) imgs.get(i);

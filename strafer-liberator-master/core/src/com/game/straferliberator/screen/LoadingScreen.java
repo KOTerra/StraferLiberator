@@ -132,11 +132,60 @@ public class LoadingScreen implements Screen {
 		
 		
 		game.assetManager.setLoader(GifImage.class, new GifImageLoader(new InternalFileHandleResolver()));
-		// dam load la Animationuri pe care le incarcam in gifuri
+		//dam load la gifuri
+		
+		//fundal
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", GifImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif", GifImage.class);
 		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
-
+		
+		
+		//npc
+		game.assetManager.load("images/npc/inamic/goblin/goblin_m_Idle.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/goblin_death.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/goblin_m_W.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/goblin_m_A.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/goblin_m_S.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/goblin_m_D.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/sabie_goblin_W.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/sabie_goblin_A.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/sabie_goblin_S.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/goblin/sabie_goblin_D.gif", GifImage.class);
+		
+		game.assetManager.load("images/npc/inamic/stroke/rumble.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/stroke/stroke_death.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/stroke/stroke_idle.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/stroke/stroke_m.gif", GifImage.class);
+		
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif",GifImage.class);
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_m_Idle.gif",GifImage.class);
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Enter.gif",GifImage.class);
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Exit.gif",GifImage.class);
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Explode.gif",GifImage.class);
+		
+		game.assetManager.load("images/npc/inamic/droid/droid.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/droid/droid_death.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/droid/laserDroid.gif", GifImage.class);
+		
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_Idle.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_W.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_A.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_S.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_D.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_death.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_W.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_A.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_S.gif", GifImage.class);
+		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_D.gif", GifImage.class);
+		
+		game.assetManager.load("images/npc/friendly/keanu_idle.gif",GifImage.class);
+		game.assetManager.load("images/npc/friendly/stonks_idle.gif",GifImage.class);
+		game.assetManager.load("images/npc/friendly/tsoukalos_idle.gif",GifImage.class);
+		
+		
+		//items
+		
+		
 	}
 
 }
