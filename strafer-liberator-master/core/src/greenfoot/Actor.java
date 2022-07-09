@@ -1,34 +1,26 @@
 package greenfoot;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
 import com.port.world.WorldData;
 
 public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
-	/*Port pt greenfoot al clasei de Actor 
-	 * reprezinta o imagine cu bounds ce este desenata in World de WorldRenderer
+	/*
+	 * Port pt greenfoot al clasei de Actor reprezinta o imagine cu bounds ce este
+	 * desenata in World de WorldRenderer
 	 **/
-	
 
 	private float x = 0, y = 0;
 	public greenfoot.World world;
-	public static greenfoot.GreenfootImage invisibleImg = new GreenfootImage(1,1);
+	public static greenfoot.GreenfootImage invisibleImg = new GreenfootImage(1, 1);
 	greenfoot.GreenfootImage image = invisibleImg;
 	SpriteBatch batch;
-	Rectangle rect;
 	boolean notRemovedYet = true;
 
 	public Actor() {
@@ -53,12 +45,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public float toScreenY(float y) {
-		if (world != null) {
-			Vector2 v = world.stageToScreenCoordinates(new Vector2(0, y));
-
-			return v.y;
-		}
-		return 0;
+		return Gdx.graphics.getHeight() - y;
 	}
 
 	public void setPosition(float f, float g) {// se foloseste cu coordonate pe stage
@@ -115,14 +102,18 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 
 	protected boolean intersects(Actor other) { /// merge, le facem asa toate
 
-		Rectangle r = new Rectangle(x - iw() / 2, y - ih() / 2, iw(), ih());
-		Rectangle r2 = new Rectangle(other.getX() - other.iw() / 2, other.getStageY() - other.ih() / 2, other.iw(),
-				other.ih());
-		if (r.overlaps(r2)) {
-			return true;
-		}
-
-		return false;
+		/*
+		 * Rectangle r = new Rectangle(x - iw() / 2, y - ih() / 2, iw(), ih());
+		 * Rectangle r2 = new Rectangle(other.getX() - other.iw() / 2, other.getStageY()
+		 * - other.ih() / 2, other.iw(), other.ih()); if (r.overlaps(r2)) { return true;
+		 * }
+		 * 
+		 * return false;
+		 */
+		return 	   x - this.iw() / 2 < other.getX() 	 + other.iw() / 2 
+				&& x + this.iw() / 2 > other.getX()		 - other.iw() / 2
+				&& y - this.ih() / 2 < other.getStageY() + other.ih() / 2 
+				&& y + this.ih() / 2 > other.getStageY() - other.ih() / 2	;
 
 	}
 
@@ -138,7 +129,6 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	protected void removeTouching(java.lang.Class<?> cls) {
 		java.util.List<?> l = (List<?>) getWorld().getObjects(cls);
 		for (Object actor : l) {
@@ -160,7 +150,6 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		return res;
 	}
 
-	@SuppressWarnings("rawtypes")
 	protected greenfoot.Actor getOneIntersectingObject(java.lang.Class<?> cls) {
 		if (getIntersectingObjects(cls).isEmpty()) {
 			return null;
@@ -178,13 +167,11 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	protected java.util.List<?> getObjectsInRange(int radius, java.lang.Class<?> cls) {
 		List<?> l = getWorld().getObjects(cls);
 		ArrayList<greenfoot.Actor> res = new ArrayList<>();
-		Circle c = new Circle(getX(), getStageY(), radius);
+
 		for (Object obj : l) {
 			greenfoot.Actor actor = (greenfoot.Actor) obj;
 
-			Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getStageY() - actor.ih() / 2, actor.iw(),
-					actor.ih());
-			if (Intersector.overlaps(c, r)) {
+			if(radiusOverlaping(actor,radius)) {
 				if (actor != this) {
 					res.add(actor);
 				}
@@ -193,6 +180,35 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		return res;
 	}
 
+	private boolean radiusOverlaping(greenfoot.Actor actor, int radius) {
+		float cx=getX();
+		float cy=getStageY();
+		float rx=actor.getX() - actor.iw() / 2;
+		float ry=actor.getStageY() - actor.ih() / 2;
+		
+		float closestX = cx;
+		float closestY = cy;
+
+		if (cx < rx) {
+			closestX = rx;
+		} else if (cx > rx + actor.iw()) {
+			closestX = rx + actor.iw();
+		}
+
+		if (cy < ry) {
+			closestY = ry;
+		} else if (cy > ry + actor.ih()) {
+			closestY = ry + actor.ih();
+		}
+
+		closestX = closestX - cx;
+		closestX *= closestX;
+		closestY = closestY - cy;
+		closestY *= closestY;
+
+		return closestX + closestY < radius * radius;
+	}
+	
 	public SpriteBatch getBatch() {
 		return batch;
 	}
@@ -227,27 +243,23 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		setPosition(x, y);
 
 	}
-	
-	
-	
+
 	public void draw() {
 		if (notRemovedYet) {
 			if (isInScreenRange()) {
 
-				float icx = (getX() - this.iw()/2 );
-				float icy = (getStageY() - this.ih()/2);
+				float icx = (getX() - this.iw() / 2);
+				float icy = (getStageY() - this.ih() / 2);
 				batch.setColor(255, 255, 255, image.getTransparency());
-				batch.draw(this.getImage(), 
-						icx, icy, 		// coordonatele
-						this.iw() / 2, this.ih() / 2, 								// pct in care e rotit
+				batch.draw(this.getImage(), icx, icy, // coordonatele
+						this.iw() / 2, this.ih() / 2, // pct in care e rotit
 						this.getImage().getScaleX(), this.getImage().getScaleY(), // width/height
 						1, 1, // scale
 						super.getRotation()); // rotation
 
 				batch.setColor(Color.WHITE);
 			}
-		}
-		else {
+		} else {
 			PaintUtilities.removeObjectFromPaintOrder(this);
 		}
 	}

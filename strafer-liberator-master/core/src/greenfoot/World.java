@@ -2,22 +2,13 @@ package greenfoot;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Scaling;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScalingViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
-import com.game.straferliberator.render.WorldRenderer;
-import com.port.world.WorldData;
+
 /*
  * Port al clasei din Greenfoot
  * este locul in care exista toti actorii 
@@ -29,16 +20,11 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	int cellSize; // unitatea de masura pixel^2
 	private float wwidth, wheight;
 
-	
-
-	
-
 	public World(int worldWidth, int worldHeight, int cellSize, boolean bounded) {
 		this.cellSize = cellSize;
 		wwidth = worldWidth;
 		wheight = worldHeight;
 	}
-
 
 	public void act() {
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> l = getActors();
@@ -59,7 +45,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 			}
 			object.world.removeObject(object);
 		}
-		object.notRemovedYet=true;
+		object.notRemovedYet = true;
 		object.setWorld(this);
 		super.addActor(object);
 		PaintUtilities.addObjectToPaintOrder(object);
@@ -76,7 +62,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();
 		actor.setWorld(null);
 		a.removeValue(actor, false);
-		
+
 	}
 
 	public void removeObjects(Collection<?> objects) { // si asta merge
@@ -85,7 +71,6 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		}
 	}
 
-	@SuppressWarnings("unchecked") //// asta merge
 	public List<?> getObjects(java.lang.Class<?> cls) {
 		List<greenfoot.Actor> l = new ArrayList<>();
 		;
@@ -98,24 +83,29 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		return l;
 	}
 
-	public List<?> getObjectsAt(float x, float y, java.lang.Class<?> cls) { // nu testai
+	public List<?> getObjectsAt(float x, float y, java.lang.Class<?> cls) { 
 		List<?> l = getObjects(cls);
 		List<greenfoot.Actor> res = new ArrayList<>();
 		for (Object a : l) {
 			if (a instanceof Actor) {
 				Actor actor = (Actor) a;
 
-				Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getY() - actor.ih() / 2, actor.iw(),
-						actor.ih());
+				// Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getY() -
+				// actor.ih() / 2, actor.iw(),
+				// actor.ih());
 
-				if (r.contains(new Vector2(x, y))) {
+				// if (r.contains(new Vector2(x, y))) {
+				if (	   actor.getX() - actor.iw() / 2 <= x 
+						&& actor.getX() + actor.iw() / 2 >= x
+						&& actor.getY() - actor.ih() / 2 <= y 
+						&& actor.getY() + actor.ih() / 2 >= y) 
+					{
 					res.add(actor);
 				}
 			}
 		}
 		return res;
 	}
-
 
 	public int numberOfActors() {
 		return getObjects(Actor.class).size();

@@ -30,7 +30,7 @@ public class AndroidLauncher extends AndroidApplication {
 		}
 
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-		config.useImmersiveMode=true;
+	//	config.useImmersiveMode=true;
 
 		DisplayMetrics screenDimensions= Resources.getSystem().getDisplayMetrics();
 		WorldData.setResolution(screenDimensions.widthPixels, screenDimensions.heightPixels);
