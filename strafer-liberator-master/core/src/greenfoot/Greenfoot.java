@@ -32,15 +32,15 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 		if(actor==null) {
 			return false;
 		}
-		float iw = actor.getImage().getWidth();
-		float ih = actor.getImage().getHeight();
-
-		Rectangle r = new Rectangle(actor.getX() - iw / 2, actor.getY() - ih / 2, iw, ih);
 
 		float mousex = Gdx.input.getX();
 		float mousey = Gdx.input.getY();
 
-		if (r.contains(mousex, mousey)) {
+		if(   actor.getX() - actor.iw() / 2 <= mousex 
+					&& actor.getX() + actor.iw() / 2 >= mousex
+					&& actor.getY() - actor.ih() / 2 <= mousey 
+					&& actor.getY() + actor.ih() / 2 >= mousey)
+		{
 			return true;
 		}
 

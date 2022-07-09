@@ -85,21 +85,21 @@ public class Scroller {
 			scrolledY += dsy;
 			// scroll background image
 			if (scrollImage != null) {
-				
-					world.setBackground(new GreenfootImage(new TextureRegion(scrollImage.getTexture(), scrolledX,
-							scrolledY, WorldData.WIDTH, WorldData.HEIGHT)));
-			
+
+				world.setBackground(new GreenfootImage(new TextureRegion(scrollImage.getTexture(), scrolledX, scrolledY,
+						WorldData.WIDTH, WorldData.HEIGHT)));
+
 			}
 		}
 
 		// adjust position of all actors (that can move with 'setLocation')
+		if (dsx != 0 || dsy != 0) {
+			for (Object obj : world.getObjects(null)) {
+				Actor actor = (Actor) obj;
+				actor.setLocation(actor.getX() - dsx, actor.getY() - dsy);
 
-		for (Object obj : world.getObjects(null)) {
-			Actor actor = (Actor) obj;
-			actor.setLocation(actor.getX() - dsx, actor.getY() - dsy);
-		
+			}
 		}
-
 	}
 
 	public boolean canScrollFurther() {
