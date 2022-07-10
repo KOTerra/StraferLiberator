@@ -287,7 +287,7 @@ public class EventSystem extends Actor {
 			case 21: {
 				makeObjective("Get Black Hole", 60 * 64, 45 * 64, 23);
 				if (worldListener.getWorldSection() == 23) {
-					playWorld.initUniqueObject(new PickUp("blackhole"), 60 * 64, 45 * 64);
+					playWorld.initUniqueObject(new PickUp("blackHole"), 60 * 64, 45 * 64);
 				}
 				break;
 			}
@@ -315,7 +315,7 @@ public class EventSystem extends Actor {
 			case 23: {
 				makeObjective("Get Portal Gun", 80 * 64, 10 * 64, 13);
 				if (worldListener.getWorldSection() == 13) {
-					playWorld.initUniqueObject(new PickUp("portalgun"), 80 * 64, 10 * 64);
+					playWorld.initUniqueObject(new PickUp("portalGun"), 80 * 64, 10 * 64);
 				}
 				break;
 			}
@@ -355,7 +355,7 @@ public class EventSystem extends Actor {
 			case 26: {
 				makeObjective("Get Ice Lock", 63 * 64, 67 * 64, 21);
 				if (worldListener.getWorldSection() == 21) {
-					playWorld.initUniqueObject(new PickUp("icelock"), 63 * 64, 67 * 64);
+					playWorld.initUniqueObject(new PickUp("iceLock"), 63 * 64, 67 * 64);
 				}
 				break;
 			}

@@ -289,10 +289,6 @@ public class Player extends BasePlayer {
 
 		// sabie
 		if (equipSword) {
-			if (getWorld().getObjects(Sabie.class).isEmpty()) {
-				getWorld().addObject(new SabieHold(), getX(), getY());
-			}
-
 			if (Greenfoot.mouseClicked(null)) {
 				if (Greenfoot.getMouseInfo().getButton() == 1) { // right 3 left 1
 

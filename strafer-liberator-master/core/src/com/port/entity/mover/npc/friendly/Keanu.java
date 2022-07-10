@@ -1,5 +1,6 @@
 package com.port.entity.mover.npc.friendly;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Dialog;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
@@ -16,7 +17,9 @@ public class Keanu extends FriendlyNpc
     private String dialogFile;
     private int maxSlide;
     private int nrDialog;
-    GifImage img=new GifImage("npc/friendly/keanu_idle.gif");
+
+    GifImage img=StraferLiberator.assetManager.get("images/npc/friendly/keanu_idle.gif",GifImage.class);
+ 
     
     public Keanu(PlayWorld pw,Scroller scrl, String dialogFileref, int nrDialog) {
         super(pw,scrl,dialogFileref);
@@ -36,7 +39,7 @@ public class Keanu extends FriendlyNpc
         
         if (!WorldData.PAUZA) {
             timer ++;
-            if (isTouching(Player.class) && !WorldData.addedDialogs&& timer>=WorldData.FPS*3){
+            if (intersects(playWorld.getPlayer()) && !WorldData.addedDialogs&& timer>=WorldData.FPS*3){
                 timer=0;
                 this.addDialogs();
                 WorldData.addedDialogs=true;

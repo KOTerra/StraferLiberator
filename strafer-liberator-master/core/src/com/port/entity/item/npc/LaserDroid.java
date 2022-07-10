@@ -4,6 +4,7 @@ package com.port.entity.item.npc;
 import greenfoot.*;
 import java.util.List;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
@@ -18,12 +19,9 @@ public class LaserDroid extends NpcItem {
     boolean turned = false;
     Player player;
 
-    public static GifImage laserImg = new GifImage("npc/inamic/droid/laserDroid.gif");
+    private GifImage laserImg = StraferLiberator.assetManager.get("images/npc/inamic/droid/laserDroid.gif",GifImage.class);
 
     public LaserDroid() {
-        //  GreenfootSound sunet=new GreenfootSound("shootshoot.mp3");
-        //sunet.play();
-        
 
     }
 
@@ -39,7 +37,7 @@ public class LaserDroid extends NpcItem {
             turnTowards(player.getX(), player.getY());
             turned = true;
         }
-        if (isTouching(Player.class)) {
+        if (intersects(player)) {
             player.takeDamage(damage);
             getWorld().removeObject(this);
         }

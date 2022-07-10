@@ -4,87 +4,90 @@ import greenfoot.*;
 
 import java.util.HashMap;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.Item;
 import com.port.entity.mover.npc.hostile.Dolpatian;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
+public class TaserDolpatian extends NpcItem {
 
-public class TaserDolpatian extends NpcItem{
-   
-       public static final int damage = 15;
-    public static final int mass = 1;
+	public static final int damage = 15;
+	public static final int mass = 1;
 
-   
-    HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
-    GifImage itemImg = directie.get(Item.itemGif);
- 
-    
-    private long time = 0;
+	HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
+	GifImage itemImg = directie.get(Item.itemGif);
 
-    Actor dolpatian;
+	private long time = 0;
 
-    private final long constantEraseTime = 25;
-    boolean gaveDamage=false;
+	Actor dolpatian;
 
-    public TaserDolpatian(Dolpatian dolpatian) {
-        this.dolpatian=dolpatian;
-        directie.put("D", new GifImage("npc/inamic/dolpatian/taserDolpatian_D.gif"));
-        directie.put("W", new GifImage("npc/inamic/dolpatian/taserDolpatian_W.gif"));
-        directie.put("A", new GifImage("npc/inamic/dolpatian/taserDolpatian_A.gif"));
-        directie.put("S", new GifImage("npc/inamic/dolpatian/taserDolpatian_S.gif"));
+	private final long constantEraseTime = 25;
+	boolean gaveDamage = false;
 
-        itemImg = directie.get("D");
-        setImage(itemImg.getCurrentImage());
-        this.time = 0;
+	public TaserDolpatian(Dolpatian dolpatian) {
+		this.dolpatian = dolpatian;
+		directie.put("D",
+				StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/taserDolpatian_D.gif", GifImage.class));
+		directie.put("W",
+				StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/taserDolpatian_W.gif", GifImage.class));
+		directie.put("A",
+				StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/taserDolpatian_A.gif", GifImage.class));
+		directie.put("S",
+				StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/taserDolpatian_S.gif", GifImage.class));
 
-    }
+		itemImg = directie.get("D");
+		setImage(itemImg.getCurrentImage());
+		this.time = 0;
 
-    public Actor getGoblin() {
-        return this.dolpatian;
-    }
+	}
 
-    protected void move() {
-        setLocation(dolpatian.getX(), dolpatian.getY() );
+	public Actor getGoblin() {
+		return this.dolpatian;
+	}
 
-        itemImg = directie.get(((HostileNpc)dolpatian).getGifItem());
-    }
+	protected void move() {
+		setLocation(dolpatian.getX(), dolpatian.getY());
 
-    protected void atac() {
-        itemImg = directie.get(((HostileNpc)dolpatian).getGifItem());
-        if(isTouching(Player.class)){
-           Player player= (Player) getWorld().getObjects(Player.class).get(0);
-           if(player!=null){
-               player.knockbacked=true;
-                   player.knockback(0.1, dolpatian, this.mass, 80);
-               if(!gaveDamage){
-                   player.takeDamage(this.damage);
-                   gaveDamage=true;
-               }
-            }
-        }
-    }
+		itemImg = directie.get(((HostileNpc) dolpatian).getGifItem());
+	}
 
-    public void act() {
-        
-        if (!WorldData.PAUZA) {
-            try{
-            setImage(itemImg.getCurrentImage());
-            atac();
-            move();
-            
-            time++;
-            if (time > constantEraseTime) {
-                ((HostileNpc)dolpatian).setUsedItem(false);
-                getWorld().removeObject(this);
-                
-            }
-        }
-        catch(Exception e){}
-            
-        }
-        
-    }
+	protected void atac() {
+		itemImg = directie.get(((HostileNpc) dolpatian).getGifItem());
+		Player player = ((PlayWorld) getWorld()).getPlayer();
+		if (intersects(player)) {
+
+			player.knockbacked = true;
+			player.knockback(0.1, dolpatian, this.mass, 80);
+			if (!gaveDamage) {
+				player.takeDamage(this.damage);
+				gaveDamage = true;
+			}
+
+		}
+	}
+
+	public void act() {
+
+		if (!WorldData.PAUZA) {
+			try {
+				setImage(itemImg.getCurrentImage());
+				atac();
+				move();
+
+				time++;
+				if (time > constantEraseTime) {
+					((HostileNpc) dolpatian).setUsedItem(false);
+					getWorld().removeObject(this);
+
+				}
+			} catch (Exception e) {
+			}
+
+		}
+
+	}
 }

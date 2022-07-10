@@ -110,6 +110,9 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		 * 
 		 * return false;
 		 */
+		if(other==null) {
+			return false;
+		}
 		return 	   x - this.iw() / 2 < other.getX() 	 + other.iw() / 2 
 				&& x + this.iw() / 2 > other.getX()		 - other.iw() / 2
 				&& y - this.ih() / 2 < other.getStageY() + other.ih() / 2 

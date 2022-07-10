@@ -35,7 +35,9 @@ public class Picture extends Menu {
         
     }
   
-
+    public Picture() {
+    	
+    }
      public Picture(GreenfootImage image) {
         added=false;
         

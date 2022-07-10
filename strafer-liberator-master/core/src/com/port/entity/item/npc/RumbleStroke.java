@@ -1,68 +1,70 @@
 package com.port.entity.item.npc;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
-import greenfoot.*;  
+import greenfoot.*;
 
+public class RumbleStroke extends NpcItem {
+	public static final int damage = 5;
+	public static final int mass = 2;
+	GifImage gif = StraferLiberator.assetManager.get("images/npc/inamic/stroke/rumble.gif", GifImage.class);
 
-public class RumbleStroke extends NpcItem{
-       public static final int damage = 5;
-    public static final int mass = 2;
-    GifImage gif=new GifImage("npc/inamic/stroke/rumble.gif");
-    
-    private long time = 0;
+	private long time = 0;
 
-    Actor stroke;
+	Actor stroke;
 
-    private final long constantEraseTime = 25;
-    boolean gaveDamage=false;
+	private final long constantEraseTime = 25;
+	boolean gaveDamage = false;
 
-    public RumbleStroke(Stroke stroke) {
-        this.stroke=stroke;
-        this.time = 0;
+	public RumbleStroke(Stroke stroke) {
+		this.stroke = stroke;
+		this.time = 0;
 
-    }
+	}
 
-    public Actor getStroke() {
-        return this.stroke;
-    }
+	public Actor getStroke() {
+		return this.stroke;
+	}
 
-    protected void move() {
-        super.move(this);
-    }
+	protected void move() {
+		super.move(this);
+	}
 
-    protected void atac() {
-        if(isTouching(Player.class)){
-           Player player= (Player) getWorld().getObjects(Player.class).get(0);
-           if(player!=null){
-               player.knockbacked=true;
-                   player.knockback(0.1, stroke, this.mass, 80);
-               if(!gaveDamage){
-                   player.takeDamage(this.damage);
-                   gaveDamage=true;
-               }
-            }
-        }
-    }
+	protected void atac() {
+		Player player = ((PlayWorld) getWorld()).getPlayer();
+		if (intersects(player)) {
 
-    public void act() {
+			if (player != null) {
+				player.knockbacked = true;
+				player.knockback(0.1, stroke, this.mass, 80);
+				if (!gaveDamage) {
+					player.takeDamage(this.damage);
+					gaveDamage = true;
+				}
+			}
+		}
+	}
 
-        if (!WorldData.PAUZA) {
-            atac();
-            move();
-setImage(gif.getCurrentImage());
-            time++;
-            if (time > constantEraseTime) {
-                ((HostileNpc)stroke).setUsedItem(false);
-                getWorld().removeObject(this);
-                
-            }
-            
-        }
-        
-    }
+	public void act() {
+
+		if (!WorldData.PAUZA) {
+			atac();
+			move();
+			setImage(gif.getCurrentImage());
+			time++;
+			if (time > constantEraseTime) {
+				((HostileNpc) stroke).setUsedItem(false);
+				getWorld().removeObject(this);
+
+			}
+
+		}
+
+	}
 }

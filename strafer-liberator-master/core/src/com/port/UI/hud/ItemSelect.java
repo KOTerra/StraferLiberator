@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.port.UI.menu.Menu;
+import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Picture;
 import com.port.world.WorldData;
@@ -60,6 +61,7 @@ public class ItemSelect extends Menu {
                     case "sword": {
                         if (WorldData.hasSword) {
                             player.setEquipSword(!player.isEquipSword());
+                            getWorld().addObject(new SabieHold(), 0, 0);
                         }
                         break;
                     }

@@ -5,31 +5,23 @@ import greenfoot.*;
 import java.util.List;
 
 import com.port.entity.mover.player.Player;
+import com.port.world.PlayWorld;
 
+public class Item extends Actor {
 
-public class Item extends Actor
-{
-  
-    @Override public String toString(){
-         //the name of the class
-         return this.getClass().getSimpleName();
-     }
-    
-    public static String itemGif="D";//the state of the item
-    
-    protected void move()
-    {
-        List players = getWorld().getObjects(Player.class);
-       
-        if (!players.isEmpty()){
-            Actor player = (Actor)players.get(0);
-             setLocation(player.getX(),player.getY()+15);
-        }
-       
-    }
-    
-    public void act() 
-    {
-       
-    }    
+	@Override
+	public String toString() {
+		// the name of the class
+		return this.getClass().getSimpleName();
+	}
+
+	public static String itemGif = "D";// the state of the item
+
+	protected void move() {
+		Player playerr = ((PlayWorld) getWorld()).getPlayer();
+		Actor player = (Actor) playerr;
+		setLocation(player.getX(), player.getY() + 15);
+
+	}
+
 }

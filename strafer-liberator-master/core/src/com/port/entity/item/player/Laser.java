@@ -3,6 +3,7 @@ package com.port.entity.item.player;
 import greenfoot.*;
 import java.util.HashMap;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.Item;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
@@ -20,7 +21,7 @@ public class Laser extends Item
     private final int speed=10;
     private int caz=0;
     
-    GifImage laserImg=new GifImage("item/laserPlayer.gif");
+    GifImage laserImg=StraferLiberator.assetManager.get("images/item/laserPlayer.gif",GifImage.class);
     
     public Laser(double  grade){
         

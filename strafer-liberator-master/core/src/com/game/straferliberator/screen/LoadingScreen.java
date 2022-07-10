@@ -94,13 +94,6 @@ public class LoadingScreen implements Screen {
 	}
 
 	private void queueAssetsToLoad() {
-		// test
-		game.assetManager.load("images/UI/hud/healthBar.png", Texture.class);
-
-		game.assetManager.load("images/logo.png", Texture.class);
-		// test
-
-		
 		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		// dam load la imageuri
@@ -111,9 +104,13 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/map/worldSection/worldSection22.png", GreenfootImage.class);
 		game.assetManager.load("images/map/worldSection/worldSection23.png", GreenfootImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/logo.png", GreenfootImage.class);
+		game.assetManager.load("images/UI/menu/pauseMenu/pauseLogo.png", GreenfootImage.class);
+		game.assetManager.load("images/item/sabieHold_W.png",GreenfootImage.class);
+		game.assetManager.load("images/item/sabieHold_A.png",GreenfootImage.class);
+		game.assetManager.load("images/item/sabieHold_S.png",GreenfootImage.class);
+		game.assetManager.load("images/item/sabieHold_D.png",GreenfootImage.class);
 		
 		
-
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
 		// dam load la fonturi
 		game.assetManager.load("fonts/consolas.fnt", Font.class, new FontLoaderParameters(false, false, 24));
@@ -136,6 +133,7 @@ public class LoadingScreen implements Screen {
 		
 		//fundal
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", GifImage.class);
+		game.assetManager.load("images/UI/menu/pauseMenu/pauseBlur.gif",GifImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif", GifImage.class);
 		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
 		
@@ -183,9 +181,31 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/npc/friendly/tsoukalos_idle.gif",GifImage.class);
 		
 		
+		//pickUps
+		game.assetManager.load("images/item/pickUp/blackHolePickUp.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/iceLockPickUp.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/lanternPickUp.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/laserPickUp.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/pill.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/portalGunPickUp.gif",GifImage.class);
+		game.assetManager.load("images/item/pickUp/swordPickUp.gif",GifImage.class);
+		
 		//items
-		
-		
+		game.assetManager.load("images/item/blackHole.gif",GifImage.class);
+		game.assetManager.load("images/item/iceLock.gif",GifImage.class);
+		game.assetManager.load("images/item/lantern.gif",GifImage.class);
+		game.assetManager.load("images/item/laserPlayer.gif",GifImage.class);
+		game.assetManager.load("images/item/portalA.gif",GifImage.class);
+		game.assetManager.load("images/item/portalD.gif",GifImage.class);
+		game.assetManager.load("images/item/portalGunW.gif",GifImage.class);
+		game.assetManager.load("images/item/portalGunA.gif",GifImage.class);
+		game.assetManager.load("images/item/portalGunS.gif",GifImage.class);
+		game.assetManager.load("images/item/portalGunD.gif",GifImage.class);
+		game.assetManager.load("images/item/sabie_a_W.gif",GifImage.class);
+		game.assetManager.load("images/item/sabie_a_A.gif",GifImage.class);
+		game.assetManager.load("images/item/sabie_a_S.gif",GifImage.class);
+		game.assetManager.load("images/item/sabie_a_D.gif",GifImage.class);
+
 	}
 
 }

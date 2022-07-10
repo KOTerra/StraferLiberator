@@ -1,10 +1,12 @@
 package com.port.entity.item.pickup;
 
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
 import greenfoot.*;
@@ -19,7 +21,8 @@ public class PickUp extends Item {
 
     public PickUp(String name) {
         this.name = name;
-        gif = new GifImage("item/pickUp/" + name + "PickUp.gif");
+        String itemToGet="images/item/pickUp/" + name + "PickUp.gif";
+        gif=StraferLiberator.assetManager.get(itemToGet,GifImage.class);
     }
 
     public PickUp() {
@@ -49,12 +52,12 @@ public class PickUp extends Item {
                         WorldData.hasLaser = true;
                         break;
                     }
-                    case "blackhole": {
+                    case "blackHole": {
                         getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasBlackHole = true;
                         break;
                     }
-                    case "icelock": {
+                    case "iceLock": {
                         getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasIceLock = true;
                         break;
@@ -64,7 +67,7 @@ public class PickUp extends Item {
                         WorldData.hasLantern = true;
                         break;
                     }
-                    case "portalgun": {
+                    case "portalGun": {
                         getWorld().addObject(new Tutorial("Items", name, 3, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasPortalGun = true;
                         break;
@@ -79,6 +82,6 @@ public class PickUp extends Item {
     }
 
     protected Player getPlayer() {
-        return (Player) (getWorld().getObjects(Player.class).get(0));
+        return ((PlayWorld)getWorld()).getPlayer();
     }
 }

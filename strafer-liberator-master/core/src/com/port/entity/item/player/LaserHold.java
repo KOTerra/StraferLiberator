@@ -2,6 +2,7 @@ package com.port.entity.item.player;
 
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
 import greenfoot.*;
@@ -15,7 +16,7 @@ public class LaserHold extends Item {
 	}
 
 	private void exi() {
-		p = (Player) (getWorld().getObjects(Player.class).get(0));
+		 p=((PlayWorld)getWorld()).getPlayer();
 		if (p != null) {
 			if (!p.isEquipLaser()) {
 				getWorld().removeObject(this);

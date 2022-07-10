@@ -4,17 +4,19 @@ import greenfoot.*;
 
 import java.util.HashMap;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.Item;
 import com.port.entity.mover.npc.hostile.Goblin;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
 public class SabieGoblin extends NpcItem {
 	public static final int damage = 5;
 	public static final int mass = 2;
-	int repositionX=0, repositionY=0;
+	int repositionX = 0, repositionY = 0;
 
 	HashMap<String, GifImage> directie = new HashMap<String, GifImage>();
 	GifImage sabieImg = directie.get(Item.itemGif);
@@ -28,10 +30,14 @@ public class SabieGoblin extends NpcItem {
 
 	public SabieGoblin(Goblin goblin) {
 		this.goblin = goblin;
-		directie.put("D", new GifImage("npc/inamic/goblin/sabie_goblin_D.gif"));
-		directie.put("W", new GifImage("npc/inamic/goblin/sabie_goblin_W.gif"));
-		directie.put("A", new GifImage("npc/inamic/goblin/sabie_goblin_A.gif"));
-		directie.put("S", new GifImage("npc/inamic/goblin/sabie_goblin_S.gif"));
+		directie.put("D",
+				StraferLiberator.assetManager.get("images/npc/inamic/goblin/sabie_goblin_D.gif", GifImage.class));
+		directie.put("W",
+				StraferLiberator.assetManager.get("images/npc/inamic/goblin/sabie_goblin_W.gif", GifImage.class));
+		directie.put("A",
+				StraferLiberator.assetManager.get("images/npc/inamic/goblin/sabie_goblin_A.gif", GifImage.class));
+		directie.put("S",
+				StraferLiberator.assetManager.get("images/npc/inamic/goblin/sabie_goblin_S.gif", GifImage.class));
 
 		sabieImg = directie.get("D");
 		setImage(sabieImg.getCurrentImage());
@@ -52,41 +58,41 @@ public class SabieGoblin extends NpcItem {
 
 	protected void atac() {
 		sabieImg = directie.get(((HostileNpc) goblin).getGifItem());
-		if (isTouching(Player.class)) {
-			Player player = (Player) getWorld().getObjects(Player.class).get(0);
-			if (player != null) {
-				player.knockbacked = true;
-				player.knockback(0.1, goblin, this.mass, 80);
-				if (!gaveDamage) {
-					player.takeDamage(this.damage);
-					gaveDamage = true;
-				}
+		Player player = ((PlayWorld) getWorld()).getPlayer();
+		if (intersects(player)) {
+
+			player.knockbacked = true;
+			player.knockback(0.1, goblin, this.mass, 80);
+			if (!gaveDamage) {
+				player.takeDamage(this.damage);
+				gaveDamage = true;
 			}
+
 		}
 	}
 
 	private void reposition() {
 		switch (((HostileNpc) goblin).getGifItem()) {
 		case "W": {
-			repositionY=-50;
-			repositionX=0;
+			repositionY = -50;
+			repositionX = 0;
 			break;
 		}
 		case "A": {
 
-			repositionY=0;
-			repositionX=-40;
+			repositionY = 0;
+			repositionX = -40;
 			break;
 		}
 		case "S": {
 
-			repositionY=50;
-			repositionX=0;
+			repositionY = 50;
+			repositionX = 0;
 			break;
 		}
 		case "D": {
-			repositionY=0;
-			repositionX=40;
+			repositionY = 0;
+			repositionX = 40;
 			break;
 		}
 		}
@@ -100,7 +106,7 @@ public class SabieGoblin extends NpcItem {
 			move();
 			if (sabieImg != null) {
 				setImage(sabieImg.getCurrentImage());
-				setLocation(goblin.getX()+repositionX, goblin.getY()+repositionY);
+				setLocation(goblin.getX() + repositionX, goblin.getY() + repositionY);
 			}
 			time++;
 			if (time > constantEraseTime) {

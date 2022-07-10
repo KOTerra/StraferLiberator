@@ -1,6 +1,7 @@
 package com.port.entity.item.player;
 
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
@@ -10,7 +11,7 @@ import greenfoot.*;
 
 public class Lantern extends Item {
 
-    GifImage gif = new GifImage("item/lantern.gif");
+    GifImage gif = StraferLiberator.assetManager.get("images/item/lantern.gif",GifImage.class);
     int speed = 5;
     boolean isLight = false;
 

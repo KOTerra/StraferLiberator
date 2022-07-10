@@ -186,6 +186,9 @@ public class Buton extends UI {
 
 					WorldData.PAUZA = false;
 					Player.toggledPause = false;
+					if(obj instanceof Pause) {
+						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+					}
 					if (obj instanceof Menu) {
 						getWorld().removeObject((Menu) obj);
 					}
@@ -197,7 +200,9 @@ public class Buton extends UI {
 				case "Map": {
 
 					getWorld().addObject(new MapMenu((PlayWorld) getWorld()), WorldData.menuX, WorldData.menuY);
-
+					if(obj instanceof Pause) {
+						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+					}
 					getWorld().removeObject((Menu) obj);
 					getWorld().removeObjects(getWorld().getObjects(Buton.class));
 
@@ -208,7 +213,10 @@ public class Buton extends UI {
 
 					((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
 					Player.toggledPause = false;
-
+					
+					if(obj instanceof Pause) {
+						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+					}
 					if (obj instanceof Menu) {
 						getWorld().removeObject((Menu) obj);
 						SaveSystem.save(WorldData.saveFileNumber, ((PlayWorld) getWorld()).getPlayer());
