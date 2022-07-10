@@ -13,7 +13,7 @@ public class ExplozieSchrodingersCat extends NpcItem {
 	boolean gaveDamage = false;
 
 	public ExplozieSchrodingersCat() {
-		setImage("npc/inamic/schrodinger's cat/explosion.png");
+		setImage("npc/inamic/schrodingersCat/explosion.png");
 	}
 
 	protected void atac() {

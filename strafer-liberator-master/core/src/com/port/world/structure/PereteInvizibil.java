@@ -15,9 +15,9 @@ public class PereteInvizibil extends Perete {
 
 	private String marime;
 	private String pozitie;
-
+	Player player;
 	GreenfootImage pereteImg = super.micImg;
-
+	boolean added=false;
 	int floor;
 
 	public PereteInvizibil(String pozitie, int floor, String marime) {
@@ -42,7 +42,7 @@ public class PereteInvizibil extends Perete {
 	}
 
 	void chestie2() {
-		Player player = (Player) (((PlayWorld) getWorld()).getPlayer());
+		
 		if (intersects(player)) {
 			if (player != null) {
 				switch (pozitie) {
@@ -70,6 +70,10 @@ public class PereteInvizibil extends Perete {
 
 	public void act() {
 
+		if(!added) {
+			player = (Player) (((PlayWorld) getWorld()).getPlayer());
+			added=true;
+		}
 		if (isInScreenRange() && !WorldData.PAUZA) {
 			// chestie();
 			chestie2();
