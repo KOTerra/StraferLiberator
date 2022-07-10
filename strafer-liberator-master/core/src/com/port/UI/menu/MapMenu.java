@@ -26,6 +26,9 @@ public class MapMenu extends Pause {
 
     ArrayList<Actor> thingsToClear = new ArrayList<Actor>();
 
+    int distx=(int) (WorldData.WIDTH/2-1024/2);
+    int disty=(int) (WorldData.HEIGHT/2-576/2);
+    
     ///worldsize/mapmenu size=33.3 (3% zoom)
     public MapMenu(PlayWorld playWorldref) {
         setImage(img);
@@ -36,16 +39,16 @@ public class MapMenu extends Pause {
 
     private void addButoane() {
         Buton buton = new Buton("X", this);
-        playWorld.addObject(buton, 1000, 20);
+        playWorld.addObject(buton, distx+1000, disty+20);
     }
 
     private void addMarkers() {
         int ws = playWorld.getWorldListener().getWorldSection();
         
-        playWorld.addObject(markerPlayer, getMapMenuCoordinateX(ws), getMapMenuCoordinateY(ws) - 20);//adauga marker acolo unde e playerul pe mapa
+        playWorld.addObject(markerPlayer,distx+ getMapMenuCoordinateX(ws), disty+getMapMenuCoordinateY(ws) - 20);//adauga marker acolo unde e playerul pe mapa
         thingsToClear.add(markerPlayer);
 
-        playWorld.addObject(markerObjective, getMapMenuObjectiveX(WorldData.objectiveWS), getMapMenuObjectiveY(WorldData.objectiveWS) - 20); //adauga marker acolo unde e obiectivul pe map
+        playWorld.addObject(markerObjective, distx+ getMapMenuObjectiveX(WorldData.objectiveWS), disty+getMapMenuObjectiveY(WorldData.objectiveWS) - 20); //adauga marker acolo unde e obiectivul pe map
         thingsToClear.add(markerObjective);
 
     }
@@ -53,7 +56,7 @@ public class MapMenu extends Pause {
     private void addText() {
 
         objectiveText = new Text("\n"+WorldData.objective, 30);
-        playWorld.addObject(objectiveText,810,130);
+        playWorld.addObject(objectiveText,distx+810,disty+130);
         thingsToClear.add(objectiveText);
 
     }
@@ -64,7 +67,7 @@ public class MapMenu extends Pause {
                 int ws = i * 10 + j;
                 if (WorldData.visitedWorldSections[i][j] == true) {
                     Picture pic = new Picture("UI/mapMenu/mapMenu" + ws + ".png");
-                    playWorld.addObject(pic, 247 * j - 84, 247 * i - 84);
+                    playWorld.addObject(pic,distx+ 247 * j - 84, disty+247 * i - 84);
                     thingsToClear.add(pic);
                 }
             }
