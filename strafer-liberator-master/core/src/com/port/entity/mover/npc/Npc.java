@@ -1,9 +1,7 @@
 package com.port.entity.mover.npc;
 
 
-import greenfoot.*;
-
-import java.util.Queue;
+import java.util.ArrayList;
 
 import com.port.entity.mover.Movers;
 import com.port.entity.mover.player.Player;
@@ -11,9 +9,7 @@ import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 
-import java.util.PriorityQueue;
-import java.util.ArrayList;
-import java.util.List;
+import greenfoot.Actor;
 
 class Pozitie {
 
@@ -99,14 +95,14 @@ public class Npc extends Movers {
             sectiune = ((PlayWorld) getWorld()).getWorldListener().getWorldSection();
         }
         // if ( x < 128 && y < 128) {
-        if (WorldData.worldSectionMatrix[WorldData.getWorldSectionShort(sectiune)][x][y] == -1) {
+        if (WorldData.worldSectionMatrix[WorldData.getWorldSectionShort(sectiune)][x][y] == true) {
 
             gasit = false;
             return;
         //}
     }
 
-        int[][] mat = new int[WorldData.maxLengthWorld + 1][WorldData.maxWidthWorld + 1];
+        boolean[][] mat = new boolean[WorldData.maxLengthWorld + 1][WorldData.maxWidthWorld + 1];
         for (int i = 0; i < WorldData.maxLengthWorld; i++) {
             for (int j = 0; j < WorldData.maxWidthWorld; j++) {
                 mat[i][j] = WorldData.worldSectionMatrix[WorldData.getWorldSectionShort(sectiune)][i][j];
@@ -122,7 +118,7 @@ public class Npc extends Movers {
         ArrayList<Pozitie> v = new ArrayList<>();
 
         v.add(new Pozitie(startL, startC, -1, 1));
-        mat[startL][startC] = 1;
+        mat[startL][startC] = true;
 
         int st = 0, dr = 0;
         if (startL == x && startC == y) {
@@ -138,13 +134,13 @@ public class Npc extends Movers {
             if (start.dist < searchDistanceMax) {
                 for (int i = 0; i < 8; i++) {
 
-                    if (mat[l + dx[i]][c + dy[i]] == 0 && l + dx[i] > 0 && c + dy[i] > 0 && l + dx[i] < 1000 && c + dy[i] < 1000) {
+                    if (mat[l + dx[i]][c + dy[i]] == false && l + dx[i] > 0 && c + dy[i] > 0 && l + dx[i] < 1000 && c + dy[i] < 1000) {
                         //nu am mai fost aici
                         //adaug in coada
                         dr++;
                         Pozitie elem = new Pozitie(l + dx[i], c + dy[i], st, start.dist + 1);
                         v.add(elem);
-                        mat[elem.lin][elem.col] = mat[l][c] + 1;//marchez elementul ca parcurs
+                        mat[elem.lin][elem.col] = true;//marchez elementul ca parcurs
                         if (elem.lin == x && elem.col == y) {
                             //gasesc playerul
                             gasit = true;

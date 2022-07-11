@@ -1,11 +1,8 @@
 package com.port.world;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.port.utils.loader.Loader;
 /*
@@ -68,7 +65,7 @@ public class WorldData {
 	public static boolean[][] visitedWorldSections = { { false, false, false, false }, { false, false, false, false },
 			{ false, false, false, false } };
 
-	public static int[][][] worldSectionMatrix = new int[worldSectionShortNumber + 1][maxLengthWorld + 1][maxWidthWorld
+	public static boolean[][][] worldSectionMatrix = new boolean[worldSectionShortNumber + 1][maxLengthWorld + 1][maxWidthWorld
 			+ 1];
 
 	// nr maxim de sectiuni de pe o linie

@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import com.badlogic.gdx.files.FileHandle;
 import com.port.world.WorldData;
 
 /*
@@ -13,8 +12,8 @@ import com.port.world.WorldData;
 
 public abstract class Loader {
 
-	public static int[][] loadMatrix(File fin) {
-		int[][] mat = new int[WorldData.maxLengthWorld][WorldData.maxWidthWorld];
+	public static boolean[][] loadMatrix(File fin) {
+	  boolean[][] mat = new boolean[WorldData.maxLengthWorld][WorldData.maxWidthWorld];
 		try {
 			Scanner scan = new Scanner(fin);
 
@@ -22,7 +21,14 @@ public abstract class Loader {
 
 				for (int j = 0; j < WorldData.maxWidthWorld; j++) {
 					//System.out.format("%d ", mat[i][j]=scan.nextInt());
-					mat[i][j] = scan.nextInt();
+				  int val=scan.nextInt();
+				  if(val==-1)
+				  {
+				    mat[i][j]=true;
+				  }
+				  else {
+				    mat[i][j]=false;
+				  }
 				}
 
 			}
