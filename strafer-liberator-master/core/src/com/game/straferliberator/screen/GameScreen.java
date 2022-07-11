@@ -49,8 +49,7 @@ public class GameScreen extends ScreenAdapter {
 	public void update(float deltaTime) {
 
 		world.act();
-		WorldData.FPS=Gdx.graphics.getFramesPerSecond();
-		System.out.println(WorldData.FPS);
+		timeUpdate();
 	}
 
 	public void draw() {
@@ -68,6 +67,14 @@ public class GameScreen extends ScreenAdapter {
 		draw();
 
 	}
-	
+	public void dispose() {
+	}
+	private void timeUpdate() {
+		WorldData.FPS=Gdx.graphics.getFramesPerSecond();
+		WorldData.elapsed += Gdx.graphics.getDeltaTime();
+		if(WorldData.elapsed>=10000) {
+			WorldData.elapsed=0;
+		}
+	}
 
 }

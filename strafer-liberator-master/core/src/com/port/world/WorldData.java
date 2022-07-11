@@ -16,7 +16,8 @@ public class WorldData {
 	public static boolean PAUZA;
 	public static int WIDTH , HEIGHT ;
 	public static int FPS = 90;
-
+	public static float elapsed=0;
+	
 	public static int menuX = WIDTH / 2; // pt adaugat meniuri in mijlocu ecranului
 	public static int menuY = HEIGHT / 2;
 //

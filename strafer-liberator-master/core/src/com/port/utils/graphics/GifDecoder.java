@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
+import com.game.straferliberator.StraferLiberator;
 	/*
 	 * O clasa ajutatoare pt a incarca fisiere gif 
 	 */
@@ -545,6 +546,7 @@ public class GifDecoder {
 		}
 		transparency = (packed & 1) != 0;
 		delay = readShort() * 10; // delay in milliseconds
+		
 		transIndex = read(); // transparent color index
 		read(); // block terminator
 	}
@@ -723,7 +725,7 @@ public class GifDecoder {
 				}
 			}
 		}
-		float frameDuration = (float) getDelay(0);
+		float frameDuration = getDelay(0);
 		frameDuration /= 1000; // convert milliseconds into seconds
 		Animation<TextureRegion> result = new Animation<TextureRegion>(frameDuration, texReg, playMode);
 
@@ -731,7 +733,8 @@ public class GifDecoder {
 	}
 
 	public static Animation<TextureRegion> loadGIFAnimation(Animation.PlayMode playMode, InputStream is) {
-		GifDecoder gdec = new GifDecoder();
+		//GifDecoder gdec = StraferLiberator.gifDecoder;
+		GifDecoder gdec= new GifDecoder();
 		gdec.read(is);
 		return gdec.getAnimation(playMode);
 	}
