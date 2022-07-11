@@ -25,7 +25,7 @@ public class SabieGoblin extends NpcItem {
 
 	Actor goblin;
 
-	private final long constantEraseTime = 25;
+	private final short constantEraseTime = (short) (WorldData.FPS/2);
 	boolean gaveDamage = false;
 
 	public SabieGoblin(Goblin goblin) {

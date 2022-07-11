@@ -3,6 +3,8 @@ package com.port.UI.menu;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.game.straferliberator.StraferLiberator;
@@ -27,6 +29,7 @@ public class MainMenu extends Menu {
 	
 	Buton butonContinue = new Buton("Continue", this);
 	Buton butonNewGame = new Buton("newGame", this);
+	Buton butonExit;
 	
 	
 	List<Actor> thingsToRemove = new ArrayList<>();
@@ -52,6 +55,12 @@ public class MainMenu extends Menu {
 		getWorld().addObject(playerAnimation, WorldData.WIDTH/2,220);
 		thingsToRemove.add(playerAnimation);
 		thingsToRemove.add(logo);
+		
+		if(Gdx.app.getType().equals(ApplicationType.Desktop)) {
+			butonExit=new Buton("Exit",this);
+			getWorld().addObject(butonExit, WorldData.WIDTH-100, WorldData.HEIGHT-100);
+			thingsToRemove.add(butonExit);
+		}
 	}
 
 	public List<Actor> getThingsToRemove() {

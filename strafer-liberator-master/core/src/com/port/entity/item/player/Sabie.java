@@ -28,7 +28,7 @@ public class Sabie extends Item {
 	/**
 	 * The erase time for each "Sabie" instance
 	 */
-	private final long constantEraseTime = 25;
+	private short constantEraseTime = (short) (WorldData.FPS/2);
 	Actor player;
 
 	public Sabie(Player player) {

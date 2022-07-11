@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
 import com.port.UI.UI;
 import com.port.UI.menu.Dialog;
 import com.port.UI.menu.GameOver;
@@ -290,6 +291,9 @@ public class Buton extends UI {
 					getWorld().removeObjects(getWorld().getObjects(Buton.class));
 
 					break;
+				}
+				case "Exit":{
+					Gdx.app.exit();
 				}
 				default: {
 

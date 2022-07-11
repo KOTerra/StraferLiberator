@@ -25,7 +25,7 @@ public class TaserDolpatian extends NpcItem {
 
 	Actor dolpatian;
 
-	private final long constantEraseTime = 25;
+	private final short constantEraseTime = (short) (WorldData.FPS/2);
 	boolean gaveDamage = false;
 
 	public TaserDolpatian(Dolpatian dolpatian) {
