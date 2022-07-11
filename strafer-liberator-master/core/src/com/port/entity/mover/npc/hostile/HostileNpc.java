@@ -1,22 +1,21 @@
 package com.port.entity.mover.npc.hostile;
 
 
-import greenfoot.*;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.port.entity.item.pickup.Pill;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sabie;
-import com.port.entity.mover.Movers;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
 import com.port.world.structure.Perete;
+
+import greenfoot.Actor;
+import greenfoot.Greenfoot;
 
 public class HostileNpc extends Npc {
 
@@ -133,9 +132,7 @@ public class HostileNpc extends Npc {
             if ((worldX + Scroller.scrolledX) % super.rez > 0) {
                 gX++;
             }
-            if (super.matElem[gY][gX] != -1) {
-                super.matElem[gY][gX] = 0;
-            }
+           
             int difpx = Scroller.scrolledX - prevsx;
             int difpy = Scroller.scrolledY - prevsy;
 
@@ -250,10 +247,7 @@ public class HostileNpc extends Npc {
                 gX++;
             }
 
-            if (super.matElem[gY][gX] != -1) {
-                super.matElem[gY][gX] = -2;
-            }
-            //
+           
         }
     }
     
@@ -349,7 +343,7 @@ public class HostileNpc extends Npc {
 
     protected void lovitLaser() {
 
-        Actor a = (Laser) getOneIntersectingObject(Laser.class);
+        Actor a = getOneIntersectingObject(Laser.class);
         if (a != null) {
             timpBolt++;//cat timp ating ating laserul
             if (timpBolt >= 8) {

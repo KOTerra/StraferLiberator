@@ -33,7 +33,6 @@ public class Npc extends Movers {
     final int searchDistanceMax = 32;       //la cate celule distanta sa caute maxim
 
     protected String gif = "Idle";
-    //protected static String[] ord=new String[121001];
     protected ArrayList<StringBuilder> ord = new ArrayList<>();
     protected boolean gasit = false;
 
@@ -42,7 +41,6 @@ public class Npc extends Movers {
     protected int prevsx = Scroller.scrolledX;
     protected int prevsy = Scroller.scrolledY;
 
-    protected int[][] matElem = new int[WorldData.maxLengthWorld + 1][WorldData.maxWidthWorld + 1]; //matricea copiata din nivelx
 
     protected int sectiune = -1;
 
@@ -212,6 +210,7 @@ public class Npc extends Movers {
     protected double timp_knockback;
     protected int frameuri_trecute = 0; ///de cand incepe knockback
 
+    @Override
     protected void knockback(double timp, Actor attacker, double masa_attacker, double masa_this) {
 
         this.timp_knockback = timp;
@@ -253,6 +252,7 @@ public class Npc extends Movers {
         viteza_frame_y = sens_y * 2 * acceleratie_this * distance_added * fractiune;
     }
 
+    @Override
     public void act() {
 
     }
