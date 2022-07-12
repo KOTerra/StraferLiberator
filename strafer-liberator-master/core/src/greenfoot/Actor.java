@@ -121,8 +121,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	public boolean isTouching(java.lang.Class<?> cls) {
-		java.util.List<?> l = getWorld().getObjects(cls);
-		for (Object actor : l) {
+		for (Object actor : getWorld().getObjects(cls)) {
 			if (actor instanceof greenfoot.Actor && actor != this) {
 				if (((greenfoot.Actor) actor).intersects(this)) {
 					return true;
@@ -133,8 +132,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	protected void removeTouching(java.lang.Class<?> cls) {
-		java.util.List<?> l = (List<?>) getWorld().getObjects(cls);
-		for (Object actor : l) {
+		for (Object actor : getWorld().getObjects(cls)) {
 			if (((greenfoot.Actor) actor).intersects(this)) {
 				world.removeObject((greenfoot.Actor) actor);
 			}
@@ -142,9 +140,8 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	protected List<?> getIntersectingObjects(java.lang.Class<?> cls) {
-		List<?> l = getWorld().getObjects(cls);
 		ArrayList<greenfoot.Actor> res = new ArrayList<>();
-		for (Object actor : l) {
+		for (Object actor : getWorld().getObjects(cls)) {
 			if (((greenfoot.Actor) actor).intersects(this)) {
 				res.add((Actor) actor);
 			}
@@ -168,10 +165,9 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 	}
 
 	protected java.util.List<?> getObjectsInRange(int radius, java.lang.Class<?> cls) {
-		List<?> l = getWorld().getObjects(cls);
 		ArrayList<greenfoot.Actor> res = new ArrayList<>();
 
-		for (Object obj : l) {
+		for (Object obj : getWorld().getObjects(cls)) {
 			greenfoot.Actor actor = (greenfoot.Actor) obj;
 
 			if(radiusOverlaping(actor,radius)) {

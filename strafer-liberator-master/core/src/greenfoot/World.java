@@ -73,9 +73,8 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 
 	public List<?> getObjects(java.lang.Class<?> cls) {
 		List<greenfoot.Actor> l = new ArrayList<>();
-		;
-		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();
-		for (com.badlogic.gdx.scenes.scene2d.Actor actor : a) {
+		
+		for (com.badlogic.gdx.scenes.scene2d.Actor actor : super.getActors()) {
 			if (cls == null || cls.isInstance(actor)) {
 				l.add((greenfoot.Actor) actor);
 			}
@@ -84,17 +83,10 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 	}
 
 	public List<?> getObjectsAt(float x, float y, java.lang.Class<?> cls) { 
-		List<?> l = getObjects(cls);
 		List<greenfoot.Actor> res = new ArrayList<>();
-		for (Object a : l) {
+		for (Object a : getObjects(cls)) {
 			if (a instanceof Actor) {
 				Actor actor = (Actor) a;
-
-				// Rectangle r = new Rectangle(actor.getX() - actor.iw() / 2, actor.getY() -
-				// actor.ih() / 2, actor.iw(),
-				// actor.ih());
-
-				// if (r.contains(new Vector2(x, y))) {
 				if (	   actor.getX() - actor.iw() / 2 <= x 
 						&& actor.getX() + actor.iw() / 2 >= x
 						&& actor.getY() - actor.ih() / 2 <= y 

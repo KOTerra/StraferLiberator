@@ -23,6 +23,9 @@ import com.port.entity.mover.npc.hostile.Droid;
 import com.port.entity.mover.player.Player;
 import com.port.system.event.EventSystem;
 import com.port.utils.graphics.Transition;
+
+import com.port.UI.hud.StaminaBarPlayer;
+
 import com.port.utils.graphics.Picture;
 import com.port.utils.graphics.Text;
 
@@ -40,14 +43,15 @@ public class PlayWorld extends World {
 	public EventSystem eventSystem;
 
 	public Scroller scroller;
-	public AssetManager assetManager=StraferLiberator.assetManager;
-	
+	public AssetManager assetManager = StraferLiberator.assetManager;
+
 	Player player;
 
 	public HealthBarPlayer healthBar;
+	public StaminaBarPlayer staminaBar;
 	private boolean addedHealthBar = false;
 	HealthBarImg barBack = new HealthBarImg("Player");
-	
+
 	public GreenfootSound musicIdle;
 	public GreenfootSound musicCombat;
 	boolean musicLoaded = false;
@@ -56,7 +60,7 @@ public class PlayWorld extends World {
 		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); // width, height, cellsize, daca sunt actorii restricted la
 															// lume
 
-		PaintUtilities.setPaintOrder(PaintUtilities.paintOrder);//sets the paint order to the standard one
+		PaintUtilities.setPaintOrder(PaintUtilities.paintOrder);// sets the paint order to the standard one
 
 		WIDE = WorldData.WIDTH;
 		HIGH = WorldData.HEIGHT;
@@ -67,29 +71,28 @@ public class PlayWorld extends World {
 		WorldData.addedDialogs = false;
 		addedHealthBar = false;
 		addMainMenu();
-		
-		//puts the music on a new Thread 
+
+		// puts the music on a new Thread
 		new Thread(new Runnable() {
 
 			public void run() {
-				musicIdle = 
-				musicCombat = assetManager.get("sounds/music/Combat.mp3",GreenfootSound.class);
+				musicIdle = musicCombat = assetManager.get("sounds/music/Combat.mp3", GreenfootSound.class);
 				musicCombat.setVolume(45);
 				musicIdle.setVolume(45);
 				musicLoaded = true;
 			}
 		}).start();
-		
 
 	}
 
 	private void addMainMenu() {
-		addObject(new MainMenu(),300, WorldData.HEIGHT-135);
+		addObject(new MainMenu(), 300, WorldData.HEIGHT - 135);
 
 	}
 
 	public void addPlayer() {
-		GreenfootImage background = assetManager.get("images/map/worldSection/worldSection11.png",GreenfootImage.class);// imi pun fundalul
+		GreenfootImage background = assetManager.get("images/map/worldSection/worldSection11.png",
+				GreenfootImage.class);// imi pun fundalul
 		setBackground(background);
 		scroller = new Scroller(this, background, 8192, 8192);
 
@@ -107,21 +110,13 @@ public class PlayWorld extends World {
 
 	}
 
-
-
 	private void addHealthBar() {
 
 		healthBar = new HealthBarPlayer("", "", player.getHp(), player.getHpMax());
+		staminaBar= new StaminaBarPlayer("","",player.getStamina(),player.getStaminaMax());
 
-		healthBar.setSafeColor(Color.TEAL.lerp(Color.SKY, 0.7f));
-		healthBar.setDangerColor(Color.ORANGE);
-		healthBar.setBarWidth(179);
-		healthBar.setBarHeight(12);
-		healthBar.setReferenceText("");
-		healthBar.setTextColor(new Color(4, 69, 85, 214));
-
-		
 		addObject(healthBar, 172, 33);
+		addObject(staminaBar,117,50);
 		addObject(barBack, 148, 40);
 	}
 
@@ -133,10 +128,10 @@ public class PlayWorld extends World {
 		} else {
 			barBack.setLocation(148, 40);
 		}
-		if(barBack.getWorld()!=this) {
-			addObject(barBack,148,40);
+		if (barBack.getWorld() != this) {
+			addObject(barBack, 148, 40);
 		}
-		
+
 	}
 
 	// adauga obiectele pe toata mapa, nu doar pe suprafata de display
@@ -193,6 +188,10 @@ public class PlayWorld extends World {
 
 	public HealthBar getHealthBar() {
 		return healthBar;
+	}
+
+	public StaminaBarPlayer getStaminaBar() {
+		return staminaBar;
 	}
 
 	public GreenfootSound getMusicIdle() {

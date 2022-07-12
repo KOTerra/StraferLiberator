@@ -9,6 +9,7 @@ import java.util.HashSet;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.UI.hud.Inventory;
 import com.port.UI.hud.ItemSelect;
+import com.port.UI.hud.StaminaBarPlayer;
 import com.port.UI.menu.GameOver;
 import com.port.UI.menu.Pause;
 import com.port.entity.item.Item;
@@ -47,6 +48,9 @@ public class Player extends BasePlayer {
 	private boolean inViata = true;
 	private int hp = 400;
 	public static final int hpMax = 400;
+	private int stamina=100;
+	public final int staminaMax=100;
+	
 	private int initialSpeed = 7;
 	private int speed = initialSpeed;
 
@@ -56,6 +60,7 @@ public class Player extends BasePlayer {
 	private boolean equipIceLock = false;
 	private boolean equipLantern = false;
 	private boolean equipBlackHole = false;
+	private boolean canSprint = false;
 
 	private boolean toggledInventory = false;
 	public static boolean toggledPause = false;
@@ -240,12 +245,15 @@ public class Player extends BasePlayer {
 	}
 
 	private void sprint() {
-		if (Greenfoot.isKeyDown("L-Shift")) {
+		StaminaBarPlayer staminaBar=((PlayWorld)getWorld()).getStaminaBar();
+		staminaBar.update();
+		if (canSprint) {
 			speed = initialSpeed * 3;
 		} else {
 				speed = initialSpeed;
 		}
 	}
+
 
 	protected void vedere() {
 		playerImg = directie.get(this.gif);
@@ -568,6 +576,7 @@ public class Player extends BasePlayer {
 
 	public int getWorldX() {
 		return worldX;
+		
 	}
 
 	public int getWorldY() {
@@ -583,9 +592,11 @@ public class Player extends BasePlayer {
 	}
 
 	public HealthBarPlayer getHealthBar() {
-		return (HealthBarPlayer) (getWorld().getObjects(HealthBarPlayer.class).get(0));
+		return (HealthBarPlayer) ((PlayWorld)getWorld()).getHealthBar();
 	}
-
+	public StaminaBarPlayer getStaminaBar() {
+		return (StaminaBarPlayer) ((PlayWorld)getWorld()).getStaminaBar();
+	}
 	public boolean isInViata() {
 		return inViata;
 	}
@@ -602,6 +613,14 @@ public class Player extends BasePlayer {
 		this.hp = hp;
 	}
 
+	public int getStamina() {
+		return stamina;
+	}
+
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
+	}
+	
 	public int getSpeed() {
 		return speed;
 	}
@@ -681,7 +700,18 @@ public class Player extends BasePlayer {
 	public int getHpMax() {
 		return hpMax;
 	}
+	public int getStaminaMax() {
+		return staminaMax;
+	}
+	public boolean isCanSprint() {
+		return canSprint;
+	}
 
+	public void setCanSprint(boolean canSprint) {
+		this.canSprint = canSprint;
+	}
+
+	
 	private void prepareAnimation() { // pregateste animatia pt moarte
 		java.util.List<GreenfootImage> imgs = new GifImage("player/player_death.gif").getImages();
 		GreenfootImage[] images = new GreenfootImage[imgs.size()];

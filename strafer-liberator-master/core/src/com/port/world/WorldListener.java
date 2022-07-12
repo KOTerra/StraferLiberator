@@ -9,6 +9,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.buton.Buton;
 import com.port.UI.hud.HealthBarPlayer;
+import com.port.UI.hud.StaminaBarPlayer;
 import com.port.entity.mover.npc.hostile.Stroke;
 import com.port.entity.mover.player.Player;
 import com.port.system.event.EventSystem;
@@ -89,7 +90,7 @@ public class WorldListener extends WorldSection {
 
 		for (Actor actor : list) {
 			if (actor instanceof Player || actor instanceof WorldListener || actor instanceof EventSystem
-					|| actor instanceof HealthBarPlayer || actor instanceof Picture || actor instanceof Buton) {
+					|| actor instanceof HealthBarPlayer ||actor instanceof StaminaBarPlayer|| actor instanceof Picture || actor instanceof Buton) {
 			} else {
 				world.removeObject(actor);
 

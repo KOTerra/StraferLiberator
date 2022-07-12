@@ -25,7 +25,7 @@ public class HealthBar extends UI {
 	private boolean breakLow = true; // when true, with low-percent values bar is dangerColor, else safeColor;
 										// reversed when false
 
-	private Color backgroundColor = new Color(0, 0, 0, 0); // the background color of the entire object
+	private Color backgroundColor = new Color(0,0,0,0); // the background color of the entire object
 	private Color textColor = Color.BLACK; // the color of all text and the frame of the bar itself
 	private com.badlogic.gdx.graphics.Color safeColor = Color.GREEN; // the color of the bar while in the safe range
 	private com.badlogic.gdx.graphics.Color dangerColor = Color.RED; // the color of the bar while in the danger range
@@ -71,14 +71,6 @@ public class HealthBar extends UI {
 	private void newImage() {
 		int barValue = (int) (barWidth * (value - minimumValue) / (maximumValue - minimumValue));
 
-		GreenfootImage leftImg = new GreenfootImage(referenceText + value + "  ", (int) fontSize * 3, textColor,
-				backgroundColor);
-
-		GreenfootImage rightImg = (showTextualUnits)
-				? new GreenfootImage(" " + " " + unitOfMeasure, (int) fontSize, textColor, backgroundColor)
-				: new GreenfootImage(1, 1);
-		int maxX = (int) ((leftImg.getWidth() > rightImg.getWidth()) ? leftImg.getWidth() : rightImg.getWidth());
-
 		GreenfootImage barImg = new GreenfootImage(barWidth + 4, barHeight + 4);
 		barImg.setColor(backgroundColor);
 		barImg.fill();
@@ -105,39 +97,7 @@ public class HealthBar extends UI {
 
 			barImg.fillRect(2, 2, barValue, barHeight);
 		}
-
-		int sumX = (int) (2 * maxX + barImg.getWidth());
-		int maxY = 0;
-
-		if (leftImg.getHeight() > maxY) {
-			maxY = (int) leftImg.getHeight();
-		}
-		if (barImg.getHeight() > maxY) {
-			maxY = (int) barImg.getHeight();
-		}
-		if (rightImg.getHeight() > maxY) {
-			maxY = (int) rightImg.getHeight();
-		}
-
-		// pixelare text
-		// leftImg.scale(leftImg.getWidth() / 4, leftImg.getHeight() / 4);
-		// GreenfootImage leftImgPixelated = leftImg;
-		// leftImg = leftImgPixelated;
-		// leftImg.scale(leftImgPixelated.getWidth() * 2, leftImgPixelated.getHeight() *
-		// 2);
-		// pixelare text
-
-		GreenfootImage image = new GreenfootImage(sumX, maxY);
-		image.setColor(backgroundColor);
-		image.fill();
-
-		// image.drawImage(leftImg, maxX + 2 - leftImg.getWidth(), (image.getHeight() -
-		// leftImg.getHeight()) / 2);
-
-		image.drawImage(barImg, maxX, (image.getHeight() - barImg.getHeight()) / 2);
-		// image.drawImage(rightImg, maxX + barImg.getWidth(), (image.getHeight() -
-		// rightImg.getHeight()) / 2);
-		setImage(image);
+		setImage(barImg);
 	}
 
 	/**
@@ -162,8 +122,8 @@ public class HealthBar extends UI {
 	 * @param 'amount': the amount to subtract (if positive) or add (if negative) to
 	 *                  the current value of the bar
 	 */
-	public void subtract(int amount) {
-		value -= amount;
+	public void subtract(double d) {
+		value -= d;
 		checkValue();
 		newImage();
 	}
