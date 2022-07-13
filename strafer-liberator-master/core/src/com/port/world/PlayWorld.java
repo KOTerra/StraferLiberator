@@ -113,10 +113,10 @@ public class PlayWorld extends World {
 	private void addHealthBar() {
 
 		healthBar = new HealthBarPlayer("", "", player.getHp(), player.getHpMax());
-		staminaBar= new StaminaBarPlayer("","",player.getStamina(),player.getStaminaMax());
+		staminaBar= new StaminaBarPlayer(player.getStamina(),player.getStaminaMax());
 
 		addObject(healthBar, 172, 33);
-		addObject(staminaBar,117,50);
+		addObject(staminaBar,116,49);
 		addObject(barBack, 148, 40);
 	}
 

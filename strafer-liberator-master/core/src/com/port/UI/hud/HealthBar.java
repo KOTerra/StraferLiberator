@@ -64,6 +64,8 @@ public class HealthBar extends UI {
 		add(initValue);
 	}
 
+	public HealthBar() {}
+	
 	/**
 	 * Method 'newImage': builds a new image for the bar, determined by the values
 	 * set for it
