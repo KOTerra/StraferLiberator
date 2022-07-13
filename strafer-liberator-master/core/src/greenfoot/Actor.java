@@ -274,7 +274,6 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 		}
 		return true;
 	}
-
 	public float iw() {
 		return getImage().getWidth();
 	}

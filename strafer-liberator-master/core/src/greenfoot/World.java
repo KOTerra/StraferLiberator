@@ -57,6 +57,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		if (actor == null) {
 			return;
 		}
+
 		actor.setNotRemovedYet(false);
 		actor.remove();
 		Array<com.badlogic.gdx.scenes.scene2d.Actor> a = super.getActors();

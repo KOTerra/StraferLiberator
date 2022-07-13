@@ -248,4 +248,14 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		return transparency;
 	}
 
+	public void dispose() {
+		try {
+			pixmap.dispose();
+			getTexture().dispose();
+			frameBuffer.dispose();
+		}catch(Exception e){
+			
+		}
+	}
+
 }

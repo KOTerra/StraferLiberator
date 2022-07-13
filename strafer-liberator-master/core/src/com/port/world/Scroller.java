@@ -84,8 +84,8 @@ public class Scroller {
 			scrolledX += dsx;
 			scrolledY += dsy;
 			// scroll background image
-			if (scrollImage != null) {
 
+			if (scrollImage != null) {
 				world.setBackground(new GreenfootImage(new TextureRegion(scrollImage.getTexture(), scrolledX, scrolledY,
 						WorldData.WIDTH, WorldData.HEIGHT)));
 
@@ -102,23 +102,6 @@ public class Scroller {
 		}
 	}
 
-	public boolean canScrollFurther() {
-
-		int limitx = scrollMaxWide - WorldData.WIDTH;
-		int limity = scrollMaxHigh - WorldData.HEIGHT;
-		if (scrolledX >= limitx && scrolledY >= limity) {
-			scrollDirection = 3;
-			return false;
-		} else if (scrolledY >= limity) {
-			scrollDirection = 2;
-			return false;
-		} else if (scrolledX >= limitx) {
-			scrollDirection = 1;
-			return false;
-		}
-		scrollDirection = 0;
-		return true;
-	}
 
 	public int getScrolledX() {
 		return scrolledX;

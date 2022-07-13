@@ -72,7 +72,11 @@ public class SabieGoblin extends NpcItem {
 	}
 
 	private void reposition() {
-		switch (((HostileNpc) goblin).getGifItem()) {
+		String gi =((HostileNpc) goblin).getGifItem();
+		if(gi==null) {
+			return;
+		}
+		switch (gi) {
 		case "W": {
 			repositionY = -50;
 			repositionX = 0;
@@ -95,6 +99,7 @@ public class SabieGoblin extends NpcItem {
 			repositionX = 40;
 			break;
 		}
+		
 		}
 
 	}
