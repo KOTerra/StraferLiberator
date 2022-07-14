@@ -20,7 +20,6 @@ public class GameScreen extends ScreenAdapter {
 
 	StraferLiberator game;
 
-	Vector3 touchPoint;
 	greenfoot.World world;
 
 	WorldRenderer<Object> worldRederer;
@@ -29,7 +28,7 @@ public class GameScreen extends ScreenAdapter {
 	public GameScreen(StraferLiberator straferLiberator) {
 		this.game = straferLiberator;
 		game.cFont=game.assetManager.get("fonts/consolas.fnt",Font.class);
-		game.eFont=game.assetManager.get("fonts/edo.fnt",Font.class);
+		
 
 		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
 			//world = new TestWorld();
@@ -42,7 +41,6 @@ public class GameScreen extends ScreenAdapter {
 		worldRederer = new WorldRenderer<Object>(world);
 		Gdx.input.setInputProcessor(world);
 
-		touchPoint = new Vector3();
 
 	}
 

@@ -13,8 +13,6 @@ import greenfoot.GreenfootImage;
  */
 public class Text extends Menu {
 
-	Font fontu = StraferLiberator.eFont;
-
 	String txt;
 	int size;
 

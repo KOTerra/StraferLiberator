@@ -5,6 +5,7 @@ import greenfoot.*;
 
 import java.util.List;
 
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.TaserDolpatian;
@@ -226,17 +227,10 @@ public class Dolpatian extends Goblin {
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/dolpatian_death.gif",GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
-        for (int i = 0; i < imgs.size(); i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        animation = new Animation(this, images);
-        animation.setCycleActs(22);
-        animation.setCycleCount(1);
-        animation.setScalar(5);
-        animation.run();
-        animation.setActiveState(true);
+    	animation=StraferLiberator.assetManager.get("images/npc/inamic/dolpatian/dolpatian_death.gif",Animation.class);
+		animation.setAnimated(this);
+		animation.run();
+		animation.setActiveState(true);
     }
  public boolean isFreeze() {
         return freeze;

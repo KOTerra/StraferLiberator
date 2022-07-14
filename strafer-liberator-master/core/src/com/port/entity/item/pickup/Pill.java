@@ -1,5 +1,6 @@
 package com.port.entity.item.pickup;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
@@ -9,7 +10,7 @@ import greenfoot.*;
 public class Pill extends PickUp {
 
 	int hpToAdd;
-	GifImage gif = new GifImage("item/pickUp/pill.gif");
+	GifImage gif=StraferLiberator.assetManager.get("images/item/pickUp/pill.gif",GifImage.class);
 
 	private final long constantEraseTime = WorldData.FPS * 5;
 	int time = 0;

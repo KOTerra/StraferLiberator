@@ -1,6 +1,7 @@
 package com.port.utils.graphics;
 
 
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 import com.port.world.WorldData;
@@ -17,10 +18,10 @@ public class Transition extends Menu {
 
     public Transition(String name, int nrf, int cc) {
 
-        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get(name,GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
+        Array imgs = StraferLiberator.assetManager.get(name,GifImage.class).getImages();
+        GreenfootImage[] images = new GreenfootImage[imgs.size];
 
-        for (int i = 0; i < imgs.size(); i++) {
+        for (int i = 0; i < imgs.size; i++) {
             images[i] = (GreenfootImage) imgs.get(i);
         }
         animation = new Animation(this, images);

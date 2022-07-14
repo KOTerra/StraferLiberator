@@ -21,14 +21,14 @@ import com.port.world.WorldData;
  */
 public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion {
 
-	Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
+	Pixmap pixmap ;
 	FrameBuffer frameBuffer;
 
 	private int transparency = 255;
 	com.badlogic.gdx.graphics.Color backgroundColor = new Color(0, 0, 0, 0f);
 	com.badlogic.gdx.graphics.Color textColor = new Color(0, 0, 0, 1);
 
-	 Font font = StraferLiberator.cFont;
+	 Font font= StraferLiberator.cFont;
 
 
 	float scaleX;
@@ -116,6 +116,7 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		pxmp.setColor(backgroundColor);
 		pxmp.fill();
 		Texture texture = new Texture(pxmp);
+	
 
 		BitmapFontData fdata = font.getData();
 
@@ -139,6 +140,8 @@ public class GreenfootImage extends com.badlogic.gdx.graphics.g2d.TextureRegion 
 		super.setRegion(texture);
 		spriteBatch.end();
 		frameBuffer.end();
+		spriteBatch.dispose();
+
 
 	}
 

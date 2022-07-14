@@ -9,8 +9,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.world.WorldData;
 
@@ -21,46 +23,28 @@ import greenfoot.GreenfootImage;
  */
 public class GifImage {
 
-	Animation<TextureRegion> animation;
-
 	float frameDuration;
 	
-	List<GreenfootImage> greenfootImages = new ArrayList<>();
+	Array greenfootImages = new Array(GreenfootImage.class);
 	int numberOfFrames = 0;
 	float scaleX = -1, scaleY = -1;
 
 	
 	
-	public GifImage(String file) {
-		animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("images/" + file).read());
-		
 
-		frameDuration = animation.getFrameDuration();
-		for (TextureRegion t : animation.getKeyFrames()) {
-			greenfootImages.add(new GreenfootImage(t));
-			++numberOfFrames;
-		}
-	}
-
-	public GifImage(Animation anim) {
-		animation = anim;
-		
-//		animation.setFrameDuration(animation.getFrameDuration());
-		frameDuration = animation.getFrameDuration();
-		for (TextureRegion t : animation.getKeyFrames()) {
-			greenfootImages.add(new GreenfootImage(t));
-			++numberOfFrames;
-		}
+	public GifImage(float frameDuration, Array gImg) {
+		greenfootImages=gImg;
+		this.frameDuration=frameDuration;
 	}
 
 	public GreenfootImage getCurrentImage() {
 
-		int ind=animation.getKeyFrameIndex(WorldData.elapsed);
+		int ind=getKeyFrameIndex(WorldData.elapsed);
 		
-		return greenfootImages.get(ind);
+		return (GreenfootImage) greenfootImages.get(ind);
 	}
 
-	public List<GreenfootImage> getImages() {
+	public Array getImages() {
 		
 		return greenfootImages;
 	}
@@ -68,10 +52,22 @@ public class GifImage {
 	public void scale(float x, float y) {
 		scaleX = x;
 		scaleY = y;
-		for (GreenfootImage g : greenfootImages) {
+		for (Object g : greenfootImages) {
 			if (scaleX >= 0 && scaleY >= 0) {
-				g.scale(scaleX, scaleY);
+				((GreenfootImage)g).scale(scaleX, scaleY);
 			}
 		}
 	}
+	public int getKeyFrameIndex (float stateTime) {
+		if (greenfootImages.size == 1) return 0;
+
+		int frameNumber = (int)(stateTime / frameDuration);
+
+			frameNumber = frameNumber % greenfootImages.size;
+	
+
+	
+		return frameNumber;
+	}
+
 }

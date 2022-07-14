@@ -5,6 +5,7 @@ import greenfoot.*;
 
 import java.util.List;
 
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.ExplozieSchrodingersCat;
@@ -249,12 +250,8 @@ public class SchrodingersCat extends Goblin {
 
         animationName = anim;
         String animationToGet="images/npc/inamic/schrodingersCat/schrodingersCat_" + anim + ".gif";
-        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get(animationToGet,GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
-        for (int i = 0; i < imgs.size(); i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        animation = new Animation(this, images);
+        animation=StraferLiberator.assetManager.get(animationToGet,Animation.class);
+        animation.setAnimated(this);
         animation.setCycleActs(nrframeuri);
         animation.setCycleCount(1);
         animation.setScalar(scalar);

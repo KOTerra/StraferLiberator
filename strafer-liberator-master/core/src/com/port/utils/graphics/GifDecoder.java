@@ -9,7 +9,10 @@ import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Disposable;
 import com.game.straferliberator.StraferLiberator;
+
+import greenfoot.GreenfootImage;
 	/*
 	 * O clasa ajutatoare pt a incarca fisiere gif 
 	 */
@@ -688,7 +691,7 @@ public class GifDecoder {
 		} while ((blockSize > 0) && !err());
 	}
 
-	public Animation<TextureRegion> getAnimation(PlayMode playMode) {
+	public GifImage getGIFImage() {
 		int nrFrames = getFrameCount();
 		Pixmap frame = getFrame(0);
 		int width = frame.getWidth();
@@ -714,28 +717,32 @@ public class GifDecoder {
 		}
 
 		Texture texture = new Texture(target);
-		Array texReg=new Array(true,nrFrames,TextureRegion.class);
+		Array gImg=new Array(true,nrFrames,GreenfootImage.class);
 
 		for (h = 0; h < hzones; h++) {
 			for (v = 0; v < vzones; v++) {
 				int frameID = v + h * vzones;
 				if (frameID < nrFrames) {
 					TextureRegion tr = new TextureRegion(texture, h * width, v * height, width, height);
-					texReg.add(tr);
+					gImg.add(new GreenfootImage(tr));
 				}
 			}
 		}
 		float frameDuration = getDelay(0);
 		frameDuration /= 1000; // convert milliseconds into seconds
-		Animation<TextureRegion> result = new Animation<TextureRegion>(frameDuration, texReg, playMode);
-
+	
+		GifImage result= new GifImage(frameDuration, gImg);
+		target.dispose();
+		frame.dispose();
+		
 		return result;
 	}
 
-	public static Animation<TextureRegion> loadGIFAnimation(Animation.PlayMode playMode, InputStream is) {
+	public static GifImage loadGIFAnimation( InputStream is) {
 		//GifDecoder gdec = StraferLiberator.gifDecoder;
 		GifDecoder gdec= new GifDecoder();
 		gdec.read(is);
-		return gdec.getAnimation(playMode);
+		return gdec.getGIFImage();
 	}
+
 }

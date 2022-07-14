@@ -6,6 +6,7 @@ import greenfoot.*;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.hud.HealthBar;
 import com.port.UI.hud.HealthBarImg;
@@ -280,17 +281,10 @@ boolean enter=false;
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_death.gif",GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
-        for (int i = 0; i < imgs.size(); i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        animation = new Animation(this, images);
-        animation.setCycleActs(17);
-        animation.setCycleCount(1);
-        animation.setScalar(5);
-        animation.run();
-        animation.setActiveState(true);
+    	animation=StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_death.gif",Animation.class);
+		animation.setAnimated(this);
+		animation.run();
+		animation.setActiveState(true);
     }
 
 }

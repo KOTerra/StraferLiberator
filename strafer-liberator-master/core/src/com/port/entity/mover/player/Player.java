@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.Array;
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.UI.hud.Inventory;
 import com.port.UI.hud.ItemSelect;
@@ -24,6 +27,7 @@ import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.Animation;
+import com.port.utils.graphics.GifDecoder;
 import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
@@ -86,19 +90,21 @@ public class Player extends BasePlayer {
 		playWorld = (PlayWorld) getWorld();
 
 		// sta
-		directie.put("idle", new GifImage("player/player_m_Idle.gif"));
+		directie.put("idle",StraferLiberator.assetManager.get("images/player/player_m_Idle.gif",GifImage.class));
 
 		// merge
-		directie.put("D", new GifImage("player/player_m_D.gif"));
-		directie.put("W", new GifImage("player/player_m_W.gif"));
-		directie.put("A", new GifImage("player/player_m_A.gif"));
-		directie.put("S", new GifImage("player/player_m_S.gif"));
+		directie.put("D",StraferLiberator.assetManager.get("images/player/player_m_D.gif",GifImage.class));
+		directie.put("W",StraferLiberator.assetManager.get("images/player/player_m_W.gif",GifImage.class));
+		directie.put("A",StraferLiberator.assetManager.get("images/player/player_m_A.gif",GifImage.class));
+		directie.put("S",StraferLiberator.assetManager.get("images/player/player_m_S.gif",GifImage.class));
+
+
 
 		// se uita
-		directie.put("Ds", new GifImage("player/vedere_D.gif"));
-		directie.put("Ws", new GifImage("player/vedere_W.gif"));
-		directie.put("As", new GifImage("player/vedere_A.gif"));
-		directie.put("Ss", new GifImage("player/vedere_S.gif"));
+		directie.put("Ds", StraferLiberator.assetManager.get("images/player/vedere_D.gif",GifImage.class));
+		directie.put("Ws", StraferLiberator.assetManager.get("images/player/vedere_W.gif",GifImage.class));
+		directie.put("As", StraferLiberator.assetManager.get("images/player/vedere_A.gif",GifImage.class));
+		directie.put("Ss", StraferLiberator.assetManager.get("images/player/vedere_S.gif",GifImage.class));
 
 		this.timpPrec = System.currentTimeMillis();
 	}
@@ -713,18 +719,13 @@ public class Player extends BasePlayer {
 
 	
 	private void prepareAnimation() { // pregateste animatia pt moarte
-		java.util.List<GreenfootImage> imgs = new GifImage("player/player_death.gif").getImages();
-		GreenfootImage[] images = new GreenfootImage[imgs.size()];
-		for (int i = 0; i < imgs.size(); i++) {
-			images[i] = (GreenfootImage) imgs.get(i);
-		}
+
 		playedAnimation = false;
-		animation = new Animation(this, images);
-		animation.setCycleActs(15);
-		animation.setCycleCount(1);
-		animation.setScalar(5);
+		animation=StraferLiberator.assetManager.get("images/player/player_death.gif",Animation.class);
+		animation.setAnimated(this);
 		animation.run();
 		animation.setActiveState(true);
+	
 	}
 
 }

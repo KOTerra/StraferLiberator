@@ -133,9 +133,19 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif", GifImage.class);
 		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
 
+		// player
+		game.assetManager.load("images/player/player_m_Idle.gif", GifImage.class);
+		game.assetManager.load("images/player/player_m_W.gif", GifImage.class);
+		game.assetManager.load("images/player/player_m_A.gif", GifImage.class);
+		game.assetManager.load("images/player/player_m_S.gif", GifImage.class);
+		game.assetManager.load("images/player/player_m_D.gif", GifImage.class);
+		game.assetManager.load("images/player/vedere_D.gif", GifImage.class);
+		game.assetManager.load("images/player/vedere_W.gif", GifImage.class);
+		game.assetManager.load("images/player/vedere_A.gif", GifImage.class);
+		game.assetManager.load("images/player/vedere_S.gif", GifImage.class);
+
 		// npc
 		game.assetManager.load("images/npc/inamic/goblin/goblin_m_Idle.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/goblin/goblin_death.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/goblin/goblin_m_W.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/goblin/goblin_m_A.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/goblin/goblin_m_S.gif", GifImage.class);
@@ -146,18 +156,14 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/npc/inamic/goblin/sabie_goblin_D.gif", GifImage.class);
 
 		game.assetManager.load("images/npc/inamic/stroke/rumble.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/stroke/stroke_death.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/stroke/stroke_idle.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/stroke/stroke_m.gif", GifImage.class);
 
 		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_m.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_m_Idle.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Enter.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Exit.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Explode.gif", GifImage.class);
+
 
 		game.assetManager.load("images/npc/inamic/droid/droid.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/droid/droid_death.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/droid/laserDroid.gif", GifImage.class);
 
 		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_Idle.gif", GifImage.class);
@@ -165,7 +171,6 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_A.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_S.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_m_D.gif", GifImage.class);
-		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_death.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_W.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_A.gif", GifImage.class);
 		game.assetManager.load("images/npc/inamic/dolpatian/taserDolpatian_S.gif", GifImage.class);
@@ -199,6 +204,32 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/item/sabie_a_A.gif", GifImage.class);
 		game.assetManager.load("images/item/sabie_a_S.gif", GifImage.class);
 		game.assetManager.load("images/item/sabie_a_D.gif", GifImage.class);
+
+		// Animations
+		game.assetManager.setLoader(com.port.utils.graphics.Animation.class,
+				new AnimationLoader(new InternalFileHandleResolver()));
+		
+		game.assetManager.load("images/player/player_death.gif", com.port.utils.graphics.Animation.class,
+				new AnimationLoader.AnimationLoaderParameter(15, 1, 5));
+		
+		game.assetManager.load("images/npc/inamic/dolpatian/dolpatian_death.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(22, 1, 5));
+		
+		game.assetManager.load("images/npc/inamic/droid/droid_death.gif", com.port.utils.graphics.Animation.class,
+				new AnimationLoader.AnimationLoaderParameter(20, 1, 5));
+		
+		game.assetManager.load("images/npc/inamic/goblin/goblin_death.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(22, 1, 5));
+		
+		game.assetManager.load("images/npc/inamic/stroke/stroke_death.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(17, 1, 5));
+		
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Enter.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Exit.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
+		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Explode.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
 
 	}
 

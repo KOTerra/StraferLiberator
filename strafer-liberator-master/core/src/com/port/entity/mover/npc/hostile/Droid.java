@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.LaserDroid;
@@ -239,17 +240,10 @@ public class Droid extends HostileNpc {
     }
 
     private void changeAnimation() {
-        java.util.List<GreenfootImage> imgs = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif",GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size()];
-        for (int i = 0; i < imgs.size(); i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        animation = new Animation(this, images);
-        animation.setCycleActs(20);
-        animation.setCycleCount(1);
-        animation.setScalar(5);
-        animation.run();
-        animation.setActiveState(true);
+    	animation=StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif",Animation.class);
+		animation.setAnimated(this);
+		animation.run();
+		animation.setActiveState(true);
     }
 
     public boolean isFreeze() {

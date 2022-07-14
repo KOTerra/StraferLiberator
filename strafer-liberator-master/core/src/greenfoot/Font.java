@@ -15,7 +15,7 @@ public class Font extends com.badlogic.gdx.graphics.g2d.BitmapFont {
 	boolean italic;
 	float size = 10;
 
-	BitmapFontData data = new BitmapFontData();
+	BitmapFontData data;
 
 	public Font(int size) {
 

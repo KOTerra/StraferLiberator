@@ -18,13 +18,10 @@ import greenfoot.GreenfootImage;
 
 public class GifImageLoader extends AsynchronousAssetLoader<GifImage, GifImageLoader.GifImageLoaderParameter> {
 
-	private Animation<TextureRegion> animation;
-
 	public GifImageLoader(FileHandleResolver resolver) {
 
 		super(resolver);
 
-		this.animation = null;
 	}
 
 	@Override
@@ -36,15 +33,7 @@ public class GifImageLoader extends AsynchronousAssetLoader<GifImage, GifImageLo
 	public GifImage loadSync(AssetManager manager, String fileName, FileHandle file,
 			GifImageLoaderParameter parameter) {
 
-		PlayMode playMode = PlayMode.LOOP;
-
-		if (parameter != null) {
-			playMode = parameter.playMode;
-		}
-
-		animation = (GifDecoder.loadGIFAnimation(playMode, file.read()));
-
-		return new GifImage(animation);
+		return (GifDecoder.loadGIFAnimation(file.read()));
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -56,6 +45,6 @@ public class GifImageLoader extends AsynchronousAssetLoader<GifImage, GifImageLo
 
 	public static class GifImageLoaderParameter extends AssetLoaderParameters<GifImage> {
 
-		public PlayMode playMode = PlayMode.LOOP;
+
 	}
 }
