@@ -96,6 +96,11 @@ public class LoadingScreen implements Screen {
 
 	private void queueAssetsToLoad() {
 
+		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
+		// dam load la fonturi
+		game.assetManager.load("fonts/consolas.fnt", Font.class, new FontLoaderParameters(false, false, 24));
+
+		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		// dam load la imageuri
 		game.assetManager.load("images/map/worldSection/worldSection11.png", GreenfootImage.class);
@@ -106,15 +111,107 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/map/worldSection/worldSection23.png", GreenfootImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/logo.png", GreenfootImage.class);
 		game.assetManager.load("images/UI/menu/pauseMenu/pauseLogo.png", GreenfootImage.class);
+		
 		game.assetManager.load("images/item/sabieHold_W.png", GreenfootImage.class);
 		game.assetManager.load("images/item/sabieHold_A.png", GreenfootImage.class);
 		game.assetManager.load("images/item/sabieHold_S.png", GreenfootImage.class);
 		game.assetManager.load("images/item/sabieHold_D.png", GreenfootImage.class);
+		game.assetManager.load("images/item/laserPlayerHold_D.png", GreenfootImage.class);
+		game.assetManager.load("images/item/laserPlayerHold_W.png", GreenfootImage.class);
+		game.assetManager.load("images/item/laserPlayerHold_A.png", GreenfootImage.class);
+		game.assetManager.load("images/item/laserPlayerHold_S.png", GreenfootImage.class);
+		game.assetManager.load("images/item/iceCube.png", GreenfootImage.class);
+		game.assetManager.load("images/effects/light.png",GreenfootImage.class);
+		game.assetManager.load("images/npc/inamic/stroke/healthBar.png",GreenfootImage.class);
+		game.assetManager.load("images/perete/pereteInviz_mare.png",GreenfootImage.class);
+		game.assetManager.load("images/perete/pereteInviz_mare90.png",GreenfootImage.class);
+		game.assetManager.load("images/perete/pereteInviz_mic.png",GreenfootImage.class);
+		game.assetManager.load("images/perete/pereteInviz_mic90.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/back0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/back1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/continue0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/continue1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/mainMenu0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/mainMenu1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/map0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/map1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/newGame0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/newGame1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/next0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/next1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/resume0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/resume1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/X0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/X1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/Exit0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/buton/Exit1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/bossfight/bossfight0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/field/field0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/theend/theend0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/wakeup/wakeup0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/wakeup/wakeup1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/wakeup/wakeup2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/cutscene/wall/wall0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/dialog/dialogKeanu.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/dialog/dialogStonks.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/dialog/dialogTsoukalos.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/healthBar.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/Inventory.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/select.png",GreenfootImage.class);		
+		game.assetManager.load("images/UI/hud/itemWheelDefault.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/itemWheelSelect.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelBlackHole.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelIceLock.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelLantern.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelLaser.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelPortalGun.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/hud/wheelSword.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu11.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu12.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu13.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu21.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu22.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/mapMenu23.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/marker.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/mapMenu/markerObjective.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/menu/gameOver/gameOver.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/menu/pauseMenu/pauseMenu.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorial.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorial.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Dolpatian/Combat#tutorialDolpatian0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Dolpatian/Combat#tutorialDolpatian1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Dolpatian/Combat#tutorialDolpatian2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Droid/Combat#tutorialDroid0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Droid/Combat#tutorialDroid1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Goblin/Combat#tutorialGoblin0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/Goblin/Combat#tutorialGoblin1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackHole/Items#tutorialblackHole0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackHole/Items#tutorialblackHole1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/iceLock/Items#tutorialiceLock0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/iceLock/Items#tutorialiceLock1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/laser/Items#tutoriallaser0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/laser/Items#tutoriallaser1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/sword/Items#tutorialsword0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/sword/Items#tutorialsword1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/inventory/Mechanics#tutorialinventory0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/inventory/Mechanics#tutorialinventory1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/map/Mechanics#tutorialmap0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/walk/Mechanics#tutorialwalk0.png",GreenfootImage.class);
+		
+		
+		
+		
 
-		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));
-		// dam load la fonturi
-		game.assetManager.load("fonts/consolas.fnt", Font.class, new FontLoaderParameters(false, false, 24));
-		game.assetManager.load("fonts/edo.fnt", Font.class, new FontLoaderParameters(false, false, 10));
 
 		game.assetManager.setLoader(GreenfootSound.class, new GreenfootSoundLoader(new InternalFileHandleResolver()));
 		// dam load la sunete

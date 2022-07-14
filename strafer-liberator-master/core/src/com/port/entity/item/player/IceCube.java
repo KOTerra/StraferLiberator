@@ -1,5 +1,6 @@
 package com.port.entity.item.player;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.world.WorldData;
 
@@ -7,7 +8,7 @@ import greenfoot.*;
 
 public class IceCube extends IceLock{
     
-    GreenfootImage img=new GreenfootImage("item/iceCube.png");
+    GreenfootImage img=StraferLiberator.assetManager.get("images/item/iceCube.png",GreenfootImage.class);
     Actor actor;
     IceLock iceLock;
     private final long constantEraseTime = 256;int time=0;

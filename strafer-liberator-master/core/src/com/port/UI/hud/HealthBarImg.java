@@ -1,5 +1,7 @@
 package com.port.UI.hud;
 
+import com.game.straferliberator.StraferLiberator;
+
 import greenfoot.*;
 
 public class HealthBarImg extends HealthBar {
@@ -18,11 +20,11 @@ public class HealthBarImg extends HealthBar {
 		this.name = name;
 		switch (name) {
 		case "Stroke": {
-			img = new GreenfootImage("npc/inamic/stroke/healthBar.png");
+			img= StraferLiberator.assetManager.get("images/npc/inamic/stroke/healthBar.png",GreenfootImage.class);
 			break;
 		}
 		case "Player": {
-			img = new GreenfootImage("UI/hud/healthBar.png");
+			img= StraferLiberator.assetManager.get("images/UI/hud/healthBar.png",GreenfootImage.class);
 			break;
 		}
 		}

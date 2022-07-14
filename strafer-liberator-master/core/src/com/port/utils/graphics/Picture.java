@@ -2,6 +2,7 @@ package com.port.utils.graphics;
 
 
 import com.badlogic.gdx.graphics.Texture;
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 
 import greenfoot.*;
@@ -73,7 +74,7 @@ public class Picture extends Menu {
     public void setImageName(String imageName) {
 
         this.imageName = imageName;
-        this.setImage(imageName);
+        this.setImage(StraferLiberator.assetManager.get("images/"+imageName,GreenfootImage.class));
     }
 
 }

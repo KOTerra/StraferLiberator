@@ -5,6 +5,7 @@ import greenfoot.*;
 
 import java.util.ArrayList;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.player.Light;
 import com.port.entity.mover.player.Player;
 import com.port.world.PlayWorld;
@@ -13,7 +14,7 @@ import com.port.world.WorldData;
 public class Door extends PereteInvizibil {
 
     //worldsection 12 x3300 y6080
-    GreenfootImage img = new GreenfootImage("perete/pereteInviz_mare.png");
+    GreenfootImage img = StraferLiberator.assetManager.get("images/perete/pereteInviz_mare.png",GreenfootImage.class);
 
     public Door() {
         super("W", 1, "mare");

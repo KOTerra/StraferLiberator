@@ -15,7 +15,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Pause extends Menu{
 	
 
-    GreenfootImage background=new GreenfootImage("UI/menu/pauseMenu/pauseMenu.png");
+    GreenfootImage background=StraferLiberator.assetManager.get("images/UI/menu/pauseMenu/pauseMenu.png",GreenfootImage.class);
     GifImage blurGif=StraferLiberator.assetManager.get("images/UI/menu/pauseMenu/pauseBlur.gif",GifImage.class);
     float blurScaleFactor=WorldData.HEIGHT/blurGif.getCurrentImage().getHeight();
     Picture blur=new Picture();
@@ -37,8 +37,8 @@ public class Pause extends Menu{
         thingsToRemove.add(blur);
         thingsToRemove.add(logo);       
         
-        this.getWorld().addObject(new Buton("Resume",this),97,300);
-        this.getWorld().addObject(new Buton("Map",this),52,365);
+        this.getWorld().addObject(new Buton("resume",this),97,300);
+        this.getWorld().addObject(new Buton("map",this),52,365);
         this.getWorld().addObject(new Buton("mainMenu",this),119,465);
     }
     

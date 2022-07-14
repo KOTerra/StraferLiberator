@@ -4,6 +4,7 @@ import greenfoot.*;
 
 import java.util.*;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 import com.port.entity.mover.player.Player;
 import com.port.world.WorldData;
@@ -12,8 +13,9 @@ import java.awt.event.*;
 
 public class Inventory extends Menu {
 
-	GreenfootImage wheel0 = new GreenfootImage("UI/hud/inventory.png");
-	GreenfootImage wheel1 = new GreenfootImage("UI/hud/itemWheelSelect.png");
+	GreenfootImage wheel0 = StraferLiberator.assetManager.get("images/UI/hud/Inventory.png",GreenfootImage.class);
+	
+	GreenfootImage wheel1 = StraferLiberator.assetManager.get("images/UI/hud/itemWheelSelect.png",GreenfootImage.class);
 
 	public static int nrItem = 5; // 1 sword
 	// 2 icelock

@@ -6,6 +6,7 @@ import greenfoot.*;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.buton.Buton;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Picture;
@@ -15,13 +16,13 @@ import com.port.world.WorldData;
 
 public class MapMenu extends Pause {
 
-    GreenfootImage img = new GreenfootImage("UI/mapMenu/mapMenu.png");
+    GreenfootImage img =StraferLiberator.assetManager.get("images/UI/mapMenu/mapMenu.png",GreenfootImage.class);
     boolean butoanead = false;
     PlayWorld playWorld;
     Player player;
 
-    Picture markerPlayer = new Picture("UI/mapMenu/marker.png");
-    Picture markerObjective = new Picture("UI/mapMenu/markerObjective.png");
+    Picture markerPlayer = new Picture(StraferLiberator.assetManager.get("images/UI/mapMenu/marker.png",GreenfootImage.class));
+    Picture markerObjective = new Picture(StraferLiberator.assetManager.get("images/UI/mapMenu/markerObjective.png",GreenfootImage.class));
     Text objectiveText;
 
     ArrayList<Actor> thingsToClear = new ArrayList<Actor>();
@@ -66,7 +67,7 @@ public class MapMenu extends Pause {
             for (int j = 1; j <= 3; j++) {
                 int ws = i * 10 + j;
                 if (WorldData.visitedWorldSections[i][j] == true) {
-                    Picture pic = new Picture("UI/mapMenu/mapMenu" + ws + ".png");
+                    Picture pic = new Picture(StraferLiberator.assetManager.get("images/UI/mapMenu/mapMenu" + ws + ".png",GreenfootImage.class));
                     playWorld.addObject(pic,distx+ 247 * j - 84, disty+247 * i - 84);
                     thingsToClear.add(pic);
                 }

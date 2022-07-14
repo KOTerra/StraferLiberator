@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.player.Player;
@@ -15,7 +16,7 @@ import com.port.world.WorldData;
 
 public class ItemSelect extends Menu {
 
-	String path="UI/hud/wheel";
+	String path="images/UI/hud/wheel";
 
     private Player player;
 
@@ -25,7 +26,7 @@ public class ItemSelect extends Menu {
     
     public ItemSelect(Player player) {
         this.player = player;
-        setImage(new GreenfootImage("UI/hud/select.png"));
+        setImage(StraferLiberator.assetManager.get("images/UI/hud/select.png",GreenfootImage.class));
         
     }
 
@@ -106,32 +107,33 @@ public class ItemSelect extends Menu {
     
     private void makeOverlay() {
     	if(WorldData.hasSword) {
-    		Picture p=new Picture(path+"Sword.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"Sword.png",GreenfootImage.class));
+    		
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}
     	if(WorldData.hasIceLock) {
-    		Picture p=new Picture(path+"IceLock.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"IceLock.png",GreenfootImage.class));
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}
     	if(WorldData.hasBlackHole) {
-    		Picture p=new Picture(path+"BlackHole.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"BlackHole.png",GreenfootImage.class));
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}
     	if(WorldData.hasLantern) {
-    		Picture p=new Picture(path+"Lantern.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"Lantern.png",GreenfootImage.class));
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}
     	if(WorldData.hasLaser) {
-    		Picture p=new Picture(path+"Laser.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"Laser.png",GreenfootImage.class));
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}
     	if(WorldData.hasPortalGun) {
-    		Picture p=new Picture(path+"PortalGun.png");
+    		Picture p=new Picture(StraferLiberator.assetManager.get(path+"PortalGun.png",GreenfootImage.class));
     		thingsToRemove.add(p);
     		getWorld().addObject(p, x, y);
     	}

@@ -1,6 +1,6 @@
-PlayerX:4019
-PlayerY:982
-Health:-37
+PlayerX:2457
+PlayerY:766
+Health:-7
 WorldSection:12
 WS11:true
 WS12:true
@@ -15,4 +15,4 @@ Item:blackHole
 Item:portalGun
 Item:iceLock
 DialogIndex:11
-NrEvent:36
+NrEvent:32
