@@ -53,12 +53,12 @@ public class PickUp extends Item {
                         break;
                     }
                     case "blackHole": {
-                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", "blackhole", 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasBlackHole = true;
                         break;
                     }
                     case "iceLock": {
-                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", "icelock", 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasIceLock = true;
                         break;
                     }
@@ -68,7 +68,7 @@ public class PickUp extends Item {
                         break;
                     }
                     case "portalGun": {
-                        getWorld().addObject(new Tutorial("Items", name, 3, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", "portalgun", 3, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasPortalGun = true;
                         break;
                     }

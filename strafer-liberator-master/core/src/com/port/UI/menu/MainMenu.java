@@ -57,7 +57,7 @@ public class MainMenu extends Menu {
 		thingsToRemove.add(logo);
 		
 		if(Gdx.app.getType().equals(ApplicationType.Desktop)) {
-			butonExit=new Buton("exit",this);
+			butonExit=new Buton("Exit",this);
 			getWorld().addObject(butonExit, WorldData.WIDTH-100, WorldData.HEIGHT-100);
 			thingsToRemove.add(butonExit);
 		}

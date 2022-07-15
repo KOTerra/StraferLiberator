@@ -248,6 +248,7 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/perete/pereteInviz_mare90.png",GreenfootImage.class);
 		game.assetManager.load("images/perete/pereteInviz_mic.png",GreenfootImage.class);
 		game.assetManager.load("images/perete/pereteInviz_mic90.png",GreenfootImage.class);
+	
 		game.assetManager.load("images/UI/buton/back0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/buton/back1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/buton/continue0.png",GreenfootImage.class);
@@ -264,8 +265,7 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/UI/buton/resume1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/buton/X0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/buton/X1.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/buton/exit0.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/buton/exit1.png",GreenfootImage.class);
+	
 		game.assetManager.load("images/UI/cutscene/bossfight/bossfight0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/cutscene/field/field0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/cutscene/theend/theend0.png",GreenfootImage.class);
@@ -310,24 +310,30 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Combat/SchrodingersCat/Combat#tutorialSchrodingersCat2.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackHole/Items#tutorialblackHole0.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackHole/Items#tutorialblackHole1.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/iceLock/Items#tutorialiceLock0.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/iceLock/Items#tutorialiceLock1.png",GreenfootImage.class);
+		
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackhole/Items#tutorialblackhole0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/blackhole/Items#tutorialblackhole1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/icelock/Items#tutorialicelock0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/icelock/Items#tutorialicelock1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/lantern/Items#tutoriallantern2.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/laser/Items#tutoriallaser0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/laser/Items#tutoriallaser1.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun0.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun1.png",GreenfootImage.class);
-		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalGun/Items#tutorialportalGun2.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalgun/Items#tutorialportalgun0.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalgun/Items#tutorialportalgun1.png",GreenfootImage.class);
+		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/portalgun/Items#tutorialportalgun2.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/sword/Items#tutorialsword0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Items/sword/Items#tutorialsword1.png",GreenfootImage.class);
+		
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/inventory/Mechanics#tutorialinventory0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/inventory/Mechanics#tutorialinventory1.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/map/Mechanics#tutorialmap0.png",GreenfootImage.class);
 		game.assetManager.load("images/UI/tutorial/tutorialSlides/Mechanics/walk/Mechanics#tutorialwalk0.png",GreenfootImage.class);
+		if(Gdx.app.getType().equals(Application.ApplicationType.Desktop)) {
+			game.assetManager.load("images/UI/buton/Exit0.png", GreenfootImage.class);
+			game.assetManager.load("images/UI/buton/Exit1.png", GreenfootImage.class);
+		}
 		
 		
 		

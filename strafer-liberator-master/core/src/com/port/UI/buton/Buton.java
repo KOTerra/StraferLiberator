@@ -293,7 +293,7 @@ public class Buton extends UI {
 
 					break;
 				}
-				case "exit":{
+				case "Exit":{
 					Gdx.app.exit();
 				}
 				default: {
