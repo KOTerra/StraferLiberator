@@ -44,31 +44,31 @@ public class PickUp extends Item {
                 switch (name) {
                     case "sword": {
                         WorldData.hasSword = true;
-                        getWorld().addObject(new Tutorial("Items", "sword", 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         break;
                     }
                     case "laser": {
-                        getWorld().addObject(new Tutorial("Items", "laser", 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasLaser = true;
                         break;
                     }
                     case "blackHole": {
-                        getWorld().addObject(new Tutorial("Items", "blackhole", 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasBlackHole = true;
                         break;
                     }
                     case "iceLock": {
-                        getWorld().addObject(new Tutorial("Items", "icelock", 2, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 2, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasIceLock = true;
                         break;
                     }
                     case "lantern": {
-                        getWorld().addObject(new Tutorial("Items", "lantern", 3, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 3, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasLantern = true;
                         break;
                     }
                     case "portalGun": {
-                        getWorld().addObject(new Tutorial("Items", "portalgun", 3, false), WorldData.menuX, WorldData.menuY);
+                        getWorld().addObject(new Tutorial("Items", name, 3, false), WorldData.menuX, WorldData.menuY);
                         WorldData.hasPortalGun = true;
                         break;
                     }
