@@ -21,7 +21,8 @@ public class Tutorial extends Menu {
 	 */
 	private String img;
 	private String tip;
-	private Picture picture = new Picture(StraferLiberator.assetManager.get("images/UI/tutorial/tutorial.png",GreenfootImage.class));
+	private Picture picture = new Picture(
+			StraferLiberator.assetManager.get("images/UI/tutorial/tutorial.png", GreenfootImage.class));
 	private Buton buton = new Buton("next", this);
 
 	private boolean addedButon = false;
@@ -39,7 +40,7 @@ public class Tutorial extends Menu {
 		addedPicture = false;
 		this.inPause = inPauseref;
 
-		setImage(StraferLiberator.assetManager.get("images/UI/tutorial/tutorial.png",GreenfootImage.class));
+		setImage(StraferLiberator.assetManager.get("images/UI/tutorial/tutorial.png", GreenfootImage.class));
 
 	}
 
@@ -55,6 +56,7 @@ public class Tutorial extends Menu {
 		}
 
 	}
+
 	int butonTutorialInitialx;
 
 	public void addButon() {
@@ -62,18 +64,17 @@ public class Tutorial extends Menu {
 			if (tip == "Cutscene") {
 				getWorld().addObject(buton, WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
 			} else {
-				butonTutorialInitialx=(int) (WorldData.menuX+getImage().getWidth()/2-50);
-				getWorld().addObject(buton,butonTutorialInitialx,WorldData.menuY+getImage().getHeight()/2-50);
+				butonTutorialInitialx = (int) (WorldData.menuX + getImage().getWidth() / 2 - 50);
+				getWorld().addObject(buton, butonTutorialInitialx, WorldData.menuY + getImage().getHeight() / 2 - 50);
 			}
 
-			
 			addedButon = true;
 		}
 		if (addedButon) {
 			if (tip == "Cutscene") {
 				buton.setLocation(WorldData.WIDTH - 100, WorldData.HEIGHT - 100);
 			} else {
-				buton.setLocation(butonTutorialInitialx,WorldData.menuY+getImage().getHeight()/2-50);
+				buton.setLocation(butonTutorialInitialx, WorldData.menuY + getImage().getHeight() / 2 - 50);
 			}
 		}
 	}
@@ -107,7 +108,9 @@ public class Tutorial extends Menu {
 	}
 
 	public void setNrSlide(int nrSlide) {
-		this.nrSlide = nrSlide;
+		if (nrSlide >= 0) {
+			this.nrSlide = nrSlide;
+		}
 	}
 
 	public String getImgName() {

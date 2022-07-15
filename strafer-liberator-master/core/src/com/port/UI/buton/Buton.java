@@ -318,6 +318,7 @@ public class Buton extends UI {
 			if (obj instanceof Tutorial) {
 				if (tutorial.getNrSlide() > 0) {
 					if (!tutorial.isAddedButonBack()) {
+						
 						if (((Tutorial) obj).getTip() == "Cutscene") {
 							this.getWorld().addObject(new Buton("back", tutorial), 100, this.getY());
 						}
