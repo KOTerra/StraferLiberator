@@ -214,7 +214,7 @@ public class Buton extends UI {
 				case "mainMenu": {
 					getWorld().addObject(new MainMenu(), WorldData.menuX, WorldData.menuY);
 
-					((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
+					((PlayWorld) getWorld()).getPlayer().setLoaded(false);
 					Player.toggledPause = false;
 
 					if (obj instanceof Pause) {
@@ -275,7 +275,7 @@ public class Buton extends UI {
 						mm.getMusic().stop();
 
 						getWorld().removeObjects(mm.getThingsToRemove());
-						Player player = (Player) getWorld().getObjects(Player.class).get(0);
+						Player player =((PlayWorld)getWorld()).getPlayer();
 						player.load();
 
 						if (!player.isInViata()) {
@@ -285,9 +285,10 @@ public class Buton extends UI {
 					if (obj instanceof GameOver) {
 						GameOver go = (GameOver) obj;
 						go.getMusic().stop();
-						((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
-						((Player) getWorld().getObjects(Player.class).get(0)).load();
-						((Player) getWorld().getObjects(Player.class).get(0)).revive();
+						Player player =((PlayWorld)getWorld()).getPlayer();
+						player.setLoaded(false);
+						player.load();
+						player.revive();
 					}
 
 					getWorld().removeObjects(getWorld().getObjects(Buton.class));

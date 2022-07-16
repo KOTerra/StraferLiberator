@@ -1,6 +1,5 @@
 package com.port.entity.mover.npc.hostile;
 
-
 import greenfoot.*;
 
 import java.util.ArrayList;
@@ -17,240 +16,242 @@ import com.port.entity.item.player.Sabie;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
+import com.port.world.PlayWorld;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
 
 public class Droid extends HostileNpc {
 
-    private String axa;
-    private int dist;
-    private int distParc;
-    private boolean sensPoz = true;
-    int gX, gY;
-    GifImage img = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid.gif",GifImage.class);
+	private String axa;
+	private int dist;
+	private int distParc;
+	private boolean sensPoz = true;
+	int gX, gY;
+	GifImage img = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid.gif", GifImage.class);
 
-    public static int speed = 3;
-    private int hp = 75;
-    private int mass = 60;
-    private final int pauza = 50;
+	public static int speed = 3;
+	private int hp = 75;
+	private int mass = 60;
+	private final int pauza = WorldData.FPS;
 
-    private long timpLaser = 0;
-    private boolean mort = false;
-    Animation animation;
-    boolean startedAnimation = false;
-    int cntDeath = 0;
+	private long timpLaser = 0;
+	private boolean mort = false;
+	Animation animation;
+	boolean startedAnimation = false;
+	int cntDeath = 0;
 
-    private long timpSab = 0;
-    private long timpBolt = 0;
+	private long timpSab = 0;
+	private long timpBolt = 0;
 
-    public String gifLaser;
+	public String gifLaser;
 
-    public Droid(Scroller scrl, int x, int y, String xy, int dist) {
-        super(scrl, x, y);
-        this.dist = dist;
-        distParc = 0;
-        this.axa = xy;
-        gX = x;
-        gY = y;
-        sensPoz = true;
+	public Droid(Scroller scrl, int x, int y, String xy, int dist) {
+		super(scrl, x, y);
+		this.dist = dist;
+		distParc = 0;
+		this.axa = xy;
+		gX = x;
+		gY = y;
+		sensPoz = true;
 
-        changeAnimation();
-        animation.setActiveState(false);
-    }
+		changeAnimation();
+		animation.setActiveState(false);
+	}
 
-    protected void gaseste() {
-        List players = getWorld().getObjects(Player.class);
-        if (!players.isEmpty()) {
-            Actor player = (Actor) players.get(0);
-            turnTowards(player.getX(), player.getY());
-        }
+	protected void gaseste() {
 
-    }
+		Player player = ((PlayWorld) getWorld()).getPlayer();
+		if (player != null) {
+			turnTowards(player.getX(), player.getY());
 
-    protected void move() {
-        lovitSabie();
-        lovitLaser();
-        if (axa.equals("ox")) {
-            int difpx = Scroller.scrolledX - prevsx;
-            int difpy = Scroller.scrolledY - prevsy;
+		}
+	}
 
-            worldX -= difpx;
-            worldY -= difpy;
-            super.move();
+	protected void move() {
+		lovitSabie();
+		lovitLaser();
+		if (axa.equals("ox")) {
+			int difpx = Scroller.scrolledX - prevsx;
+			int difpy = Scroller.scrolledY - prevsy;
 
-            if (sensPoz == true) {
-                //sens pozitiv ,cresc X
-                worldX += speed;
-                distParc += speed;
-                if (dist - distParc <= 0) {
-                    sensPoz = false;
-                    distParc = 0;
-                }
-            } else {
-                worldX -= speed;
-                distParc += speed;
-                if (dist - distParc <= 0) {
-                    sensPoz = true;
-                    distParc = 0;
-                }
-            }
+			worldX -= difpx;
+			worldY -= difpy;
+			super.move();
 
-        } else if (axa.equals("oy")) {
+			if (sensPoz == true) {
+				// sens pozitiv ,cresc X
+				worldX += speed;
+				distParc += speed;
+				if (dist - distParc <= 0) {
+					sensPoz = false;
+					distParc = 0;
+				}
+			} else {
+				worldX -= speed;
+				distParc += speed;
+				if (dist - distParc <= 0) {
+					sensPoz = true;
+					distParc = 0;
+				}
+			}
 
-            if (sensPoz == true) {
-                //sens pozitiv ,cresc Y
-                worldY += speed;
-                distParc += speed;
-                if (dist - distParc <= 0) {
-                    sensPoz = false;
-                    distParc = 0;
-                }
-            } else {
-                worldY -= speed;
-                distParc += speed;
-                if (dist - distParc <= 0) {
-                    sensPoz = true;
-                    distParc = 0;
-                }
-            }
+		} else if (axa.equals("oy")) {
 
-        }
-        setLocation(worldX, worldY);
-        if (timpLaser > pauza) {
+			if (sensPoz == true) {
+				// sens pozitiv ,cresc Y
+				worldY += speed;
+				distParc += speed;
+				if (dist - distParc <= 0) {
+					sensPoz = false;
+					distParc = 0;
+				}
+			} else {
+				worldY -= speed;
+				distParc += speed;
+				if (dist - distParc <= 0) {
+					sensPoz = true;
+					distParc = 0;
+				}
+			}
 
-            getWorld().addObject(new LaserDroid(), getX(), getY());
-            timpLaser = 0;
+		}
+		setLocation(worldX, worldY);
+		if (timpLaser > pauza) {
 
-        }
-        timpLaser++;
+			getWorld().addObject(new LaserDroid(), getX(), getY());
+			timpLaser = 0;
 
-    }
+		}
+		timpLaser++;
 
-    protected void lovitSabie() {
-        super.lovitSabie(this.mass);
-        if (isTouching(Sabie.class)) {
-            timpSab++;
-            if (timpSab >= 15) {
-                takeDamage(Sabie.damage);
-                timpSab = 0;
-            }
+	}
 
-        }
+	protected void lovitSabie() {
+		super.lovitSabie(this.mass);
+		if (isTouching(Sabie.class)) {
+			timpSab++;
+			if (timpSab >= 15) {
+				takeDamage(Sabie.damage);
+				timpSab = 0;
+			}
 
-    }
+		}
 
-    protected void lovitLaser() {
-        super.lovitLaser();
-        Actor a = (Laser) getOneIntersectingObject(Laser.class);
-        if (a != null) {
-            timpBolt++;//cat timp ating ating laserul
-            if (timpBolt >= 5) {
-                removeTouching(Laser.class);
-                takeDamage(Laser.damage);
-                timpBolt = 0;
-            }
-        }
-    }
+	}
 
-    private void suckedBlackHole() {
-        if (isTouching(BlackHole.class)) {
-            takeDamage(10);
-        }
-    }
+	protected void lovitLaser() {
+		super.lovitLaser();
+		Actor a = (Laser) getOneIntersectingObject(Laser.class);
+		if (a != null) {
+			timpBolt++;// cat timp ating ating laserul
+			if (timpBolt >= 5) {
+				removeTouching(Laser.class);
+				takeDamage(Laser.damage);
+				timpBolt = 0;
+			}
+		}
+	}
 
-    private void takeDamage(int dmg) {
-        hp -= dmg;
-    }
+	private void suckedBlackHole() {
+		if (isTouching(BlackHole.class)) {
+			takeDamage(10);
+		}
+	}
 
-    private void die() {
-        if (hp <= 0) {
-            mort = true;
-        }
-    }
+	private void takeDamage(int dmg) {
+		hp -= dmg;
+	}
 
-    public void act() {
+	private void die() {
+		if (hp <= 0) {
+			mort = true;
+		}
+	}
 
-        if (WorldData.PAUZA == false && super.checkPlayerInChunck() == true && !freeze) {
+	public void act() {
 
-            if (mort == true) {
-                cntDeath++;
-                if (cntDeath > 2) {
-                    if (!startedAnimation) {
-                        animation.setActiveState(true);
-                        startedAnimation = true;
-                    }
-                }
-                if (animation.isActive()) {
-                    animation.run();
-                }
-                if (startedAnimation && !animation.isActive()) {
-                    super.generateRandomHealthBoost();
-                    getWorld().removeObject(this);
-                }
-            } else {
+		if (WorldData.PAUZA == false && super.checkPlayerInChunck() == true && !freeze) {
 
-                lovitSabie();
-                lovitLaser();
-                suckedBlackHole();
-                die();
+			if (mort == true) {
+				cntDeath++;
+				if (cntDeath > 2) {
+					if (!startedAnimation) {
+						animation.setActiveState(true);
+						startedAnimation = true;
+					}
+				}
+				if (animation.isActive()) {
+					animation.run();
+				}
+				if (startedAnimation && !animation.isActive()) {
+					super.generateRandomHealthBoost();
+					getWorld().removeObject(this);
+				}
+			} else {
 
-                timpAtins = 0;//{
-                atingePlayer = true;//ataca
+				lovitSabie();
+				lovitLaser();
+				suckedBlackHole();
+				die();
 
-                //daca e in range sa nu l caute in toata lumea
-                List players = getWorld().getObjects(Player.class);
-                Player player = (Player) players.get(0);
+				timpAtins = 0;// {
+				atingePlayer = true;// ataca
 
-                move();
+				// daca e in range sa nu l caute in toata lumea
+				List players = getWorld().getObjects(Player.class);
+				Player player = (Player) players.get(0);
 
-                int deltaPGX = player.getWorldX() - (this.worldX + Scroller.scrolledX);
-                if (deltaPGX < 0) {
-                    deltaPGX *= (-1);
-                }
-                int deltaPGY = player.getWorldY() - (this.worldY + Scroller.scrolledY);
-                if (deltaPGY < 0) {
-                    deltaPGY *= (-1);
-                }
-                if (deltaPGX <= 600 && deltaPGY <= 400) {
-                    if (!WorldData.metDroid&&WorldData.nrEvent<=7) {
-                        getWorld().addObject(new Tutorial("Combat", "Droid", 2, false), WorldData.menuX, WorldData.menuY);
-                        WorldData.metDroid = true;
-                    }
-                    //aici intra functia de move 
-                    gaseste();
+				move();
 
-                }
-                int difpx = Scroller.scrolledX - prevsx;
-                int difpy = Scroller.scrolledY - prevsy;
+				int deltaPGX = player.getWorldX() - (this.worldX + Scroller.scrolledX);
+				if (deltaPGX < 0) {
+					deltaPGX *= (-1);
+				}
+				int deltaPGY = player.getWorldY() - (this.worldY + Scroller.scrolledY);
+				if (deltaPGY < 0) {
+					deltaPGY *= (-1);
+				}
+				if (deltaPGX <= WorldData.WIDTH && deltaPGY <= WorldData.HEIGHT) {
+					if (!WorldData.metDroid && WorldData.nrEvent <= 7) {
+						getWorld().addObject(new Tutorial("Combat", "Droid", 2, false), WorldData.menuX,
+								WorldData.menuY);
+						WorldData.metDroid = true;
+					}
+					// aici intra functia de move
+					gaseste();
 
-                worldX -= difpx;
-                worldY -= difpy;
-                prevsx = Scroller.scrolledX;
-                prevsy = Scroller.scrolledY;
+				}
+				int difpx = Scroller.scrolledX - prevsx;
+				int difpy = Scroller.scrolledY - prevsy;
 
-                this.knockbackMove();
-            }
-            if (animation.isActive()) {
-                animation.run();
-            } else {
-                setImage(img.getCurrentImage());
-            }
-        }
+				worldX -= difpx;
+				worldY -= difpy;
+				prevsx = Scroller.scrolledX;
+				prevsy = Scroller.scrolledY;
 
-    }
+				this.knockbackMove();
+			}
+			if (animation.isActive()) {
+				animation.run();
+			} else {
+				setImage(img.getCurrentImage());
+			}
+		}
 
-    private void changeAnimation() {
-    	animation=StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif",Animation.class);
+	}
+
+	private void changeAnimation() {
+		animation = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif", Animation.class);
 		animation.setAnimated(this);
 		animation.run();
 		animation.setActiveState(true);
-    }
+	}
 
-    public boolean isFreeze() {
-        return freeze;
-    }
+	public boolean isFreeze() {
+		return freeze;
+	}
 
-    public void setFreeze(boolean freeze) {
-        this.freeze = freeze;
-    }
+	public void setFreeze(boolean freeze) {
+		this.freeze = freeze;
+	}
 }
