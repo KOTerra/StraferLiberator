@@ -141,6 +141,10 @@ public class Tutorial extends Menu {
 		return addedButonBack;
 	}
 
+	public void setAddedButonBack(boolean addedButonBack) {
+		this.addedButonBack = addedButonBack;
+	}
+
 	public boolean isInPause() {
 		return inPause;
 	}

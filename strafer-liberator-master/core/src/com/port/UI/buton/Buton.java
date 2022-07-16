@@ -53,8 +53,8 @@ public class Buton extends UI {
 			tutorial = (Tutorial) obj;
 		}
 
-		img0=StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png",GreenfootImage.class);
-		img1=StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png",GreenfootImage.class);
+		img0 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png", GreenfootImage.class);
+		img1 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png", GreenfootImage.class);
 		setImage(img0);
 
 	}
@@ -72,8 +72,8 @@ public class Buton extends UI {
 		if (obj instanceof Tutorial) {
 			tutorial = (Tutorial) obj;
 		}
-		img0=StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png",GreenfootImage.class);
-		img1=StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png",GreenfootImage.class);
+		img0 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png", GreenfootImage.class);
+		img1 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png", GreenfootImage.class);
 		setImage(img0);
 
 	}
@@ -95,8 +95,8 @@ public class Buton extends UI {
 		if (obj instanceof Tutorial) {
 			tutorial = (Tutorial) obj;
 		}
-		img0=StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png",GreenfootImage.class);
-		img1=StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png",GreenfootImage.class);
+		img0 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "0.png", GreenfootImage.class);
+		img1 = StraferLiberator.assetManager.get("images/UI/buton/" + img + "1.png", GreenfootImage.class);
 		setImage(img0);
 
 	}
@@ -133,11 +133,12 @@ public class Buton extends UI {
 					break;
 				}
 				case "back": {
-
-					if (obj instanceof Tutorial) {
-						tutorial.setNrSlide(tutorial.getNrSlide() - 1);
-						tutorial.setAddedPicture(false);
-					}
+					
+						if (obj instanceof Tutorial) {
+							tutorial.setNrSlide(tutorial.getNrSlide() - 1);
+							tutorial.setAddedPicture(false);
+						}
+					
 					break;
 				}
 
@@ -188,8 +189,8 @@ public class Buton extends UI {
 
 					WorldData.PAUZA = false;
 					Player.toggledPause = false;
-					if(obj instanceof Pause) {
-						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+					if (obj instanceof Pause) {
+						getWorld().removeObjects(((Pause) obj).getThingsToRemove());
 					}
 					if (obj instanceof Menu) {
 						getWorld().removeObject((Menu) obj);
@@ -202,8 +203,8 @@ public class Buton extends UI {
 				case "map": {
 
 					getWorld().addObject(new MapMenu((PlayWorld) getWorld()), WorldData.menuX, WorldData.menuY);
-					if(obj instanceof Pause) {
-						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+					if (obj instanceof Pause) {
+						getWorld().removeObjects(((Pause) obj).getThingsToRemove());
 					}
 					getWorld().removeObject((Menu) obj);
 					getWorld().removeObjects(getWorld().getObjects(Buton.class));
@@ -215,9 +216,9 @@ public class Buton extends UI {
 
 					((Player) getWorld().getObjects(Player.class).get(0)).setLoaded(false);
 					Player.toggledPause = false;
-					
-					if(obj instanceof Pause) {
-						getWorld().removeObjects(((Pause)obj).getThingsToRemove());
+
+					if (obj instanceof Pause) {
+						getWorld().removeObjects(((Pause) obj).getThingsToRemove());
 					}
 					if (obj instanceof Menu) {
 						getWorld().removeObject((Menu) obj);
@@ -293,7 +294,7 @@ public class Buton extends UI {
 
 					break;
 				}
-				case "Exit":{
+				case "Exit": {
 					Gdx.app.exit();
 				}
 				default: {
@@ -318,13 +319,14 @@ public class Buton extends UI {
 			if (obj instanceof Tutorial) {
 				if (tutorial.getNrSlide() > 0) {
 					if (!tutorial.isAddedButonBack()) {
-						
+
 						if (((Tutorial) obj).getTip() == "Cutscene") {
 							this.getWorld().addObject(new Buton("back", tutorial), 100, this.getY());
+						} else {
+							this.getWorld().addObject(new Buton("back", tutorial),
+									tutorial.getX() - tutorial.getImage().getWidth() / 2 + 50, this.getY());
 						}
-						else {
-							this.getWorld().addObject(new Buton("back", tutorial), tutorial.getX()-tutorial.getImage().getWidth()/2+50, this.getY());
-						}
+						tutorial.setAddedButonBack(true);
 					}
 				}
 				if (tutorial.isLastSlide()) {
@@ -338,6 +340,8 @@ public class Buton extends UI {
 			if (obj instanceof Tutorial) {
 				if (tutorial.isFirstSlide()) {
 					this.getWorld().removeObject(this);
+					tutorial.setAddedButonBack(false);
+
 				}
 			}
 			break;
