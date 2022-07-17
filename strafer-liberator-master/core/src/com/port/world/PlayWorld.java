@@ -109,7 +109,9 @@ public class PlayWorld extends World {
 
 		worldListener = new com.port.world.WorldListener(this);
 		eventSystem = new EventSystem(this);
-		touchManager = new TouchManager(this);
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			touchManager = new TouchManager(this);
+		}
 
 		addObject(worldListener, 1, 1);
 		addObject(eventSystem, 1, 1);

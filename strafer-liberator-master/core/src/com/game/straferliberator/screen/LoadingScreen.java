@@ -334,7 +334,7 @@ public class LoadingScreen implements Screen {
 			game.assetManager.load("images/UI/buton/Exit0.png", GreenfootImage.class);
 			game.assetManager.load("images/UI/buton/Exit1.png", GreenfootImage.class);
 		}
-	//	if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
+		if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
 			game.assetManager.load("images/UI/touch/dpadup.png",GreenfootImage.class);
 			game.assetManager.load("images/UI/touch/dpadup1.png",GreenfootImage.class);
 			game.assetManager.load("images/UI/touch/dpaddown.png",GreenfootImage.class);
@@ -359,7 +359,7 @@ public class LoadingScreen implements Screen {
 			game.assetManager.load("images/UI/touch/sword1.png",GreenfootImage.class);
 
 
-	//	}
+		}
 		
 		
 		

@@ -87,10 +87,10 @@ public class WorldData {
 	// incarca matricele de pathfind pt fiecare mapa
 	public static void loadWorldMatrices() {
 
-		String director = new String("maps/");
+		String directory = new String("maps/");
 		for (int i = 1; i <= 6; i++) {
 
-			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.internal(director + i + ".txt")).file());
+			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.internal(directory + i + ".txt")).file());
 		}
 	}
 
@@ -129,14 +129,7 @@ public class WorldData {
 		dialogIndex = 0;
 		talked = false;
 		nrEvent = 1;
-		if (Gdx.app.getType().equals(ApplicationType.Android)) {
-			hasSword = true;
-			hasLaser = true;
-			hasBlackHole = true;
-			hasLantern = true;
-			hasPortalGun = true;
-			hasIceLock = true;
-		}
+		
 
 	}
 
