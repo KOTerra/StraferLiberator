@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.UI.hud.HealthBar;
 import com.port.UI.hud.HealthBarImg;
 import com.port.UI.hud.HealthBarPlayer;
@@ -42,7 +42,7 @@ public abstract class PaintUtilities {
 	/**
 	 * The standard paint order, saved in an array
 	 */
-	public static Class<?>[] paintOrder = { Buton.class, MainMenu.class, Menu.class, HealthBarPlayer.class,StaminaBarPlayer.class,
+	public static Class<?>[] paintOrder = { Button.class, MainMenu.class, Menu.class, HealthBarPlayer.class,StaminaBarPlayer.class,
 			HealthBar.class, Text.class, Picture.class, MapMenu.class, Tutorial.class, Dialog.class, HealthBarImg.class,
 			Transition.class, Item.class, NpcItem.class, Lantern.class, Light.class, Droid.class, Player.class,
 			Npc.class };

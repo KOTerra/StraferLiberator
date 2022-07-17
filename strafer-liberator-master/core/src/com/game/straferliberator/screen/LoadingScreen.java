@@ -334,7 +334,32 @@ public class LoadingScreen implements Screen {
 			game.assetManager.load("images/UI/buton/Exit0.png", GreenfootImage.class);
 			game.assetManager.load("images/UI/buton/Exit1.png", GreenfootImage.class);
 		}
-		
+	//	if(Gdx.app.getType().equals(Application.ApplicationType.Android)) {
+			game.assetManager.load("images/UI/touch/dpadup.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpadup1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpaddown.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpaddown1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpadleft.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpadleft1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpadright.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/dpadright1.png",GreenfootImage.class);
+
+			game.assetManager.load("images/UI/touch/empty.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/empty1.png",GreenfootImage.class);
+
+			game.assetManager.load("images/UI/touch/inventory.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/inventory1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/sprint.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/sprint1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/pause.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/pause1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/portal.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/portal1.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/sword.png",GreenfootImage.class);
+			game.assetManager.load("images/UI/touch/sword1.png",GreenfootImage.class);
+
+
+	//	}
 		
 		
 		

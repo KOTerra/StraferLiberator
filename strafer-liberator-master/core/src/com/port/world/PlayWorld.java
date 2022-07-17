@@ -1,10 +1,14 @@
 package com.port.world;
 
+import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.game.straferliberator.StraferLiberator;
 import com.game.straferliberator.render.PaintUtilities;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
+import com.port.UI.button.touch.GenericTouchControl;
+import com.port.UI.button.touch.TouchManager;
 import com.port.UI.hud.HealthBar;
 import com.port.UI.hud.HealthBarImg;
 import com.port.UI.hud.HealthBarPlayer;
@@ -44,12 +48,13 @@ public class PlayWorld extends World {
 
 	public Scroller scroller;
 	public AssetManager assetManager = StraferLiberator.assetManager;
+	public TouchManager touchManager;
 
 	Player player;
 
 	public HealthBarPlayer healthBar;
 	public StaminaBarPlayer staminaBar;
-	private boolean addedHealthBar = false;
+	private boolean addedUI = false;
 	HealthBarImg barBack = new HealthBarImg("Player");
 
 	public GreenfootSound musicIdle;
@@ -69,7 +74,7 @@ public class PlayWorld extends World {
 
 		addPlayer();
 		WorldData.addedDialogs = false;
-		addedHealthBar = false;
+		addedUI = false;
 		addMainMenu();
 
 		// puts the music on a new Thread
@@ -104,20 +109,26 @@ public class PlayWorld extends World {
 
 		worldListener = new com.port.world.WorldListener(this);
 		eventSystem = new EventSystem(this);
+		touchManager = new TouchManager(this);
 
 		addObject(worldListener, 1, 1);
 		addObject(eventSystem, 1, 1);
 
 	}
 
-	private void addHealthBar() {
+	private void addUI() {
 
 		healthBar = new HealthBarPlayer("", "", player.getHp(), player.getHpMax());
-		staminaBar= new StaminaBarPlayer(player.getStamina(),player.getStaminaMax());
+		staminaBar = new StaminaBarPlayer(player.getStamina(), player.getStaminaMax());
 
 		addObject(healthBar, 172, 33);
-		addObject(staminaBar,116,49);
+		addObject(staminaBar, 116, 49);
 		addObject(barBack, 148, 40);
+
+		// if(Gdx.app.getType().equals(ApplicationType.Android)) {
+		touchManager.addButtons();
+		// }
+
 	}
 
 	void relocBar() {
@@ -163,9 +174,9 @@ public class PlayWorld extends World {
 	public void act() {
 
 		scroll();
-		if (!addedHealthBar) {
-			addHealthBar();
-			addedHealthBar = true;
+		if (!addedUI) {
+			addUI();
+			addedUI = true;
 		}
 		relocBar();
 		if (musicLoaded) {

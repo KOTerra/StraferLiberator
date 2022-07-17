@@ -1,4 +1,4 @@
-package com.port.UI.buton;
+package com.port.UI.button;
 
 import greenfoot.*;
 
@@ -28,7 +28,7 @@ import com.port.world.WorldData;
  * functioneaza atat pe desktop cat si pe mobile cu touch
  */
 
-public class Buton extends UI {
+public class Button extends UI {
 
 	GreenfootImage img0, img1;
 	private String img = "";
@@ -43,7 +43,7 @@ public class Buton extends UI {
 	boolean clicked = false;
 	Object obj;
 
-	public Buton(String imgref, Object menuref) {
+	public Button(String imgref, Object menuref) {
 		img = imgref;
 		obj = menuref;
 		if (obj instanceof Dialog) {
@@ -59,7 +59,7 @@ public class Buton extends UI {
 
 	}
 
-	public Buton(String imgref, Object menuref, String tipref, ArrayList<Tutorial> tutorials) { /// for opening a
+	public Button(String imgref, Object menuref, String tipref, ArrayList<Tutorial> tutorials) { /// for opening a
 																								/// tutorial category
 		img = imgref;
 		obj = menuref;
@@ -78,7 +78,7 @@ public class Buton extends UI {
 
 	}
 
-	public Buton(String imgref, Object menuref, String tipref, Menu tutToOp) { /// for opening a tutorial tutorial from
+	public Button(String imgref, Object menuref, String tipref, Menu tutToOp) { /// for opening a tutorial tutorial from
 																				/// a category
 		img = imgref;
 		obj = menuref;
@@ -181,7 +181,7 @@ public class Buton extends UI {
 						getWorld().addObject(new Pause(), WorldData.menuX, WorldData.menuY);
 					}
 
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 					break;
 				}
 
@@ -196,7 +196,7 @@ public class Buton extends UI {
 						getWorld().removeObject((Menu) obj);
 					}
 
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 					break;
 
 				}
@@ -207,7 +207,7 @@ public class Buton extends UI {
 						getWorld().removeObjects(((Pause) obj).getThingsToRemove());
 					}
 					getWorld().removeObject((Menu) obj);
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 
 					break;
 				}
@@ -229,7 +229,7 @@ public class Buton extends UI {
 						go.getMusic().stop();
 					}
 
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 
 					///// se da save
 					break;
@@ -261,7 +261,7 @@ public class Buton extends UI {
 						}
 					}
 
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 					break;
 				}
 				case "continue": {
@@ -291,7 +291,7 @@ public class Buton extends UI {
 						player.revive();
 					}
 
-					getWorld().removeObjects(getWorld().getObjects(Buton.class));
+					getWorld().removeObjects(getWorld().getObjects(Button.class));
 
 					break;
 				}
@@ -313,7 +313,7 @@ public class Buton extends UI {
 		case "next": {
 			if (obj instanceof Dialog) {
 				if (dialog.isLastSlide()) {
-					this.getWorld().addObject(new Buton("X", dialog), this.getX(), this.getY());
+					this.getWorld().addObject(new Button("X", dialog), this.getX(), this.getY());
 					this.getWorld().removeObject(this);
 				}
 			}
@@ -322,16 +322,16 @@ public class Buton extends UI {
 					if (!tutorial.isAddedButonBack()) {
 
 						if (((Tutorial) obj).getTip() == "Cutscene") {
-							this.getWorld().addObject(new Buton("back", tutorial), 100, this.getY());
+							this.getWorld().addObject(new Button("back", tutorial), 100, this.getY());
 						} else {
-							this.getWorld().addObject(new Buton("back", tutorial),
+							this.getWorld().addObject(new Button("back", tutorial),
 									tutorial.getX() - tutorial.getImage().getWidth() / 2 + 50, this.getY());
 						}
 						tutorial.setAddedButonBack(true);
 					}
 				}
 				if (tutorial.isLastSlide()) {
-					this.getWorld().addObject(new Buton("X", tutorial), this.getX(), this.getY());
+					this.getWorld().addObject(new Button("X", tutorial), this.getX(), this.getY());
 					this.getWorld().removeObject(this);
 				}
 			}
@@ -350,7 +350,7 @@ public class Buton extends UI {
 		case "X": {
 			if (obj instanceof Tutorial) {
 				if (!tutorial.isLastSlide()) {
-					getWorld().addObject(new Buton("next", obj), this.getX(), this.getY());
+					getWorld().addObject(new Button("next", obj), this.getX(), this.getY());
 					getWorld().removeObject(this);
 				}
 			}

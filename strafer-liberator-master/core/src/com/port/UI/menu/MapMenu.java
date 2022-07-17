@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Picture;
 import com.port.utils.graphics.Text;
@@ -39,7 +39,7 @@ public class MapMenu extends Pause {
     }
 
     private void addButoane() {
-        Buton buton = new Buton("X", this);
+        Button buton = new Button("X", this);
         playWorld.addObject(buton, distx+1000, disty+20);
     }
 

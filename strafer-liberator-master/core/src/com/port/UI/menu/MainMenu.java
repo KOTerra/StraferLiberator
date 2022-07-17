@@ -8,7 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.GifImage;
 import com.port.utils.graphics.Picture;
@@ -27,9 +27,9 @@ public class MainMenu extends Menu {
 	GifImage playerAnimationGif=assetManager.get("images/UI/menu/mainMenu/playerAnimation.gif",GifImage.class);
 	Actor playerAnimation=new Actor();
 	
-	Buton butonContinue = new Buton("continue", this);
-	Buton butonNewGame = new Buton("newGame", this);
-	Buton butonExit;
+	Button butonContinue = new Button("continue", this);
+	Button butonNewGame = new Button("newGame", this);
+	Button butonExit;
 	
 	
 	List<Actor> thingsToRemove = new ArrayList<>();
@@ -57,7 +57,7 @@ public class MainMenu extends Menu {
 		thingsToRemove.add(logo);
 		
 		if(Gdx.app.getType().equals(ApplicationType.Desktop)) {
-			butonExit=new Buton("Exit",this);
+			butonExit=new Button("Exit",this);
 			getWorld().addObject(butonExit, WorldData.WIDTH-100, WorldData.HEIGHT-100);
 			thingsToRemove.add(butonExit);
 		}

@@ -7,7 +7,8 @@ import java.util.List;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
+import com.port.UI.button.touch.GenericTouchControl;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.UI.hud.StaminaBarPlayer;
 import com.port.entity.mover.npc.hostile.Stroke;
@@ -27,14 +28,14 @@ public class WorldListener extends WorldSection {
 	boolean loaded = false;
 	boolean canChange = true;
 	AssetManager assetManager;
-	
+
 	List<GreenfootImage> backgrounds = new ArrayList<>();
 
 	public WorldListener(PlayWorld world) {
 		this.loaded = false;
 		this.world = world;
-		assetManager=StraferLiberator.assetManager;
-		
+		assetManager = StraferLiberator.assetManager;
+
 		scroller = world.getScroller();
 		player = (Player) world.getObjects(Player.class).get(0);
 		makeBackgroundList();
@@ -45,9 +46,9 @@ public class WorldListener extends WorldSection {
 		scroller.setScrollImage(backgrounds.get(WorldData.getWorldSectionShort(worldSection) - 1));
 		WorldData.worldSection = this.worldSection;
 		if (!atLoad) {
-			
+
 			relocatePlayer();
-			
+
 		}
 		clearWorldObjects();
 
@@ -90,7 +91,8 @@ public class WorldListener extends WorldSection {
 
 		for (Actor actor : list) {
 			if (actor instanceof Player || actor instanceof WorldListener || actor instanceof EventSystem
-					|| actor instanceof HealthBarPlayer ||actor instanceof StaminaBarPlayer|| actor instanceof Picture || actor instanceof Buton) {
+					|| actor instanceof HealthBarPlayer || actor instanceof StaminaBarPlayer || actor instanceof Picture
+					|| actor instanceof Button || actor instanceof GenericTouchControl) {
 			} else {
 				world.removeObject(actor);
 
@@ -168,39 +170,32 @@ public class WorldListener extends WorldSection {
 		;
 	}
 
-	 /*
-    - vedem toata mapa organizata ca o matrice (linii,coloane) de sectiuni de mapa(8192x8192 pixeli) fiecare in continuarea celeilalte
-      cu background 
-     ________
-    |11|12|13|
-    |__|__|__|
-    |21|22|23|
-    |__|__|__|
- 
- 
- 
-     sectiunea colt stanga sus este                  11
-     mai jos                                         21
-     la dreapta                                      12
-     stanga si sus se opreste mapa deci avem         0
- 
- 
-  -   avem un vector de vecini pt modul in care sunt asezate sectiunile de mapa una fata de celalata, deci practic un graf in care conteaza asezarea
-     
- 
- - ex pt sectiunea 11:
-        
- index:          0      1        2        3
- directie:      sus   stanga    jos    dreapta
-                   _______________________________
-nr sectiunii      |  0 |   0     | 21    |   12   |
-urmatoare:        |____|_________|_______|________|
-
- 
- 
-
-
-  */
+	/*
+	 * - vedem toata mapa organizata ca o matrice (linii,coloane) de sectiuni de
+	 * mapa(8192x8192 pixeli) fiecare in continuarea celeilalte cu background
+	 * ________ |11|12|13| |__|__|__| |21|22|23| |__|__|__|
+	 * 
+	 * 
+	 * 
+	 * sectiunea colt stanga sus este 11 mai jos 21 la dreapta 12 stanga si sus se
+	 * opreste mapa deci avem 0
+	 * 
+	 * 
+	 * - avem un vector de vecini pt modul in care sunt asezate sectiunile de mapa
+	 * una fata de celalata, deci practic un graf in care conteaza asezarea
+	 * 
+	 * 
+	 * - ex pt sectiunea 11:
+	 * 
+	 * index: 0 1 2 3 directie: sus stanga jos dreapta
+	 * _______________________________ nr sectiunii | 0 | 0 | 21 | 12 | urmatoare:
+	 * |____|_________|_______|________|
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	int[] sectionNeighbour11 = { 0, 0, 21, 12 };
 	int[] sectionNeighbour12 = { 0, 11, 22, 13 };
 	int[] sectionNeighbour13 = { 0, 12, 23, 0 };
@@ -246,12 +241,12 @@ urmatoare:        |____|_________|_______|________|
 	}
 
 	void makeBackgroundList() {
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection11.png",GreenfootImage.class));
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection12.png",GreenfootImage.class));
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection13.png",GreenfootImage.class));
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection21.png",GreenfootImage.class));
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection22.png",GreenfootImage.class));
-		backgrounds.add(assetManager.get("images/map/worldSection/worldSection23.png",GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection11.png", GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection12.png", GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection13.png", GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection21.png", GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection22.png", GreenfootImage.class));
+		backgrounds.add(assetManager.get("images/map/worldSection/worldSection23.png", GreenfootImage.class));
 
 	}
 

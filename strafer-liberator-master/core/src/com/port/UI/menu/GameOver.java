@@ -1,7 +1,7 @@
 package com.port.UI.menu;
 
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.utils.graphics.GifImage;
 import com.port.utils.graphics.Picture;
 import com.port.world.PlayWorld;
@@ -25,8 +25,8 @@ public class GameOver extends Menu{
     }
 
     private void addStuff() {
-        getWorld().addObject(new Buton("continue", this), WorldData.WIDTH/2-150,	WorldData.HEIGHT-100);
-        getWorld().addObject(new Buton("mainMenu", this), WorldData.WIDTH/2+150, WorldData.HEIGHT-100);
+        getWorld().addObject(new Button("continue", this), WorldData.WIDTH/2-150,	WorldData.HEIGHT-100);
+        getWorld().addObject(new Button("mainMenu", this), WorldData.WIDTH/2+150, WorldData.HEIGHT-100);
     }
     
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.utils.graphics.GifImage;
 import com.port.utils.graphics.Picture;
 import com.port.world.WorldData;
@@ -37,9 +37,9 @@ public class Pause extends Menu{
         thingsToRemove.add(blur);
         thingsToRemove.add(logo);       
         
-        this.getWorld().addObject(new Buton("resume",this),97,300);
-        this.getWorld().addObject(new Buton("map",this),52,365);
-        this.getWorld().addObject(new Buton("mainMenu",this),119,465);
+        this.getWorld().addObject(new Button("resume",this),97,300);
+        this.getWorld().addObject(new Button("map",this),52,365);
+        this.getWorld().addObject(new Button("mainMenu",this),119,465);
     }
     
     public void act() {

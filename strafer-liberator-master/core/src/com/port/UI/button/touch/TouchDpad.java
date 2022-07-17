@@ -1,7 +1,9 @@
-package com.port.UI.buton.touch;
+package com.port.UI.button.touch;
 
 import com.port.world.PlayWorld;
 import com.port.world.WorldData;
+
+import greenfoot.Actor;
 
 public class TouchDpad {
 
@@ -13,10 +15,9 @@ public class TouchDpad {
 
 	public TouchDpad(PlayWorld playWorld) {
 		this.playWorld = playWorld;
-		addButtons();
 	}
 
-	private void addButtons() {
+	public void addButtons() {
 		dpadUp = new GenericTouchControl(245, WorldData.HEIGHT - 50 - 260 - 65, "dpadup");
 		dpadRight = new GenericTouchControl(375, WorldData.HEIGHT - 50 - 130 - 65, "dpadright");
 		dpadDown = new GenericTouchControl(245, WorldData.HEIGHT - 50 - 65, "dpaddown");
@@ -45,4 +46,6 @@ public class TouchDpad {
 		}
 		return false;
 	}
+	
+	
 }

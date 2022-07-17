@@ -1,7 +1,7 @@
 package com.port.UI.menu;
 
 import com.game.straferliberator.StraferLiberator;
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.utils.graphics.Picture;
 import com.port.world.WorldData;
 
@@ -23,7 +23,7 @@ public class Tutorial extends Menu {
 	private String tip;
 	private Picture picture = new Picture(
 			StraferLiberator.assetManager.get("images/UI/tutorial/tutorial.png", GreenfootImage.class));
-	private Buton buton = new Buton("next", this);
+	private Button buton = new Button("next", this);
 
 	private boolean addedButon = false;
 	private boolean addedButonBack = false;

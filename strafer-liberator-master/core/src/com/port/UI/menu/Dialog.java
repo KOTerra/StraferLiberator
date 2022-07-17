@@ -4,7 +4,7 @@ import greenfoot.*;
 
 import java.util.List;
 
-import com.port.UI.buton.Buton;
+import com.port.UI.button.Button;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.npc.friendly.FriendlyNpc;
 import com.port.world.WorldData;
@@ -60,7 +60,7 @@ public class Dialog extends Menu {
 
     public void addButon() {
         if (!addedButon) {
-            getWorld().addObject(new Buton("next", this), getX()+218, getY()+getImage().getHeight()/2-33);
+            getWorld().addObject(new Button("next", this), getX()+218, getY()+getImage().getHeight()/2-33);
             addedButon = true;
         }
     }

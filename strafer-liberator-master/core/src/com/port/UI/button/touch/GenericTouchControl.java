@@ -1,4 +1,4 @@
-package com.port.UI.buton.touch;
+package com.port.UI.button.touch;
 
 import com.badlogic.gdx.Gdx;
 import com.game.straferliberator.StraferLiberator;
@@ -17,6 +17,7 @@ public class GenericTouchControl extends Actor {
 		this.initialx = inx;
 		this.initialy = iny;
 		setIcon(img);
+		setImage(icon);
 	}
 
 	protected boolean isTouched() {
@@ -43,8 +44,10 @@ public class GenericTouchControl extends Actor {
 	public void act() {
 		if (!WorldData.PAUZA) {
 			setLocation(initialx, initialy);
+			System.out.println(getWorld());
 		} else {
 			setLocation(-200, -200);
+			
 		}
 	}
 }
