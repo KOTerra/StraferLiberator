@@ -29,6 +29,13 @@ public class TouchManager {
 		playWorld.addObject(pauseButton, 100, 100);
 		playWorld.addObject(sprintButton, 100, 100);
 	}
+	
+	public boolean isAnyTouched() {
+		if(dpad.isAnyTouched() || itemButton.isTouched()||inventoryButton.isTouched()||pauseButton.isTouched()||sprintButton.isTouched()){
+			return true;
+		}
+		return false;
+	}
 
 	public TouchDpad getDpad() {
 		return dpad;

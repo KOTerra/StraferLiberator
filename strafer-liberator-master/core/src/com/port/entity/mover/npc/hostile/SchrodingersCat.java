@@ -10,7 +10,7 @@ import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.ExplozieSchrodingersCat;
 import com.port.entity.item.player.Laser;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
@@ -231,7 +231,7 @@ public class SchrodingersCat extends Goblin {
 
     protected void lovitSabie() {
         super.lovitSabie(this.mass);
-        if (isTouching(Sabie.class)) {
+        if (isTouching(Sword.class)) {
             explode();
 
         }

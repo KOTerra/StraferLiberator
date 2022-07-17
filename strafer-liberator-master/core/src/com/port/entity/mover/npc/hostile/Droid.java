@@ -12,7 +12,7 @@ import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.LaserDroid;
 import com.port.entity.item.player.BlackHole;
 import com.port.entity.item.player.Laser;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
 import com.port.utils.graphics.GifImage;
@@ -128,10 +128,10 @@ public class Droid extends HostileNpc {
 
 	protected void lovitSabie() {
 		super.lovitSabie(this.mass);
-		if (isTouching(Sabie.class)) {
+		if (isTouching(Sword.class)) {
 			timpSab++;
 			if (timpSab >= 15) {
-				takeDamage(Sabie.damage);
+				takeDamage(Sword.damage);
 				timpSab = 0;
 			}
 

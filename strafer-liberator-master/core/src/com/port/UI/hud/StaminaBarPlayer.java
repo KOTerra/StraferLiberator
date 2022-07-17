@@ -1,5 +1,7 @@
 package com.port.UI.hud;
 
+import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.port.entity.mover.player.Player;
 import com.port.world.PlayWorld;
@@ -35,6 +37,19 @@ public class StaminaBarPlayer extends HealthBar {
 
 	public void update() {
 		Player player = ((PlayWorld) getWorld()).getPlayer();
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			if (player.getPlayWorld().getTouchManager().getSprintButton().isTouchedMultipleFingers()) {
+				decrease();
+				if (player.getStamina() > 10) {
+					player.setCanSprint(true);
+				} else {
+					player.setCanSprint(false);
+				}
+			} else {
+				player.setCanSprint(false);
+				restore();
+			}
+		}
 		if (Greenfoot.isKeyDown("L-Shift")) {
 			decrease();
 			if (player.getStamina() > 10) {
@@ -74,19 +89,19 @@ public class StaminaBarPlayer extends HealthBar {
 	}
 
 	private void makeBarImg() {
-		barWidth=(int) ((barWidthMax/100f)*value);
+		barWidth = (int) ((barWidthMax / 100f) * value);
 		barImg.scale(barWidth, barHeight);
 		this.setImage(barImg);
 	}
 
 	public void subtract(int v) {
-		value-=v;
+		value -= v;
 		checkValue();
 		makeBarImg();
 	}
 
 	public void add(int v) {
-		value+=v;
+		value += v;
 		checkValue();
 		makeBarImg();
 	}

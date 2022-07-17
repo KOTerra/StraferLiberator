@@ -11,7 +11,7 @@ import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
 import com.port.world.WorldData;
 
-public class Sabie extends Item {
+public class Sword extends Item {
 
 	public static final int damage = 25;
 	public static final int mass = 2;
@@ -31,7 +31,7 @@ public class Sabie extends Item {
 	private short constantEraseTime = (short) (WorldData.FPS/2);
 	Actor player;
 
-	public Sabie(Player player) {
+	public Sword(Player player) {
 		this.player = player;
 		player.setSpeed(0);
 		directie.put("D", StraferLiberator.assetManager.get("images/item/sabie_a_D.gif", GifImage.class));

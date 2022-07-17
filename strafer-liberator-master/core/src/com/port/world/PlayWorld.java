@@ -125,9 +125,9 @@ public class PlayWorld extends World {
 		addObject(staminaBar, 116, 49);
 		addObject(barBack, 148, 40);
 
-		// if(Gdx.app.getType().equals(ApplicationType.Android)) {
-		touchManager.addButtons();
-		// }
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			touchManager.addButtons();
+		}
 
 	}
 
@@ -191,6 +191,10 @@ public class PlayWorld extends World {
 
 	public EventSystem getEventSystem() {
 		return eventSystem;
+	}
+
+	public TouchManager getTouchManager() {
+		return touchManager;
 	}
 
 	public Player getPlayer() {

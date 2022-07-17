@@ -1,5 +1,6 @@
 package greenfoot;
 
+import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 /*
@@ -9,6 +10,9 @@ import com.badlogic.gdx.Input;
 public class MouseInfo {
 
 	public int getButton() {
+		if(Gdx.app.getType().equals(ApplicationType.Android)) {
+			return 1;
+		}
 		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
 			return 1;
 		}

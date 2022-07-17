@@ -24,6 +24,7 @@ public class TouchItemButton extends GenericTouchControl {
 		} else {
 			super.setIcon("empty");
 		}
+		setImage(icon);
 	}
 	public void act() {
 		super.act();

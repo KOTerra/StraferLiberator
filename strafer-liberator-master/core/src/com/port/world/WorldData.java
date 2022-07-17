@@ -4,22 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.port.utils.loader.Loader;
+
 /*
  * Valorile necesare jocului
  */
 public class WorldData {
 
 	public static boolean PAUZA;
-	public static int WIDTH , HEIGHT ;
+	public static int WIDTH, HEIGHT;
 	public static int FPS = 90;
-	public static float elapsed=0;
-	
+	public static float elapsed = 0;
+
 	public static int menuX = WIDTH / 2; // pt adaugat meniuri in mijlocu ecranului
 	public static int menuY = HEIGHT / 2;
 //
-	public static boolean runOnDesktop=false;
-	public static boolean runOnAndroid=false;
+	public static boolean runOnDesktop = false;
+	public static boolean runOnAndroid = false;
 
 	// player state
 	public static boolean addedDialogs = false;
@@ -65,8 +67,8 @@ public class WorldData {
 	public static boolean[][] visitedWorldSections = { { false, false, false, false }, { false, false, false, false },
 			{ false, false, false, false } };
 
-	public static boolean[][][] worldSectionMatrix = new boolean[worldSectionShortNumber + 1][maxLengthWorld + 1][maxWidthWorld
-			+ 1];
+	public static boolean[][][] worldSectionMatrix = new boolean[worldSectionShortNumber + 1][maxLengthWorld
+			+ 1][maxWidthWorld + 1];
 
 	// nr maxim de sectiuni de pe o linie
 	public static final int numberOfCollumns = 3;
@@ -102,7 +104,9 @@ public class WorldData {
 																									// care e in numele
 																									// txt-ului cu
 																									// dialogul
-																									// valoarea e nr eventului la care e dialogul asta
+																									// valoarea e nr
+																									// eventului la care
+																									// e dialogul asta
 	public static boolean talked = false; // verifica daca un dialog a fost accesat odata
 
 	public static void reset() {// pt save file nou
@@ -125,6 +129,14 @@ public class WorldData {
 		dialogIndex = 0;
 		talked = false;
 		nrEvent = 1;
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			hasSword = true;
+			hasLaser = true;
+			hasBlackHole = true;
+			hasLantern = true;
+			hasPortalGun = true;
+			hasIceLock = true;
+		}
 
 	}
 
@@ -133,7 +145,7 @@ public class WorldData {
 		HEIGHT = height;
 		menuX = WIDTH / 2;
 		menuY = HEIGHT / 2;
-		
+
 	}
 
 }

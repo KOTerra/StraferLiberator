@@ -32,19 +32,23 @@ public class TouchDpad {
 	public boolean isDpadDown(String dir) {
 		switch (dir) {
 		case "up": {
-			return dpadUp.isTouched();
+			return dpadUp.isTouchedMultipleFingers();
 		}
 		case "right": {
-			return dpadRight.isTouched();
+			return dpadRight.isTouchedMultipleFingers();
 		}
 		case "down": {
-			return dpadDown.isTouched();
+			return dpadDown.isTouchedMultipleFingers();
 		}
 		case "left": {
-			return dpadLeft.isTouched();
+			return dpadLeft.isTouchedMultipleFingers();
 		}
 		}
 		return false;
+	}
+
+	public boolean isAnyTouched() {
+		return dpadUp.isTouched()||dpadRight.isTouched()||dpadDown.isTouched()||dpadLeft.isTouched();
 	}
 	
 	

@@ -3,6 +3,7 @@ package greenfoot;
 import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Rectangle;
 import com.game.straferliberator.StraferLiberator;
@@ -48,6 +49,7 @@ public class Greenfoot extends com.badlogic.gdx.Gdx {
 	}
 
 	public static boolean mouseClicked(Object object) {
+	
 		if (Gdx.input.justTouched()) {
 			if (object == null) {
 				return true;

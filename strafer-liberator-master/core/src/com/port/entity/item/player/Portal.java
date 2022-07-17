@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.game.straferliberator.StraferLiberator;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.GifImage;
@@ -22,8 +24,8 @@ public class Portal extends PortalGun {
 
 	public Portal() {
 
-		directie.put("A", StraferLiberator.assetManager.get("images/item/portalA.gif",GifImage.class));
-		directie.put("D", StraferLiberator.assetManager.get("images/item/portalD.gif",GifImage.class));
+		directie.put("A", StraferLiberator.assetManager.get("images/item/portalA.gif", GifImage.class));
+		directie.put("D", StraferLiberator.assetManager.get("images/item/portalD.gif", GifImage.class));
 
 		if (Greenfoot.getRandomNumber(12) % 2 == 0) {
 			portalImg = directie.get("D");
@@ -48,7 +50,18 @@ public class Portal extends PortalGun {
 
 			getWorld().removeObject(this);
 		}
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			if (player.getPlayWorld().getTouchManager().getItemButton().isTouched()) {
+				getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 62, 1), 0, 0);
 
+				player.setWorldX((int) (player.getWorldX() + (this.getX() + Scroller.scrolledX - player.getX())));
+				player.setWorldY((int) (player.getWorldY() + (this.getY() + Scroller.scrolledY - player.getY())));
+
+				player.setLocation(this.getX(), this.getY());
+
+				getWorld().removeObject(this);
+			}
+		}
 	}
 
 	public void act() {

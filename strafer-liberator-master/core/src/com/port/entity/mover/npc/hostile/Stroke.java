@@ -14,7 +14,7 @@ import com.port.UI.menu.Tutorial;
 import com.port.entity.item.npc.LaserStroke;
 import com.port.entity.item.npc.RumbleStroke;
 import com.port.entity.item.player.Laser;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
@@ -88,10 +88,10 @@ public class Stroke extends HostileNpc {
     }
 
     protected void lovitSabie() {
-        if (isTouching(Sabie.class)) {
+        if (isTouching(Sword.class)) {
             timpSab++;
             if (timpSab >= 15) {
-                takeDamage(Sabie.damage);
+                takeDamage(Sword.damage);
                 timpSab = 0;
             }
 

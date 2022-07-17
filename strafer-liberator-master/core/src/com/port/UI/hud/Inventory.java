@@ -4,6 +4,8 @@ import greenfoot.*;
 
 import java.util.*;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 import com.port.entity.mover.player.Player;
@@ -13,9 +15,10 @@ import java.awt.event.*;
 
 public class Inventory extends Menu {
 
-	GreenfootImage wheel0 = StraferLiberator.assetManager.get("images/UI/hud/Inventory.png",GreenfootImage.class);
-	
-	GreenfootImage wheel1 = StraferLiberator.assetManager.get("images/UI/hud/itemWheelSelect.png",GreenfootImage.class);
+	GreenfootImage wheel0 = StraferLiberator.assetManager.get("images/UI/hud/Inventory.png", GreenfootImage.class);
+
+	GreenfootImage wheel1 = StraferLiberator.assetManager.get("images/UI/hud/itemWheelSelect.png",
+			GreenfootImage.class);
 
 	public static int nrItem = 5; // 1 sword
 	// 2 icelock
@@ -33,7 +36,10 @@ public class Inventory extends Menu {
 		this.player = player;
 		prepareData();
 		setImage(wheel0);
-
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			x = WorldData.WIDTH - 299;
+			y = WorldData.HEIGHT - 296;
+		}
 		// player.setToggledInventory(true);
 	}
 

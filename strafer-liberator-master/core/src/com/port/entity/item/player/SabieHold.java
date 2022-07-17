@@ -12,6 +12,7 @@ import com.port.world.WorldData;
 public class SabieHold extends Item {
 
 	String imgName = "images/item/sabieHold_" + Item.itemGif + ".png";
+	Player playerr;
 
 	public SabieHold() {
 		setImage(StraferLiberator.assetManager.get(imgName, GreenfootImage.class));
@@ -21,13 +22,16 @@ public class SabieHold extends Item {
 	private void exi() {
 		if (Greenfoot.mouseClicked(null)) {
 			getWorld().removeObject(this);
+
+		}
+		if (!playerr.isEquipSword()) {
+			getWorld().removeObject(this);
 		}
 	}
 
 	protected void move() {
-		Player playerr = ((PlayWorld) getWorld()).getPlayer();
-		Actor player = (Actor) playerr;
-		setLocation(player.getX(), player.getY() );
+		playerr = ((PlayWorld) getWorld()).getPlayer();
+		setLocation(playerr.getX(), playerr.getY());
 
 	}
 
@@ -36,7 +40,11 @@ public class SabieHold extends Item {
 		setImage(StraferLiberator.assetManager.get(imgName, GreenfootImage.class));
 		if (!WorldData.PAUZA) {
 			move();
-			exi();
+			try {
+				exi();
+			} catch (Exception e) {
+
+			}
 		}
 
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.port.entity.item.pickup.Pill;
 import com.port.entity.item.player.Laser;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.mover.npc.Npc;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
@@ -320,9 +320,9 @@ public class HostileNpc extends Npc {
 
         List players = getWorld().getObjects(Player.class);
         Player player = (Player) players.get(0);
-        List sabii = getWorld().getObjects(Sabie.class);
+        List sabii = getWorld().getObjects(Sword.class);
         if (!sabii.isEmpty()) {
-            Sabie sabia = (Sabie) sabii.get(0);
+            Sword sabia = (Sword) sabii.get(0);
 
             int deltaPGX = player.getWorldX() - (this.worldX + Scroller.scrolledX);
             if (deltaPGX < 0) {
@@ -335,7 +335,7 @@ public class HostileNpc extends Npc {
 
             if (player.isEquipSword() == true && deltaPGX <= 85 && deltaPGY <= 100) {
                 knockbacked = true;
-                super.knockback(0.1, sabia.getPlayer(), Sabie.mass, masa);
+                super.knockback(0.1, sabia.getPlayer(), Sword.mass, masa);
             }
         }
 

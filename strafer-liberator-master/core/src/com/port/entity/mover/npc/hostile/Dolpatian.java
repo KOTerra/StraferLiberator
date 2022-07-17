@@ -12,7 +12,7 @@ import com.port.entity.item.npc.TaserDolpatian;
 import com.port.entity.item.player.BlackHole;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Light;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
@@ -85,10 +85,10 @@ public class Dolpatian extends Goblin {
     
       protected void lovitSabie() {
         super.lovitSabie(this.mass);
-        if (isTouching(Sabie.class)) {
+        if (isTouching(Sword.class)) {
             timpSab++;
             if (timpSab >= 15) {
-                takeDamage(Sabie.damage);
+                takeDamage(Sword.damage);
                 timpSab = 0;
             }
 

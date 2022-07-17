@@ -1,6 +1,6 @@
-PlayerX:4210
-PlayerY:1507
-Health:22
+PlayerX:5070
+PlayerY:579
+Health:390
 WorldSection:13
 WS11:true
 WS12:true
@@ -13,5 +13,5 @@ Item:sword
 Item:lantern
 Item:blackHole
 Item:portalGun
-DialogIndex:9
+DialogIndex:8
 NrEvent:24

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.game.straferliberator.StraferLiberator;
 import com.port.entity.item.Item;
 import com.port.entity.mover.player.Player;
@@ -21,10 +23,10 @@ public class PortalGun extends Item {
 
 	public PortalGun() {
 
-		directie.put("D", StraferLiberator.assetManager.get("images/item/portalGunD.gif",GifImage.class));
-		directie.put("W", StraferLiberator.assetManager.get("images/item/portalGunW.gif",GifImage.class));
-		directie.put("A", StraferLiberator.assetManager.get("images/item/portalGunA.gif",GifImage.class));
-		directie.put("S", StraferLiberator.assetManager.get("images/item/portalGunS.gif",GifImage.class));
+		directie.put("D", StraferLiberator.assetManager.get("images/item/portalGunD.gif", GifImage.class));
+		directie.put("W", StraferLiberator.assetManager.get("images/item/portalGunW.gif", GifImage.class));
+		directie.put("A", StraferLiberator.assetManager.get("images/item/portalGunA.gif", GifImage.class));
+		directie.put("S", StraferLiberator.assetManager.get("images/item/portalGunS.gif", GifImage.class));
 
 		portalGunImg = directie.get("D");
 		this.time = 0;
@@ -38,7 +40,17 @@ public class PortalGun extends Item {
 	}
 
 	private void addPortal() {
-		if (Greenfoot.mouseClicked(null)) {
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			if (Greenfoot.mouseClicked(null)) {
+				if (!((PlayWorld) getWorld()).getTouchManager().isAnyTouched()) {
+					if (getWorld().getObjects(Portal.class).isEmpty()) {
+						getWorld().addObject(new Portal(), Greenfoot.getMouseInfo().getX(),
+								Greenfoot.getMouseInfo().getY());
+					}
+				}
+			}
+
+		} else if (Greenfoot.mouseClicked(null)) {
 			if (Greenfoot.getMouseInfo().getButton() == 1) { // right 3 left 1
 				if (getWorld().getObjects(Portal.class).isEmpty()) {
 					getWorld().addObject(new Portal(), Greenfoot.getMouseInfo().getX(),

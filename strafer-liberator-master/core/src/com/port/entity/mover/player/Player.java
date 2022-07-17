@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
+import com.port.UI.button.touch.TouchDpad;
 import com.port.UI.hud.HealthBarPlayer;
 import com.port.UI.hud.Inventory;
 import com.port.UI.hud.ItemSelect;
@@ -22,7 +24,7 @@ import com.port.entity.item.player.Lantern;
 import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.LaserHold;
 import com.port.entity.item.player.PortalGun;
-import com.port.entity.item.player.Sabie;
+import com.port.entity.item.player.Sword;
 import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.system.SaveSystem;
@@ -52,9 +54,9 @@ public class Player extends BasePlayer {
 	private boolean inViata = true;
 	private int hp = 400;
 	public static final int hpMax = 400;
-	private int stamina=100;
-	public final int staminaMax=100;
-	
+	private int stamina = 100;
+	public final int staminaMax = 100;
+
 	private int initialSpeed = 7;
 	private int speed = initialSpeed;
 
@@ -75,36 +77,33 @@ public class Player extends BasePlayer {
 	Animation animation;
 	boolean playedAnimation;
 
-	private HashSet<String> iteme = new HashSet<String>();
+	private HashSet<String> items = new HashSet<String>();
 
 	protected long timpPrec;
 	private long timp = 0;
 	private long timpSab = 0, timpLaser = 0, timpBoaba = 0, timpPumni = 0;
 
 	private boolean apas;
+	private boolean addedToWorld = false;;
 
 	public Player() {
 
 		prepareData();
 
-		playWorld = (PlayWorld) getWorld();
-
 		// sta
-		directie.put("idle",StraferLiberator.assetManager.get("images/player/player_m_Idle.gif",GifImage.class));
+		directie.put("idle", StraferLiberator.assetManager.get("images/player/player_m_Idle.gif", GifImage.class));
 
 		// merge
-		directie.put("D",StraferLiberator.assetManager.get("images/player/player_m_D.gif",GifImage.class));
-		directie.put("W",StraferLiberator.assetManager.get("images/player/player_m_W.gif",GifImage.class));
-		directie.put("A",StraferLiberator.assetManager.get("images/player/player_m_A.gif",GifImage.class));
-		directie.put("S",StraferLiberator.assetManager.get("images/player/player_m_S.gif",GifImage.class));
-
-
+		directie.put("D", StraferLiberator.assetManager.get("images/player/player_m_D.gif", GifImage.class));
+		directie.put("W", StraferLiberator.assetManager.get("images/player/player_m_W.gif", GifImage.class));
+		directie.put("A", StraferLiberator.assetManager.get("images/player/player_m_A.gif", GifImage.class));
+		directie.put("S", StraferLiberator.assetManager.get("images/player/player_m_S.gif", GifImage.class));
 
 		// se uita
-		directie.put("Ds", StraferLiberator.assetManager.get("images/player/vedere_D.gif",GifImage.class));
-		directie.put("Ws", StraferLiberator.assetManager.get("images/player/vedere_W.gif",GifImage.class));
-		directie.put("As", StraferLiberator.assetManager.get("images/player/vedere_A.gif",GifImage.class));
-		directie.put("Ss", StraferLiberator.assetManager.get("images/player/vedere_S.gif",GifImage.class));
+		directie.put("Ds", StraferLiberator.assetManager.get("images/player/vedere_D.gif", GifImage.class));
+		directie.put("Ws", StraferLiberator.assetManager.get("images/player/vedere_W.gif", GifImage.class));
+		directie.put("As", StraferLiberator.assetManager.get("images/player/vedere_A.gif", GifImage.class));
+		directie.put("Ss", StraferLiberator.assetManager.get("images/player/vedere_S.gif", GifImage.class));
 
 		this.timpPrec = System.currentTimeMillis();
 	}
@@ -177,6 +176,38 @@ public class Player extends BasePlayer {
 			setLocation(getX() - speed, getY());
 
 		}
+		if (Gdx.app.getType().equals(ApplicationType.Android)) {
+			TouchDpad dpad = playWorld.getTouchManager().getDpad();
+			if (dpad.isDpadDown("up")) {
+				// merge in nord
+				apas = true;
+				gif = "W";
+				Item.itemGif = "W";
+				setLocation(getX(), getY() - speed);
+			}
+			if (dpad.isDpadDown("down")) {
+				// merge in sud
+				apas = true;
+				gif = "S";
+				Item.itemGif = "S";
+				setLocation(getX(), getY() + speed);
+			}
+			if (dpad.isDpadDown("right")) {
+				// merg in est
+				apas = true;
+				gif = "D";
+				Item.itemGif = "D";
+				setLocation(getX() + speed, getY());
+			}
+			if (dpad.isDpadDown("left")) {
+				// merg in vest
+				apas = true;
+				gif = "A";
+				Item.itemGif = "A";
+				setLocation(getX() - speed, getY());
+			}
+		}
+
 		if (apas == false) {
 			WorldData.isWalking = true;
 			if (equipSword == false && equipLaser == false && equipPortalGun == false && equipIceLock == false
@@ -251,15 +282,14 @@ public class Player extends BasePlayer {
 	}
 
 	private void sprint() {
-		StaminaBarPlayer staminaBar=((PlayWorld)getWorld()).getStaminaBar();
+		StaminaBarPlayer staminaBar = ((PlayWorld) getWorld()).getStaminaBar();
 		staminaBar.update();
 		if (canSprint) {
 			speed = initialSpeed * 3;
 		} else {
-				speed = initialSpeed;
+			speed = initialSpeed;
 		}
 	}
-
 
 	protected void vedere() {
 		playerImg = directie.get(this.gif);
@@ -274,6 +304,14 @@ public class Player extends BasePlayer {
 				getWorld().addObject(new Inventory(this), WorldData.WIDTH - 150, WorldData.HEIGHT - 150);
 
 				getWorld().addObject(new ItemSelect(this), WorldData.WIDTH - 150, WorldData.HEIGHT - 150);
+			}
+			if (Gdx.app.getType().equals(ApplicationType.Android)) {
+				if (playWorld.getTouchManager().getInventoryButton().isTouched()) {
+					toggledInventory = !toggledInventory;
+					getWorld().addObject(new Inventory(this), WorldData.WIDTH - 300, WorldData.HEIGHT - 300);
+
+					getWorld().addObject(new ItemSelect(this), WorldData.WIDTH - 300, WorldData.HEIGHT - 300);
+				}
 			}
 
 		}
@@ -303,20 +341,37 @@ public class Player extends BasePlayer {
 
 		// sabie
 		if (equipSword) {
-			if (Greenfoot.mouseClicked(null)) {
-				if (Greenfoot.getMouseInfo().getButton() == 1) { // right 3 left 1
+			if (Gdx.app.getType().equals(ApplicationType.Android)) {
+				if (playWorld.getTouchManager().getItemButton().isTouchedMultipleFingers()) {
 
 					long timpCurent = System.currentTimeMillis();
 					if (timpCurent - timpPrec >= 20) {
-						if (getWorld().getObjects(Sabie.class).isEmpty()) {
+						if (getWorld().getObjects(Sword.class).isEmpty()) {
 
-							getWorld().addObject(new Sabie(this), getX(), getY());
+							getWorld().addObject(new Sword(this), getX(), getY());
 						}
 						timpPrec = timpCurent;
 					}
 					Item.itemGif = gif;
 				}
+
+			} else {
+				if (Greenfoot.mouseClicked(null)) {
+					if (Greenfoot.getMouseInfo().getButton() == 1) { // right 3 left 1
+
+						long timpCurent = System.currentTimeMillis();
+						if (timpCurent - timpPrec >= 20) {
+							if (getWorld().getObjects(Sword.class).isEmpty()) {
+
+								getWorld().addObject(new Sword(this), getX(), getY());
+							}
+							timpPrec = timpCurent;
+						}
+						Item.itemGif = gif;
+					}
+				}
 			}
+
 			if (Greenfoot.mouseClicked(null)) {
 				if (Greenfoot.getMouseInfo().getButton() == 3) {
 					equipSword = false;
@@ -334,7 +389,57 @@ public class Player extends BasePlayer {
 			}
 
 			long timpCurent = System.currentTimeMillis();
-			if (Greenfoot.mouseClicked(null)) {
+
+			if (Gdx.app.getType().equals(ApplicationType.Android)) {
+				if (Greenfoot.mouseClicked(null)) {
+					if (!playWorld.getTouchManager().isAnyTouched()) {
+						if (timpCurent - timpPrec >= 20) {
+
+							if (getWorld().getObjects(PortalGun.class).isEmpty()) {
+
+								MouseInfo mouseul = Greenfoot.getMouseInfo();
+								if (mouseul != null) {
+
+									double delta_x = Greenfoot.getMouseInfo().getX() - getX();
+									double delta_y = Greenfoot.getMouseInfo().getY() - getY();
+									double grade = Math.toDegrees(Math.atan2(delta_y, delta_x));
+
+									int gr = (int) grade;
+									gr -= gr % 10;
+									gr += (Greenfoot.getRandomNumber(2) - 1) * 5; // reduce din precizie
+									grade = gr;
+
+									if (grade >= -45 && grade < 45) { // se intoarce playerul in dir in care trage
+
+										this.gif = "D";
+									}
+									if (grade >= 45 && grade < 135) {
+
+										this.gif = "S";
+
+									}
+									if (grade >= 135 && grade < 225) {
+
+										this.gif = "A";
+
+									}
+									if (grade >= -135 && grade < -45) {
+
+										this.gif = "W";
+									}
+									vedere();
+
+									getWorld().addObject(new Laser(grade), getX(), getY());
+
+								}
+								timpPrec = timpCurent;
+							}
+
+						}
+						Item.itemGif = gif;
+					}
+				}
+			} else if (Greenfoot.mouseClicked(null)) {
 				if (Greenfoot.getMouseInfo().getButton() == 1) {
 					if (timpCurent - timpPrec >= 20) {
 
@@ -455,20 +560,28 @@ public class Player extends BasePlayer {
 		if (!toggledPause && !WorldData.PAUZA) {
 
 			if (Greenfoot.isKeyDown("Escape")) {
-				toggledPause = !toggledPause;
-				WorldData.PAUZA = true;
-
-				getWorld().removeObjects(getWorld().getObjects(Inventory.class));
-				getWorld().removeObjects(getWorld().getObjects(ItemSelect.class));
-				toggledInventory = false;
-
-				Pause pause = new Pause();
-				getWorld().addObject(pause, WorldData.menuX, WorldData.menuY);
-
+				makePause();
+			}
+			if (Gdx.app.getType().equals(ApplicationType.Android)) {
+				if (playWorld.getTouchManager().getPauseButton().isTouched()) {
+					makePause();
+				}
 			}
 
 		}
 
+	}
+
+	private void makePause() {
+		toggledPause = !toggledPause;
+		WorldData.PAUZA = true;
+
+		getWorld().removeObjects(getWorld().getObjects(Inventory.class));
+		getWorld().removeObjects(getWorld().getObjects(ItemSelect.class));
+		toggledInventory = false;
+
+		Pause pause = new Pause();
+		getWorld().addObject(pause, WorldData.menuX, WorldData.menuY);
 	}
 
 	long cntF = 0;
@@ -517,6 +630,10 @@ public class Player extends BasePlayer {
 	}
 
 	public void act() {
+		if (!addedToWorld) {
+			playWorld = (PlayWorld) getWorld();
+			addedToWorld = true;
+		}
 
 		checkPauza();
 
@@ -582,7 +699,7 @@ public class Player extends BasePlayer {
 
 	public int getWorldX() {
 		return worldX;
-		
+
 	}
 
 	public int getWorldY() {
@@ -598,11 +715,13 @@ public class Player extends BasePlayer {
 	}
 
 	public HealthBarPlayer getHealthBar() {
-		return (HealthBarPlayer) ((PlayWorld)getWorld()).getHealthBar();
+		return (HealthBarPlayer) ((PlayWorld) getWorld()).getHealthBar();
 	}
+
 	public StaminaBarPlayer getStaminaBar() {
-		return (StaminaBarPlayer) ((PlayWorld)getWorld()).getStaminaBar();
+		return (StaminaBarPlayer) ((PlayWorld) getWorld()).getStaminaBar();
 	}
+
 	public boolean isInViata() {
 		return inViata;
 	}
@@ -626,7 +745,7 @@ public class Player extends BasePlayer {
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
-	
+
 	public int getSpeed() {
 		return speed;
 	}
@@ -635,8 +754,8 @@ public class Player extends BasePlayer {
 		this.speed = speed;
 	}
 
-	public HashSet<String> getIteme() {
-		return iteme;
+	public HashSet<String> getItems() {
+		return items;
 	}
 
 	public boolean isEquipSword() {
@@ -706,9 +825,11 @@ public class Player extends BasePlayer {
 	public int getHpMax() {
 		return hpMax;
 	}
+
 	public int getStaminaMax() {
 		return staminaMax;
 	}
+
 	public boolean isCanSprint() {
 		return canSprint;
 	}
@@ -717,15 +838,14 @@ public class Player extends BasePlayer {
 		this.canSprint = canSprint;
 	}
 
-	
 	private void prepareAnimation() { // pregateste animatia pt moarte
 
 		playedAnimation = false;
-		animation=StraferLiberator.assetManager.get("images/player/player_death.gif",Animation.class);
+		animation = StraferLiberator.assetManager.get("images/player/player_death.gif", Animation.class);
 		animation.setAnimated(this);
 		animation.run();
 		animation.setActiveState(true);
-	
+
 	}
 
 }

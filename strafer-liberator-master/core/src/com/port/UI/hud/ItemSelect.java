@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Application.ApplicationType;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
 import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Picture;
+import com.port.world.PlayWorld;
 import com.port.world.WorldData;
 
 public class ItemSelect extends Menu {
@@ -27,7 +30,10 @@ public class ItemSelect extends Menu {
     public ItemSelect(Player player) {
         this.player = player;
         setImage(StraferLiberator.assetManager.get("images/UI/hud/select.png",GreenfootImage.class));
-        
+        if(Gdx.app.getType().equals(ApplicationType.Android)) {
+        	x=WorldData.WIDTH-299;
+        	y=WorldData.HEIGHT-296;
+        }
     }
 
     public String getItemSelected() {
@@ -99,6 +105,7 @@ public class ItemSelect extends Menu {
                     default: {
                     }
                 }
+                ((PlayWorld)getWorld()).getTouchManager().getItemButton().changeItem();
                 player.setToggledInventory(false);
 
             }
