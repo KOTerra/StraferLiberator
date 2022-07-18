@@ -46,8 +46,12 @@ public abstract class DialogLoader extends Loader{
      * @return a list of strings with all the phrases spoken by this character
      */
     public static List<String> loadPhrases(String NPCName, int dialogNumber) {
-    	File file = Gdx.files.local(directoryName+"/"+NPCName).child(NPCName + dialogNumber + ".txt").file();
+    	Gdx.app.log("test", Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").readString());
+    	File file = Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").file();
+    	
+    	
 
+    	
         List<String> phrases = new ArrayList<>();
 
         try {
