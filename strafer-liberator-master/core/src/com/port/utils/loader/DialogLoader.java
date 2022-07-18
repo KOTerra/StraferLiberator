@@ -46,9 +46,10 @@ public abstract class DialogLoader extends Loader{
      * @return a list of strings with all the phrases spoken by this character
      */
     public static List<String> loadPhrases(String NPCName, int dialogNumber) {
-    	Gdx.app.log("test", Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").readString());
-    	File file = Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").file();
+    	//Gdx.app.log("test", Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").readString());
     	
+    	//File file = Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt").file();
+    	FileHandle file=Gdx.files.internal(directoryName+"/"+NPCName+"/"+NPCName + dialogNumber + ".txt");
     	
 
     	
@@ -56,14 +57,15 @@ public abstract class DialogLoader extends Loader{
 
         try {
         	
-            Scanner fin = new Scanner(file);
-            StringBuilder strB = new StringBuilder();
-            while (fin.hasNext()) {
-                String str = fin.nextLine();
-                strB.append(str+"\n");
-            }
-            fin.close();
-            phrases = getContentString(strB.toString());
+          //  Scanner fin = new Scanner(file,"UTF-8");
+           // StringBuilder strB = new StringBuilder();
+           // while (fin.hasNext()) {
+           //     String str = fin.nextLine();
+           //     strB.append(str+"\n");
+          //  }
+          //  fin.close();
+          //  phrases = getContentString(strB.toString());
+        	phrases=getContentString(file.readString());
         } catch (Exception e) {
             System.out.println(e);
         }
