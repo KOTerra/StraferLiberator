@@ -86,7 +86,7 @@ abstract public class SaveSystem {
 	 * the items and other proccesses
 	 */
 	public static void load(int saveNumber, Player playerref) {
-		File file = Gdx.files.internal(directoryName + "/" + "save" + saveNumber + ".txt").file();
+		File file = Gdx.files.local(directoryName + "/" + "save" + saveNumber + ".txt").file();
 
 		//
 		Player player = playerref;
@@ -218,12 +218,12 @@ abstract public class SaveSystem {
 	 */
 	public static void save(int saveNumber, Player player) {
 
-		File director = Gdx.files.internal(SaveSystem.directoryName).file();
+		File director = Gdx.files.local(SaveSystem.directoryName).file();
 		if (!director.isDirectory()) {
 			director.mkdir();
 		}
 
-		File file = Gdx.files.internal(SaveSystem.directoryName + "/" + "save" + saveNumber + ".txt").file();
+		File file = Gdx.files.local(SaveSystem.directoryName + "/" + "save" + saveNumber + ".txt").file();
 		try {
 			if (file.exists()) {
 				// sterg continutul save-ului trecut
@@ -274,7 +274,7 @@ abstract public class SaveSystem {
 	 */
 	public static List<File> getSaveFiles() {
 		List<File> fisiere = new ArrayList<>();
-		File f = Gdx.files.internal(SaveSystem.directoryName).file();
+		File f = Gdx.files.local(SaveSystem.directoryName).file();
 		File[] matchingFiles = f.listFiles(new FilenameFilter() {
 			public boolean accept(File dir, String name) {
 				return name.startsWith("save") && name.endsWith("txt");
@@ -284,12 +284,11 @@ abstract public class SaveSystem {
 		for (File fis : matchingFiles) {
 			fisiere.add(fis);
 		}
-
 		return fisiere;
 	}
 
 	public static int getNumberOfSaveFiles() {
-		File f = Gdx.files.internal(SaveSystem.directoryName).file();
+		File f = Gdx.files.local(SaveSystem.directoryName).file();
 		File[] matchingFiles = f.listFiles(new FilenameFilter() {
 			public boolean accept(File dir, String name) {
 				return name.startsWith("save") && name.endsWith("txt");

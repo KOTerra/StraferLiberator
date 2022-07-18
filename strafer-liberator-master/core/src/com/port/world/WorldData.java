@@ -90,7 +90,7 @@ public class WorldData {
 		String directory = new String("maps/");
 		for (int i = 1; i <= 6; i++) {
 
-			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.internal(directory + i + ".txt")).file());
+			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.local(directory + i + ".txt")).file());
 		}
 	}
 
