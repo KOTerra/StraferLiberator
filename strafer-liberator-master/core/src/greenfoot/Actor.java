@@ -7,7 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.game.straferliberator.StraferLiberator;
-import com.game.straferliberator.render.PaintUtilities;
+import com.game.straferliberator.render.PaintManager;
 import com.port.world.WorldData;
 
 public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
@@ -259,7 +259,7 @@ public class Actor extends com.badlogic.gdx.scenes.scene2d.ui.Image {
 				batch.setColor(Color.WHITE);
 			}
 		} else {
-			PaintUtilities.removeObjectFromPaintOrder(this);
+			PaintManager.removeObjectFromPaintOrder(this);
 		}
 	}
 

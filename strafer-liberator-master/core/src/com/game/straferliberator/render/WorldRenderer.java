@@ -49,7 +49,7 @@ public class WorldRenderer<A> {
 
 		//}
 
-		 for(greenfoot.Actor a:PaintUtilities.getActorsToRenderInOrder()) {
+		 for(greenfoot.Actor a:PaintManager.getActorsToRenderInOrder()) {
 				 a.draw();
 		 }
 

@@ -41,7 +41,7 @@ public class Animation {
 	/**
 	 * internal method that updates the image of the animation
 	 */
-	private void setFrame(int index) {
+	public void setFrame(int index) {
 		if (animated instanceof Actor) {
 			((Actor) animated).setImage(frames[index]);
 		} else if (animated instanceof World) {

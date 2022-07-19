@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.game.straferliberator.StraferLiberator;
-import com.game.straferliberator.render.PaintUtilities;
+import com.game.straferliberator.render.PaintManager;
 import com.port.UI.button.Button;
 import com.port.UI.button.touch.GenericTouchControl;
 import com.port.UI.button.touch.TouchManager;
@@ -65,7 +65,7 @@ public class PlayWorld extends World {
 		super(WorldData.WIDTH, WorldData.HEIGHT, 1, false); // width, height, cellsize, daca sunt actorii restricted la
 															// lume
 
-		PaintUtilities.setPaintOrder(PaintUtilities.paintOrder);// sets the paint order to the standard one
+		PaintManager.setPaintOrder(PaintManager.paintOrder);// sets the paint order to the standard one
 
 		WIDE = WorldData.WIDTH;
 		HIGH = WorldData.HEIGHT;

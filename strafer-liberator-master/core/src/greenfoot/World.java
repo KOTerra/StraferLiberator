@@ -7,7 +7,7 @@ import java.util.List;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
-import com.game.straferliberator.render.PaintUtilities;
+import com.game.straferliberator.render.PaintManager;
 
 /*
  * Port al clasei din Greenfoot
@@ -48,7 +48,7 @@ public class World extends com.badlogic.gdx.scenes.scene2d.Stage {
 		object.notRemovedYet = true;
 		object.setWorld(this);
 		super.addActor(object);
-		PaintUtilities.addObjectToPaintOrder(object);
+		PaintManager.addObjectToPaintOrder(object);
 		object.setLocation(initx, inity);
 
 	}

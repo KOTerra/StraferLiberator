@@ -34,10 +34,10 @@ import greenfoot.Actor;
 /**
  * This class contains all the utilities used for rendering a scene
  * 
- * @author TudosieRazvan
+ * @author Tudosie Razvan & Mihai Stoica
  *
  */
-public abstract class PaintUtilities {
+public abstract class PaintManager {
 
 	/**
 	 * The standard paint order, saved in an array
@@ -77,7 +77,7 @@ public abstract class PaintUtilities {
 	}
 
 	public static void setPaintDepth(int paintDepth) {
-		PaintUtilities.paintDepth = paintDepth;
+		PaintManager.paintDepth = paintDepth;
 	}
 
 	/**
@@ -88,14 +88,14 @@ public abstract class PaintUtilities {
 	public static void setPaintOrder(Class<?>... classes) {
 		paintOrder = classes;
 		int length = classes.length;
-		PaintUtilities.setPaintDepth(length + 1);
+		PaintManager.setPaintDepth(length + 1);
 		for (Class<?> c : classes) {
-			PaintUtilities.classPaintIndex.put(c, length);
-			PaintUtilities.objectsInPaintOrder.put(length, new ArrayList<greenfoot.Actor>());
+			PaintManager.classPaintIndex.put(c, length);
+			PaintManager.objectsInPaintOrder.put(length, new ArrayList<greenfoot.Actor>());
 
 			length--;
 		}
-		PaintUtilities.objectsInPaintOrder.put(getPaintDepth(), new ArrayList<greenfoot.Actor>());// pt clase nedefinite
+		PaintManager.objectsInPaintOrder.put(getPaintDepth(), new ArrayList<greenfoot.Actor>());// pt clase nedefinite
 																									// in paintorder
 
 	}
