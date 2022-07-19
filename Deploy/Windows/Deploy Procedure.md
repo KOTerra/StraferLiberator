@@ -22,10 +22,6 @@
     - **Bundled JRE paths:** *jre* (path relativ la .exe)
     - **Min. JRE version:** *11.0.15*
 
--"save configuration"
--"Build Wrapper"
-**StraferLiberator64.exe** se gaseste in *StraferLiberator\Deploy\Windows\resurse*
-
 - **copiezi:**
         - *StraferLiberator\strafer-liberator-master\assets\dialogs*
         - *StraferLiberator\strafer-liberator-master\assets\fonts*
@@ -39,6 +35,10 @@
 (trebuie ca folderele din assets sa fie relative la exe)
 
 ----------
+-"save configuration"
+-"Build Wrapper"
+**StraferLiberator64.exe** se gaseste in *StraferLiberator\Deploy\Windows\resurse*
+
 
 # Creat Installer
 - deschizi install4j
