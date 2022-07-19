@@ -36,7 +36,7 @@ public class AnimationLoader extends AsynchronousAssetLoader<Animation, Animatio
 		for (int i = 0; i < imgs.size; i++) {
 			images[i] = (GreenfootImage) imgs.get(i);
 		}
-		Animation animation=new Animation(null,images);
+		Animation animation=new Animation(images);
 		animation.setCycleActs(parameter.cycleActs);
 		animation.setCycleCount(parameter.cycleCount);
 		animation.setScalar(parameter.scalar);

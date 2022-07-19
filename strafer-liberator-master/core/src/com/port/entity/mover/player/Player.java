@@ -29,6 +29,7 @@ import com.port.entity.item.player.SabieHold;
 import com.port.entity.mover.npc.hostile.HostileNpc;
 import com.port.system.SaveSystem;
 import com.port.utils.graphics.Animation;
+import com.port.utils.graphics.AnimationRunner;
 import com.port.utils.graphics.GifDecoder;
 import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
@@ -75,6 +76,7 @@ public class Player extends BasePlayer {
 	private boolean loaded = false;
 
 	Animation animation;
+	AnimationRunner animationRunner;
 	boolean playedAnimation;
 
 	private HashSet<String> items = new HashSet<String>();
@@ -657,11 +659,11 @@ public class Player extends BasePlayer {
 		} else {
 
 			if (!playedAnimation) {
-				if (animation.isActive()) {
-					animation.run();
+				if (animationRunner.isActive()) {
+					animationRunner.run();
 				}
 			}
-			if (!animation.isActive()) {
+			if (!animationRunner.isActive()) {
 				playedAnimation = true;
 				if (!toggledGameOver && playedAnimation) { // animatia cand moare
 					getWorld().addObject(new GameOver(playWorld), WorldData.menuX, WorldData.menuY);
@@ -842,10 +844,11 @@ public class Player extends BasePlayer {
 
 		playedAnimation = false;
 		animation = StraferLiberator.assetManager.get("images/player/player_death.gif", Animation.class);
-		animation.setAnimated(this);
-		animation.run();
-		animation.setActiveState(true);
+		animationRunner = new AnimationRunner(this, animation);
+		animationRunner.run();
+		animationRunner.setActiveState(true);
 
+		
 	}
 
 }

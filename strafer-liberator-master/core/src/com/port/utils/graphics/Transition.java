@@ -1,6 +1,5 @@
 package com.port.utils.graphics;
 
-
 import com.badlogic.gdx.utils.Array;
 import com.game.straferliberator.StraferLiberator;
 import com.port.UI.menu.Menu;
@@ -9,41 +8,35 @@ import com.port.world.WorldData;
 import greenfoot.*;
 
 /*
- * clasa ajutatoare
- * animatie fullscreen cu scop estetic
+ * clasa ajutatoare 
+ * animatie cu scop estetic ce nu e legata de un actor anume
  */
-public class Transition extends Menu {
+public class Transition extends Actor {
 
-    private Animation animation;
+	private Animation animation;
+	private AnimationRunner animationRunner;
 
-    public Transition(String name, int nrf, int cc) {
+	public Transition(String name, int nrf, int cc) {
 
-        Array imgs = StraferLiberator.assetManager.get(name,GifImage.class).getImages();
-        GreenfootImage[] images = new GreenfootImage[imgs.size];
+		animation = StraferLiberator.assetManager.get(name, Animation.class);
 
-        for (int i = 0; i < imgs.size; i++) {
-            images[i] = (GreenfootImage) imgs.get(i);
-        }
-        animation = new Animation(this, images);
+		animation.setCycleActs(nrf);
+		animation.setCycleCount(cc);
+		animation.setScalar(1);
+		animationRunner = new AnimationRunner(this, animation);
+		animationRunner.run();
+		animationRunner.setActiveState(true);
+	}
 
-        animation.setCycleActs(nrf);
-        animation.setCycleCount(cc);
+	public void act() {
 
-        animation.run();
-        animation.setActiveState(true);
-    }
+		if (!WorldData.PAUZA) {
+			setLocation(WorldData.WIDTH / 2, WorldData.HEIGHT / 2);
+			animationRunner.run();
+			if (!animationRunner.isActive()) {
+				getWorld().removeObject(this);
+			}
 
-    
-    
-    public void act() {
-
-        if (!WorldData.PAUZA) {
-            setLocation(WorldData.WIDTH/2, WorldData.HEIGHT/2);
-            animation.run();
-            if (!animation.isActive()) {
-                getWorld().removeObject(this);
-            }
-
-        }
-    }
+		}
+	}
 }

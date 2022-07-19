@@ -15,6 +15,7 @@ import com.port.entity.item.player.Laser;
 import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
+import com.port.utils.graphics.AnimationRunner;
 import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
@@ -37,6 +38,7 @@ public class Droid extends HostileNpc {
 	private long timpLaser = 0;
 	private boolean mort = false;
 	Animation animation;
+	private AnimationRunner animationRunner;
 	boolean startedAnimation = false;
 	int cntDeath = 0;
 
@@ -55,7 +57,7 @@ public class Droid extends HostileNpc {
 		sensPoz = true;
 
 		changeAnimation();
-		animation.setActiveState(false);
+		animationRunner.setActiveState(false);
 	}
 
 	protected void gaseste() {
@@ -176,14 +178,14 @@ public class Droid extends HostileNpc {
 				cntDeath++;
 				if (cntDeath > 2) {
 					if (!startedAnimation) {
-						animation.setActiveState(true);
+						animationRunner.setActiveState(true);
 						startedAnimation = true;
 					}
 				}
-				if (animation.isActive()) {
-					animation.run();
+				if (animationRunner.isActive()) {
+					animationRunner.run();
 				}
-				if (startedAnimation && !animation.isActive()) {
+				if (startedAnimation && !animationRunner.isActive()) {
 					super.generateRandomHealthBoost();
 					getWorld().removeObject(this);
 				}
@@ -231,8 +233,8 @@ public class Droid extends HostileNpc {
 
 				this.knockbackMove();
 			}
-			if (animation.isActive()) {
-				animation.run();
+			if (animationRunner.isActive()) {
+				animationRunner.run();
 			} else {
 				setImage(img.getCurrentImage());
 			}
@@ -242,9 +244,10 @@ public class Droid extends HostileNpc {
 
 	private void changeAnimation() {
 		animation = StraferLiberator.assetManager.get("images/npc/inamic/droid/droid_death.gif", Animation.class);
-		animation.setAnimated(this);
-		animation.run();
-		animation.setActiveState(true);
+		animationRunner = new AnimationRunner(this, animation);
+
+		animationRunner.run();
+		animationRunner.setActiveState(true);
 	}
 
 	public boolean isFreeze() {

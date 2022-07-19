@@ -17,6 +17,7 @@ import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
+import com.port.utils.graphics.AnimationRunner;
 import com.port.utils.graphics.GifImage;
 import com.port.world.Scroller;
 import com.port.world.WorldData;
@@ -32,8 +33,10 @@ public class Goblin extends HostileNpc {
 
   
     Animation animation;
-    boolean startedAnimation = false;
+    private AnimationRunner animationRunner;
+    boolean startedAnimation = false;	
     int cntDeath = 0;
+
 
     public Goblin(Scroller scrl, int x, int y) {
         super(scrl, x, y);
@@ -46,7 +49,7 @@ public class Goblin extends HostileNpc {
         directie.put("idle", StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_m_Idle.gif",GifImage.class));
 
         changeAnimation();
-        animation.setActiveState(false);
+        animationRunner.setActiveState(false);
     }
 
     protected void atac() {
@@ -106,14 +109,14 @@ public class Goblin extends HostileNpc {
                 cntDeath++;
                 if (cntDeath > 2) {
                     if (!startedAnimation) {
-                        animation.setActiveState(true);
+                        animationRunner.setActiveState(true);
                         startedAnimation = true;
                     }
                 }
-                if (animation.isActive()) {
-                    animation.run();
+                if (animationRunner.isActive()) {
+                    animationRunner.run();
                 }
-                if (startedAnimation && !animation.isActive()) {
+                if (startedAnimation && !animationRunner.isActive()) {
                     super.generateRandomHealthBoost();
                     getWorld().removeObject(this);
                 }
@@ -181,8 +184,8 @@ public class Goblin extends HostileNpc {
                     die();
                 }
             }
-            if (animation.isActive()) {
-                animation.run();
+            if (animationRunner.isActive()) {
+                animationRunner.run();
             } else {
                 npcImg = directie.get(gif);
                 setImage(npcImg.getCurrentImage());
@@ -194,9 +197,12 @@ public class Goblin extends HostileNpc {
     private void changeAnimation() {
     	
     	animation=StraferLiberator.assetManager.get("images/npc/inamic/goblin/goblin_death.gif",Animation.class);
-		animation.setAnimated(this);
-		animation.run();
-		animation.setActiveState(true);
+    	animationRunner = new AnimationRunner(this, animation);
+    	animationRunner.setActiveState(true);
+    	animationRunner.run();
+    	
+		
+		
     }
  
  public boolean isFreeze() {

@@ -12,14 +12,15 @@ import java.util.Collections;
 
 public class Animation {
 
-	private Object animated; // the World or Actor object that to be animated
+	// private Object animated; // the World or Actor object that to be animated
 
 	private GreenfootImage[] frames; // the image set currently being used for this animated object
 	private int cycleActs; // number of acts to complete a cycle of images
 	private boolean active; // on-off switch
 	private int timer; // internal timer
+
 	private int cycleCount; // to count animation cycles
-	private int cyclesToRun; // number of times the animation is to cycle through its images
+	private int cyclesToRun = 1; // number of times the animation is to cycle through its images
 	private int scalar;
 
 	/**
@@ -29,53 +30,10 @@ public class Animation {
 	 * @param imgSet the images to be used in the animation; a 'null' value or an
 	 *               empty array will invalidate the animation
 	 */
-	public Animation(Object object, GreenfootImage[] imgSet) {
+	public Animation(GreenfootImage[] imgSet) {
 		scalar = 1;
-		animated = object;
 		frames = imgSet;
-		if (frames != null && frames.length != 0) {
-			setFrame(0);
-		}
-	}
 
-	/**
-	 * internal method that updates the image of the animation
-	 */
-	public void setFrame(int index) {
-		if (animated instanceof Actor) {
-			((Actor) animated).setImage(frames[index]);
-		} else if (animated instanceof World) {
-			((World) animated).setBackground(frames[index]);
-		}
-	}
-
-	/**
-	 * if animating, runs the timer and updates the image when needed
-	 *
-	 * @return a flag indicating the current animation cycle has completed
-	 */
-	int tmr = 0;
-
-	public void run() {
-		tmr++;
-		if (tmr >= scalar) {
-			tmr = 0;
-			if (cycleActs == 0 || !active) {
-				return;
-			}
-
-			int inFrame = timer * frames.length / cycleActs;
-			timer = (timer + 1) % cycleActs;
-			int outFrame = timer * frames.length / cycleActs;
-			if (inFrame != outFrame) {
-				setFrame(outFrame);
-			}
-
-		}
-		if (timer == 0 && cyclesToRun > 0 && (++cycleCount == cyclesToRun * scalar)) {
-			cycleCount = 0;
-			active = false;
-		}
 	}
 
 	/**
@@ -85,35 +43,6 @@ public class Animation {
 	 */
 	public void setCycleCount(int count) {
 		cyclesToRun = count < 0 ? 0 : count;
-	}
-
-	/**
-	 * sets the images and speed regulator value (the time, in act cycles, it takes
-	 * for the set of images to be shown once)
-	 *
-	 * @param imgSet          the images to be used in the animation
-	 * @param actsInAnimation number of act cycles to complete one animation cycle
-	 *                        in
-	 */
-	public void setAnimation(GreenfootImage[] imgSet, int actsInAnimation) {
-		setCycleActs(actsInAnimation);
-		setFrames(imgSet);
-	}
-
-	/**
-	 * sets the images to be used in the animation
-	 *
-	 * @param imgSet the images to be used in the animation
-	 */
-	public void setFrames(GreenfootImage[] imgSet) {
-		frames = imgSet;
-		timer = 0;
-		cycleCount = 0;
-		if (imgSet != null && imgSet.length != 0) {
-			setFrame(0);
-		} else {
-			active = false;
-		}
 	}
 
 	/**
@@ -146,29 +75,15 @@ public class Animation {
 	}
 
 	/**
-	 * sets the active state of the animation; it is only set active if field values
-	 * are set properly
-	 *
-	 * @param state a true/false value indicating which active state to set the
-	 *              animation in
-	 */
-	public void setActiveState(boolean state) {
-		if (!(animated instanceof Actor || animated instanceof World)) {
-			return;
-		}
-		if (frames == null || frames.length == 0) {
-			return;
-		}
-		active = state;
-	}
-
-	/**
 	 * returns the active state of the animation
 	 *
 	 * @return the current active state the animation is currrently in
 	 */
-	public boolean isActive() {
-		return active;
+	/// public boolean isActive() {
+	// return active;
+	// }
+	public int getCyclesToRun() {
+		return cyclesToRun;
 	}
 
 	/**
@@ -187,11 +102,4 @@ public class Animation {
 		this.scalar = scalar;
 	}
 
-	public Object getAnimated() {
-		return animated;
-	}
-
-	public void setAnimated(Object animated) {
-		this.animated = animated;
-	}
 }

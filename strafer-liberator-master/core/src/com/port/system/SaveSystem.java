@@ -134,6 +134,18 @@ abstract public class SaveSystem {
 						WorldData.hasLantern = true;
 						break;
 					}
+					case "portalGun": {//android case sensitivity
+						WorldData.hasPortalGun = true;
+						break;
+					}
+					case "iceLock": {
+						WorldData.hasIceLock = true;
+						break;
+					}
+					case "blackHole": {
+						WorldData.hasBlackHole = true;
+						break;
+					}
 					default: {
 					}
 					}

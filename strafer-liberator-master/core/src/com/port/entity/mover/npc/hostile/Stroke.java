@@ -18,6 +18,7 @@ import com.port.entity.item.player.Sword;
 import com.port.entity.mover.player.BasePlayer;
 import com.port.entity.mover.player.Player;
 import com.port.utils.graphics.Animation;
+import com.port.utils.graphics.AnimationRunner;
 import com.port.utils.graphics.GifImage;
 import com.port.world.PlayWorld;
 import com.port.world.Scroller;
@@ -41,6 +42,7 @@ public class Stroke extends HostileNpc {
     private long timpLaser = 0;
 
     Animation animation;
+    private AnimationRunner animationRunner;
     boolean startedAnimation = false;
     int cntDeath = 0;
 
@@ -58,7 +60,7 @@ public class Stroke extends HostileNpc {
         prepareHealthBar();
 
         changeAnimation();
-        animation.setActiveState(false);
+        animationRunner.setActiveState(false);
 
     }
 
@@ -123,6 +125,7 @@ public class Stroke extends HostileNpc {
         }
     }
 boolean enter=false;
+
     public void act() {
 
         if (WorldData.PAUZA == false && super.checkPlayerInChunck() == true) {
@@ -133,14 +136,14 @@ boolean enter=false;
                 cntDeath++;
                 if (cntDeath > 2) {
                     if (!startedAnimation) {
-                        animation.setActiveState(true);
+                        animationRunner.setActiveState(true);
                         startedAnimation = true;
                     }
                 }
-                if (animation.isActive()) {
-                    animation.run();
+                if (animationRunner.isActive()) {
+                    animationRunner.run();
                 }
-                if (startedAnimation && !animation.isActive()) {
+                if (startedAnimation && !animationRunner.isActive()) {
                     PlayWorld playWorld=(PlayWorld)getWorld();
                     playWorld.initObject(new Tutorial("Cutscene", "theend", 1, false), WorldData.menuX, WorldData.menuY);
                     getWorld().removeObjects(getWorld().getObjects(LaserStroke.class));
@@ -225,8 +228,8 @@ boolean enter=false;
                 }
 
             }
-            if (animation.isActive()) {
-                animation.run();
+            if (animationRunner.isActive()) {
+                animationRunner.run();
             } else {
                 npcImg = directie.get(gif);
                 setImage(npcImg.getCurrentImage());
@@ -282,9 +285,9 @@ boolean enter=false;
 
     private void changeAnimation() {
     	animation=StraferLiberator.assetManager.get("images/npc/inamic/stroke/stroke_death.gif",Animation.class);
-		animation.setAnimated(this);
-		animation.run();
-		animation.setActiveState(true);
+    	animationRunner = new AnimationRunner(this, animation);
+		animationRunner.run();
+		animationRunner.setActiveState(true);
     }
 
 }

@@ -130,8 +130,7 @@ public class LoadingScreen implements Screen {
 		game.assetManager.load("images/UI/menu/mainMenu/blur.gif", GifImage.class);
 		game.assetManager.load("images/UI/menu/pauseMenu/pauseBlur.gif", GifImage.class);
 		game.assetManager.load("images/UI/menu/mainMenu/playerAnimation.gif", GifImage.class);
-		game.assetManager.load("images/effects/kingcrimson.gif", GifImage.class);
-
+		
 		// player
 		game.assetManager.load("images/player/player_m_Idle.gif", GifImage.class);
 		game.assetManager.load("images/player/player_m_W.gif", GifImage.class);
@@ -221,7 +220,7 @@ public class LoadingScreen implements Screen {
 				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(22, 1, 5));
 		
 		game.assetManager.load("images/npc/inamic/stroke/stroke_death.gif",
-				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(17, 1, 5));
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(17, 1, 10));
 		
 		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Enter.gif",
 				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
@@ -229,7 +228,8 @@ public class LoadingScreen implements Screen {
 				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
 		game.assetManager.load("images/npc/inamic/schrodingersCat/schrodingersCat_Explode.gif",
 				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(0, 1, 5));
-
+		game.assetManager.load("images/effects/kingcrimson.gif",
+				com.port.utils.graphics.Animation.class, new AnimationLoader.AnimationLoaderParameter(22, 1, 5));
 		
 		game.assetManager.setLoader(GreenfootImage.class, new GreenfootImageLoader(new InternalFileHandleResolver()));
 		
