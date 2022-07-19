@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="strafer-liberator">
+    <title>Strafer Liberator</title>
+    <body/>
+    <topic id="launchers">
+        <title>Launchers</title>
+        <body/>
+        <topic id="desktop-launcher">
+            <title>Desktop Launcher</title>
+            <body>
+                <ul>
+                    <li><p>Windows</p></li>
+                    <li><p>Linux</p></li>
+                    <li><p>Mac OS</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="android-launcher">
+            <title>Android Launcher</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="touch-manager">
+        <title>Touch Manager</title>
+        <body/>
+    </topic>
+    <topic id="screens">
+        <title>Screens</title>
+        <body/>
+        <topic id="game-screen">
+            <title>Game Screen</title>
+            <body>
+                <ul>
+                    <li><p>WorldRenderer</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="loading-screen">
+            <title>Loading Screen</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="asset-manager">
+        <title>Asset Manager</title>
+        <body/>
+        <topic id="asset-loaders">
+            <title>Asset Loaders</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="paint-manager">
+        <title>Paint Manager</title>
+        <body/>
+    </topic>
+    <topic id="greenfoot">
+        <title>Greenfoot</title>
+        <body/>
+        <topic id="actor">
+            <title>Actor</title>
+            <body/>
+        </topic>
+        <topic id="world">
+            <title>World</title>
+            <body/>
+        </topic>
+        <topic id="greenfootimage">
+            <title>GreenfootImage</title>
+            <body/>
+        </topic>
+        <topic id="font">
+            <title>Font</title>
+            <body/>
+        </topic>
+        <topic id="greenfootsound">
+            <title>GreenfootSound</title>
+            <body/>
+        </topic>
+        <topic id="greenfoot-1">
+            <title>Greenfoot</title>
+            <body/>
+        </topic>
+        <topic id="mouseinfo">
+            <title>MouseInfo</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="game">
+        <title>Game</title>
+        <body/>
+        <topic id="playworld">
+            <title>PlayWorld</title>
+            <body>
+                <ul>
+                    <li><p>World Sections</p><ul>
+                            <li><p>Structures</p><ul>
+                                    <li><p>Walls</p></li>
+                                    <li><p>Doors</p></li>
+                                </ul></li>
+                            <li><p>map matrix</p></li>
+                            <li><p>Events</p></li>
+                            <li><p>Npcs</p></li>
+                        </ul></li>
+                    <li><p>Scroller</p></li>
+                    <li><p>Entities</p><ul>
+                            <li><p>Items</p></li>
+                            <li><p>Movers</p><ul>
+                                    <li><p>Player</p><ul>
+                                            <li><p>Health/Stamina Bar</p></li>
+                                            <li><p>Inventory</p></li>
+                                            <li><p>Knockback</p></li>
+                                        </ul></li>
+                                    <li><p>NPC</p><ul>
+                                            <li><p>Friendly</p></li>
+                                            <li><p>Hostile</p><ul>
+                                                  <li><p>Pathfinding</p></li>
+                                                  <li><p>Knockback</p></li>
+                                                  <li><p>Health</p></li>
+                                                </ul></li>
+                                        </ul></li>
+                                </ul></li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="file-loaders">
+            <title>File Loaders</title>
+            <body>
+                <ul>
+                    <li><p>Saves</p></li>
+                    <li><p>Dialogs</p></li>
+                    <li><p>Pathfind matrix</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="systems">
+            <title>Systems</title>
+            <body>
+                <ul>
+                    <li><p>WorldListener</p></li>
+                    <li><p>SaveSystem</p></li>
+                    <li><p>EventSystem</p></li>
+                    <li><p>MusicSystem</p></li>
+                    <li><p>Dialog System</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="user-interface">
+            <title>User Interface</title>
+            <body>
+                <ul>
+                    <li><p>Menus</p></li>
+                    <li><p>Buttons</p></li>
+                    <li><p>Touch Controls</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="worlddata">
+            <title>WorldData</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="mapgenerator">
+        <title>MapGenerator</title>
+        <body/>
+        <topic id="tiled-maps">
+            <title>Tiled Maps</title>
+            <body>
+                <ul>
+                    <li><p>TIleson</p><ul>
+                            <li><p>Pathfind matrix</p></li>
+                            <li><p>World Structure generation</p></li>
+                        </ul></li>
+                </ul>
+                <p><i>XMind - Trial Version</i></p>
+            </body>
+        </topic>
+    </topic>
+</topic>
