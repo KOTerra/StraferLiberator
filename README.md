@@ -7,23 +7,29 @@
 
 # Instalare
 - ![Documentatie/Dita/images/windows.png](Documentatie/Dita/images/windows.png)
+
 **Windows** 
+
 **link download**
 
 Folositi kit-ul de instalare, apoi rulati fisierul .exe
 
 
 - ![Documentatie/Dita/images/linux.png](Documentatie/Dita/images/linux.png) ![Documentatie/Dita/images/macos.png](Documentatie/Dita/images/macos.png)
-**Lunx si MacOS**
+
+**Linux / MacOS**
 
 **link download**
+
 Dezarhivati si rulati fisierul .jar din linia de comanda folosind:
 ```
 java -jar desktop-1.0.jar
 ```
 
 - ![Documentatie/Dita/images/android.png](Documentatie/Dita/images/android.png)
+
 **Android**
+
 **link download**
 
 instalati si rulati fisierul apk 
