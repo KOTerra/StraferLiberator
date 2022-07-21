@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="introducere">
+    <title>Introducere</title>
+    <body>
+        <p>"Strafer Liberator" este un joc RPG, open-world, top-down cu grafica 2D. Proiectul este
+            derivat dintr-unul anterior(purtator al aceluiasi nume), care a fost realizat utilizand
+                <b>Greenfoot</b>, cel din prezent fiind astfel atat un succesor spiritual cat si o
+            evolutie. Motivatia din spatele proiectului in forma sa actuala a fost pe de-o parte de
+            a construi un mod prin care sa devina posibila portarea oricarui proiect Greenfoot
+            folosind <b>libGDX</b>, iar pe de alta parte s-a dorit ca acest proiect sa respecte
+            standardele de calitate ale unui joc de acest tip, asta realizandu-se prin scalarea
+            conceptelor de baza existente in proiectul anterior.   </p>
+    </body>
+</topic>

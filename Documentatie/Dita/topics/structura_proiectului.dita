@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="structura_proiectului">
+    <title>Structura Proiectului</title>
+    <body>
+        <p>Orice proiect libGDX poate fi generat cu setup tool-ul dedicat. Acesta genereaza dupa
+            preferintele utilizatorului mai multe proiecte Java care au dependente intre ele in
+            functie de platformele si plugin-urile selectate in setup. Pentru build s-a folosit
+            Gradle, dardependentele catre LWJGL sunt gestionate de libGDX cu Maven. In cazul
+            Strafer, exista:</p>
+        <p>
+            <ul id="ul_n3v_lqq_g5b">
+                <li>proiectul master ce le inglobeaza toate proiectele</li>
+            </ul>
+        </p>
+        <p>
+            <ul id="ul_lc4_lqq_g5b">
+                <li>core avand pachetele comune pentru toate versiunile: greenfoot, com.port(jocul
+                    propriu-zis) si com.game.straferliberator(tot ceea ce leaga jocul de
+                    launchere)</li>
+            </ul>
+        </p>
+        <p>
+            <ul id="ul_mxh_mqq_g5b">
+                <li>launcher-ele pentru fiecare platforma (entry point-ul aplicatiei)</li>
+            </ul>
+        </p>
+        <p> </p>
+    </body>
+</topic>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="strafer-liberator">
+    <title>T</title>
+    <topic id="launchers">
+        <title>Launchers</title>
+        <body>
+            <p>Fiecare launcher determina rezolutia si setarile necesare sistemului pe care ruleaza,
+                apoi instantiaza game class-ul Straferliberator din core</p>
+        </body>
+        <topic id="desktop-launcher">
+            <title>Desktop Launcher</title>
+            <body>
+                <p>Configurari initiale,Functioneaza pe urmatoarele platforme:</p>
+                <p>Windows</p>
+                <p>Linux</p>
+                <p>Mac OS</p>
+            </body>
+        </topic>
+        <topic id="android-launcher">
+            <title>Android Launcher</title>
+            <body>
+                <p>Configurari initiale, ascunde status bar-ul</p>
+            </body>
+        </topic>
+    </topic>
+    <topic id="touch-manager">
+        <title>Touch Manager</title>
+        <body>
+            <p>Functioneaza doar atunci cand jocul e instantiat din Android Launcher</p>
+            <p>Ascunde/ aduce in foreground controalele cu touch in timpul jocului.</p>
+        </body>
+    </topic>
+    <topic id="worldrenderer">
+        <title>WorldRenderer</title>
+        <body>
+            <p><xref
+                    href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/render/WorldRenderer.java"
+                    format="html" scope="external"
+                        ><i>com.game.straferliberator.render.WorldRenderer.java</i></xref></p>
+            <p>Primeste informatia furnizata de PaintManager pentru a randa fundalul si actorii, in
+                ierarhia specificata, folosind Sprite Batch-ul.</p>
+        </body>
+    </topic>
+    <topic id="sprite-batch">
+        <title>Sprite Batch</title>
+        <body>
+            <p>Static, randeaza sprite-urile actorilor. Un sprite reprezinta o regiune dintr-o
+                textura, aflate intr-un bounding box dreptunghiular.</p>
+        </body>
+    </topic>
+    <topic id="screens">
+        <title>Screens</title>
+        <body/>
+        <topic id="id_ttt_xxq_g5b">
+            <title>Loading Screen</title>
+            <body>
+                <p>In el sunt definite toate asseturile incarcate de AssetManager. O bara de loading
+                    afiseaza progresul iar ecranul este schimbat in game screen cand toate
+                    asset-urile sunt incarcate.</p>
+            </body>
+        </topic>
+        <topic id="game-screen">
+            <title>Game Screen</title>
+            <body>
+                <p>Instantiaza WorldRenderer -ul, apeleaza dispose pentru a elibera obiecte
+                    nefolosite din memorie, actualizeaza variabila elapsed si FPS din WorldData
+                    pentru operatiile ce tin evidenta timpului si itereaza prin toti actorii din
+                    PlayWorld pentru a apela metoda act()</p>
+            </body>
+        </topic>
+    </topic>
+    <topic id="asset-manager">
+        <title>Asset Manager</title>
+        <body>
+            <p>O clasa din libGDX care permite incarcarea de asseturi in memorie pe un alt thread
+                fata de cel principal(GLThread). Acestuia i se seteaza loadere definite pentru
+                clasele jocului si pot fi referentiate dupa aceea cu o funtie get(). AssetManagerul
+                elimina timpii de load si memoria ocupata de obiecte ce nu sunt necesare, lucru ce
+                nu putea fi realizat cu Greenfoot.</p>
+        </body>
+        <topic id="asset-loaders">
+            <title>Asset Loaders</title>
+            <body>
+                <p>Implementeaza AsynchronousAssetLoader, avand definit tipul de clasa pe care
+                    trebuie sa il returneze si parametrii specifici unde este cazul</p>
+                <p>
+                    <ul id="ul_adb_w1r_g5b">
+                        <li>AnimationLoader</li>
+                        <li>FontLoader</li>
+                        <li>GifImageLoader</li>
+                        <li>GreenfootImageLoader</li>
+                        <li>GreenfootSoundLoader</li>
+                    </ul>
+                </p>
+            </body>
+        </topic>
+    </topic>
+    <topic id="paint-manager">
+        <title>Paint Manager</title>
+        <body>
+            <p>Contine un array de tip Class&lt;?>[] paintOrder in care este stocata ierarhia pe
+                care WorldRenderer ul o respecta atunci cand apeleaza draw pentru actori. Pentru
+                clasele ce nu sunt adaugate in ierarhie se verifica recursiv daca obiectul verificat
+                este instance al unei clase din paintOrder. Nivelurile acestui arbore format sunt
+                stocate intr-un hashmap <i>classPaintIndex</i> ca valoare , cheia fiind tipul
+                clasei, iar in alt hashmap <i>objectsInPaintOrder</i> avem cheie nivelul arborelui
+                iar valorile array uri cu obiectele de pe acel nivel. Arborele este actualizat cand
+                un Actor este adaugat sau sters din world. </p>
+        </body>
+    </topic>
+    <topic id="greenfoot">
+        <title>Greenfoot</title>
+        <body>
+            <p>Pachetul cu clase wrapper care adapteaza API-ul Greenfoot</p>
+        </body>
+        <topic id="actor">
+            <title>Actor</title>
+            <body>
+                <p>Extinde gdx.Image, care la randul lui este o subclasa a gdx.Actor. Atat pentru
+                    libGDX cat si pentru Greenfoot un actor este un sprite care exista intr-un
+                    World/Stage si poate avea coliziuni si pozitie in spatiu. Un greenfoot.Actor
+                    primeste ca textura un GreenfootImage, bounding box-ul fiind calculat in functie
+                    de dimensiunile imaginii, pozitia(in pixeli) fiind punctul din centrul
+                    imaginiii.</p>
+            </body>
+        </topic>
+        <topic id="world">
+            <title>World</title>
+            <body>
+                <ul>
+                    <li><p>Actor Evidence</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="greenfootimage">
+            <title>GreenfootImage</title>
+            <body>
+                <ul>
+                    <li><p>Image render</p></li>
+                    <li><p>Draw Methods</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="font">
+            <title>Font</title>
+            <body/>
+        </topic>
+        <topic id="greenfootsound">
+            <title>GreenfootSound</title>
+            <body/>
+        </topic>
+        <topic id="greenfoot-1">
+            <title>Greenfoot</title>
+            <body/>
+        </topic>
+        <topic id="mouseinfo">
+            <title>MouseInfo</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="game">
+        <title>Game</title>
+        <body/>
+        <topic id="playworld">
+            <title>PlayWorld</title>
+            <body>
+                <ul>
+                    <li><p>World Sections</p><ul>
+                            <li><p>Structures</p><ul>
+                                    <li><p>Walls</p></li>
+                                    <li><p>Doors</p></li>
+                                </ul></li>
+                            <li><p>map matrix</p></li>
+                            <li><p>Events</p></li>
+                            <li><p>Npc placement</p></li>
+                        </ul></li>
+                    <li><p>Scroller</p></li>
+                    <li><p>WorldListener</p></li>
+                    <li><p>Entities</p><ul>
+                            <li><p>Items</p></li>
+                            <li><p>Movers</p><ul>
+                                    <li><p>Player</p><ul>
+                                            <li><p>Health/Stamina Bar</p></li>
+                                            <li><p>Inventory</p></li>
+                                            <li><p>Knockback</p></li>
+                                        </ul></li>
+                                    <li><p>NPC</p><ul>
+                                            <li><p>Friendly</p></li>
+                                            <li><p>Hostile</p><ul>
+                                                  <li><p>Pathfinding</p></li>
+                                                  <li><p>Knockback</p></li>
+                                                  <li><p>Health</p></li>
+                                                </ul></li>
+                                        </ul></li>
+                                </ul></li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="file-loaders">
+            <title>File Loaders</title>
+            <body>
+                <ul>
+                    <li><p>Saves</p></li>
+                    <li><p>Dialogs</p></li>
+                    <li><p>Pathfind matrix</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="systems">
+            <title>Systems</title>
+            <body>
+                <ul>
+                    <li><p>SaveSystem</p></li>
+                    <li><p>EventSystem</p></li>
+                    <li><p>MusicSystem</p></li>
+                    <li><p>Dialog System</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="graphics">
+            <title>Graphics</title>
+            <body>
+                <ul>
+                    <li><p>Picture</p></li>
+                    <li><p>Text</p></li>
+                    <li><p>GifImage</p><ul>
+                            <li><p>GifDecoder</p></li>
+                            <li><p>Animation</p><ul>
+                                    <li><p>AnimationRunner</p></li>
+                                    <li><p>Transition</p></li>
+                                </ul></li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="user-interface">
+            <title>User Interface</title>
+            <body>
+                <ul>
+                    <li><p>Menus</p></li>
+                    <li><p>Buttons</p></li>
+                    <li><p>Touch Controls</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic id="worlddata">
+            <title>WorldData</title>
+            <body/>
+        </topic>
+    </topic>
+    <topic id="mapgenerator">
+        <title>MapGenerator</title>
+        <body>
+            <p><b><i><xref
+                            href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/Mapgenerator/MapGen"
+                            format="html" scope="external"
+                        >/mapGenerator/Mapgenerator/MapGen</xref></i></b></p>
+            <p>Un tool ce ne ajuta sa automatizam generarea de obiecte ce sunt adaugate in
+                PlayWorld, cat si matricele asociate pathfindingului in fiecare WorldSection</p>
+            <p>Fiecare WorldSection a fost construit multi-layered in <b>Tiled</b> cu tile-uri de
+                64*64pixeli prezente ca tileset-uri ïn <b><i><xref
+                            href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/TiledMaps"
+                            format="html" scope="external"
+                        >mapGenerator\TiledMaps\tilesets</xref></i></b>. Acest lucru ne permite sa
+                modificam foarte usor harta si ceea ce se afla pe ea dintr-un GUI. Apoi acestea sunt
+                exportate in format JSON in folderul "mapGenerator/TiledMaps". Cand aplicatia este
+                rulata, un dialog windows pentru selectie de fisiere este deschis penttru a alege ce
+                fisier vrem sa parsam in consola avem 2 optiuni disponibile:</p>
+            <p>1. Pentru a genera matricea de pathfinding</p>
+            <p>1. pentru a genera cod java cu functii init() ce poate fi inserat direct in clasele
+                WorldSection&lt;11-23></p>
+            <p>Output-ul este salvat in fisiere .txt, iar apoi adaugate in core project.</p>
+            <p>Aplicatia a fost scrisa in C++17 , iar parsarea s-a realizat cu libraria Tileson</p>
+        </body>
+        <topic id="tiled-maps">
+            <title>Tiled Maps</title>
+            <body>
+                <ul>
+                    <li><p>TIleson</p><ul>
+                            <li><p>Pathfind matrix</p></li>
+                            <li><p>World Structure generation</p></li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+    </topic>
+</topic>

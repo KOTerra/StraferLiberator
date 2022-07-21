@@ -38,7 +38,7 @@ instalati si rulati fisierul apk
 # Portul 
 ![Documentatie/Dita/images/port.png](Documentatie/Dita/images/port.png)
 
-Initial Strafer a fost un joc de dimensiuni mici realizat in [Greenfoot](https://www.greenfoot.org/door). Datorita limitarilor tehnie impuse de Greenfoot si dorintei de a dezvolta jocul cat mai mult fara a face sacrificii, a fost luata decizia ca acesta sa fie portat, iar apoi extins de la codul sursa care deja exista. Pentru a realiza portul a fost folosit [libGDX](https://libgdx.com/) ce permite distribuirea cross platform a proiectului si puterea de a dezvolta un joc cat mai mare si complet posibil. Cu mici ajustari pachetul cu librariile greenfoot portate ar putea fi folosite standalone pentru a porta orice proiect realizat cu Greenfoot.
+Initial, Strafer a fost un joc de dimensiuni mici realizat in [Greenfoot](https://www.greenfoot.org/door). Datorita limitarilor tehnice impuse de Greenfoot si dorintei de a dezvolta jocul cat mai mult fara a face sacrificii, a fost luata decizia ca acesta sa fie portat, iar apoi extins de la codul sursa care deja exista. Pentru a realiza portul a fost folosit [libGDX](https://libgdx.com/) ce permite distribuirea cross platform a proiectului si puterea de a dezvolta un joc cat mai mare si complet posibil. Cu mici ajustari pachetul cu librariile greenfoot portate ar putea fi folosite standalone pentru a porta orice proiect realizat cu Greenfoot.
 
 
 # Povestea
