@@ -13,7 +13,7 @@ public class LaserStroke extends NpcItem {
     boolean gaveDamage=false;
     
     Stroke stroke;
-    GreenfootImage art = new GreenfootImage(512, 288);
+    GreenfootImage art = new GreenfootImage(1024,576);
     int xStart, yStart, dist;
 
     public LaserStroke(Stroke st, int dist) { ///ochi stang dist intre ochi
@@ -53,7 +53,7 @@ public class LaserStroke extends NpcItem {
         art.drawLine(x2, y2, xFin, yFin);
         art.drawLine(x2 + dist / 2, y2, xFin + dist / 2, yFin);
 
-        art.scale(1024, 576);
+        art.scale(WorldData.WIDTH, WorldData.HEIGHT);
         setImage(art);
 
     }

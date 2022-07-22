@@ -70,7 +70,7 @@ public class Stroke extends HostileNpc {
         ochix = (int) (getX() - 50);
         ochiy = (int) (getY() - 35);
         laserStroke = new LaserStroke(this, 100);
-        getWorld().addObject(laserStroke, WorldData.menuX-250, WorldData.menuY+100);
+        getWorld().addObject(laserStroke, WorldData.menuX-WorldData.WIDTH/4+50, WorldData.menuY+WorldData.HEIGHT/6+50);
 
         super.atac();
     }

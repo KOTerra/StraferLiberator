@@ -77,7 +77,8 @@ public class PlayWorld extends World {
 		addedUI = false;
 		addMainMenu();
 
-		musicIdle = musicCombat = assetManager.get("sounds/music/Combat.mp3", GreenfootSound.class);
+		musicIdle = assetManager.get("sounds/music/Default.mp3", GreenfootSound.class);
+		musicCombat = assetManager.get("sounds/music/Combat.mp3", GreenfootSound.class);
 		musicCombat.setVolume(45);
 		musicIdle.setVolume(45);
 		musicLoaded = true;
@@ -224,6 +225,7 @@ public class PlayWorld extends World {
 			}
 			if (!musicCombat.isPlaying()) {
 				if (WorldData.isFighting) {
+
 					musicCombat.play();
 					musicIdle.pause();
 				}
@@ -231,6 +233,7 @@ public class PlayWorld extends World {
 
 			if (musicCombat.isPlaying()) {
 				if (!WorldData.isFighting) {
+
 					musicCombat.pause();
 				}
 			}
