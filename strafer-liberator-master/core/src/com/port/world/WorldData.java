@@ -8,7 +8,7 @@ import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.files.FileHandle;
 import com.port.utils.loader.Loader;
 
-/*
+/**
  * Valorile necesare jocului
  */
 public class WorldData {
@@ -68,13 +68,20 @@ public class WorldData {
 	public static boolean[][] visitedWorldSections = { { false, false, false, false }, { false, false, false, false },
 			{ false, false, false, false } };
 
+	/**
+	 *
+	 */
 	public static boolean[][][] worldSectionMatrix = new boolean[worldSectionShortNumber + 1][maxLengthWorld
 			+ 1][maxWidthWorld + 1];
 
-	// nr maxim de sectiuni de pe o linie
+	/**
+	 * nr maxim de sectiuni de pe o linie
+	 */
 	public static final int numberOfCollumns = 3;
 
-	// nr scurt pt un nr de sectiune (ex ws11->1)
+	/**
+	 * nr scurt pt un nr de sectiune (ex ws11->1)
+	 */
 	public static int getWorldSectionShort(int world) {
 		int col = world % 10;
 		int lin = world / 10;
@@ -85,15 +92,15 @@ public class WorldData {
 		return sol;
 	}
 
-	// incarca matricele de pathfind pt fiecare mapa
+	/**
+	 * incarca matricele de pathfind pt fiecare sectiune
+	 */
 	public static void loadWorldMatrices() {
 
 		String directory = new String("maps/");
 		for (int i = 1; i <= 6; i++) {
-
-			//worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.local(directory + i + ".txt")).file());
-			FileHandle fileHandle=Gdx.files.internal(directory+i+ ".txt");
-			worldSectionMatrix[i]=Loader.loadMatrix(fileHandle);
+			FileHandle fileHandle = Gdx.files.internal(directory + i + ".txt");
+			worldSectionMatrix[i] = Loader.loadMatrix(fileHandle);
 		}
 	}
 
@@ -103,14 +110,12 @@ public class WorldData {
 	public static List<String> tutorials = new ArrayList<String>();
 
 	public static int dialogIndex = 0;
-	public static int[] dialogSuccesion = new int[] { 0, 3, 6, 9, 12, 15, 18, 20, 22, 24, 25, 27 };// index e nr dialog
-																									// care e in numele
-																									// txt-ului cu
-																									// dialogul
-																									// valoarea e nr
-																									// eventului la care
-																									// e dialogul asta
-	public static boolean talked = false; // verifica daca un dialog a fost accesat odata
+	/**
+	 * index e nr dialog care e in numele txt-ului cu dialogul valoarea e nr
+	 * eventului la care e dialogul asta
+	 */
+	public static int[] dialogSuccesion = new int[] { 0, 3, 6, 9, 12, 15, 18, 20, 22, 24, 25, 27 };
+	public static boolean talked = false; // verifica daca un dialog a fost accesat o data
 
 	public static void reset() {// pt save file nou
 
@@ -132,7 +137,6 @@ public class WorldData {
 		dialogIndex = 0;
 		talked = false;
 		nrEvent = 1;
-		
 
 	}
 

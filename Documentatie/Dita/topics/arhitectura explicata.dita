@@ -203,8 +203,22 @@
                                 <p>Npc placement</p>
                             </li>
                         </ul></li>
-                    <li><p>Scroller</p></li>
-                    <li><p>WorldListener</p></li>
+                    <li><p>Scroller</p>
+                        <p>Scroller-ul este o clasa ce tine evidenta pozitiei playerului in lume si
+                            actualizeaza background-ul , dar si pozitia actorilor relativi la
+                            pozitia playerului astfel incat lumea de joc sa nu fie limitata la
+                            viewport, iar playerul sa fie constant in mijlocul ecranului atat timp
+                            cat nu este in marginea sectiunii. </p></li>
+                    <li><p>WorldListener</p>
+                        <p>WorldListener-ul comunica cu scrollerul si playerul, avand rolul de a
+                            tine logica din spatele conexiunilor intre WorldSection-uri si de a
+                            decide cand si cum acestea trebuie schimbarte. Metoda changeWorldSection
+                            seteaza pozitia playerului in functie de latura in care sunt
+                            intersectate sectiunile, iar apoi incarca fundalul din assetManager,
+                            sterge din PlayWorld entitatile si adauga entitatile specifice sectiunii
+                            in care a intrat plahyerul. Schimbarea aceasta nu necesita loading
+                            screenuri.</p>
+                        <p> </p></li>
                     <li><p>Entities</p><ul>
                             <li><p>Items</p></li>
                             <li><p>Movers</p><ul>
@@ -229,36 +243,93 @@
         <topic id="file-loaders">
             <title>File Loaders</title>
             <body>
+                <p>Clasele Loader si DialogLoader contin metode ce incarca fisierele in care sunt
+                    stocate date din folderele:</p>
                 <ul>
-                    <li><p>Saves</p></li>
-                    <li><p>Dialogs</p></li>
-                    <li><p>Pathfind matrix</p></li>
+                    <li><p>saves</p></li>
+                    <li><p>dialogs</p></li>
+                    <li><p>maps</p></li>
                 </ul>
             </body>
         </topic>
         <topic id="systems">
             <title>Systems</title>
             <body>
+                <p>Pentru a putea avea un storyline cu eventuri predefinite si stari dinamice ale
+                    jocului a fost nevoie de implementarea mai multor sisteme</p>
                 <ul>
-                    <li><p>SaveSystem</p></li>
-                    <li><p>EventSystem</p></li>
-                    <li><p>MusicSystem</p></li>
-                    <li><p>Dialog System</p></li>
+                    <li><p>SaveSystem</p>
+                        <p>Salveaza in anumite momente toate datele necesare pentru a continua jocul
+                            dupa un restart al aplicatiei. Acesta incarca in WorldData : locatia si
+                            viata player-ului, sectiunea in care se afla, sectiunile deblocate,
+                            obiectivele, event-ul curent, item-ele deblocate si npc-urile
+                            cunoscute.</p></li>
+                    <li>
+                        <p>EventSystem</p>
+                        <p>Acesta contine cronologia eventurileor(sau questurilor) din povestea
+                            jocului. Parcurgerea lor schimba comportamentul PlayWorld-ului in raport
+                            cu Playerul, inserand sau eliminand din lume obiecte unice doar pentru
+                            acel event(ex un item/ un NPC cu un anume dialog) . Fiecare event are un
+                            numar ce este salvat in WorldData.</p>
+                    </li>
+                    <li><p>MusicSystem</p>
+                        <p>Exista 3 melodii in joc: una pentru meniurile de pauza si altele doua
+                            pentru gameplay loop. Cele pentru gameplay loop sunt actualizate dinamic
+                            in functie de ceea ce face playerul. cu un delay de cateva secunde este
+                            determinat daca playerul este in stare de combat sau de explorare si
+                            schimba intre muzica combat si idle. in timpul momentelor de cutscene,
+                            dialog sau tutorial muzica este oprita.</p></li>
+                    <li><p>Dialog System</p>
+                        <p>Sistemul de dialoguri a fost introdus pentru a da informatie contextuala
+                            playerului fara a intrerupe gameplayul prea des cu cutsceneuri. Acesta
+                            sta pe baza NPC urilor friendly si are un design clasic de RPG.</p></li>
                 </ul>
             </body>
         </topic>
         <topic id="graphics">
             <title>Graphics</title>
+        </topic>
+        <topic id="topic_y43_chz_g5b">
             <body>
-                <ul>
-                    <li><p>Picture</p></li>
-                    <li><p>Text</p></li>
-                    <li><p>GifImage</p><ul>
-                            <li><p>GifDecoder</p></li>
-                            <li><p>Animation</p><ul>
-                                    <li><p>AnimationRunner</p></li>
-                                    <li><p>Transition</p></li>
-                                </ul></li>
+                <p>Pe langa clasele rudimentare oferite de Greenfoot, a trebuit sa implementam alte
+                    clase pentru control grafic</p>
+                <ul id="ul_z43_chz_g5b">
+                    <li>
+                        <p>Picture</p>
+                        <p>Este un actor fara coliziune cu scopul de a fi o simpla imagine care in
+                            general este utilizata ca o componenta de UI</p>
+                    </li>
+                    <li>
+                        <p>Text</p>
+                        <p>La fel ca Picture, aceasta clasa este un element de UI care doar da
+                            display unui text</p>
+                    </li>
+                    <li><p>GifImage</p>O clasa care primeste un gdx.Array(GreenfootImage) si o
+                        durata a frame-urilor in milisecunde. Clasa are metode ce returneaza toate
+                        frame-urile, frame-ul ce trebuie afisat la un moment de timp calculat in
+                        fucnctie de variabila WorldData.elapsed.<ul id="ul_ap3_chz_g5b">
+                            <li>
+                                <p>GifDecoder</p>
+                                <p>O clasa ce citeste un fisier .gif  si formeaza un GifImage</p>
+                            </li>
+                            <li>
+                                <p>Animation</p>
+                                <p>Un animation este o clasa cu un GifImage ce poate rula pentru un
+                                    numar limitat de ori .</p>
+                                <ul id="ul_bp3_chz_g5b">
+                                    <li>
+                                        <p>AnimationRunner</p>
+                                        <p>Primeste un animation si un actor care trebuie animat.
+                                            Este nevoie de un runner pentru ca fiecae animation este
+                                            unic in asset manager si nu poate fi rulat intern pentru
+                                            mai multi actori de acelasi tip.</p>
+                                    </li>
+                                    <li>
+                                        <p>Transition</p>
+                                        <p>Un animaton cu scop similar ca Picture si Text</p>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul></li>
                 </ul>
             </body>
@@ -266,16 +337,46 @@
         <topic id="user-interface">
             <title>User Interface</title>
             <body>
+                <p>UI- ul se imparte intre meniuri si HUD(heads up display), diferenta fiind ca HUD
+                    ul este afisat in timpul gameplay loopului, iar meniurile cand
+                    WorldData.PAUZA=true</p>
                 <ul>
-                    <li><p>Menus</p></li>
-                    <li><p>Buttons</p></li>
-                    <li><p>Touch Controls</p></li>
+                    <li><p>Meniuri</p>
+                        <p>
+                            <ul id="ul_zbz_4kz_g5b">
+                                <li>Main Menu - meniul care apare cand se intra in GameScreen, are
+                                    un buton Continue si unul New</li>
+                                <li>Pause Menu - este accesat in timpul jocului prin tasta esc sau
+                                    pe android prin butonul dedicat. Are butoanele Resume, Map,
+                                    MainMenu</li>
+                                <li>Map Menu- accesat din Pause Menu. Afiseaza sectiunile deblocate
+                                    din harta, obiectivele si pozitia playerului</li>
+                                <li>Tutoriale - explica anumite aspecte pentru mecanici/npc/items </li>
+                                <li>Cutscene-uri - in esenta tot tutoriale dar au scop in
+                                    dezvoltarea vizuala a povestii</li>
+                            </ul>
+                        </p></li>
+                    <li>HUD  - inventory, healthbar, staminabar</li>
+                    <li><p>Butoane - Butoanele din UI sunt compatibil atat cu mouse-ul pe desktop cat si cu touchscreen.
+                            Fiecare tip de buton are intregul behaviour definit, butoanele
+                            actualizandu-se diferit pentru fiecare meniu</p></li>
+                    <li><p>Touch Controls</p>Sunt controalele specifice pentru Android. apar pe
+                        ecran atunci cand WorldData.PAUZA=false si se actualizeaza la fel dinamic in
+                        functie de ce actiuni sunt disponibile playerului   (Dpad si sprint pentru
+                        miscarea playerului, inventory pt a accesa inventory-ul, butonul de pauza si
+                        butoanele dedicate pentru controlul itemelor) </li>
                 </ul>
             </body>
         </topic>
         <topic id="worlddata">
             <title>WorldData</title>
-            <body/>
+            <body>
+                <p>Contine o multitudine de field-uri si metode statice ce sunt accesate atat la
+                    inceput cat si in timpul jocului. Aici sunt incarcate datele din fisierele de
+                    salvare, sunt actualizate variabilele legate de frame-rate, metodele necesare
+                    pentru sistemul de eventuri si cel de dialoguri, pentru pathfinding si pentru
+                    setarile initiale ale rezolutiei.</p>
+            </body>
         </topic>
     </topic>
     <topic id="mapgenerator">

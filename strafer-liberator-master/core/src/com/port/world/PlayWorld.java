@@ -77,16 +77,10 @@ public class PlayWorld extends World {
 		addedUI = false;
 		addMainMenu();
 
-		// puts the music on a new Thread
-		new Thread(new Runnable() {
-
-			public void run() {
-				musicIdle = musicCombat = assetManager.get("sounds/music/Combat.mp3", GreenfootSound.class);
-				musicCombat.setVolume(45);
-				musicIdle.setVolume(45);
-				musicLoaded = true;
-			}
-		}).start();
+		musicIdle = musicCombat = assetManager.get("sounds/music/Combat.mp3", GreenfootSound.class);
+		musicCombat.setVolume(45);
+		musicIdle.setVolume(45);
+		musicLoaded = true;
 
 	}
 
