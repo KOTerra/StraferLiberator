@@ -13,6 +13,9 @@ import com.port.world.WorldData;
 public abstract class Loader {
 
 	public static boolean[][] loadMatrix(File fin) {
+		//String fs = fileHandle.readString();
+		//
+		
 	  boolean[][] mat = new boolean[WorldData.maxLengthWorld][WorldData.maxWidthWorld];
 		try {
 			Scanner scan = new Scanner(fin);

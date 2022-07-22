@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.files.FileHandle;
 import com.port.utils.loader.Loader;
 
 /*
@@ -91,6 +92,8 @@ public class WorldData {
 		for (int i = 1; i <= 6; i++) {
 
 			worldSectionMatrix[i] = Loader.loadMatrix((Gdx.files.local(directory + i + ".txt")).file());
+			//FileHandle fileHandle=Gdx.files.internal(directory+i+ ".txt");
+			//worldSectionMatrix[i]=Loader.loadMatrix(fileHandle);
 		}
 	}
 

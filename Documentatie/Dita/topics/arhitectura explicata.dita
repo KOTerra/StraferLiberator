@@ -128,52 +128,80 @@
         <topic id="world">
             <title>World</title>
             <body>
-                <ul>
-                    <li><p>Actor Evidence</p></li>
-                </ul>
+                <p>Extinde gdx.Stage. In ambele situatii, Stage/World reprezinta clasele ce contin
+                    toti actorii si informatii despre locatiile si coliziunile dintre ei. Un
+                    GameScreen trebuie sa aiba un World in componenta.</p>
             </body>
         </topic>
         <topic id="greenfootimage">
             <title>GreenfootImage</title>
             <body>
-                <ul>
-                    <li><p>Image render</p></li>
-                    <li><p>Draw Methods</p></li>
-                </ul>
+                <p>Clasa utilizata de Greenfoot pentru a textura actorii sau background-ul din
+                    world. Extinde gdx.TextureRegion. De asemenea are functionalitati de randat
+                    forme geometrice, text sau alte GreenfootImage-uri in interiorul unui
+                    GreenfootImage. Aceste functionalitati sunt implementate folosind
+                    Pixmap,Bitmap,FrameBuffer-uri. Exista si functionalitati de baza precum setarea
+                    transparentei sau scalare.</p>
             </body>
         </topic>
         <topic id="font">
             <title>Font</title>
-            <body/>
+            <body>
+                <p>Extinde gdx.BitmapFont. Este folosit pentru a randa Stringuri in obiecte
+                    GreenfootImage. Deoarece un Bitmap consuma foarte multa memorie, exista un
+                    singur font static utilizat de toate clasele.</p>
+            </body>
         </topic>
         <topic id="greenfootsound">
             <title>GreenfootSound</title>
-            <body/>
+            <body>
+                <p>Are functionalitati simple de pornit sau manipulat fisiere audio. </p>
+            </body>
         </topic>
         <topic id="greenfoot-1">
             <title>Greenfoot</title>
-            <body/>
+            <body>
+                <p>Clasa de utilitati ce se ocupa in principal de detectarea inputului de la mouse
+                    sau tastatura.</p>
+            </body>
         </topic>
         <topic id="mouseinfo">
             <title>MouseInfo</title>
-            <body/>
+            <body>
+                <p>Tine cont de pozitia cursorului pe ecran si de care dintre butoanele acestuia
+                    sunt apasate.</p>
+            </body>
         </topic>
     </topic>
     <topic id="game">
-        <title>Game</title>
-        <body/>
+        <title/>
         <topic id="playworld">
             <title>PlayWorld</title>
             <body>
+                <p>Este un World ce contine toate sistemele de joc si un player si este legat la
+                    WorldListener.</p>
                 <ul>
-                    <li><p>World Sections</p><ul>
-                            <li><p>Structures</p><ul>
-                                    <li><p>Walls</p></li>
-                                    <li><p>Doors</p></li>
-                                </ul></li>
-                            <li><p>map matrix</p></li>
-                            <li><p>Events</p></li>
-                            <li><p>Npc placement</p></li>
+                    <li><p>World Sections</p>Fiind<ul>
+                            <li>
+                                <p>Structures</p>
+                                <ul>
+                                    <li>
+                                        <p>Walls</p>
+                                    </li>
+                                    <li>
+                                        <p>Doors</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>map matrix</p>
+                            </li>
+                            <li>
+                                <p>Events</p>
+                            </li>
+                            <li>
+                                <p>Npc placement</p>
+                            </li>
                         </ul></li>
                     <li><p>Scroller</p></li>
                     <li><p>WorldListener</p></li>
