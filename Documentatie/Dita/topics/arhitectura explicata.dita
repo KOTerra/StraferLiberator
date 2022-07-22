@@ -183,13 +183,20 @@
                 <ul>
                     <li><p>World Sections</p>Fiind<ul>
                             <li>
-                                <p>Structures</p>
+                                <p>WorldStructure</p>
+                                <p>Un WorldStructre este un actor dintr- o sectiune care se ocupa de
+                                    limitele lumii si de coliziunile dintre ea si Actori</p>
                                 <ul>
                                     <li>
                                         <p>Walls</p>
+                                        <p>Peretii invizibili sunt verticali si orizontali, primind
+                                            in constructor directia pe care trebuie sa verifice si
+                                            sa rezolve coliziunile cu un Entity.</p>
                                     </li>
                                     <li>
-                                        <p>Doors</p>
+                                        <p>Door</p>
+                                        <p>O usa ce blocheaza accesul intr- o anume zona. Poate fi
+                                            deschisa sub o conditie definita.</p>
                                     </li>
                                 </ul>
                             </li>
@@ -208,7 +215,9 @@
                             actualizeaza background-ul , dar si pozitia actorilor relativi la
                             pozitia playerului astfel incat lumea de joc sa nu fie limitata la
                             viewport, iar playerul sa fie constant in mijlocul ecranului atat timp
-                            cat nu este in marginea sectiunii. </p></li>
+                            cat nu este in marginea sectiunii. Scrollerul are 2 variabile statice
+                            prin care se tine evidenta pozitiei globale a actorilor
+                            (scrolledX,srolledY).</p></li>
                     <li><p>WorldListener</p>
                         <p>WorldListener-ul comunica cu scrollerul si playerul, avand rolul de a
                             tine logica din spatele conexiunilor intre WorldSection-uri si de a
@@ -219,20 +228,70 @@
                             in care a intrat plahyerul. Schimbarea aceasta nu necesita loading
                             screenuri.</p>
                         <p> </p></li>
-                    <li><p>Entities</p><ul>
-                            <li><p>Items</p></li>
-                            <li><p>Movers</p><ul>
-                                    <li><p>Player</p><ul>
-                                            <li><p>Health/Stamina Bar</p></li>
-                                            <li><p>Inventory</p></li>
-                                            <li><p>Knockback</p></li>
+                    <li><p>Entities</p>
+                        <p>Un Entity este un Actor care respecta regulile Scroller-ului si poate
+                            interactiona cu alti actori de tip Entity</p><ul>
+                            <li><p>Iteme</p>
+                                <p>Item-ul este un obiect detinut de Player sau de NPC-uri. Pot fi
+                                    atasate de Actorul care il detine sau pot fi de tip PickUp(sunt
+                                    ridicate de Player)</p></li>
+                            <li><p>Movers</p>
+                                <p>Un Mover este un Entity ce se poate misca si are coliziune cu
+                                    pereti si alti Moveri, este de 2 tipuri :</p><ul>
+                                    <li><p>Player</p>
+                                        <p>Actorul ce trebuie sa existe constant in PlayWorld.
+                                            Playerul controleaza Scroller-ul prin pozitia sa si
+                                            modifica scrolledX scrolledY. Acesta proceseaza inputul
+                                            si face actiuni corespunzatoare: se misca, isi schimba
+                                            viteza, da toggle unui meniu, foloseste un item.</p><ul>
+                                            <li><p>Health/Stamina Bar</p>
+                                                <p>sunt cele 2 elemente din HUD ce arata nivelul de
+                                                  hit points / stamina ramas. Se actualizeaza in
+                                                  functie de cat damage primeste Playerul sau cata
+                                                  stamina foloseste in timp ce se misca cu
+                                                  sprint</p></li>
+                                            <li><p>Inventory</p>
+                                                <p>Se activeaza cu tasta E sau apasand butonul
+                                                  dedicat pe Android. Acesta arata ce Iteme sunt
+                                                  deblocate de player(cele obtinute cu PickUp). Pot
+                                                  fi selectate cu click stanga si deselectate cu
+                                                  click dreapta.</p></li>
+                                            <li><p>Knockback</p>
+                                                <p>O metoda prin care un mover este impins in
+                                                  directia opusa atunci cand o forta este aplicata
+                                                  asupra lui. In general se foloseste pentru a
+                                                  rezolvaa coliziuni intre Iteme care dau damage de
+                                                  tip melee si NPC-uri sau Player. Se folosesc
+                                                  formule de mecanica clasica si trigonometrie de
+                                                  baza.</p></li>
                                         </ul></li>
-                                    <li><p>NPC</p><ul>
-                                            <li><p>Friendly</p></li>
-                                            <li><p>Hostile</p><ul>
-                                                  <li><p>Pathfinding</p></li>
-                                                  <li><p>Knockback</p></li>
-                                                  <li><p>Health</p></li>
+                                    <li><p>NPC</p>
+                                        <p>NPC(Non playable character) sunt orice alt Entity care nu
+                                            este Player. Se clasifica in 2 tipuri:</p><ul>
+                                            <li><p>Friendly</p>
+                                                <p>Apare pe harta in functie de eventurile din
+                                                  EventSystem si initiaza un anumit dialog atunci
+                                                  cand Playerul il atinge. Are mereu stare de
+                                                  idle.</p></li>
+                                            <li><p>Hostile</p>
+                                                <p>Un NPC Hostile are scopul de a urmari si ataca
+                                                  Playerul cand se afla in raza sa de acoperire. </p><ul>
+                                                  <li><p>Pathfinding</p>
+                                                  <p>In spatele pathfindingului si urmaririi se afla
+                                                  o implementare a algoritmului Breadth First Search
+                                                  aplicat pe matricea fiecarui WorldSection. Cu
+                                                  acesta se calculeaza cel mai scurt drum care evita
+                                                  tile-urile marcate cu -1 in matrice, iar ordinea
+                                                  de pasi ce trebuie facuti prin tile-urile pana la
+                                                  Player se salveaza intr-o coada de directii</p></li>
+                                                  <li>
+                                                  <p>Combat</p>
+                                                  <p>atunci cand Playerul este in proximitatea
+                                                  NPC-urilor, fiecare tip de Hostile intra intr-un
+                                                  state de combat in care ataca Player-ul in modul
+                                                  specific clasei. I se aplica damage si knockback
+                                                  in cazul in care e atacat de Player.</p>
+                                                  </li>
                                                 </ul></li>
                                         </ul></li>
                                 </ul></li>
@@ -288,8 +347,6 @@
         </topic>
         <topic id="graphics">
             <title>Graphics</title>
-        </topic>
-        <topic id="topic_y43_chz_g5b">
             <body>
                 <p>Pe langa clasele rudimentare oferite de Greenfoot, a trebuit sa implementam alte
                     clase pentru control grafic</p>
