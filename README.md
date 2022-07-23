@@ -76,4 +76,4 @@ La fel ca orice joc care se respecta, Strafer este capabil de a salva progresul 
 | Input   |mouse&tastatura   | touchscreen / mouse&tastatura  |
 
 # Documentatie Tehnica
-[Documentatie Tehnica](https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/Documentatie)
+[Documentatie Tehnica](https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/Documentatie/Dita/out)
