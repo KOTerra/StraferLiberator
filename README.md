@@ -74,4 +74,6 @@ La fel ca orice joc care se respecta, Strafer este capabil de a salva progresul 
   |V-Sync|da|default unde este posibil|
 | FPS (pe display-urile pe care a fost testat)  |   pana la 120|  pana la 90 |
 | Input   |mouse&tastatura   | touchscreen / mouse&tastatura  |
+
+# Documentatie Tehnica
 [Documentatie Tehnica](https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/Documentatie)
