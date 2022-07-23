@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/css' href='file:/C:/Program%20Files/Oxygen%20XML%20Editor%2024/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.webhelp.responsive/oxygen-webhelp/app/topic-page-print.css'?>
+<?xml-stylesheet type='text/css' href='file:/C:/Program%20Files/Oxygen%20XML%20Editor%2024/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.pdf.css/css/print/p-dita.css'?>
+<?xml-stylesheet type='text/css' href='file:/C:/Program%20Files/Oxygen%20XML%20Editor%2024/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.editlink/pdf-css.css'?>
+<?xml-stylesheet type='text/css' href='file:/C:/Program%20Files/Oxygen%20XML%20Editor%2024/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.webhelp.responsive/templates/ashes/ashes-with-colors.css'?>
+<?xml-stylesheet type='text/css' href='file:/C:/Program%20Files/Oxygen%20XML%20Editor%2024/frameworks/dita/DITA-OT3.x/plugins/com.oxygenxml.webhelp.responsive/templates/ashes/notes.css'?>
+<map xmlns:css2fo="http://www.oxygenxml.com/css2fo" xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xmlns:nd="http://www.oxygenxml.com/css2fo/named-destinations" xmlns:opentopic="http://www.idiominc.com/opentopic" xmlns:opentopic-index="http://www.idiominc.com/opentopic/index" xmlns:oxy="http://www.oxygenxml.com/extensions/author" xmlns:xs="http://www.w3.org/2001/XMLSchema" cascade="merge" class="- map/map " ditaarch:DITAArchVersion="1.3" domains="(map mapgroup-d) (topic abbrev-d) (topic delay-d) a(props deliveryTarget) (map ditavalref-d) (map glossref-d) (topic hazard-d) (topic hi-d) (topic indexing-d) (topic markup-d) (topic pr-d) (topic relmgmt-d) (topic sw-d) (topic ui-d) (topic ut-d) (topic markup-d xml-d)" specializations="@props/deliveryTarget" xtrc="map:1;3:6" xtrf="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/strafer-liberator-documentatie-tehnica.ditamap" xml:lang="en"><oxy:front-page class="- front-page/front-page "><oxy:front-page-title class="- front-page/front-page-title "><title xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- topic/title ">Strafer Liberator - Documentatie tehnica</title></oxy:front-page-title></oxy:front-page><opentopic:map xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder" class="- toc/toc "><oxy:toc-title class="- toc/title " empty="true"/>
+ <title class="- topic/title ">Strafer Liberator - Documentatie tehnica</title>
+ <topicref is-chapter="true" class="- map/topicref " href="#unique_1" type="topic"><topicmeta class="- map/topicmeta " data-topic-id="introducere"><resourceid appid="introducere" class="- topic/resourceid " oxy-source="topic"/><navtitle href="#unique_1" class="- topic/navtitle ">Introducere</navtitle><?ditaot gentext?></topicmeta></topicref>
+ <topicref is-chapter="true" class="- map/topicref " href="#unique_2" type="topic"><topicmeta class="- map/topicmeta " data-topic-id="greenfoot_backwards_compatibility"><resourceid appid="greenfoot_backwards_compatibility" class="- topic/resourceid " oxy-source="topic"/><navtitle href="#unique_2" class="- topic/navtitle ">Greenfoot Backwards Compatibility</navtitle><?ditaot gentext?></topicmeta></topicref>
+ <topicref is-chapter="true" class="- map/topicref " href="#unique_3" type="topic"><topicmeta class="- map/topicmeta " data-topic-id="structura_proiectului"><resourceid appid="structura_proiectului" class="- topic/resourceid " oxy-source="topic"/><navtitle href="#unique_3" class="- topic/navtitle ">Structura Proiectului</navtitle><?ditaot gentext?></topicmeta></topicref>
+ <topicref is-chapter="true" class="- map/topicref " href="#unique_4" type="topic"><topicmeta class="- map/topicmeta " data-topic-id="strafer-liberator"><resourceid appid="strafer-liberator" class="- topic/resourceid " oxy-source="topic"/><navtitle href="#unique_4" class="- topic/navtitle ">Arhitectura</navtitle><?ditaot gentext?></topicmeta></topicref>
+</opentopic:map><topic break-before="true" is-chapter="true" class="- topic/topic " id="unique_1" topicrefclass="- map/topicref " nd:nd-id="introducere" oid="introducere" specializations="@props/deliveryTarget">
+    <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Introducere</ph></title>
+    <body class="- topic/body ">
+        <p class="- topic/p ">"Strafer Liberator" este un joc RPG, open-world, top-down cu grafica 2D. Proiectul este
+            derivat dintr-unul anterior(purtator al aceluiasi nume), care a fost realizat utilizand
+                <b class="+ topic/ph hi-d/b ">Greenfoot</b>, cel din prezent fiind astfel atat un succesor spiritual cat si o
+            evolutie. Motivatia din spatele proiectului in forma sa actuala a fost pe de-o parte de
+            a construi un mod prin care sa devina posibila portarea oricarui proiect Greenfoot
+            folosind <b class="+ topic/ph hi-d/b ">libGDX</b>, iar pe de alta parte s-a dorit ca acest proiect sa respecte
+            standardele de calitate ale unui joc de acest tip, asta realizandu-se prin scalarea
+            conceptelor de baza existente in proiectul anterior.   </p>
+    </body>
+</topic><topic break-before="true" is-chapter="true" class="- topic/topic " id="unique_2" topicrefclass="- map/topicref " nd:nd-id="greenfoot_backwards_compatibility" oid="greenfoot_backwards_compatibility" specializations="@props/deliveryTarget">
+    <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Greenfoot Backwards Compatibility</ph></title>
+    <body class="- topic/body ">
+        <p class="- topic/p "><b class="+ topic/ph hi-d/b ">Greenfoot</b> este un IDE ce are la baza JavaFX si blueJ, oferind un <xref class="- topic/xref " format="html" href="https://www.greenfoot.org/files/javadoc/" scope="external"><?ditaot usertext?>API</xref> restrans prin care se pot realiza mici simulari 2D daor in interiorul
+            aplicatiei Greenfoot. Cu alte cuvinte, simplitatea acestui IDE este motivul pentru care
+            exista limitari grafice, dar si de memorie(aprox. 2GB).</p>
+        <p class="- topic/p "><b class="+ topic/ph hi-d/b ">LibGDX</b> este un framework cu un <xref class="- topic/xref " format="html" href="https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/index.html" scope="external"><?ditaot usertext?>API</xref> extensiv, ce permite crearea de jocuri ce
+            pot rula pe orice platforma cu Java Virtual Machine. LibGDX ofera mult mai mult control
+            low level fata de orice game engine cum ar fi unity sau unreal, fiiind construit cu
+            LWJGL(folosit de Mojang pentru a dezvolta Minecraft java edition). </p>
+        <p class="- topic/p ">Backwards compatibility-ul a fost realizat prin scrierea unui pachet <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/greenfoot" scope="external"><?ditaot usertext?>greenfoot</xref> ce contine clase wrapper cu numele
+            si metodele din API-ul Greenfoot, legand conceptele de Greenfoot <b class="+ topic/ph hi-d/b ">scenario</b> (World,
+            Actor) si cele de libGDX <b class="+ topic/ph hi-d/b ">scene2d</b> (Stage, Actor). In acest mod, daca un proiect
+            libGDX are pachetul greenfoot inclus se poate face un port.</p>
+        <p class="- topic/p ">
+            <fig class="- topic/fig " id="unique_2_Connect_42_fig_qkh_x1f_h5b" nd:nd-id="fig_qkh_x1f_h5b"><title class="- topic/title ">Comparatie Platforme</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/runningplatforms.png" id="unique_2_Connect_42_image_rkh_x1f_h5b" nd:nd-id="image_rkh_x1f_h5b" placement="inline"/></fig>
+        </p>
+    </body>
+</topic><topic break-before="true" is-chapter="true" class="- topic/topic " id="unique_3" topicrefclass="- map/topicref " nd:nd-id="structura_proiectului" oid="structura_proiectului" specializations="@props/deliveryTarget">
+    <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Structura Proiectului</ph></title>
+    <body class="- topic/body ">
+        <p class="- topic/p ">Orice proiect <b class="+ topic/ph hi-d/b ">libGDX</b> poate fi generat cu setup tool-ul dedicat. Acesta genereaza
+            dupa preferintele utilizatorului mai multe proiecte Java care au dependente intre ele in
+            functie de platformele si plugin-urile selectate in setup. Pentru build s-a folosit
+                <b class="+ topic/ph hi-d/b ">Gradle</b>, dar dependentele catre <b class="+ topic/ph hi-d/b ">LWJGL</b> sunt gestionate de libGDX cu
+            Maven. In cazul Strafer, exista:</p>
+        <p class="- topic/p ">
+            <ul class="- topic/ul " id="unique_3_Connect_42_ul_n3v_lqq_g5b" nd:nd-id="ul_n3v_lqq_g5b">
+                <li class="- topic/li ">proiectul <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>master</xref> ce inglobeaza toate
+                    proiectele</li>
+            </ul>
+        </p>
+        <p class="- topic/p ">
+            <ul class="- topic/ul " id="unique_3_Connect_42_ul_lc4_lqq_g5b" nd:nd-id="ul_lc4_lqq_g5b">
+                <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref> avand pachetele comune pentru
+                    toate versiunile: greenfoot, com.port(jocul propriu-zis) si
+                    com.game.straferliberator(tot ceea ce leaga jocul de Launcher-e si
+                    Screen-uri)</li>
+            </ul>
+        </p>
+        <p class="- topic/p ">
+            <ul class="- topic/ul " id="unique_3_Connect_42_ul_mxh_mqq_g5b" nd:nd-id="ul_mxh_mqq_g5b">
+                <li class="- topic/li "><b class="+ topic/ph hi-d/b ">launcher</b>-ele pentru fiecare platforma  <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/android" scope="external"><?ditaot usertext?>Android</xref> si <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/desktop" scope="external"><?ditaot usertext?>Desktop</xref> (entry point-ul
+                    aplicatiei)</li>
+            </ul>
+        </p>
+        <p class="- topic/p "> </p>
+    </body>
+</topic><topic break-before="true" is-chapter="true" class="- topic/topic " id="unique_4" topicrefclass="- map/topicref " nd:nd-id="strafer-liberator" oid="strafer-liberator" specializations="@props/deliveryTarget">
+    <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Arhitectura</ph></title>
+    <body class="- topic/body ">
+        <image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/Strafer%20Liberator.png" id="unique_4_Connect_42_image_yqw_trd_h5b" nd:nd-id="image_yqw_trd_h5b" placement="inline"/>
+    </body>
+    <topic class="- topic/topic " id="unique_5" nd:nd-id="launchers" oid="launchers" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Launchers</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p ">Fiecare launcher determina rezolutia si setarile necesare sistemului pe care ruleaza,
+                apoi instantiaza game class-ul Straferliberator din core</p>
+        </body>
+        <topic class="- topic/topic " id="unique_6" nd:nd-id="desktop-launcher" oid="desktop-launcher" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Desktop Launcher</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/desktop" scope="external"><?ditaot usertext?>desktop</xref></p>
+                <p class="- topic/p ">Configurari initiale,Functioneaza pe urmatoarele platforme:</p>
+                <p class="- topic/p "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/windows.png" id="unique_6_Connect_42_image_dly_1w2_h5b" nd:nd-id="image_dly_1w2_h5b" placement="inline" width="50" height="28" scale="50"/>Windows</p>
+                <p class="- topic/p "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/linux.png" id="unique_6_Connect_42_image_utp_bw2_h5b" nd:nd-id="image_utp_bw2_h5b" placement="inline" width="53" height="30" scale="50"/>Linux</p>
+                <p class="- topic/p "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/macos.png" id="unique_6_Connect_42_image_ggg_cw2_h5b" nd:nd-id="image_ggg_cw2_h5b" placement="inline" width="30" height="30" scale="50"/>Mac OS</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_7" nd:nd-id="android-launcher" oid="android-launcher" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/android.png" id="unique_7_Connect_42_image_nm1_dw2_h5b" nd:nd-id="image_nm1_dw2_h5b" placement="inline" width="40" height="40" scale="40"/>Android
+                Launcher</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/android" scope="external"><?ditaot usertext?>android</xref></p>
+                <p class="- topic/p ">Configurari initiale, ascunde status bar-ul</p>
+            </body>
+        </topic>
+    </topic>
+    <topic class="- topic/topic " id="unique_8" nd:nd-id="touch-manager" oid="touch-manager" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Touch Manager</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" scope="external"><?ditaot usertext?>UI</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button" scope="external"><?ditaot usertext?>button</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch" scope="external"><?ditaot usertext?>touch</xref>/<b class="+ topic/ph hi-d/b ">TouchManager.java</b></b></p>
+            <p class="- topic/p ">Functioneaza doar atunci cand jocul e instantiat din Android Launcher</p>
+            <p class="- topic/p ">Ascunde/ aduce in foreground controalele cu touch in timpul jocului.</p>
+        </body>
+    </topic>
+    <topic class="- topic/topic " id="unique_9" nd:nd-id="worldrenderer" oid="worldrenderer" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">WorldRenderer</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" scope="external"><?ditaot usertext?>game</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" scope="external"><?ditaot usertext?>straferliberator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/render" scope="external"><?ditaot usertext?>render</xref>/<b class="+ topic/ph hi-d/b ">WorldRenderer.java</b></b></p>
+            <p class="- topic/p ">Primeste informatia furnizata de PaintManager pentru a randa fundalul si actorii, in
+                ierarhia specificata, folosind Sprite Batch-ul.</p>
+        </body>
+    </topic>
+    <topic class="- topic/topic " id="unique_10" nd:nd-id="sprite-batch" oid="sprite-batch" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Sprite Batch</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p ">Static, randeaza sprite-urile actorilor. Un sprite reprezinta o regiune dintr-o
+                textura, aflate intr-un bounding box dreptunghiular.</p>
+        </body>
+    </topic>
+    <topic class="- topic/topic " id="unique_11" nd:nd-id="screens" oid="screens" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Screens</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p ">In libGDX un Screen este un view interior ferestrei in care ruleaza aplicatia.</p>
+        </body>
+        <topic class="- topic/topic " id="unique_12" nd:nd-id="id_ttt_xxq_g5b" oid="id_ttt_xxq_g5b" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Loading Screen</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" scope="external"><?ditaot usertext?>game</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" scope="external"><?ditaot usertext?>straferliberator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/screen" scope="external"><?ditaot usertext?>screen</xref>/<b class="+ topic/ph hi-d/b ">LoadingScreen.java</b></b></p>
+                <p class="- topic/p ">In el sunt definite toate asseturile incarcate de AssetManager. O bara de loading
+                    afiseaza progresul iar ecranul este schimbat in game screen cand toate
+                    asset-urile sunt incarcate.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_13" nd:nd-id="game-screen" oid="game-screen" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Game Screen</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" scope="external"><?ditaot usertext?>game</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" scope="external"><?ditaot usertext?>straferliberator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/screen" scope="external"><?ditaot usertext?>screen</xref>/<b class="+ topic/ph hi-d/b ">GameScreen.java</b>
+                    </b></p>
+                <p class="- topic/p ">Instantiaza WorldRenderer -ul, apeleaza dispose pentru a elibera obiecte
+                    nefolosite din memorie, actualizeaza variabila elapsed si FPS din WorldData
+                    pentru operatiile ce tin evidenta timpului si itereaza prin toti actorii din
+                    PlayWorld pentru a apela metoda act()</p>
+            </body>
+        </topic>
+    </topic>
+    <topic class="- topic/topic " id="unique_14" nd:nd-id="asset-manager" oid="asset-manager" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Asset Manager</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p ">O clasa din libGDX care permite incarcarea de asseturi in memorie pe un alt thread
+                fata de cel principal(GLThread). Acestuia i se seteaza loadere definite pentru
+                clasele jocului si pot fi referentiate dupa aceea cu o funtie get(). AssetManagerul
+                elimina timpii de load si memoria ocupata de obiecte ce nu sunt necesare, lucru ce
+                nu putea fi realizat cu Greenfoot.</p>
+        </body>
+        <topic class="- topic/topic " id="unique_15" nd:nd-id="asset-loaders" oid="asset-loaders" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Asset Loaders</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" scope="external"><?ditaot usertext?>game</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" scope="external"><?ditaot usertext?>straferliberator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/assetloaders" scope="external"><?ditaot usertext?>assetloaders</xref></b></p>
+                <p class="- topic/p ">Implementeaza AsynchronousAssetLoader, avand definit tipul de clasa pe care
+                    trebuie sa il returneze si parametrii specifici unde este cazul</p>
+                <p class="- topic/p ">
+                    <ul class="- topic/ul " id="unique_15_Connect_42_ul_adb_w1r_g5b" nd:nd-id="ul_adb_w1r_g5b">
+                        <li class="- topic/li ">AnimationLoader</li>
+                        <li class="- topic/li ">FontLoader</li>
+                        <li class="- topic/li ">GifImageLoader</li>
+                        <li class="- topic/li ">GreenfootImageLoader</li>
+                        <li class="- topic/li ">GreenfootSoundLoader</li>
+                    </ul>
+                </p>
+            </body>
+        </topic>
+    </topic>
+    <topic class="- topic/topic " id="unique_16" nd:nd-id="paint-manager" oid="paint-manager" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Paint Manager</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" scope="external"><?ditaot usertext?>game</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" scope="external"><?ditaot usertext?>straferliberator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/render" scope="external"><?ditaot usertext?>render</xref>/<b class="+ topic/ph hi-d/b ">PaintManager.java</b></b></p>
+            <p class="- topic/p ">Contine un array de tip Class&lt;?&gt;[] paintOrder in care este stocata ierarhia pe
+                care WorldRenderer ul o respecta atunci cand apeleaza draw pentru actori. Pentru
+                clasele ce nu sunt adaugate in ierarhie se verifica recursiv daca obiectul verificat
+                este instance al unei clase din paintOrder. Nivelurile acestui arbore format sunt
+                stocate intr-un hashmap <i class="+ topic/ph hi-d/i ">classPaintIndex</i> ca valoare , cheia fiind tipul
+                clasei, iar in alt hashmap <i class="+ topic/ph hi-d/i ">objectsInPaintOrder</i> avem cheie nivelul arborelui
+                iar valorile array uri cu obiectele de pe acel nivel. Arborele este actualizat cand
+                un Actor este adaugat sau sters din world. </p>
+            <p class="- topic/p ">
+                <fig class="- topic/fig " id="unique_16_Connect_42_fig_lyg_1z2_h5b" nd:nd-id="fig_lyg_1z2_h5b"><title class="- topic/title ">paintOrder-ul default</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/paintorder.PNG" id="unique_16_Connect_42_image_myg_1z2_h5b" nd:nd-id="image_myg_1z2_h5b" placement="inline"/></fig>
+            </p>
+        </body>
+    </topic>
+    <topic class="- topic/topic " id="unique_17" nd:nd-id="greenfoot" oid="greenfoot" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Greenfoot</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/greenfoot" scope="external"><?ditaot usertext?>greenfoot</xref></p>
+            <p class="- topic/p ">Pachetul cu clase wrapper care adapteaza <xref class="- topic/xref " format="html" href="https://www.greenfoot.org/files/javadoc/" scope="external"><?ditaot usertext?>API</xref>-ul Greenfoot</p>
+        </body>
+        <topic class="- topic/topic " id="unique_18" nd:nd-id="actor" oid="actor" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Actor</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Extinde gdx.Image, care la randul lui este o subclasa a gdx.Actor. Atat pentru
+                    libGDX cat si pentru Greenfoot un actor este un sprite care exista intr-un
+                    World/Stage si poate avea coliziuni si pozitie in spatiu. Un greenfoot.Actor
+                    primeste ca textura un GreenfootImage, bounding box-ul fiind calculat in functie
+                    de dimensiunile imaginii, pozitia(in pixeli) fiind punctul din centrul
+                    imaginiii.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_19" nd:nd-id="world" oid="world" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">World</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Extinde gdx.Stage. In ambele situatii, Stage/World reprezinta clasele ce contin
+                    toti actorii si informatii despre locatiile si coliziunile dintre ei. Un
+                    GameScreen trebuie sa aiba un World in componenta.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_20" nd:nd-id="greenfootimage" oid="greenfootimage" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">GreenfootImage</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Clasa utilizata de Greenfoot pentru a textura actorii sau background-ul din
+                    world. Extinde gdx.TextureRegion. De asemenea are functionalitati de randat
+                    forme geometrice, text sau alte GreenfootImage-uri in interiorul unui
+                    GreenfootImage. Aceste functionalitati sunt implementate folosind
+                    Pixmap,Bitmap,FrameBuffer-uri. Exista si functionalitati de baza precum setarea
+                    transparentei sau scalare.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_21" nd:nd-id="font" oid="font" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Font</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Extinde gdx.BitmapFont. Este folosit pentru a randa Stringuri in obiecte
+                    GreenfootImage. Deoarece un Bitmap consuma foarte multa memorie, exista un
+                    singur font static utilizat de toate clasele.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_22" nd:nd-id="greenfootsound" oid="greenfootsound" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">GreenfootSound</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Are functionalitati simple de pornit sau manipulat fisiere audio. </p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_23" nd:nd-id="greenfoot-1" oid="greenfoot-1" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Greenfoot</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Clasa de utilitati ce se ocupa in principal de detectarea inputului de la mouse
+                    sau tastatura.</p>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_24" nd:nd-id="mouseinfo" oid="mouseinfo" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">MouseInfo</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Tine cont de pozitia cursorului pe ecran si de care dintre butoanele acestuia
+                    sunt apasate.</p>
+            </body>
+        </topic>
+    </topic>
+    <topic class="- topic/topic " id="unique_25" nd:nd-id="topic_aym_hw2_h5b" oid="topic_aym_hw2_h5b" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">.</ph></title>
+    </topic>
+    <topic class="- topic/topic " id="unique_26" nd:nd-id="game" oid="game" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Game</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<b class="+ topic/ph hi-d/b ">port</b></p>
+            <p class="- topic/p ">Jocul propriu-zis se afla in core, pachetul com.port . Aici se afla tot ce se intapla
+                in interiorul GameScreen-ului</p>
+        </body>
+        <topic class="- topic/topic " id="unique_27" nd:nd-id="playworld" oid="playworld" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">PlayWorld</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<b class="+ topic/ph hi-d/b ">PlayWorld.java</b>
+                    </b></p>
+                <p class="- topic/p ">Este un World ce contine toate sistemele de joc si un player si este legat la
+                    WorldListener.</p>
+                <ul class="- topic/ul ">
+                    <li class="- topic/li "><p class="- topic/p ">World Sections</p><p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/section" scope="external"><?ditaot usertext?>section</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/section/sections" scope="external"><?ditaot usertext?>sections</xref></b></p>Fiind
+                        nevoie de optimizari de memorie, utilizarea de WorldSectionuri a fost un mod
+                        viabil de a avea in memorie doar o parte din toata lumea jocului. Astfel,
+                        exista un graf definit in WorldListener reprezentand legaturile intre cele 6
+                        sectiuni. Acestea sunt codate cu doua cifre in functie de linia si coloana
+                        pe care se afla in MapMenu sau mai exact pozitia lor in raport cu celalalte
+                        sectiuni. Sectiunile au unitatea de masura de baza in tile-uri de 64x64
+                            pixeli.<fig class="- topic/fig " id="unique_27_Connect_42_fig_xph_5h2_h5b" nd:nd-id="fig_xph_5h2_h5b"><title class="- topic/title ">Cele 6 sectiuni</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/WorldSections.PNG" id="unique_27_Connect_42_image_yph_5h2_h5b" nd:nd-id="image_yph_5h2_h5b" placement="inline"/></fig><i class="+ topic/ph hi-d/i ">cu
+                            rosu sunt evidentiate tile-urile din matrice marcate cu -1</i><ul class="- topic/ul ">
+                            <li class="- topic/li ">
+                                <p class="- topic/p ">WorldStructure</p>
+                                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/structure" scope="external"><?ditaot usertext?>structure</xref></b></p>
+                                <p class="- topic/p ">Un WorldStructre este un actor dintr- o sectiune care se ocupa de
+                                    limitele lumii si de coliziunile dintre el si Actori</p>
+                                <ul class="- topic/ul ">
+                                    <li class="- topic/li ">
+                                        <p class="- topic/p ">Walls</p>
+                                        <p class="- topic/p ">Peretii invizibili sunt verticali si orizontali, primind
+                                            in constructor directia pe care trebuie sa verifice si
+                                            sa rezolve coliziunile cu un Entity.</p>
+                                    </li>
+                                    <li class="- topic/li ">
+                                        <p class="- topic/p ">Door</p>
+                                        <p class="- topic/p ">O usa ce blocheaza accesul intr- o anume zona. Poate fi
+                                            deschisa sub o conditie definita.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="- topic/li ">
+                                <p class="- topic/p ">Patfind matrix</p>
+                                <p class="- topic/p ">MapGenerator-ul genereaza in fisierele .txt din folderul
+                                                <i class="+ topic/ph hi-d/i "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="strafer-liberator-master/assets/maps" scope="external"><?ditaot usertext?>assets/maps</xref></b></i> o matrice de pathfind pentru
+                                    fiecare sectiune. In matrice se gasesc 2 valori -1 si 0, o
+                                    valoare corespunzand cate unui tile. -1 reprezinta un tile in
+                                    care NPC-ul nu poate calca.</p>
+                                <p class="- topic/p ">
+                                    <fig class="- topic/fig " id="unique_27_Connect_42_fig_rxt_fj2_h5b" nd:nd-id="fig_rxt_fj2_h5b"><title class="- topic/title ">Comparatie Matrice Pathfind WorldSection11</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/WorldMatrix.png" id="unique_27_Connect_42_image_sxt_fj2_h5b" nd:nd-id="image_sxt_fj2_h5b" placement="inline"/></fig>
+                                </p>
+                            </li>
+                            <li class="- topic/li ">
+                                <p class="- topic/p ">Event-uri</p>
+                                <p class="- topic/p ">Fiecare Event este asociat cu  un tile dintr-un WorldSection</p>
+                            </li>
+                            <li class="- topic/li ">
+                                <p class="- topic/p ">NPC placement</p>
+                                <p class="- topic/p ">NPC-urile Hostile au pozitii default in care sunt incarcati
+                                    atunci cand jocul isi da load sau sectiunea se schimba.</p>
+                            </li>
+                        </ul></li>
+                    <li class="- topic/li "><p class="- topic/p ">Scroller</p>
+                        <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<b class="+ topic/ph hi-d/b ">Scroller.java</b>
+                            </b></p>
+                        <p class="- topic/p ">Scroller-ul este o clasa ce tine evidenta pozitiei playerului in lume si
+                            actualizeaza background-ul , dar si pozitia actorilor relativi la
+                            pozitia playerului astfel incat lumea de joc sa nu fie limitata la
+                            viewport, iar playerul sa fie constant in mijlocul ecranului atat timp
+                            cat nu este in marginea sectiunii. Scrollerul are 2 variabile statice
+                            prin care se tine evidenta pozitiei globale a actorilor
+                            (scrolledX,srolledY).</p>
+                        <p class="- topic/p ">
+                            <fig class="- topic/fig " id="unique_27_Connect_42_fig_nfs_yn2_h5b" nd:nd-id="fig_nfs_yn2_h5b"><title class="- topic/title ">Reprezentare Scroller in raport cu WorldSection11</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/Scroller.png" id="unique_27_Connect_42_image_ofs_yn2_h5b" nd:nd-id="image_ofs_yn2_h5b" placement="inline"/></fig>
+                        </p>
+                        <p class="- topic/p "><i class="+ topic/ph hi-d/i ">cu galben avem ceea ce este vizibil pe ecran, rosu fiind pozitia
+                                Player-ului</i></p></li>
+                    <li class="- topic/li "><p class="- topic/p ">WorldListener</p>
+                        <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<b class="+ topic/ph hi-d/b ">WorldListener.java</b></b></p>
+                        <p class="- topic/p ">WorldListener-ul comunica cu scrollerul si playerul, avand rolul de a
+                            tine logica din spatele conexiunilor intre WorldSection-uri si de a
+                            decide cand si cum acestea trebuie schimbarte. Metoda changeWorldSection
+                            seteaza pozitia playerului in functie de latura in care sunt
+                            intersectate sectiunile, iar apoi incarca fundalul din assetManager,
+                            sterge din PlayWorld entitatile si adauga entitatile specifice sectiunii
+                            in care a intrat plahyerul. Schimbarea aceasta nu necesita loading
+                            screenuri.</p>
+                        <p class="- topic/p "> </p></li>
+                    <li class="- topic/li "><p class="- topic/p ">Entities</p>
+                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity" scope="external"><?ditaot usertext?>entity</xref></p>
+                        <p class="- topic/p ">Un Entity este un Actor care respecta regulile Scroller-ului si poate
+                            interactiona cu alti actori de tip Entity</p><ul class="- topic/ul ">
+                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover" scope="external"><?ditaot usertext?>Movers</xref></p>
+                                <p class="- topic/p ">Un Mover este un Entity ce se poate misca si are coliziune cu
+                                    pereti si alti Moveri. In functie de directia pe care se misca
+                                    sau animatia pe care o primesc acestia schimba intre
+                                    GifImage-uri sau Animationuri folosind HashMap-uri interne si
+                                    AssetManager-ul </p>
+                                <p class="- topic/p ">
+                                    <fig class="- topic/fig " id="unique_27_Connect_42_fig_dvw_ds2_h5b" nd:nd-id="fig_dvw_ds2_h5b"><title class="- topic/title ">Exemple Gif-uri diferite pentru Movers</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/gifdirectii.png" id="unique_27_Connect_42_image_evw_ds2_h5b" nd:nd-id="image_evw_ds2_h5b" placement="inline"/></fig>
+                                </p>
+                                <p class="- topic/p ">Clasa Mover este de 2 tipuri :</p><ul class="- topic/ul ">
+                                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/player/Player.java" scope="external"><?ditaot usertext?>Player</xref></p>
+                                        <p class="- topic/p ">Actorul ce trebuie sa existe constant in PlayWorld.
+                                            Playerul controleaza Scroller-ul prin pozitia sa si
+                                            modifica scrolledX scrolledY. Acesta proceseaza inputul
+                                            si face actiuni corespunzatoare: se misca, isi schimba
+                                            viteza, da toggle unui meniu, foloseste un item.</p><ul class="- topic/ul ">
+                                            <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/player/BasePlayer.java" scope="external"><?ditaot usertext?>BasePlayer</xref> -
+                                                Clasa pe care o extinde Player, contine metodele de
+                                                baza pentru move si knockback</li>
+                                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/HealthBarPlayer.java" scope="external"><?ditaot usertext?>Health Bar</xref>
+                                                  /<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/StaminaBarPlayer.java" scope="external"><?ditaot usertext?>Stamina
+                                                  Bar</xref></p>
+                                                <p class="- topic/p ">sunt cele 2 elemente din <xref class="- topic/xref " format="html" href="strafer-liberator-master/core/src/com/port/UI/hud" scope="external"><?ditaot usertext?>HUD</xref> ce arata
+                                                  nivelul de hit points / stamina ramas. Se
+                                                  actualizeaza in functie de cat damage primeste
+                                                  Playerul sau cata stamina foloseste in timp ce se
+                                                  misca cu sprint</p>
+                                                <p class="- topic/p "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/bars.png" id="unique_27_Connect_42_image_fpp_ly2_h5b" nd:nd-id="image_fpp_ly2_h5b" placement="inline"/></p></li>
+                                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/Inventory.java" scope="external"><?ditaot usertext?>Inventory</xref></p>
+                                                <p class="- topic/p ">Se activeaza cu tasta E sau apasand butonul
+                                                  dedicat pe Android. Acesta arata ce Iteme sunt
+                                                  deblocate de player(cele obtinute cu PickUp). Pot
+                                                  fi selectate cu click stanga si deselectate cu
+                                                  click dreapta.</p>
+                                                <p class="- topic/p ">
+                                                  <fig class="- topic/fig " id="unique_27_Connect_42_fig_qhm_fy2_h5b" nd:nd-id="fig_qhm_fy2_h5b"><title class="- topic/title ">Exemplu selectie item din Inventory</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/inventory.png" id="unique_27_Connect_42_image_rhm_fy2_h5b" nd:nd-id="image_rhm_fy2_h5b" placement="inline"/></fig>
+                                                </p></li>
+                                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/b5a64abeefffd04ccffe4d40eba271d2a19aa7b5/strafer-liberator-master/core/src/com/port/entity/mover/player/BasePlayer.java#L45" scope="external"><?ditaot usertext?>Knockback</xref></p>
+                                                <p class="- topic/p ">O metoda prin care un mover este impins in
+                                                  directia opusa atunci cand o forta este aplicata
+                                                  asupra lui. In general se foloseste pentru a
+                                                  rezolvaa coliziuni intre Iteme care dau damage de
+                                                  tip melee si NPC-uri sau Player. Se folosesc
+                                                  formule de mecanica clasica si trigonometrie de
+                                                  baza.</p></li>
+                                        </ul></li>
+                                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/Npc.java" scope="external"><?ditaot usertext?>NPC</xref></p>
+                                        <p class="- topic/p ">NPC(Non playable character) sunt orice alt Entity care nu
+                                            este Player. Se clasifica in 2 tipuri:</p><ul class="- topic/ul ">
+                                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/friendly" scope="external"><?ditaot usertext?>Friendly</xref></p>
+                                                <p class="- topic/p ">Apare pe harta in functie de eventurile din
+                                                  EventSystem si initiaza un anumit dialog atunci
+                                                  cand Playerul il atinge. Are mereu stare de
+                                                  idle.</p></li>
+                                            <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/hostile" scope="external"><?ditaot usertext?>Hostile</xref></p>
+                                                <p class="- topic/p ">Un NPC Hostile are scopul de a urmari si ataca
+                                                  Playerul cand se afla in raza sa de acoperire. </p><ul class="- topic/ul ">
+                                                  <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/b5a64abeefffd04ccffe4d40eba271d2a19aa7b5/strafer-liberator-master/core/src/com/port/entity/mover/npc/Npc.java#L95" scope="external"><?ditaot usertext?>Pathfinding</xref></p>
+                                                  <p class="- topic/p ">In spatele pathfindingului si urmaririi se afla
+                                                  o implementare a algoritmului Breadth First Search
+                                                  cu 8 directii aplicat pe matricea fiecarui
+                                                  WorldSection. Cu acesta se calculeaza cel mai
+                                                  scurt drum care evita tile-urile marcate cu -1 in
+                                                  matrice, iar ordinea de pasi ce trebuie facuti
+                                                  prin tile-urile pana la Player se salveaza intr-o
+                                                  coada de directii. Algoritmul este apelat in
+                                                  fiecare frame si functioneaza chiar daca playerul
+                                                  isi modifica pozitia, atata timp cat NPC-ul il
+                                                  vede(este in range-ul Scroller-ului)</p>
+                                                  <p class="- topic/p ">
+                                                  <fig class="- topic/fig " id="unique_27_Connect_42_fig_d5g_dq2_h5b" nd:nd-id="fig_d5g_dq2_h5b"><title class="- topic/title ">Reprezentare ordine de pasi generata de
+                                                  pathfind</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/goblinPathfind.png" id="unique_27_Connect_42_image_e5g_dq2_h5b" nd:nd-id="image_e5g_dq2_h5b" placement="inline"/><p class="- topic/p ">cu albastru avem tile-urile pe care va merge
+                                                  NPC-ul</p></fig>
+                                                  </p></li>
+                                                  <li class="- topic/li ">
+                                                  <p class="- topic/p ">Combat</p>
+                                                  <p class="- topic/p ">atunci cand Playerul este in proximitatea
+                                                  NPC-urilor, fiecare tip de Hostile intra intr-un
+                                                  state de combat in care ataca Player-ul in modul
+                                                  specific clasei. I se aplica damage si knockback
+                                                  in cazul in care e atacat de Player.</p>
+                                                  </li>
+                                                  <li class="- topic/li ">Knockback -la fel ca in cazul Playerului</li>
+                                                </ul></li>
+                                        </ul></li>
+                                </ul></li>
+                            <li class="- topic/li ">
+                                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/item" scope="external"><?ditaot usertext?>Iteme</xref></p>
+                                <p class="- topic/p ">Item-ul este un obiect detinut de Player sau de NPC-uri. Pot fi
+                                    atasate de Actorul care il detine sau pot fi de tip PickUp(sunt
+                                    ridicate de Player). La fel ca un Mover, pot avea mai multe
+                                    Gif-uri in functie de directia Mover-ului de care se
+                                    ataseaza:</p>
+                                <p class="- topic/p ">
+                                    <fig class="- topic/fig " id="unique_27_Connect_42_fig_yxt_ss2_h5b" nd:nd-id="fig_yxt_ss2_h5b"><title class="- topic/title ">Exemplu directii Items</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/itemedirectii.png" id="unique_27_Connect_42_image_zxt_ss2_h5b" nd:nd-id="image_zxt_ss2_h5b" placement="inline"/></fig>
+                                </p>
+                            </li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_28" nd:nd-id="file-loaders" oid="file-loaders" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">File Loaders</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Clasele <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/loader/Loader.java" scope="external"><?ditaot usertext?>Loader</xref> si <xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/loader/DialogLoader.java" scope="external"><?ditaot usertext?>DialogLoader</xref> contin metode ce incarca
+                    fisierele in care sunt stocate date din folderele:</p>
+                <ul class="- topic/ul ">
+                    <li class="- topic/li "><p class="- topic/p ">saves</p></li>
+                    <li class="- topic/li "><p class="- topic/p ">dialogs</p></li>
+                    <li class="- topic/li "><p class="- topic/p ">maps</p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_29" nd:nd-id="systems" oid="systems" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Systems</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p ">Pentru a putea avea un storyline cu eventuri predefinite si stari dinamice ale
+                    jocului a fost nevoie de implementarea mai multor sisteme</p>
+                <ul class="- topic/ul ">
+                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/system/SaveSystem.java" scope="external"><?ditaot usertext?>SaveSystem</xref></p>
+                        <p class="- topic/p ">Salveaza in anumite momente toate datele necesare pentru a continua jocul
+                            dupa un restart al aplicatiei. Acesta incarca in WorldData : locatia si
+                            viata player-ului, sectiunea in care se afla, sectiunile deblocate,
+                            obiectivele, event-ul curent, item-ele deblocate .</p>
+                        <p class="- topic/p ">
+                            <fig class="- topic/fig " id="unique_29_Connect_42_fig_abs_vt2_h5b" nd:nd-id="fig_abs_vt2_h5b"><title class="- topic/title ">Exemplu save file</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/exemplusave.png" id="unique_29_Connect_42_image_bbs_vt2_h5b" nd:nd-id="image_bbs_vt2_h5b" placement="inline"/></fig>
+                        </p></li>
+                    <li class="- topic/li ">
+                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/system/event/EventSystem.java" scope="external"><?ditaot usertext?>EventSystem</xref></p>
+                        <p class="- topic/p ">Acesta contine cronologia eventurileor(sau questurilor) din povestea
+                            jocului. Parcurgerea lor schimba comportamentul PlayWorld-ului in raport
+                            cu Playerul, inserand sau eliminand din lume obiecte unice doar pentru
+                            acel event(ex un item/ un NPC cu un anume dialog) . Fiecare event are un
+                            numar ce este salvat in WorldData.</p>
+                        <p class="- topic/p ">
+                            <fig class="- topic/fig " id="unique_29_Connect_42_fig_lj4_ct2_h5b" nd:nd-id="fig_lj4_ct2_h5b"><title class="- topic/title ">Exemplu event</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/representations/eventuri.png" id="unique_29_Connect_42_image_mj4_ct2_h5b" nd:nd-id="image_mj4_ct2_h5b" placement="inline"/></fig>
+                        </p>
+                    </li>
+                    <li class="- topic/li "><p class="- topic/p ">MusicSystem</p>
+                        <p class="- topic/p ">Exista 3 melodii in joc: una pentru meniurile de pauza si altele doua
+                            pentru gameplay loop. Cele pentru gameplay loop sunt actualizate dinamic
+                            in functie de ceea ce face playerul. cu un delay de cateva secunde este
+                            determinat daca playerul este in stare de combat sau de explorare si
+                            schimba intre muzica combat si idle. in timpul momentelor de cutscene,
+                            dialog sau tutorial muzica este oprita.</p></li>
+                    <li class="- topic/li "><p class="- topic/p ">Dialog System</p>
+                        <p class="- topic/p ">Sistemul de dialoguri a fost introdus pentru a da informatie contextuala
+                            playerului fara a intrerupe gameplayul prea des cu cutsceneuri. Acesta
+                            sta pe baza NPC urilor friendly si are un design clasic de RPG.</p>
+                        <p class="- topic/p ">
+                            <fig class="- topic/fig " id="unique_29_Connect_42_fig_yvs_g52_h5b" nd:nd-id="fig_yvs_g52_h5b"><title class="- topic/title ">Exemplu Dialog Mr.K</title><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/Documentatie/Dita/images/game%20ss/keanutalk.png" id="unique_29_Connect_42_image_zvs_g52_h5b" nd:nd-id="image_zvs_g52_h5b" placement="inline"/></fig>
+                        </p></li>
+                </ul>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_30" nd:nd-id="graphics" oid="graphics" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Graphics</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/utils" scope="external"><?ditaot usertext?>utils</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics" scope="external"><?ditaot usertext?>graphics</xref></b></p>
+                <p class="- topic/p ">Pe langa clasele rudimentare oferite de Greenfoot, a trebuit sa implementam alte
+                    clase pentru control grafic</p>
+                <ul class="- topic/ul " id="unique_30_Connect_42_ul_z43_chz_g5b" nd:nd-id="ul_z43_chz_g5b">
+                    <li class="- topic/li ">
+                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Picture.java" scope="external"><?ditaot usertext?>Picture</xref></p>
+                        <p class="- topic/p ">Este un actor fara coliziune cu scopul de a fi o simpla imagine care in
+                            general este utilizata ca o componenta de UI</p>
+                    </li>
+                    <li class="- topic/li ">
+                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Text.java" scope="external"><?ditaot usertext?>Text</xref></p>
+                        <p class="- topic/p ">La fel ca Picture, aceasta clasa este un element de UI care doar da
+                            display unui text</p>
+                    </li>
+                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/GifImage.java" scope="external"><?ditaot usertext?>GifImage</xref></p>O clasa care
+                        primeste un gdx.Array(GreenfootImage) si o durata a frame-urilor in
+                        milisecunde. Clasa are metode ce returneaza toate frame-urile, frame-ul ce
+                        trebuie afisat la un moment de timp calculat in fucnctie de variabila
+                            WorldData.elapsed.<ul class="- topic/ul " id="unique_30_Connect_42_ul_ap3_chz_g5b" nd:nd-id="ul_ap3_chz_g5b">
+                            <li class="- topic/li ">
+                                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/GifImage.java" scope="external"><?ditaot usertext?>GifDecoder</xref></p>
+                                <p class="- topic/p ">O clasa ce citeste un fisier .gif si formeaza un GifImage</p>
+                            </li>
+                            <li class="- topic/li ">
+                                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Animation.java" scope="external"><?ditaot usertext?>Animation</xref></p>
+                                <p class="- topic/p ">Un animation este o clasa cu un GifImage ce poate rula pentru un
+                                    numar limitat de ori .</p>
+                                <ul class="- topic/ul " id="unique_30_Connect_42_ul_bp3_chz_g5b" nd:nd-id="ul_bp3_chz_g5b">
+                                    <li class="- topic/li ">
+                                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/AnimationRunner.java" scope="external"><?ditaot usertext?>AnimationRunner</xref></p>
+                                        <p class="- topic/p ">Primeste un animation si un actor care trebuie animat.
+                                            Este nevoie de un runner pentru ca fiecae animation este
+                                            unic in asset manager si nu poate fi rulat intern pentru
+                                            mai multi actori de acelasi tip.</p>
+                                    </li>
+                                    <li class="- topic/li ">
+                                        <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Transition.java" scope="external"><?ditaot usertext?>Transition</xref></p>
+                                        <p class="- topic/p ">Un animaton cu scop similar ca Picture si Text</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_31" nd:nd-id="user-interface" oid="user-interface" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">User Interface</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" scope="external"><?ditaot usertext?>UI</xref></p>
+                <p class="- topic/p ">UI- ul se imparte intre meniuri si HUD(heads up display), diferenta fiind ca HUD
+                    ul este afisat in timpul gameplay loopului, iar meniurile cand
+                    WorldData.PAUZA=true</p>
+                <ul class="- topic/ul ">
+                    <li class="- topic/li "><p class="- topic/p ">Meniuri</p>
+                        <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" scope="external"><?ditaot usertext?>UI</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu" scope="external"><?ditaot usertext?>menu</xref></b></p>
+                        <p class="- topic/p ">
+                            <ul class="- topic/ul " id="unique_31_Connect_42_ul_zbz_4kz_g5b" nd:nd-id="ul_zbz_4kz_g5b">
+                                <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/MainMenu.java" scope="external"><?ditaot usertext?>MainMenu</xref> - meniul care
+                                    apare cand se intra in GameScreen, are un buton Continue si unul
+                                    New</li>
+                                <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/Pause.java" scope="external"><?ditaot usertext?>Pause</xref>- este accesat in
+                                    timpul jocului prin tasta esc sau pe android prin butonul
+                                    dedicat. Are butoanele Resume, Map, MainMenu</li>
+                                <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/MapMenu.java" scope="external"><?ditaot usertext?>MapMenu</xref>- accesat din
+                                    Pause Menu. Afiseaza sectiunile deblocate din harta, obiectivele
+                                    si pozitia playerului</li>
+                                <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/Tutorial.java" scope="external"><?ditaot usertext?>Tutoriale</xref> - explica
+                                    anumite aspecte pentru mecanici/npc/items </li>
+                                <li class="- topic/li ">Cutscene-uri - in esenta tot tutoriale dar au scop in
+                                    dezvoltarea vizuala a povestii</li>
+                            </ul>
+                        </p></li>
+                    <li class="- topic/li "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud" scope="external"><?ditaot usertext?>HUD</xref> - inventory, healthbar,
+                        staminabar</li>
+                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/Button.java" scope="external"><?ditaot usertext?>Butoane</xref> - Butoanele din UI
+                            sunt compatibil atat cu mouse-ul pe desktop cat si cu touchscreen.
+                            Fiecare tip de buton are intregul behaviour definit, butoanele
+                            actualizandu-se diferit pentru fiecare meniu</p></li>
+                    <li class="- topic/li "><p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch/GenericTouchControl.java" scope="external"><?ditaot usertext?>Touch Controls</xref></p>Sunt
+                        controalele specifice pentru Android. apar pe ecran atunci cand
+                        WorldData.PAUZA=false si se actualizeaza la fel dinamic in functie de ce
+                        actiuni sunt disponibile playerului (<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch/TouchDpad.java" scope="external"><?ditaot usertext?>Dpad</xref> si sprint pentru miscarea
+                        playerului, inventory pt a accesa inventory-ul, butonul de pauza si
+                        butoanele dedicate pentru controlul itemelor) </li>
+                </ul>
+            </body>
+        </topic>
+        <topic class="- topic/topic " id="unique_32" nd:nd-id="worlddata" oid="worlddata" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">WorldData</ph></title>
+            <body class="- topic/body ">
+                <p class="- topic/p "><b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" scope="external"><?ditaot usertext?>strafer-liberator-master</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" scope="external"><?ditaot usertext?>core</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" scope="external"><?ditaot usertext?>src</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" scope="external"><?ditaot usertext?>com</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" scope="external"><?ditaot usertext?>port</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" scope="external"><?ditaot usertext?>world</xref>/<b class="+ topic/ph hi-d/b ">WorldData.java</b>
+                    </b></p>
+                <p class="- topic/p ">Contine o multitudine de field-uri si metode statice ce sunt accesate atat la
+                    inceput cat si in timpul jocului. Aici sunt incarcate datele din fisierele de
+                    salvare, sunt actualizate variabilele legate de frame-rate, metodele necesare
+                    pentru sistemul de eventuri si cel de dialoguri, pentru pathfinding si pentru
+                    setarile initiale ale rezolutiei.</p>
+            </body>
+        </topic>
+    </topic>
+    <topic class="- topic/topic " id="unique_33" nd:nd-id="mapgenerator" oid="mapgenerator" specializations="@props/deliveryTarget">
+        <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">MapGenerator</ph></title>
+        <body class="- topic/body ">
+            <p class="- topic/p "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator" scope="external"><?ditaot usertext?>mapGenerator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/Mapgenerator" scope="external"><?ditaot usertext?>Mapgenerator</xref>/<xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/Mapgenerator/MapGen" scope="external"><?ditaot usertext?>MapGen</xref></p>
+            <p class="- topic/p ">Un tool ce ne ajuta sa automatizam generarea de obiecte ce sunt adaugate in
+                PlayWorld, cat si matricele asociate pathfindingului in fiecare WorldSection</p>
+            <p class="- topic/p ">Fiecare WorldSection a fost construit multi-layered in <b class="+ topic/ph hi-d/b "><xref class="- topic/xref " format="html" href="https://www.mapeditor.org/" scope="external"><?ditaot usertext?>Tiled</xref></b> cu tile-uri de 64*64pixeli prezente ca tileset-uri ïn
+                            <b class="+ topic/ph hi-d/b "><i class="+ topic/ph hi-d/i "><xref class="- topic/xref " format="html" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/TiledMaps" scope="external"><?ditaot usertext?>mapGenerator\TiledMaps\tilesets</xref></i></b>. Acest lucru ne permite sa
+                modificam foarte usor harta si ceea ce se afla pe ea dintr-un GUI. Apoi acestea sunt
+                exportate in format JSON in folderul "mapGenerator/TiledMaps". Cand aplicatia este
+                rulata, un dialog windows pentru selectie de fisiere este deschis penttru a alege ce
+                fisier vrem sa parsam in consola avem 2 optiuni disponibile:</p>
+            <p class="- topic/p ">1. Pentru a genera matricea de pathfinding</p>
+            <p class="- topic/p ">1. pentru a genera cod java cu functii init() ce poate fi inserat direct in clasele
+                WorldSection&lt;11-23&gt;</p>
+            <p class="- topic/p ">Output-ul este salvat in fisiere .txt, iar apoi adaugate in core project.</p>
+            <p class="- topic/p ">Aplicatia a fost scrisa in <b class="+ topic/ph hi-d/b ">C++17</b> , iar parsarea s-a realizat cu libraria <xref class="- topic/xref " format="html" href="https://github.com/SSBMTonberry/tileson" scope="external"><?ditaot usertext?>Tileson</xref></p>
+            <p class="- topic/p "><image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/mapGenerator/exemplu.png" id="unique_33_Connect_42_image_dqd_3x2_h5b" nd:nd-id="image_dqd_3x2_h5b" placement="inline"/></p>
+            <image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/mapGenerator/exemplu1.png" id="unique_33_Connect_42_image_qrq_3x2_h5b" nd:nd-id="image_qrq_3x2_h5b" placement="inline"/>
+            <image class="- topic/image " href="file:/D:/Games/CV9%20projekt%20red/StraferLib/mapGenerator/exemplu2.png" id="unique_33_Connect_42_image_qg2_jx2_h5b" nd:nd-id="image_qg2_jx2_h5b" placement="inline"/>
+        </body>
+        <topic class="- topic/topic " id="unique_34" nd:nd-id="tiled-maps" oid="tiled-maps" specializations="@props/deliveryTarget">
+            <title class="- topic/title "><ph class="- topic/ph topic/title-wrapper ">Tiled Maps</ph></title>
+            <body class="- topic/body ">
+                <ul class="- topic/ul ">
+                    <li class="- topic/li "><p class="- topic/p ">TIleson</p><ul class="- topic/ul ">
+                            <li class="- topic/li "><p class="- topic/p ">Pathfind matrix</p></li>
+                            <li class="- topic/li "><p class="- topic/p ">World Structure generation</p></li>
+                        </ul></li>
+                </ul>
+            </body>
+        </topic>
+    </topic>
+</topic></map>

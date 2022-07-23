@@ -3,12 +3,12 @@
 <topic id="greenfoot_backwards_compatibility">
     <title>Greenfoot Backwards Compatibility</title>
     <body>
-        <p>Greenfoot este un IDE ce are la baza JavaFX si blueJ, oferind un <xref
+        <p><b>Greenfoot</b> este un IDE ce are la baza JavaFX si blueJ, oferind un <xref
                 href="https://www.greenfoot.org/files/javadoc/" format="html" scope="external"
                 >API</xref> restrans prin care se pot realiza mici simulari 2D daor in interiorul
             aplicatiei Greenfoot. Cu alte cuvinte, simplitatea acestui IDE este motivul pentru care
             exista limitari grafice, dar si de memorie(aprox. 2GB).</p>
-        <p>LibGDX este un framework cu un <xref
+        <p><b>LibGDX</b> este un framework cu un <xref
                 href="https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/index.html"
                 format="html" scope="external">API</xref> extensiv, ce permite crearea de jocuri ce
             pot rula pe orice platforma cu Java Virtual Machine. LibGDX ofera mult mai mult control
@@ -17,8 +17,15 @@
         <p>Backwards compatibility-ul a fost realizat prin scrierea unui pachet <xref
                 href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/greenfoot"
                 format="html" scope="external">greenfoot</xref> ce contine clase wrapper cu numele
-            si metodele din API-ul Greenfoot, legand conceptele de Greenfoot scenario (World, Actor)
-            si cele de libGDX scene2d (Stage, Actor). In acest mod, daca un proiect libGDX are
-            pachetul greenfoot inclus se poate face un port.</p>
+            si metodele din API-ul Greenfoot, legand conceptele de Greenfoot <b>scenario</b> (World,
+            Actor) si cele de libGDX <b>scene2d</b> (Stage, Actor). In acest mod, daca un proiect
+            libGDX are pachetul greenfoot inclus se poate face un port.</p>
+        <p>
+            <fig id="fig_qkh_x1f_h5b">
+                <title>Comparatie Platforme</title>
+                <image href="../images/representations/runningplatforms.png" id="image_rkh_x1f_h5b"
+                />
+            </fig>
+        </p>
     </body>
 </topic>

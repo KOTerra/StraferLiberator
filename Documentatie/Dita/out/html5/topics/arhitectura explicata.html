@@ -1,0 +1,534 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="strafer-liberator"><title>Arhitectura</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="strafer-liberator"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Arhitectura</h1>
+    <div class="body">
+        <img class="image" id="strafer-liberator__image_yqw_trd_h5b" src="../images/Strafer%20Liberator.png">
+    </div>
+    <article class="topic nested1" aria-labelledby="ariaid-title2" id="launchers">
+        <h2 class="title topictitle2" id="ariaid-title2">Launchers</h2>
+        <div class="body">
+            <p class="p">Fiecare launcher determina rezolutia si setarile necesare sistemului pe care ruleaza,
+                apoi instantiaza game class-ul Straferliberator din core</p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title3" id="desktop-launcher">
+            <h3 class="title topictitle3" id="ariaid-title3">Desktop Launcher</h3>
+            <div class="body">
+                <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/desktop" target="_blank" rel="external noopener">desktop</a></p>
+                <p class="p">Configurari initiale,Functioneaza pe urmatoarele platforme:</p>
+                <p class="p">Windows</p>
+                <p class="p">Linux</p>
+                <p class="p">Mac OS</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title4" id="android-launcher">
+            <h3 class="title topictitle3" id="ariaid-title4">Android Launcher</h3>
+            <div class="body">
+                <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/android" target="_blank" rel="external noopener">android</a></p>
+                <p class="p">Configurari initiale, ascunde status bar-ul</p>
+            </div>
+        </article>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title5" id="touch-manager">
+        <h2 class="title topictitle2" id="ariaid-title5">Touch Manager</h2>
+        <div class="body">
+            <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" target="_blank" rel="external noopener">UI</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button" target="_blank" rel="external noopener">button</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch" target="_blank" rel="external noopener">touch</a>/<strong class="ph b">TouchManager.java</strong></strong></p>
+            <p class="p">Functioneaza doar atunci cand jocul e instantiat din Android Launcher</p>
+            <p class="p">Ascunde/ aduce in foreground controalele cu touch in timpul jocului.</p>
+        </div>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title6" id="worldrenderer">
+        <h2 class="title topictitle2" id="ariaid-title6">WorldRenderer</h2>
+        <div class="body">
+            <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" target="_blank" rel="external noopener">game</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" target="_blank" rel="external noopener">straferliberator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/render" target="_blank" rel="external noopener">render</a>/<strong class="ph b">WorldRenderer.java</strong></strong></p>
+            <p class="p">Primeste informatia furnizata de PaintManager pentru a randa fundalul si actorii, in
+                ierarhia specificata, folosind Sprite Batch-ul.</p>
+        </div>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title7" id="sprite-batch">
+        <h2 class="title topictitle2" id="ariaid-title7">Sprite Batch</h2>
+        <div class="body">
+            <p class="p">Static, randeaza sprite-urile actorilor. Un sprite reprezinta o regiune dintr-o
+                textura, aflate intr-un bounding box dreptunghiular.</p>
+        </div>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title8" id="screens">
+        <h2 class="title topictitle2" id="ariaid-title8">Screens</h2>
+        <div class="body">
+            <p class="p">In libGDX un Screen este un view interior ferestrei in care ruleaza aplicatia.</p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title9" id="id_ttt_xxq_g5b">
+            <h3 class="title topictitle3" id="ariaid-title9">Loading Screen</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" target="_blank" rel="external noopener">game</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" target="_blank" rel="external noopener">straferliberator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/screen" target="_blank" rel="external noopener">screen</a>/<strong class="ph b">LoadingScreen.java</strong></strong></p>
+                <p class="p">In el sunt definite toate asseturile incarcate de AssetManager. O bara de loading
+                    afiseaza progresul iar ecranul este schimbat in game screen cand toate
+                    asset-urile sunt incarcate.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title10" id="game-screen">
+            <h3 class="title topictitle3" id="ariaid-title10">Game Screen</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" target="_blank" rel="external noopener">game</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" target="_blank" rel="external noopener">straferliberator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/screen" target="_blank" rel="external noopener">screen</a>/<strong class="ph b">GameScreen.java</strong>
+                    </strong></p>
+                <p class="p">Instantiaza WorldRenderer -ul, apeleaza dispose pentru a elibera obiecte
+                    nefolosite din memorie, actualizeaza variabila elapsed si FPS din WorldData
+                    pentru operatiile ce tin evidenta timpului si itereaza prin toti actorii din
+                    PlayWorld pentru a apela metoda act()</p>
+            </div>
+        </article>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title11" id="asset-manager">
+        <h2 class="title topictitle2" id="ariaid-title11">Asset Manager</h2>
+        <div class="body">
+            <p class="p">O clasa din libGDX care permite incarcarea de asseturi in memorie pe un alt thread
+                fata de cel principal(GLThread). Acestuia i se seteaza loadere definite pentru
+                clasele jocului si pot fi referentiate dupa aceea cu o funtie get(). AssetManagerul
+                elimina timpii de load si memoria ocupata de obiecte ce nu sunt necesare, lucru ce
+                nu putea fi realizat cu Greenfoot.</p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title12" id="asset-loaders">
+            <h3 class="title topictitle3" id="ariaid-title12">Asset Loaders</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" target="_blank" rel="external noopener">game</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" target="_blank" rel="external noopener">straferliberator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/assetloaders" target="_blank" rel="external noopener">assetloaders</a></strong></p>
+                <p class="p">Implementeaza AsynchronousAssetLoader, avand definit tipul de clasa pe care
+                    trebuie sa il returneze si parametrii specifici unde este cazul</p>
+                <div class="p">
+                    <ul class="ul" id="asset-loaders__ul_adb_w1r_g5b">
+                        <li class="li">AnimationLoader</li>
+                        <li class="li">FontLoader</li>
+                        <li class="li">GifImageLoader</li>
+                        <li class="li">GreenfootImageLoader</li>
+                        <li class="li">GreenfootSoundLoader</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title13" id="paint-manager">
+        <h2 class="title topictitle2" id="ariaid-title13">Paint Manager</h2>
+        <div class="body">
+            <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game" target="_blank" rel="external noopener">game</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator" target="_blank" rel="external noopener">straferliberator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/game/straferliberator/render" target="_blank" rel="external noopener">render</a>/<strong class="ph b">PaintManager.java</strong></strong></p>
+            <p class="p">Contine un array de tip Class&lt;?&gt;[] paintOrder in care este stocata ierarhia pe
+                care WorldRenderer ul o respecta atunci cand apeleaza draw pentru actori. Pentru
+                clasele ce nu sunt adaugate in ierarhie se verifica recursiv daca obiectul verificat
+                este instance al unei clase din paintOrder. Nivelurile acestui arbore format sunt
+                stocate intr-un hashmap <em class="ph i">classPaintIndex</em> ca valoare , cheia fiind tipul
+                clasei, iar in alt hashmap <em class="ph i">objectsInPaintOrder</em> avem cheie nivelul arborelui
+                iar valorile array uri cu obiectele de pe acel nivel. Arborele este actualizat cand
+                un Actor este adaugat sau sters din world. </p>
+        </div>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title14" id="greenfoot">
+        <h2 class="title topictitle2" id="ariaid-title14">Greenfoot</h2>
+        <div class="body">
+            <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/greenfoot" target="_blank" rel="external noopener">greenfoot</a></p>
+            <p class="p">Pachetul cu clase wrapper care adapteaza <a class="xref" href="https://www.greenfoot.org/files/javadoc/" target="_blank" rel="external noopener">API</a>-ul Greenfoot</p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title15" id="actor">
+            <h3 class="title topictitle3" id="ariaid-title15">Actor</h3>
+            <div class="body">
+                <p class="p">Extinde gdx.Image, care la randul lui este o subclasa a gdx.Actor. Atat pentru
+                    libGDX cat si pentru Greenfoot un actor este un sprite care exista intr-un
+                    World/Stage si poate avea coliziuni si pozitie in spatiu. Un greenfoot.Actor
+                    primeste ca textura un GreenfootImage, bounding box-ul fiind calculat in functie
+                    de dimensiunile imaginii, pozitia(in pixeli) fiind punctul din centrul
+                    imaginiii.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title16" id="world">
+            <h3 class="title topictitle3" id="ariaid-title16">World</h3>
+            <div class="body">
+                <p class="p">Extinde gdx.Stage. In ambele situatii, Stage/World reprezinta clasele ce contin
+                    toti actorii si informatii despre locatiile si coliziunile dintre ei. Un
+                    GameScreen trebuie sa aiba un World in componenta.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title17" id="greenfootimage">
+            <h3 class="title topictitle3" id="ariaid-title17">GreenfootImage</h3>
+            <div class="body">
+                <p class="p">Clasa utilizata de Greenfoot pentru a textura actorii sau background-ul din
+                    world. Extinde gdx.TextureRegion. De asemenea are functionalitati de randat
+                    forme geometrice, text sau alte GreenfootImage-uri in interiorul unui
+                    GreenfootImage. Aceste functionalitati sunt implementate folosind
+                    Pixmap,Bitmap,FrameBuffer-uri. Exista si functionalitati de baza precum setarea
+                    transparentei sau scalare.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title18" id="font">
+            <h3 class="title topictitle3" id="ariaid-title18">Font</h3>
+            <div class="body">
+                <p class="p">Extinde gdx.BitmapFont. Este folosit pentru a randa Stringuri in obiecte
+                    GreenfootImage. Deoarece un Bitmap consuma foarte multa memorie, exista un
+                    singur font static utilizat de toate clasele.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title19" id="greenfootsound">
+            <h3 class="title topictitle3" id="ariaid-title19">GreenfootSound</h3>
+            <div class="body">
+                <p class="p">Are functionalitati simple de pornit sau manipulat fisiere audio. </p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title20" id="greenfoot-1">
+            <h3 class="title topictitle3" id="ariaid-title20">Greenfoot</h3>
+            <div class="body">
+                <p class="p">Clasa de utilitati ce se ocupa in principal de detectarea inputului de la mouse
+                    sau tastatura.</p>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title21" id="mouseinfo">
+            <h3 class="title topictitle3" id="ariaid-title21">MouseInfo</h3>
+            <div class="body">
+                <p class="p">Tine cont de pozitia cursorului pe ecran si de care dintre butoanele acestuia
+                    sunt apasate.</p>
+            </div>
+        </article>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title22" id="game">
+        <h2 class="title topictitle2" id="ariaid-title22">Game</h2>
+        <div class="body">
+            <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<strong class="ph b">port</strong></p>
+            <p class="p">Jocul propriu-zis se afla in core, pachetul com.port . Aici se afla tot ce se intapla
+                in interiorul GameScreen-ului</p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title23" id="playworld">
+            <h3 class="title topictitle3" id="ariaid-title23">PlayWorld</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<strong class="ph b">PlayWorld.java</strong>
+                    </strong></p>
+                <p class="p">Este un World ce contine toate sistemele de joc si un player si este legat la
+                    WorldListener.</p>
+                <ul class="ul">
+                    <li class="li"><p class="p">World Sections</p><p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/section" target="_blank" rel="external noopener">section</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/section/sections" target="_blank" rel="external noopener">sections</a></strong></p>Fiind
+                        nevoie de optimizari de memorie, utilizarea de WorldSectionuri a fost un mod
+                        viabil de a avea in memorie doar o parte din toata lumea jocului. Astfel,
+                        exista un graf definit in WorldListener reprezentand legaturile intre cele 6
+                        sectiuni. Acestea sunt codate cu doua cifre in functie de linia si coloana
+                        pe care se afla in MapMenu sau mai exact pozitia lor in raport cu celalalte
+                        sectiuni. Sectiunile au unitatea de masura de baza in tile-uri de 64x64
+                            pixeli.<figure class="fig fignone" id="playworld__fig_xph_5h2_h5b"><figcaption><span class="fig--title-label">Figure 1. </span>Cele 6 sectiuni</figcaption>
+                            
+                            <img class="image" id="playworld__image_yph_5h2_h5b" src="../images/representations/WorldSections.PNG" alt="cu rosu sunt evidentiate tile-urile din matrice marcate cu -1">
+                        </figure><ul class="ul">
+                            <li class="li">
+                                <p class="p">WorldStructure</p>
+                                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world/structure" target="_blank" rel="external noopener">structure</a></strong></p>
+                                <p class="p">Un WorldStructre este un actor dintr- o sectiune care se ocupa de
+                                    limitele lumii si de coliziunile dintre el si Actori</p>
+                                <ul class="ul">
+                                    <li class="li">
+                                        <p class="p">Walls</p>
+                                        <p class="p">Peretii invizibili sunt verticali si orizontali, primind
+                                            in constructor directia pe care trebuie sa verifice si
+                                            sa rezolve coliziunile cu un Entity.</p>
+                                    </li>
+                                    <li class="li">
+                                        <p class="p">Door</p>
+                                        <p class="p">O usa ce blocheaza accesul intr- o anume zona. Poate fi
+                                            deschisa sub o conditie definita.</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="li">
+                                <p class="p">Patfind matrix</p>
+                                <p class="p">MapGenerator-ul genereaza in fisierele .txt din folderul
+                                                <em class="ph i"><strong class="ph b"><a class="xref" href="strafer-liberator-master/assets/maps" target="_blank" rel="external noopener">assets/maps</a></strong></em> o matrice de pathfind pentru
+                                    fiecare sectiune. In matrice se gasesc 2 valori -1 si 0, o
+                                    valoare corespunzand cate unui tile. -1 reprezinta un tile in
+                                    care NPC-ul nu poate calca.</p>
+                                <div class="p">
+                                    <figure class="fig fignone" id="playworld__fig_rxt_fj2_h5b"><figcaption><span class="fig--title-label">Figure 2. </span>Comparatie Matrice Pathfind WorldSection11</figcaption>
+                                        
+                                        <img class="image" id="playworld__image_sxt_fj2_h5b" src="../images/representations/WorldMatrix.png">
+                                    </figure>
+                                </div>
+                            </li>
+                            <li class="li">
+                                <p class="p">Event-uri</p>
+                                <p class="p">Fiecare Event este asociat cu  un tile dintr-un WorldSection</p>
+                            </li>
+                            <li class="li">
+                                <p class="p">NPC placement</p>
+                                <p class="p">NPC-urile Hostile au pozitii default in care sunt incarcati
+                                    atunci cand jocul isi da load sau sectiunea se schimba.</p>
+                            </li>
+                        </ul></li>
+                    <li class="li"><p class="p">Scroller</p>
+                        <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<strong class="ph b">Scroller.java</strong>
+                            </strong></p>
+                        <p class="p">Scroller-ul este o clasa ce tine evidenta pozitiei playerului in lume si
+                            actualizeaza background-ul , dar si pozitia actorilor relativi la
+                            pozitia playerului astfel incat lumea de joc sa nu fie limitata la
+                            viewport, iar playerul sa fie constant in mijlocul ecranului atat timp
+                            cat nu este in marginea sectiunii. Scrollerul are 2 variabile statice
+                            prin care se tine evidenta pozitiei globale a actorilor
+                            (scrolledX,srolledY).</p></li>
+                    <li class="li"><p class="p">WorldListener</p>
+                        <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<strong class="ph b">WorldListener.java</strong></strong></p>
+                        <p class="p">WorldListener-ul comunica cu scrollerul si playerul, avand rolul de a
+                            tine logica din spatele conexiunilor intre WorldSection-uri si de a
+                            decide cand si cum acestea trebuie schimbarte. Metoda changeWorldSection
+                            seteaza pozitia playerului in functie de latura in care sunt
+                            intersectate sectiunile, iar apoi incarca fundalul din assetManager,
+                            sterge din PlayWorld entitatile si adauga entitatile specifice sectiunii
+                            in care a intrat plahyerul. Schimbarea aceasta nu necesita loading
+                            screenuri.</p>
+                        <p class="p"> </p></li>
+                    <li class="li"><p class="p">Entities</p>
+                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity" target="_blank" rel="external noopener">entity</a></p>
+                        <p class="p">Un Entity este un Actor care respecta regulile Scroller-ului si poate
+                            interactiona cu alti actori de tip Entity</p><ul class="ul">
+                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/item" target="_blank" rel="external noopener">Iteme</a></p>
+                                <p class="p">Item-ul este un obiect detinut de Player sau de NPC-uri. Pot fi
+                                    atasate de Actorul care il detine sau pot fi de tip PickUp(sunt
+                                    ridicate de Player)</p></li>
+                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover" target="_blank" rel="external noopener">Movers</a></p>
+                                <p class="p">Un Mover este un Entity ce se poate misca si are coliziune cu
+                                    pereti si alti Moveri, este de 2 tipuri :</p><ul class="ul">
+                                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/player/Player.java" target="_blank" rel="external noopener">Player</a></p>
+                                        <p class="p">Actorul ce trebuie sa existe constant in PlayWorld.
+                                            Playerul controleaza Scroller-ul prin pozitia sa si
+                                            modifica scrolledX scrolledY. Acesta proceseaza inputul
+                                            si face actiuni corespunzatoare: se misca, isi schimba
+                                            viteza, da toggle unui meniu, foloseste un item.</p><ul class="ul">
+                                            <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/player/BasePlayer.java" target="_blank" rel="external noopener">BasePlayer</a> -
+                                                Clasa pe care o extinde Player, contine metodele de
+                                                baza pentru move si knockback</li>
+                                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/HealthBarPlayer.java" target="_blank" rel="external noopener">Health Bar</a>
+                                                  /<a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/StaminaBarPlayer.java" target="_blank" rel="external noopener">Stamina
+                                                  Bar</a></p>
+                                                <p class="p">sunt cele 2 elemente din <a class="xref" href="strafer-liberator-master/core/src/com/port/UI/hud" target="_blank" rel="external noopener">HUD</a> ce arata
+                                                  nivelul de hit points / stamina ramas. Se
+                                                  actualizeaza in functie de cat damage primeste
+                                                  Playerul sau cata stamina foloseste in timp ce se
+                                                  misca cu sprint</p></li>
+                                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud/Inventory.java" target="_blank" rel="external noopener">Inventory</a></p>
+                                                <p class="p">Se activeaza cu tasta E sau apasand butonul
+                                                  dedicat pe Android. Acesta arata ce Iteme sunt
+                                                  deblocate de player(cele obtinute cu PickUp). Pot
+                                                  fi selectate cu click stanga si deselectate cu
+                                                  click dreapta.</p></li>
+                                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/b5a64abeefffd04ccffe4d40eba271d2a19aa7b5/strafer-liberator-master/core/src/com/port/entity/mover/player/BasePlayer.java#L45" target="_blank" rel="external noopener">Knockback</a></p>
+                                                <p class="p">O metoda prin care un mover este impins in
+                                                  directia opusa atunci cand o forta este aplicata
+                                                  asupra lui. In general se foloseste pentru a
+                                                  rezolvaa coliziuni intre Iteme care dau damage de
+                                                  tip melee si NPC-uri sau Player. Se folosesc
+                                                  formule de mecanica clasica si trigonometrie de
+                                                  baza.</p></li>
+                                        </ul></li>
+                                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/Npc.java" target="_blank" rel="external noopener">NPC</a></p>
+                                        <p class="p">NPC(Non playable character) sunt orice alt Entity care nu
+                                            este Player. Se clasifica in 2 tipuri:</p><ul class="ul">
+                                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/friendly" target="_blank" rel="external noopener">Friendly</a></p>
+                                                <p class="p">Apare pe harta in functie de eventurile din
+                                                  EventSystem si initiaza un anumit dialog atunci
+                                                  cand Playerul il atinge. Are mereu stare de
+                                                  idle.</p></li>
+                                            <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/entity/mover/npc/hostile" target="_blank" rel="external noopener">Hostile</a></p>
+                                                <p class="p">Un NPC Hostile are scopul de a urmari si ataca
+                                                  Playerul cand se afla in raza sa de acoperire. </p><ul class="ul">
+                                                  <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/b5a64abeefffd04ccffe4d40eba271d2a19aa7b5/strafer-liberator-master/core/src/com/port/entity/mover/npc/Npc.java#L95" target="_blank" rel="external noopener">Pathfinding</a></p>
+                                                  <p class="p">In spatele pathfindingului si urmaririi se afla
+                                                  o implementare a algoritmului Breadth First Search
+                                                  aplicat pe matricea fiecarui WorldSection. Cu
+                                                  acesta se calculeaza cel mai scurt drum care evita
+                                                  tile-urile marcate cu -1 in matrice, iar ordinea
+                                                  de pasi ce trebuie facuti prin tile-urile pana la
+                                                  Player se salveaza intr-o coada de directii</p></li>
+                                                  <li class="li">
+                                                  <p class="p">Combat</p>
+                                                  <p class="p">atunci cand Playerul este in proximitatea
+                                                  NPC-urilor, fiecare tip de Hostile intra intr-un
+                                                  state de combat in care ataca Player-ul in modul
+                                                  specific clasei. I se aplica damage si knockback
+                                                  in cazul in care e atacat de Player.</p>
+                                                  </li>
+                                                  <li class="li">Knockback -la fel ca in cazul Playerului</li>
+                                                </ul></li>
+                                        </ul></li>
+                                </ul></li>
+                        </ul></li>
+                </ul>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title24" id="file-loaders">
+            <h3 class="title topictitle3" id="ariaid-title24">File Loaders</h3>
+            <div class="body">
+                <p class="p">Clasele <a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/loader/Loader.java" target="_blank" rel="external noopener">Loader</a> si <a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/loader/DialogLoader.java" target="_blank" rel="external noopener">DialogLoader</a> contin metode ce incarca
+                    fisierele in care sunt stocate date din folderele:</p>
+                <ul class="ul">
+                    <li class="li"><p class="p">saves</p></li>
+                    <li class="li"><p class="p">dialogs</p></li>
+                    <li class="li"><p class="p">maps</p></li>
+                </ul>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title25" id="systems">
+            <h3 class="title topictitle3" id="ariaid-title25">Systems</h3>
+            <div class="body">
+                <p class="p">Pentru a putea avea un storyline cu eventuri predefinite si stari dinamice ale
+                    jocului a fost nevoie de implementarea mai multor sisteme</p>
+                <ul class="ul">
+                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/system/SaveSystem.java" target="_blank" rel="external noopener">SaveSystem</a></p>
+                        <p class="p">Salveaza in anumite momente toate datele necesare pentru a continua jocul
+                            dupa un restart al aplicatiei. Acesta incarca in WorldData : locatia si
+                            viata player-ului, sectiunea in care se afla, sectiunile deblocate,
+                            obiectivele, event-ul curent, item-ele deblocate si npc-urile
+                            cunoscute.</p></li>
+                    <li class="li">
+                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/system/event/EventSystem.java" target="_blank" rel="external noopener">EventSystem</a></p>
+                        <p class="p">Acesta contine cronologia eventurileor(sau questurilor) din povestea
+                            jocului. Parcurgerea lor schimba comportamentul PlayWorld-ului in raport
+                            cu Playerul, inserand sau eliminand din lume obiecte unice doar pentru
+                            acel event(ex un item/ un NPC cu un anume dialog) . Fiecare event are un
+                            numar ce este salvat in WorldData.</p>
+                    </li>
+                    <li class="li"><p class="p">MusicSystem</p>
+                        <p class="p">Exista 3 melodii in joc: una pentru meniurile de pauza si altele doua
+                            pentru gameplay loop. Cele pentru gameplay loop sunt actualizate dinamic
+                            in functie de ceea ce face playerul. cu un delay de cateva secunde este
+                            determinat daca playerul este in stare de combat sau de explorare si
+                            schimba intre muzica combat si idle. in timpul momentelor de cutscene,
+                            dialog sau tutorial muzica este oprita.</p></li>
+                    <li class="li"><p class="p">Dialog System</p>
+                        <p class="p">Sistemul de dialoguri a fost introdus pentru a da informatie contextuala
+                            playerului fara a intrerupe gameplayul prea des cu cutsceneuri. Acesta
+                            sta pe baza NPC urilor friendly si are un design clasic de RPG.</p></li>
+                </ul>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title26" id="graphics">
+            <h3 class="title topictitle3" id="ariaid-title26">Graphics</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/utils" target="_blank" rel="external noopener">utils</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics" target="_blank" rel="external noopener">graphics</a></strong></p>
+                <p class="p">Pe langa clasele rudimentare oferite de Greenfoot, a trebuit sa implementam alte
+                    clase pentru control grafic</p>
+                <ul class="ul" id="graphics__ul_z43_chz_g5b">
+                    <li class="li">
+                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Picture.java" target="_blank" rel="external noopener">Picture</a></p>
+                        <p class="p">Este un actor fara coliziune cu scopul de a fi o simpla imagine care in
+                            general este utilizata ca o componenta de UI</p>
+                    </li>
+                    <li class="li">
+                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Text.java" target="_blank" rel="external noopener">Text</a></p>
+                        <p class="p">La fel ca Picture, aceasta clasa este un element de UI care doar da
+                            display unui text</p>
+                    </li>
+                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/GifImage.java" target="_blank" rel="external noopener">GifImage</a></p>O clasa care
+                        primeste un gdx.Array(GreenfootImage) si o durata a frame-urilor in
+                        milisecunde. Clasa are metode ce returneaza toate frame-urile, frame-ul ce
+                        trebuie afisat la un moment de timp calculat in fucnctie de variabila
+                            WorldData.elapsed.<ul class="ul" id="graphics__ul_ap3_chz_g5b">
+                            <li class="li">
+                                <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/GifImage.java" target="_blank" rel="external noopener">GifDecoder</a></p>
+                                <p class="p">O clasa ce citeste un fisier .gif si formeaza un GifImage</p>
+                            </li>
+                            <li class="li">
+                                <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Animation.java" target="_blank" rel="external noopener">Animation</a></p>
+                                <p class="p">Un animation este o clasa cu un GifImage ce poate rula pentru un
+                                    numar limitat de ori .</p>
+                                <ul class="ul" id="graphics__ul_bp3_chz_g5b">
+                                    <li class="li">
+                                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/AnimationRunner.java" target="_blank" rel="external noopener">AnimationRunner</a></p>
+                                        <p class="p">Primeste un animation si un actor care trebuie animat.
+                                            Este nevoie de un runner pentru ca fiecae animation este
+                                            unic in asset manager si nu poate fi rulat intern pentru
+                                            mai multi actori de acelasi tip.</p>
+                                    </li>
+                                    <li class="li">
+                                        <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/utils/graphics/Transition.java" target="_blank" rel="external noopener">Transition</a></p>
+                                        <p class="p">Un animaton cu scop similar ca Picture si Text</p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul></li>
+                </ul>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title27" id="user-interface">
+            <h3 class="title topictitle3" id="ariaid-title27">User Interface</h3>
+            <div class="body">
+                <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" target="_blank" rel="external noopener">UI</a></p>
+                <p class="p">UI- ul se imparte intre meniuri si HUD(heads up display), diferenta fiind ca HUD
+                    ul este afisat in timpul gameplay loopului, iar meniurile cand
+                    WorldData.PAUZA=true</p>
+                <ul class="ul">
+                    <li class="li"><p class="p">Meniuri</p>
+                        <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI" target="_blank" rel="external noopener">UI</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu" target="_blank" rel="external noopener">menu</a></strong></p>
+                        <div class="p">
+                            <ul class="ul" id="user-interface__ul_zbz_4kz_g5b">
+                                <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/MainMenu.java" target="_blank" rel="external noopener">MainMenu</a> - meniul care
+                                    apare cand se intra in GameScreen, are un buton Continue si unul
+                                    New</li>
+                                <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/Pause.java" target="_blank" rel="external noopener">Pause</a>- este accesat in
+                                    timpul jocului prin tasta esc sau pe android prin butonul
+                                    dedicat. Are butoanele Resume, Map, MainMenu</li>
+                                <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/MapMenu.java" target="_blank" rel="external noopener">MapMenu</a>- accesat din
+                                    Pause Menu. Afiseaza sectiunile deblocate din harta, obiectivele
+                                    si pozitia playerului</li>
+                                <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/menu/Tutorial.java" target="_blank" rel="external noopener">Tutoriale</a> - explica
+                                    anumite aspecte pentru mecanici/npc/items </li>
+                                <li class="li">Cutscene-uri - in esenta tot tutoriale dar au scop in
+                                    dezvoltarea vizuala a povestii</li>
+                            </ul>
+                        </div></li>
+                    <li class="li"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/hud" target="_blank" rel="external noopener">HUD</a> - inventory, healthbar,
+                        staminabar</li>
+                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/Button.java" target="_blank" rel="external noopener">Butoane</a> - Butoanele din UI
+                            sunt compatibil atat cu mouse-ul pe desktop cat si cu touchscreen.
+                            Fiecare tip de buton are intregul behaviour definit, butoanele
+                            actualizandu-se diferit pentru fiecare meniu</p></li>
+                    <li class="li"><p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch/GenericTouchControl.java" target="_blank" rel="external noopener">Touch Controls</a></p>Sunt
+                        controalele specifice pentru Android. apar pe ecran atunci cand
+                        WorldData.PAUZA=false si se actualizeaza la fel dinamic in functie de ce
+                        actiuni sunt disponibile playerului (<a class="xref" href="https://github.com/KOTerra/StraferLiberator/blob/portGreenfoot/strafer-liberator-master/core/src/com/port/UI/button/touch/TouchDpad.java" target="_blank" rel="external noopener">Dpad</a> si sprint pentru miscarea
+                        playerului, inventory pt a accesa inventory-ul, butonul de pauza si
+                        butoanele dedicate pentru controlul itemelor) </li>
+                </ul>
+            </div>
+        </article>
+        <article class="topic nested2" aria-labelledby="ariaid-title28" id="worlddata">
+            <h3 class="title topictitle3" id="ariaid-title28">WorldData</h3>
+            <div class="body">
+                <p class="p"><strong class="ph b"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master" target="_blank" rel="external noopener">strafer-liberator-master</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core" target="_blank" rel="external noopener">core</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src" target="_blank" rel="external noopener">src</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com" target="_blank" rel="external noopener">com</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port" target="_blank" rel="external noopener">port</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/com/port/world" target="_blank" rel="external noopener">world</a>/<strong class="ph b">WorldData.java</strong>
+                    </strong></p>
+                <p class="p">Contine o multitudine de field-uri si metode statice ce sunt accesate atat la
+                    inceput cat si in timpul jocului. Aici sunt incarcate datele din fisierele de
+                    salvare, sunt actualizate variabilele legate de frame-rate, metodele necesare
+                    pentru sistemul de eventuri si cel de dialoguri, pentru pathfinding si pentru
+                    setarile initiale ale rezolutiei.</p>
+            </div>
+        </article>
+    </article>
+    <article class="topic nested1" aria-labelledby="ariaid-title29" id="mapgenerator">
+        <h2 class="title topictitle2" id="ariaid-title29">MapGenerator</h2>
+        <div class="body">
+            <p class="p"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator" target="_blank" rel="external noopener">mapGenerator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/Mapgenerator" target="_blank" rel="external noopener">Mapgenerator</a>/<a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/Mapgenerator/MapGen" target="_blank" rel="external noopener">MapGen</a></p>
+            <p class="p">Un tool ce ne ajuta sa automatizam generarea de obiecte ce sunt adaugate in
+                PlayWorld, cat si matricele asociate pathfindingului in fiecare WorldSection</p>
+            <p class="p">Fiecare WorldSection a fost construit multi-layered in <strong class="ph b"><a class="xref" href="https://www.mapeditor.org/" target="_blank" rel="external noopener">Tiled</a></strong> cu tile-uri de 64*64pixeli prezente ca tileset-uri ïn
+                            <strong class="ph b"><em class="ph i"><a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/mapGenerator/TiledMaps" target="_blank" rel="external noopener">mapGenerator\TiledMaps\tilesets</a></em></strong>. Acest lucru ne permite sa
+                modificam foarte usor harta si ceea ce se afla pe ea dintr-un GUI. Apoi acestea sunt
+                exportate in format JSON in folderul "mapGenerator/TiledMaps". Cand aplicatia este
+                rulata, un dialog windows pentru selectie de fisiere este deschis penttru a alege ce
+                fisier vrem sa parsam in consola avem 2 optiuni disponibile:</p>
+            <p class="p">1. Pentru a genera matricea de pathfinding</p>
+            <p class="p">1. pentru a genera cod java cu functii init() ce poate fi inserat direct in clasele
+                WorldSection&lt;11-23&gt;</p>
+            <p class="p">Output-ul este salvat in fisiere .txt, iar apoi adaugate in core project.</p>
+            <p class="p">Aplicatia a fost scrisa in <strong class="ph b">C++17</strong> , iar parsarea s-a realizat cu libraria <a class="xref" href="https://github.com/SSBMTonberry/tileson" target="_blank" rel="external noopener">Tileson</a></p>
+        </div>
+        <article class="topic nested2" aria-labelledby="ariaid-title30" id="tiled-maps">
+            <h3 class="title topictitle3" id="ariaid-title30">Tiled Maps</h3>
+            <div class="body">
+                <ul class="ul">
+                    <li class="li"><p class="p">TIleson</p><ul class="ul">
+                            <li class="li"><p class="p">Pathfind matrix</p></li>
+                            <li class="li"><p class="p">World Structure generation</p></li>
+                        </ul></li>
+                </ul>
+            </div>
+        </article>
+    </article>
+</article></main></body></html>

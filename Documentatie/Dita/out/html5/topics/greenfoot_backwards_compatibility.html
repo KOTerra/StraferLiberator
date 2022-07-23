@@ -1,0 +1,18 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="DC.rights.owner" content="(C) Copyright 2022"><meta name="copyright" content="(C) Copyright 2022"><meta name="generator" content="DITA-OT"><meta name="DC.type" content="topic"><meta name="DC.format" content="HTML5"><meta name="DC.identifier" content="greenfoot_backwards_compatibility"><title>Greenfoot Backwards Compatibility</title><link rel="stylesheet" type="text/css" href="../commonltr.css"></head><body id="greenfoot_backwards_compatibility"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Greenfoot Backwards Compatibility</h1>
+    <div class="body">
+        <p class="p"><strong class="ph b">Greenfoot</strong> este un IDE ce are la baza JavaFX si blueJ, oferind un <a class="xref" href="https://www.greenfoot.org/files/javadoc/" target="_blank" rel="external noopener">API</a> restrans prin care se pot realiza mici simulari 2D daor in interiorul
+            aplicatiei Greenfoot. Cu alte cuvinte, simplitatea acestui IDE este motivul pentru care
+            exista limitari grafice, dar si de memorie(aprox. 2GB).</p>
+        <p class="p"><strong class="ph b">LibGDX</strong> este un framework cu un <a class="xref" href="https://javadoc.io/doc/com.badlogicgames.gdx/gdx/latest/index.html" target="_blank" rel="external noopener">API</a> extensiv, ce permite crearea de jocuri ce
+            pot rula pe orice platforma cu Java Virtual Machine. LibGDX ofera mult mai mult control
+            low level fata de orice game engine cum ar fi unity sau unreal, fiiind construit cu
+            LWJGL(folosit de Mojang pentru a dezvolta Minecraft java edition). </p>
+        <p class="p">Backwards compatibility-ul a fost realizat prin scrierea unui pachet <a class="xref" href="https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/strafer-liberator-master/core/src/greenfoot" target="_blank" rel="external noopener">greenfoot</a> ce contine clase wrapper cu numele
+            si metodele din API-ul Greenfoot, legand conceptele de Greenfoot <strong class="ph b">scenario</strong> (World,
+            Actor) si cele de libGDX <strong class="ph b">scene2d</strong> (Stage, Actor). In acest mod, daca un proiect
+            libGDX are pachetul greenfoot inclus se poate face un port.</p>
+    </div>
+</article></main></body></html>
