@@ -16,6 +16,9 @@ import com.port.world.WorldData;
 
 import greenfoot.Font;
 
+/**
+ * Game class-ul
+ */
 public class StraferLiberator extends Game {
 
 	public static SpriteBatch batch;

@@ -23,6 +23,9 @@ import com.game.straferliberator.assetloaders.GreenfootImageLoader.GreenfootImag
 
 import greenfoot.*;
 
+/**
+ * progress bar in timp ce se incarca tot in assetManager
+ */
 public class LoadingScreen implements Screen {
 
 	private final StraferLiberator game;
@@ -42,6 +45,9 @@ public class LoadingScreen implements Screen {
 	public void show() {
 	}
 
+	/**
+	 * mareste loadingBarul in functie de cat de mult s-a incarcat din asset-uri
+	 * */
 	private void update(float delta) {
 
 		progress = MathUtils.lerp(progress, game.assetManager.getProgress(), .1f);
@@ -94,6 +100,9 @@ public class LoadingScreen implements Screen {
 		shapeRenderer.dispose();
 	}
 
+	/**
+	 * adauga toate asseturile la manager
+	 */
 	private void queueAssetsToLoad() {
 
 		game.assetManager.setLoader(Font.class, new FontLoader(new InternalFileHandleResolver()));

@@ -42,6 +42,10 @@ public class WorldListener extends WorldSection {
 
 	}
 
+	/**
+	 * schimba sectiunea curenta
+	 * @param atLoad daca schimbarea se face din save file
+	 */
 	void changeWorldSection(boolean atLoad) { // daca e schimbata pt load sau pt miscare
 		scroller.setScrollImage(backgrounds.get(WorldData.getWorldSectionShort(worldSection) - 1));
 		WorldData.worldSection = this.worldSection;

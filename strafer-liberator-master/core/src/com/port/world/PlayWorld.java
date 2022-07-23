@@ -35,8 +35,11 @@ import com.port.utils.graphics.Text;
 
 import greenfoot.*;
 
-//lumea in care are loc toata simularea
-
+/**
+ * Lumea principala care este legata la scroller, player, worldListener, eventSystem
+ * @author stoica_mihai
+ *
+ */
 public class PlayWorld extends World {
 
 	int WIDE, HIGH;

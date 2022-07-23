@@ -16,6 +16,12 @@ import com.port.world.WorldData;
 import greenfoot.Font;
 import greenfoot.test.TestWorld;
 
+/**
+ * ecranul principal in care ruleaza jocul
+ * 
+ * @author mihai_stoica
+ *
+ */
 public class GameScreen extends ScreenAdapter {
 
 	StraferLiberator game;
@@ -24,15 +30,13 @@ public class GameScreen extends ScreenAdapter {
 
 	WorldRenderer<Object> worldRederer;
 
-
 	public GameScreen(StraferLiberator straferLiberator) {
 		this.game = straferLiberator;
-		game.cFont=game.assetManager.get("fonts/consolas.fnt",Font.class);
-		
+		game.cFont = game.assetManager.get("fonts/consolas.fnt", Font.class);
 
 		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
-			//world = new TestWorld();
-			 world=new PlayWorld();
+			// world = new TestWorld();
+			world = new PlayWorld();
 		} else {
 			world = new PlayWorld();
 			// world = new TestWorld();
@@ -41,15 +45,20 @@ public class GameScreen extends ScreenAdapter {
 		worldRederer = new WorldRenderer<Object>(world);
 		Gdx.input.setInputProcessor(world);
 
-
 	}
 
+	/**
+	 * apeleaaza act si schimba variabilele de timp
+	 */
 	public void update(float deltaTime) {
 
 		world.act();
 		timeUpdate();
 	}
 
+	/**
+	 * foloseste worldRenderer ul pentru
+	 */
 	public void draw() {
 		GL20 gl = Gdx.gl;
 		gl.glClearColor(0, 0, 0, 0);
@@ -65,13 +74,15 @@ public class GameScreen extends ScreenAdapter {
 		draw();
 
 	}
+
 	public void dispose() {
 	}
+
 	private void timeUpdate() {
-		WorldData.FPS=Gdx.graphics.getFramesPerSecond();
+		WorldData.FPS = Gdx.graphics.getFramesPerSecond();
 		WorldData.elapsed += Gdx.graphics.getDeltaTime();
-		if(WorldData.elapsed>=10000) {
-			WorldData.elapsed=0;
+		if (WorldData.elapsed >= 10000) {
+			WorldData.elapsed = 0;
 		}
 	}
 
