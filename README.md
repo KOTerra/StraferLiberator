@@ -10,7 +10,7 @@
 
 **Windows** 
 
-**link download**
+**[link download](https://mega.nz/folder/VRh3EA6T#akVg90LVqfgDD-E1BbztKQ)**
 
 Folositi kit-ul de instalare, apoi rulati fisierul .exe
 
@@ -19,7 +19,7 @@ Folositi kit-ul de instalare, apoi rulati fisierul .exe
 
 **Linux / MacOS**
 
-**link download**
+**[link download](https://mega.nz/folder/NJI0BaLA#YqtNJW8Sd-vamfMEn5VYBg)**
 
 Dezarhivati si rulati fisierul .jar din linia de comanda folosind:
 ```
@@ -30,7 +30,7 @@ java -jar desktop-1.0.jar
 
 **Android**
 
-**link download**
+**[link download](https://mega.nz/folder/RABnVJaQ#rF8e6u6wxSUju0l_nJoL_g)**
 
 instalati si rulati fisierul apk 
 
