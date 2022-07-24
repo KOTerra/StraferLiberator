@@ -41,7 +41,7 @@ public class Portal extends PortalGun {
 		Player player = ((PlayWorld) getWorld()).getPlayer();
 		if (Greenfoot.isKeyDown("T")) {
 
-			getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 62, 1), 0, 0);
+			getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 30, 1), 0, 0);
 
 			player.setWorldX((int) (player.getWorldX() + (this.getX() + Scroller.scrolledX - player.getX())));
 			player.setWorldY((int) (player.getWorldY() + (this.getY() + Scroller.scrolledY - player.getY())));
@@ -52,7 +52,7 @@ public class Portal extends PortalGun {
 		}
 		if (Gdx.app.getType().equals(ApplicationType.Android)) {
 			if (player.getPlayWorld().getTouchManager().getItemButton().isTouched()) {
-				getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 62, 1), 0, 0);
+				getWorld().addObject(new Transition("images/effects/kingcrimson.gif", 30, 1), 0, 0);
 
 				player.setWorldX((int) (player.getWorldX() + (this.getX() + Scroller.scrolledX - player.getX())));
 				player.setWorldY((int) (player.getWorldY() + (this.getY() + Scroller.scrolledY - player.getY())));
