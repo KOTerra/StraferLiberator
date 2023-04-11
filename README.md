@@ -5,34 +5,6 @@
 ----------
 
 
-# Instalare
-- ![Documentatie/Dita/images/windows.png](Documentatie/Dita/images/windows.png)
-
-**Windows** 
-
-**[link download](https://mega.nz/folder/VRh3EA6T#akVg90LVqfgDD-E1BbztKQ)**
-
-Folositi kit-ul de instalare, apoi rulati fisierul .exe
-
-
-- ![Documentatie/Dita/images/linux.png](Documentatie/Dita/images/linux.png) ![Documentatie/Dita/images/macos.png](Documentatie/Dita/images/macos.png)
-
-**Linux / MacOS**
-
-**[link download](https://mega.nz/folder/NJI0BaLA#YqtNJW8Sd-vamfMEn5VYBg)**
-
-Dezarhivati si rulati fisierul .jar din linia de comanda folosind:
-```
-java -jar desktop-1.0.jar
-```
-
-- ![Documentatie/Dita/images/android.png](Documentatie/Dita/images/android.png)
-
-**Android**
-
-**[link download](https://mega.nz/folder/RABnVJaQ#rF8e6u6wxSUju0l_nJoL_g)**
-
-instalati si rulati fisierul apk 
 
 ----------
 # Portul 
