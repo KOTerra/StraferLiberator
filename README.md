@@ -4,48 +4,57 @@
 
 ----------
 
+# The Port
 
-
-----------
-# Portul 
 ![Documentatie/Dita/images/port.png](Documentatie/Dita/images/port.png)
 
-Initial, Strafer a fost un joc de dimensiuni mici realizat in [Greenfoot](https://www.greenfoot.org/door). Datorita limitarilor tehnice impuse de Greenfoot si dorintei de a dezvolta jocul cat mai mult fara a face sacrificii, a fost luata decizia ca acesta sa fie portat, iar apoi extins de la codul sursa care deja exista. Pentru a realiza portul a fost folosit [libGDX](https://libgdx.com/) ce permite distribuirea cross platform a proiectului si puterea de a dezvolta un joc cat mai mare si complet posibil. Cu mici ajustari pachetul cu librariile greenfoot portate ar putea fi folosite standalone pentru a porta orice proiect realizat cu Greenfoot.
+Initially, Strafer was a small-scale game created in [Greenfoot](https://www.greenfoot.org/door). Due to the technical limitations imposed by Greenfoot and the desire to develop the game as much as possible without making sacrifices, the decision was made to port it, and then extend it from the source code that already existed.
 
+To achieve the port, libGDX ([libgdx.com/](https://libgdx.com/)) was used, which allows for cross-platform distribution of the project and provides the power to develop a game as large and complete as possible. With small adjustments, the package containing the ported Greenfoot libraries could be used standalone to port any project created with Greenfoot.
 
-# Povestea
+We participated with it in the "InfoEducatie" national olympiad for innovation and digital creativity (Romania). It won first place at the online qualifications and 6th place with mention at the national phase.
+
+# The Story
+
 ![Documentatie/Dita/images/game%20ss/wall.png](Documentatie/Dita/images/game%20ss/wall.png)
 
-Strafer Liberator este un joc RPG, open-world, top-down 2D puternic inspirat de seriile "The Legend of Zelda" si "Earthbound", dar si de jocuri precum "Doom" si "God of War". 
-In Strafer, jucatorul ia rolul unui astronaut, care s-a ratacit pe o planeta necunoscuta. Pentru a se intaorce acasa, este nevoit sa isi recupereze obiectele pierdute in timp ce descopera secretele planetei  pe care va trebui sa o elibereze.
+Strafer Liberator is an RPG, open-world, top-down 2D game strongly inspired by "The Legend of Zelda" and "Earthbound" series, but also by games like "Doom" and "God of War".
 
-# Lumea jocului
+In Strafer, the player takes on the role of an astronaut who has become stranded on an unknown planet. To return home, they are forced to recover their lost items while discovering the secrets of the planet that they will have to liberate.
+
+# The Game World
 
 ![Documentatie/Dita/images/game%20ss/ss%20map.png](Documentatie/Dita/images/game%20ss/ss%20map.png)
-Lumea jocului este impartita in 6 sectiuni distincte intr-o maniera metroidvania ce ajuta la construirea graduala a povestii si care impinge player-ul sa exploreze. Parti din harta se deblocheaza odata cu descoperirea sectiunilor, pozitia jucatorului si a obiectivelor fiind indicate pe harta
 
+The game world is divided into 6 distinct sections in a Metroidvania style, which helps in the gradual unfolding of the story and pushes the player to explore. Parts of the map unlock along with the discovery of the sections, with the player's position and objectives being indicated on the map.
 
 # Gameplay
 
 ![Documentatie/Dita/images/game%20ss/SS.png](Documentatie/Dita/images/game%20ss/SS.png)
-Gameplay loop-ul se imparte intre mai multe tipuri de activitati ale playerului  de-a lungul lumii de joc. Aceste activitati includ in principal explorarea, combat-ul, colectarea de iteme sau interactiunea cu NPC-uri si cutsceneuri sau tutoriale.
 
-# Grafica / sunet
+The gameplay loop is divided between several types of player activities throughout the game world. These activities mainly include:
+- Exploration
+- Combat
+- Item Collection
+- Interaction with NPCs, cutscenes, and tutorials
 
-Exceptand cateva elemente de tilemap ce au fost adaptate, toate asseturile de la fundaluri, sprite ur, animatii si muzica au fost facute in-house.
+# Graphics / Sound
 
-# Salvari
-La fel ca orice joc care se respecta, Strafer este capabil de a salva progresul jucatorului intre sesiunile de joc in fisier ce pot fi transferate.
+With the exception of a few tilemap elements that were adapted, all assets—from backgrounds, sprites, and animations to music—were made in-house.
 
-# Detalii versiuni
-*in afara de User interface nu au fost facute diferente intre desktop si mobile
+# Saves
 
+Like any self-respecting game, Strafer is capable of saving player progress between game sessions into files that can be transferred.
+
+# Version Details
+
+Apart from the User Interface, no differences were made between desktop and mobile.
 |  \\_____________________________/ | Windows/Linux/MacOS|Android   |
 |---|---|---|
-  | Fullscreen |    da  |da   |
-  |V-Sync|da|default unde este posibil|
-| FPS (pe display-urile pe care a fost testat)  |   pana la 120|  pana la 90 |
-| Input   |mouse&tastatura   | touchscreen / mouse&tastatura  |
+  | Fullscreen |    yes  |yes   |
+  |V-Sync|yes|default where possible |
+| FPS (where tested)  |   up to 120|  up to 90 |
+| Input   |mouse&keyboard   | touchscreen / mouse&tastatura  |
 
-# Documentatie Tehnica
+# (RO) Technical Documentation
 [Documentatie Tehnica](https://github.com/KOTerra/StraferLiberator/tree/portGreenfoot/Documentatie/Dita/out)
